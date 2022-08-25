@@ -1,0 +1,9 @@
+{
+  "blurb": "jq fundamentals",
+  "authors": ["glennj"],
+  "files": {
+    "solution": ["lasagna.jq"],
+    "test": ["test-lasagna.bats"],
+    "exemplar": [".meta/exemplar.jq"]
+  }
+}

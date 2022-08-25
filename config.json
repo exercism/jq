@@ -33,12 +33,25 @@
     ]
   },
   "concepts": [
+    {
+      "slug": "basics",
+      "name": "Basics",
+      "uuid": "33185105-995d-48a5-ba84-53241a41ce7e"
+    }
   ],
   "exercises": {
     "foregone": [
       "grains"
     ],
     "concept": [
+      {
+        "slug": "lasagna",
+        "name": "Lasagna",
+        "concepts": ["basics"],
+        "prerequisites": [],
+        "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
+        "status": "wip"
+      }
     ],
     "practice": [
       {
