@@ -8,24 +8,191 @@
     "representer": false,
     "analyzer": false
   },
-  "blurb": "TODO: add blurb",
+  "blurb": "jq is a succinct programming language for querying and manipulating JSON data",
   "version": 3,
   "online_editor": {
     "indent_style": "space",
-    "indent_size": 4,
-    "highlightjs_language": "TODO: specify highlightjs language"
+    "indent_size": 2,
+    "highlightjs_language": "jq"
+  },
+  "test_runner": {
+    "average_run_time": 2.0
   },
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [],
-    "exemplar": []
+    "solution": [
+      "%{kebab_slug}.jq"
+    ],
+    "test": [
+      "test-%{kebab_slug}.bats"
+    ],
+    "example": [
+      ".meta/example.jq"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
   },
+  "concepts": [
+  ],
   "exercises": {
-    "concept": [],
-    "practice": []
+    "foregone": [
+      "grains"
+    ],
+    "concept": [
+    ],
+    "practice": [
+      {
+        "uuid": "371035b8-691f-4ce3-9b5d-8e3e3d01675d",
+        "slug": "hello-world",
+        "name": "Hello World",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      },
+      {
+        "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
+        "slug": "two-fer",
+        "name": "Two Fer",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      },
+      {
+        "uuid": "159b04aa-5814-4f04-822b-be4b4c6265a8",
+        "slug": "raindrops",
+        "name": "Raindrops",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "uuid": "12820127-b3a2-47f3-9c77-1a8b13a1abde",
+        "slug": "leap",
+        "name": "Leap",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "rna-transcription",
+        "name": "Rna Transcription",
+        "uuid": "0981a331-259d-4619-afb4-350a7e4cf538",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "reverse-string",
+        "name": "Reverse String",
+        "uuid": "40f24ed9-46cd-493b-9b22-4c2d438e5c0a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "uuid": "9cc9d093-5413-45c4-bb4d-047f8f955f89",
+        "slug": "hamming",
+        "name": "Hamming",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "uuid": "9936e3b1-1a43-4c66-927b-0c9b1d8fc67e",
+        "slug": "collatz-conjecture",
+        "name": "Collatz Conjecture",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "bob",
+        "name": "Bob",
+        "uuid": "a2ebef87-0dac-4a23-a976-560c3d496346",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "gigasecond",
+        "name": "Gigasecond",
+        "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "proverb",
+        "name": "Proverb",
+        "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "etl",
+        "name": "ETL",
+        "uuid": "694a6a3b-9982-4441-b482-975341fafda3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "sieve",
+        "name": "Sieve",
+        "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "32f028cf-c0ba-43fb-8968-fe4ec02b5f2c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      }
+    ]
   },
-  "concepts": [],
-  "key_features": [],
-  "tags": []
+  "key_features": [
+    {
+      "title": "Widely used",
+      "content": "jq has become a de-facto leader for transforming JSON data.",
+      "icon": "widely-used"
+    },
+    {
+      "title": "Small and fast",
+      "content": "jq is available as a single binary with no dependencies, it's simple to install.",
+      "icon": "small"
+    },
+    {
+      "title": "Generating JSON",
+      "content": "Generate valid JSON using command-line options to avoid worrying about quoting edge cases.",
+      "icon": "safe"
+    },
+    {
+      "title": "Reporting",
+      "content": "Reporting from REST APIs: piping the output of curl into jq is a powerful addition to your toolbox.",
+      "icon": "powerful"
+    },
+    {
+      "title": "CI tooling",
+      "content": "You may already be using jq in your CI workflows: get more comfortable with jq to amplify its power.",
+      "icon": "tooling"
+    },
+    {
+      "title": "A functional language",
+      "content": "jq is a functional programming language: jq code is very concise and maintainable.",
+      "icon": "functional"
+    }
+  ],
+  "tags": [
+    "paradigm/functional",
+    "typing/dynamic",
+    "used_for/scripts",
+    "platform/linux",
+    "platform/mac",
+    "platform/windows"
+  ]
 }

@@ -1,13 +1,6 @@
 # Learning
 
-<!-- TODO: write document
-
-  This document should link to learning resources.
-
-  Feel free to link to any good learning resources you know, whether they
-  be websites, blogs, books, videos or courses.
-
-  The contents of this document are displayed on the track's documentation
-  page at `https://exercism.org/docs/tracks/<track>/learning`.
-
-  See https://exercism.org/docs/building/tracks/docs for more information. -->
+- [`jq` Tutorial](https://stedolan.github.io/jq/tutorial/)
+- [Guide to Linux jq Command for JSON Processing](https://www.baeldung.com/linux/jq-command-json)
+- [Illustrated jq tutorial](https://mosermichael.github.io/jq-illustrated/dir/content.html)
+- [An Introduction to JQ](https://earthly.dev/blog/jq-select/)

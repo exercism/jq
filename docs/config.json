@@ -1,28 +1,28 @@
 {
   "docs": [
     {
-      "uuid": "82cdb490-2ed9-45f1-8336-cf59b52e309b",
+      "uuid": "55f791f3-3ff6-414d-8ded-80b0f8f6e69d",
       "slug": "installation",
       "path": "docs/INSTALLATION.md",
       "title": "Installing jq locally",
       "blurb": "Learn how to install jq locally to solve Exercism's exercises on your own machine"
     },
     {
-      "uuid": "43f882b4-d1f7-4564-b451-cc2514dbb6f8",
+      "uuid": "4b82ee55-39d8-4955-b265-c722c44feef7",
       "slug": "learning",
       "path": "docs/LEARNING.md",
       "title": "How to learn jq",
       "blurb": "An overview of how to get started from scratch with jq"
     },
     {
-      "uuid": "849ca1fe-2cf9-4ddb-9c54-8a924a92871b",
+      "uuid": "8b91a125-a653-4fb0-a51e-c7420f8325f6",
       "slug": "tests",
       "path": "docs/TESTS.md",
       "title": "Testing on the jq track",
       "blurb": "Learn how to test your jq exercises on Exercism"
     },
     {
-      "uuid": "e6958f12-d939-4cd7-bbec-d89b2e16f0bb",
+      "uuid": "72147d10-7fb9-4bc9-8308-3d3c6eb6d55c",
       "slug": "resources",
       "path": "docs/RESOURCES.md",
       "title": "Useful jq resources",

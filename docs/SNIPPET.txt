@@ -1,1 +1,2 @@
-TODO: add snippet
+echo '{"message": "Hello, World!"}' | \
+jq -r '.message'

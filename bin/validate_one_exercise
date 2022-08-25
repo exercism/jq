@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+#
+# For a given exercise, validate the tests.
+# The directory of the exercise to be tested is passed as $1
+
+set -o errexit
+set -o nounset
+
+die() { echo "$*" >&2; exit 1; }
+
+cd "$1" || die "Cannot cd to $1"
+
+config=./.meta/config.json
+[[ -f ${config} ]] || die "no $config file: you're in the wrong directory"
+
+exercise=${1%/}                 # strip a trailing slash, if there is one
+exercise=${exercise##*/}        # remove any leading path
+
+stub=$(jq -r '.files.solution[0]' "$config")
+[[ -f ${stub} ]] || die "Missing stub file for $exercise"
+
+tests=$(jq -r '.files.test[0]' "$config")
+[[ -f ${tests} ]] || die "Missing tests file for $exercise"
+
+solution=$(jq -r '.files.example[0]' "$config")
+[[ -f ${solution} ]] || die "Missing solution file for $exercise"
+
+# hello-world has no skips
+if [[ ${exercise} != "hello-world" ]]; then
+    # a PCRE: the `\Q...\E` defines a literal segment
+    skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
+    num_skip_comments=$(grep -cP "${skip_re}" "${tests}")
+    (( num_skip_comments == 1 )) || die "There should be exactly one commented skip directive in ${tests}"
+fi
+
+echo "Processing ${exercise}"
+
+cleanup() {
+    rm -rf "$dir"
+}
+trap cleanup EXIT
+
+# Create implementation file from example
+dir=$(mktemp -d)
+cp "${solution}" "${dir}/${stub}"
+cp "${tests}" "${dir}/${tests}"
+cp bats-extra.bash "${dir}"
+
+# Run the tests
+cd "${dir}"
+BATS_RUN_SKIPPED=true bats "${tests}"
