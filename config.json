@@ -82,6 +82,14 @@
         "difficulty": 2
       },
       {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "54a8aa9d-7962-4d78-bf18-a53067fd961a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "reverse-string",
         "name": "Reverse String",
         "uuid": "40f24ed9-46cd-493b-9b22-4c2d438e5c0a",
