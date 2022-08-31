@@ -22,11 +22,12 @@ stub=$(jq -r '.files.solution[0]' "$config")
 tests=$(jq -r '.files.test[0]' "$config")
 [[ -f ${tests} ]] || die "Missing tests file for $exercise"
 
-solution=$(jq -r '.files.example[0]' "$config")
+solution=$(jq -r '.files.example[0] // .files.exemplar[0]' "$config")
 [[ -f ${solution} ]] || die "Missing solution file for $exercise"
 
 # hello-world has no skips
-if [[ ${exercise} != "hello-world" ]]; then
+# neither do concept exercises
+if [[ ${exercise} != "hello-world" ]] && ! [[ $PWD =~ exercises/concept/ ]]; then
     # a PCRE: the `\Q...\E` defines a literal segment
     skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
     num_skip_comments=$(grep -cP "${skip_re}" "${tests}")

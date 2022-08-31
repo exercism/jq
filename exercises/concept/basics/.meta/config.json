@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "basics.jq"
+    ],
+    "test": [
+      "test-basics.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
+  },
+  "blurb": "jq fundamentals"
+}

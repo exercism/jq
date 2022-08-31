@@ -33,12 +33,43 @@
     ]
   },
   "concepts": [
+    {
+      "slug": "basics",
+      "name": "Basics",
+      "uuid": "33185105-995d-48a5-ba84-53241a41ce7e"
+    },
+    {
+      "slug": "variables",
+      "name": "Variables",
+      "uuid": "466a02be-fb6e-4460-b8f8-60d51398adbf"
+    },
+    {
+      "slug": "functions",
+      "name": "Functions",
+      "uuid": "e3655c76-6f9b-4b96-9bd2-51ef26eebe35"
+    }
   ],
   "exercises": {
     "foregone": [
       "grains"
     ],
     "concept": [
+      {
+        "slug": "basics",
+        "name": "Basics",
+        "concepts": ["basics"],
+        "prerequisites": [],
+        "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
+        "status": "wip"
+      },
+      {
+        "slug": "lasagna",
+        "name": "Lasagna",
+        "concepts": ["variables"],
+        "prerequisites": [],
+        "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
+        "status": "wip"
+      }
     ],
     "practice": [
       {
