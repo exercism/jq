@@ -13,12 +13,12 @@ def isnumeric: try (tonumber | true) catch false;
 ############################################################
 # stack manipulation functions
 
-def push(num): .stack += [num];
+def push($num): .stack += [$num];
 
-def need(n):
+def need($n):
   (.stack | length) as $len
-  | if   n > 0 and $len == 0 then "empty stack" | halt_error
-    elif n > 1 and $len == 1 then "only one value on the stack" | halt_error
+  | if   $n > 0 and $len == 0 then "empty stack" | halt_error
+    elif $n > 1 and $len == 1 then "only one value on the stack" | halt_error
     else .
     end;
 
@@ -36,8 +36,8 @@ def div:   need(2) | .stack  = try (.stack[:-2] + [.stack[-2] / .stack[-1] | flo
 ############################################################
 # macros manipulation
 
-def record_macro(words):
-  [.macros, words[0], words[1:]] as [$m, $name, $defn]
+def record_macro($words):
+  [.macros, $words[0], $words[1:]] as [$m, $name, $defn]
   | if ($name | isnumeric) then "illegal operation" | halt_error
     else .macros[$name] = reduce $defn[] as $w ([]; . + ($m[$w] // [$w]))
     end;
