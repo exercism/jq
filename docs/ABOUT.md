@@ -41,14 +41,11 @@ From [json.org][json]:
 
 - [`jq` home][jq]
 - [`jq` wiki][jq-wiki]
-- [AWK on Wikipedia][wiki]
 - [Stack Overflow jq info page][so]
-
 
 
 [jq]: https://stedolan.github.io/jq/
 [jq-wiki]: https://github.com/stedolan/jq/wiki
-[wiki]: https://en.wikipedia.org/wiki/AWK
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
 [cli-options]: https://stedolan.github.io/jq/manual/#Invokingjq
