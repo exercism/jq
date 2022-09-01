@@ -15,6 +15,17 @@ The output(s) of an expression can be passed to another using the `|` operator.
 The input to an expression can be referred to explicitly as `.`.
 An expression that adds `1` to its input reads like so: `. + 1` (or `1 + .`).
 
+## `jq` (the program) versus `jq` (the language)
+
+`jq` is a program you can install as a package on a variety of operating systems,
+or build it from source (it's coded in C).
+It has several useful [command-line options][cli-options], and is quite fast.
+
+The `jq` program also implements a _language_ to enable arbitrarily complex manipulations of the input data.
+
+This Exercism track will focus on the language.
+You will see usage of the `jq` program in the tests.
+
 ## JSON
 
 From [json.org][json]:
@@ -40,3 +51,4 @@ From [json.org][json]:
 [wiki]: https://en.wikipedia.org/wiki/AWK
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
+[cli-options]: https://stedolan.github.io/jq/manual/#Invokingjq
