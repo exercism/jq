@@ -5,11 +5,16 @@
 (.ingredients | length),
 
 # Task 3
-.ingredients[] | select(.item == "sugar") | .amount.quantity,
+(.ingredients[] | select(.item == "sugar") | .amount.quantity),
 
 # Task 4
-
-# Task 5
-(.cases | all(.property == "twoFer"))
-# or:
-# (.cases | map(.property == "twoFer") | all)
+(
+  (.ingredients + ."optional ingredients")
+  | map(select(.substitute) | {(.item): .substitute})
+  | add
+)
+#
+# alternately:
+#     reduce 
+#         ( (.ingredients + ."optional ingredients")[] | select(has("substitute")) ) as $i
+#         ({}; . + {($i.item): $i.substitute})

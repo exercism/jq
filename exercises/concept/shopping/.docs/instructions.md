@@ -23,7 +23,7 @@ An ingredient is represented as a JSON object, like:
     }
   }
 ```
-An ingredient has an optional property named `"substutite"` that holds a
+An ingredient has an optional property named `"substitute"` that holds a
 string of another item that can be used instead.
 
 Let's see how we can examine the shopping list with the `jq`
@@ -40,3 +40,9 @@ This is the "required" ingredients: don't include the optional ingredients.
 
 Write an expression that outputs the amount of sugar.
 Just the numeric part is wanted.
+
+## 4. Map the ingredients which can be substituted
+
+Some of the ingredients can be substituted (if you don't have ingredient X you can use Y).
+Output a JSON object mapping the recommended ingredient to its substitution.
+Include the optional ingredients in the mapping.

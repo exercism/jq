@@ -98,37 +98,30 @@ teardown() {
     rm input.json
 }
 
-@test "Show exercise name" {
+@test "Show shopping list name" {
     ## task 1
     run jq -f shopping.jq input.json
     assert_success
-    assert_line --index 0 '"two-fer"'
+    assert_line --index 0 '"Ingredients for pancakes"'
 }
 
-@test "Show the description of the first case" {
+@test "Count the ingredients" {
     ## task 2
     run jq -f shopping.jq input.json
     assert_success
-    assert_line --index 1 '"no name given"'
+    assert_line --index 1 '8'
 }
 
-@test "Show the input name of the last case" {
+@test "Show how much sugar is needed" {
     ## task 3
     run jq -f shopping.jq input.json
     assert_success
-    assert_line --index 2 '"Bob"'
+    assert_line --index 2 '0.25'
 }
 
-@test "Count the number of cases" {
+@test "Map of substitutions" {
     ## task 4
-    run jq -f shopping.jq input.json
+    run jq -c -f shopping.jq input.json
     assert_success
-    assert_line --index 3 '3'
-}
-
-@test "Show all the cases have property 'twoFer'" {
-    ## task 5
-    run jq -f shopping.jq input.json
-    assert_success
-    assert_line --index 4 'true'
+    assert_line --index 3 '{"buttermilk":"regular milk","melted butter":"vegetable oil","blueberries":"chopped apple"}'
 }
