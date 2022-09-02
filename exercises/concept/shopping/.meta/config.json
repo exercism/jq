@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "basics.jq"
+      "shopping.jq"
     ],
     "test": [
-      "test-basics.bats"
+      "test-shopping.bats"
     ],
     "exemplar": [
       ".meta/exemplar.jq"

@@ -57,8 +57,8 @@
     ],
     "concept": [
       {
-        "slug": "basics",
-        "name": "Basics",
+        "slug": "shopping",
+        "name": "Grocery Shopping",
         "concepts": ["basics"],
         "prerequisites": [],
         "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
