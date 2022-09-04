@@ -34,7 +34,7 @@ Write an expression that outputs the "name" element of the shopping list.
 
 ## 2. Count how many ingredients are needed
 
-This is the "required" ingredients: don't include the optional ingredients.
+Only count the "required" ingredients. Don't include the optional ingredients.
 
 ## 3. How much sugar?
 
