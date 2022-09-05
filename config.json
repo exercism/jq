@@ -212,6 +212,14 @@
         "difficulty": 4
       },
       {
+        "slug": "resistor-color-trio",
+        "name": "Resistor Color Trio",
+        "uuid": "81ce12a1-12d4-4097-ac3b-e2a3adf73af8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
