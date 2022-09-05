@@ -51,7 +51,10 @@
   ],
   "exercises": {
     "foregone": [
-      "grains"
+      "grains",
+      "allergies",
+      "secret-handshake",
+      "variable-length-quantity"
     ],
     "concept": [
       {
