@@ -212,6 +212,14 @@
         "difficulty": 7
       },
       {
+        "slug": "nth-prime",
+        "name": "Nth Prime",
+        "uuid": "b269733a-e177-4102-bd91-8a206c10f42f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "forth",
         "name": "Forth",
         "uuid": "284ed7aa-8304-47ba-8e0f-f1dfef3607fa",
