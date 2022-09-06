@@ -52,9 +52,8 @@
   "exercises": {
     "foregone": [
       "grains",
-      "allergies",
-      "secret-handshake",
-      "variable-length-quantity"
+      "allergies", "secret-handshake", "variable-length-quantity",
+      "markdown", "ledger", "tree-building"
     ],
     "concept": [
       {
