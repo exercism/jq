@@ -227,6 +227,14 @@
         "difficulty": 4
       },
       {
+        "slug": "anagram",
+        "name": "Anagram",
+        "uuid": "2c3baf0a-8a2f-4e7e-9d99-ebfb800adff9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
