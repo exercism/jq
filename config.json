@@ -235,6 +235,14 @@
         "difficulty": 4
       },
       {
+        "slug": "transpose",
+        "name": "Transpose",
+        "uuid": "7a739010-e4e7-4f2a-b1a1-91bb6eea7ae6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
