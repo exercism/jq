@@ -180,6 +180,14 @@
         "difficulty": 3
       },
       {
+        "slug": "scrabble-score",
+        "name": "Scrabble Score",
+        "uuid": "2e73b15c-41cc-4dd1-8d05-e49dd54138e7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
