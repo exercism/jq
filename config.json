@@ -63,7 +63,7 @@
     "concept": [
       {
         "slug": "shopping",
-        "name": "Grocery Shopping",
+        "name": "Shopping List",
         "concepts": ["basics"],
         "prerequisites": [],
         "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
