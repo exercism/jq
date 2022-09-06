@@ -15,6 +15,9 @@ In progress ...
 | allergies | no bitwise operators |
 | secret-handshake | no bitwise operators |
 | variable-length-quantity | no bitwise operators |
+| ledger | I hate creating refactoring exercises |
+| markdown | I hate creating refactoring exercises |
+| tree-building | I hate creating refactoring exercises |
 
 bitwise operations: they [can be implemented][jbol-bitwise], but that's too much I think.
 Unless we provide it as a library to include ...
