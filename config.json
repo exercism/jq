@@ -53,7 +53,11 @@
     "foregone": [
       "grains",
       "allergies", "secret-handshake", "variable-length-quantity",
-      "markdown", "ledger", "tree-building"
+      "markdown", "ledger", "tree-building",
+      "dnd-character", "robot-name",
+      "bank-account", "parallel-letter-frequency",
+      "hangman",
+      "paasio"
     ],
     "concept": [
       {
