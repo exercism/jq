@@ -1,9 +1,10 @@
-# Introduction
+# Introductions
+
+## Basics
 
 jq works by passing the incoming JSON data through a _single expression_ (written as a _pipeline of filters_) to achieve the desired transformed data.
 
-## A quick introduction to `jq` command-line options
-
+~~~~exercism/note
 The `jq` language is implemented by the `jq` _program_.
 This program provides several handy command-line options to control how the input is consumed and how the output is presented.
 
@@ -20,20 +21,20 @@ In the examples below you'll encounter:
     It it extremely useful for humans to view the data when it's nicely formatted.
     However that's not necessary for machines: the `--compact-output` option removes any whitespace to minimize the size of the resulting JSON.
 
-See [the manual][man-cli] for details about all the options.
+The rest of this lesson will focus on the `jq` _lanaguage_.
+~~~~
 
-## Filters and Pipes
+### Filters and Pipes
 
 Filters are also known as Expressions.
 
 A filter takes an input and produces an output.
 Like the way you work in a unix shell, you can join filters with a pipe `|` to connect the output of one filter to the input of another.
 
-### The Identity Filter: `.`
+#### The Identity Filter: `.`
 
 This is the simplest filter.
 It simply passes its input to its output.
-For example, `jq` pretty-prints by default, so passing JSON the `.` filter gives nicely formatted output for free!
 
 ```sh
 $ echo '[1, 2, 3]' | jq '.'
@@ -44,7 +45,7 @@ $ echo '[1, 2, 3]' | jq '.'
 ]
 ```
 
-### Arrays
+#### Arrays
 
 Array elements are accessed with brackets, and are zero-indexed.
 
@@ -73,7 +74,7 @@ A filter can build an array by wrapping an expression in `[` and `]`
     ```
 
 * to collect a stream of elements: for example,
-    [`range`][man-range] is a function that outputs a stream of numbers
+    `range` is a function that outputs a stream of numbers
 
     ```sh
     $ jq -n 'range(10; 70; 15)'
@@ -90,7 +91,7 @@ A filter can build an array by wrapping an expression in `[` and `]`
     [10,25,40,55]
     ```
 
-#### Comma is an operator
+##### Comma is an operator
 
 The comma is not just syntax that separates array elements.
 Comma is an **operator** that joins streams.
@@ -100,7 +101,7 @@ For example `[1, 2, 3]` is a filter that uses the array constructor `[]` to coll
 Did you notice the semi-colons in `range(10; 70; 15)` above?
 Because commas have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments. 
 
-### Objects
+#### Objects
 
 Similar to many programming languages, use dots to access object properties
 
@@ -130,35 +131,13 @@ outputs
 }
 ```
 
-To treat the key as an expression, you must wrap it in parentheses
+To treat the key as an _expression_, you must wrap it in parentheses
 ```sh
-echo '[["question", "answer"], [54, 42]]' \
-| jq '{(.[0][0]): .[1][0], (.[0][1]): .[1][1]}'
+echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
+| jq '{(.[0].key): .[0].value, (.[1].key): .[1].value}'
 ```
 
-~~~~exercism/note
-It is quite common to want to extract a subset of keys from a large object:
-for example to extract the `id` and `name` from
-
-```json
-{
-    "id": 101,
-    "name": "alpha widget",
-    "specifications": {...}
-}
-```
-
-We can write
-```jq
-{id: .id, name: .name}
-```
-This is so common, there is shorthand syntax for it:
-```jq
-{id, name}
-```
-~~~~
-
-### Pipelines
+#### Pipelines
 
 For example, given "file.json" containing
 
@@ -169,22 +148,17 @@ For example, given "file.json" containing
 }
 ```
 
-Let's now calculate the length of the key2 array:
+Let's calculate the length of the key2 array:
 
 ```sh
-$ echo '{"key1": "value1", "key2": [5, 15, 25]}' | \
-  jq -c '.key2 | length'
+$ jq '.key2 | length' file.json
 3
 ```
 
-We're _piping_ the output of the `.key2` expression as the input to [`length`][man-length], which unsurprisingly outputs the  number of elements in the array.
+We're _piping_ the output of the `.key2` expression as the input to `length` which unsurprisingly outputs the  number of elements in the array.
 
-~~~~exercism/caution
-This is an aspect of `jq` that takes some getting used to --
-most (but not all) functions act like _filters_ where you pass data to the filter's input, not as an argument.
-~~~~
 
-### Filters can ignore their input
+#### Filters can ignore their input
 
 In this example, the input JSON data is ignored and has no impact on the output:
 
@@ -193,7 +167,7 @@ $ echo '{"answer": 42}' | jq '6 * 9'
 54
 ```
 
-### Filters can output streams of data
+#### Filters can output streams of data
 
 A filter can output more than one value.
 For example, the `.[]` filter outputs each element of an array as a separate value:
@@ -220,37 +194,11 @@ $ jq -n -c '[1, 2, 3] | .[] | . * 2'
 This is like implicit iteration.
 Once you understand this technique, you'll realize very powerful jq filters can be very concise.
 
-## Types
-
-From [the manual][man-types]
-
-> jq supports the same set of datatypes as JSON - numbers, strings, booleans, arrays, objects (which in JSON-speak are hashes with only string keys), and "null".
-
-You'll learn more about these in subsequent exercises.
-
-## Whitespace
-
-Whitespace is not significant in `jq`.
-Use spaces/tabs/newlines as you see fit to format your code.
-We are unaware of any existing `jq` style guides.
-
-## Immutable Values
-
-Values in `jq` are _immutable_.
-Filters that modify a value will output a new value.
-This implies that `jq` does not have global variables --
-you'll need to get used to passing state from one filter to another.
-
-## "Truthiness"
-
-The values `false` and `null` are considered false.  Any other value
-(including the number zero and the empty string/array/object) is true.
-
-## Functions and Operators
+### Functions and Operators
 
 Without going into great depth (functions will be a topic for another exercise!), here are some useful builtin functions:
 
-- [`length`][man-length]
+- `length`
 
     Given an array as input, output the number of elements in the array.
 
@@ -259,14 +207,13 @@ Without going into great depth (functions will be a topic for another exercise!)
     4
     ```
 
-- [`+`][man-plus]
+- `+`
 
     This operator does different things depending on the type of its operands:
-    It does different things depending on the type of its operands
     it adds numbers,
     it concatenates strings,
     it appends arrays,
-    it merges objects,
+    it merges objects.
 
     ```sh
     $ jq -c -n '
@@ -281,10 +228,10 @@ Without going into great depth (functions will be a topic for another exercise!)
     {"m":10,"n":20}
     ```
 
-    [`add`][man-add] is a function that takes an array and returns an item with all the elements added together using the rules of `+`.
+    `add` is a function that takes an array and returns an item with all the elements added together using the rules of `+`.
     `[1, 2, 3] | add` outputs `6`.
 
-- [`map`][man-map]
+- `map`
 
     Given an array as input and a filter as an argument, output an array where the filter is applied to each element
 
@@ -293,7 +240,7 @@ Without going into great depth (functions will be a topic for another exercise!)
     [2,4,6,8]
     ```
 
-- [`select`][man-select]
+- `select`
 
     Given _some_ input and a filter as an argument:
 
@@ -317,7 +264,7 @@ Without going into great depth (functions will be a topic for another exercise!)
     You often need to select elements of an array.
     There are a couple of ways to do this.
 
-    With the input `["Anne", "Bob", "Cathy", "Dave"]`,  select the names having length 4.
+    With the input `["Anne", "Bob", "Cathy", "Dave"]`, select the names having length 4.
 
     - use `map` and `select` together
 
@@ -330,12 +277,3 @@ Without going into great depth (functions will be a topic for another exercise!)
         ```jq
         [ .[] | select(length == 4) ]
         ```
-
-[man-cli]: https://stedolan.github.io/jq/manual/v1.6/#Invokingjq
-[man-types]: https://stedolan.github.io/jq/manual/v1.6/#TypesandValues
-[man-length]: https://stedolan.github.io/jq/manual/v1.6/#length
-[man-range]: https://stedolan.github.io/jq/manual/v1.6/#range(upto),range(from;upto)range(from;upto;by)
-[man-map]: https://stedolan.github.io/jq/manual/v1.6/#map(x),map_values(x)
-[man-plus]: https://stedolan.github.io/jq/manual/v1.6/#Addition:+
-[man-add]: https://stedolan.github.io/jq/manual/v1.6/#add
-[man-select]: https://stedolan.github.io/jq/manual/v1.6/#select(boolean_expression)

@@ -39,6 +39,11 @@
       "uuid": "33185105-995d-48a5-ba84-53241a41ce7e"
     },
     {
+      "slug": "types",
+      "name": "Datatypes",
+      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
+    },
+    {
       "slug": "variables",
       "name": "Variables",
       "uuid": "466a02be-fb6e-4460-b8f8-60d51398adbf"
@@ -61,8 +66,8 @@
     ],
     "concept": [
       {
-        "slug": "basics",
-        "name": "Basics",
+        "slug": "shopping",
+        "name": "Shopping List",
         "concepts": ["basics"],
         "prerequisites": [],
         "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
