@@ -271,6 +271,14 @@
         "difficulty": 7
       },
       {
+        "slug": "satellite",
+        "name": "Satellite",
+        "uuid": "484572b2-7f11-4468-8116-f1110eb18946",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
         "slug": "forth",
         "name": "Forth",
         "uuid": "284ed7aa-8304-47ba-8e0f-f1dfef3607fa",
