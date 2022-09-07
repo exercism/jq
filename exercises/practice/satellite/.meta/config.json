@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "satellite.jq"
+    ],
+    "test": [
+      "test-satellite.bats"
+    ],
+    "example": [
+      ".meta/example.jq"
+    ]
+  },
+  "blurb": "Rebuild binary trees from pre-order and in-order traversals."
+}
