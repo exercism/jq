@@ -17,7 +17,7 @@ In the examples below you'll encounter:
 
     `jq` pretty-prints its output by default.
     It it extremely useful for humans to view the data when it's nicely formatted.
-    However that's not necessary for machines: the `--compact-output` option removes any whitespace to minimize the size of the resulting JSON.
+    However that's not necessary for machines: the `--compact-output` option removes the formatting whitespace to minimize the size of the resulting JSON.
 
 The rest of this lesson will focus on the `jq` _lanaguage_.
 ~~~~

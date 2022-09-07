@@ -18,7 +18,7 @@ In the examples below you'll encounter:
 
     `jq` pretty-prints its output by default.
     It it extremely useful for humans to view the data when it's nicely formatted.
-    However that's not necessary for machines: the `--compact-output` option removes any whitespace to minimize the size of the resulting JSON.
+    However that's not necessary for machines: the `--compact-output` option removes the formatting whitespace to minimize the size of the resulting JSON.
 
 See [the manual][man-cli] for details about all the options.
 
@@ -137,8 +137,8 @@ echo '[["question", "answer"], [54, 42]]' \
 ```
 
 ~~~~exercism/note
-It is quite common to want to extract a subset of keys from a large object:
-for example to extract the `id` and `name` from
+It is quite common to want to extract a subset of keys from a large object.
+For example, to extract `id` and `name` from
 
 ```json
 {
@@ -148,11 +148,11 @@ for example to extract the `id` and `name` from
 }
 ```
 
-We can write
+We could write
 ```jq
 {id: .id, name: .name}
 ```
-This is so common, there is shorthand syntax for it:
+But this is so common, there is shorthand syntax for it:
 ```jq
 {id, name}
 ```
@@ -169,11 +169,10 @@ For example, given "file.json" containing
 }
 ```
 
-Let's now calculate the length of the key2 array:
+Let's calculate the length of the key2 array:
 
 ```sh
-$ echo '{"key1": "value1", "key2": [5, 15, 25]}' | \
-  jq -c '.key2 | length'
+$ jq '.key2 | length' file.json
 3
 ```
 
@@ -262,11 +261,10 @@ Without going into great depth (functions will be a topic for another exercise!)
 - [`+`][man-plus]
 
     This operator does different things depending on the type of its operands:
-    It does different things depending on the type of its operands
     it adds numbers,
     it concatenates strings,
     it appends arrays,
-    it merges objects,
+    it merges objects.
 
     ```sh
     $ jq -c -n '
