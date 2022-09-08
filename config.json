@@ -196,6 +196,14 @@
         "difficulty": 3
       },
       {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "43045020-9319-4516-8de0-bfe66303a928",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
