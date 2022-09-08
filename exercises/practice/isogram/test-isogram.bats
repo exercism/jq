@@ -1,6 +1,5 @@
 #!/usr/bin/env bats
 load bats-extra
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
 @test "empty string" {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
