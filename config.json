@@ -268,6 +268,14 @@
         "difficulty": 4
       },
       {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "4749481b-67f0-450a-8938-fafeea2e5663",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
