@@ -284,6 +284,14 @@
         "difficulty": 5
       },
       {
+        "slug": "atbash-cipher",
+        "name": "Atbash Cipher",
+        "uuid": "afbcaf63-9d1b-4b47-8461-fecaa1b53adc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "meetup",
         "name": "Meetup",
         "uuid": "6a69721e-1b96-40bd-8334-de198b4e59f3",
