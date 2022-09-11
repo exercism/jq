@@ -77,7 +77,7 @@
         "slug": "lasagna",
         "name": "Lasagna",
         "concepts": ["variables"],
-        "prerequisites": [],
+        "prerequisites": ["basics"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "wip"
       }
