@@ -276,6 +276,14 @@
         "difficulty": 4
       },
       {
+        "slug": "beer-song",
+        "name": "Beer Song",
+        "uuid": "9dba8bd0-c964-4320-a2a6-2202c8f3fdfe",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
