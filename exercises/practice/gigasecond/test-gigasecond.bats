@@ -1,7 +1,8 @@
 #!/usr/bin/env bats
 load bats-extra
 
-# Ensure your date calculations are done using UTC time zone
+# Ensure date calculations are done using UTC time zone
+export TZ=UTC
 
 @test 'date only specificaion of time' {
   #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
