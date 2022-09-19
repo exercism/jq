@@ -33,7 +33,7 @@ The rest of the variable name is an "identifier": starts with a letter or unders
 
 From the manual:
 
-> Multiple variables may be declared using a single as expression by providing a pattern that matches the structure of the input (this is known as "destructuring").
+> Multiple variables may be declared using a single `as` expression by providing a pattern that _matches the structure of the input_ (this is known as "destructuring").
 
 Examples:
 
