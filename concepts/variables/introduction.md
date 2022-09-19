@@ -1,8 +1,7 @@
 # Introduction
 
 Recall that a `jq` program is a _pipeline of expressions_.
-Variable assigmnent follows this rule.
-A variable assignment is an expression that looks like:
+Variable assigmnent follows this rule: a variable assignment is an expression that looks like:
 
 ```jq
 ... | expr as $varname | ...
@@ -10,8 +9,8 @@ A variable assignment is an expression that looks like:
 
 ## The filter outputs the input
 
-The input is used in the `expr` to produce a value that is bound to the variable name.
-The output of the variable assignment is the same as the input to the expression.
+Like the _identity expression_ `.`, the variable assignment's output is the same as its input.
+Setting the variable's value is a side-effect.
 
 Example, showing `.` after the assignment is the same as the initial input:
 
@@ -28,7 +27,7 @@ Variables defined in functions (we'll get to functions later) are "local" to the
 ## Variable names
 
 The variable must begin with `$`.
-The rest of the variable names is an "identifier": starts with a letter or underscore followed by letters, numbers or underscores.
+The rest of the variable name is an "identifier": starts with a letter or underscore followed by letters, numbers or underscores.
 
 ## Destructuring assignment
 
@@ -40,19 +39,26 @@ Examples:
 
 ```jq
 [1, 2, 3] as [$a, $b, $c]
-
+| [$a, $b, $c]     # => [1, 2, 3]
+```
+```jq
 {"foo": "bar", "len": [10, 20]} as {foo: $f, len: [$h, $w]}
+| [$f, $h, $w]     # => ["bar", 10, 20]
 ```
 
-Matching the variable name to the object key offers a shortcut:
+Matching the variable name to the _object key_ offers a shortcut:
 
 ```jq
 {"x": 4, "y": 7} as {$x, $y}
+| [$x, $y]         # => [4, 7]
+```
+```jq
 {"foo": "bar", "len": [10, 20]} as {$foo, $len}
+| [$foo, $len]     # => ["bar", [10, 20]]
 ```
 
 ~~~~exercism/note
-The same shortcut works for object **construction**
+The same shortcut works in the reverse sense for _object construction_
 
 ```jq
 4 as $x | 7 as $y | {$x, $y}    # => {"x":4, "y": 7}
@@ -82,4 +88,8 @@ compared to
 [2, 4, 8, 7] | add / length
 ```
 
-This highlights one of the most powerful aspects of `jq`: the input to a filter is provided to _every_ sub-expression.
+This highlights one of the most powerful aspects of `jq`: the input to a filter is provided to _every_ sub-expression:
+
+- the input array `[2,4,8,7]` is passed to `add` (which sums the numbers by applying the `+` operator to all the elements)
+- _in parallel_, `[2,4,8,7]` is also passed to `length`
+- when these sub-expressions complete, their results are then divided, returning the average value of the numbers in the input array.
