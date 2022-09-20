@@ -6,12 +6,15 @@ The goal of this exercise is to introduce variables.
 
 ## Learning objectives
 
-- variables
+- variable assignment is an expression in a pipeline
+- input is output
+- lexical scope
+- variable names start with `$`
+- destructuring 
 
 ## Out of scope
 
 - functions
-- JSON paths and working with arrays/objects
 
 ## Concepts
 
@@ -21,7 +24,7 @@ The Concepts this exercise unlocks are:
 
 ## Prerequisites
 
-N/A
+- `basics`
 
 ## Representer
 

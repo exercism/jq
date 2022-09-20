@@ -1,4 +1,4 @@
-# Introductions
+# Introduction
 
 ## Basics
 
