@@ -1,3 +1,3 @@
-# Introductions
+# Introduction
 
 %{concept:variables}
