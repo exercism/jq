@@ -278,4 +278,6 @@ Without going into great depth (functions will be a topic for another exercise!)
         [ .[] | select(length == 4) ]
         ```
 
+## Comments
 
+Comments start with a `#` character and continue to the end of the line.
