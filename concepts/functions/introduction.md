@@ -21,6 +21,7 @@
 ## next steps
 
 1. Pick a story for the concept exercise.
+    - https://exercism.org/docs/building/tracks/stories
 1. write the exercise design.md
 1. write the exemplar and tests
 1. then dig into the documentation
