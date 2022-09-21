@@ -10,7 +10,7 @@ The goal of this exercise is to introduce variables.
 - input is output
 - lexical scope
 - variable names start with `$`
-- destructuring 
+- destructuring
 
 ## Out of scope
 

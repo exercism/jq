@@ -2,6 +2,7 @@
 
 Each exercise contains a test file.
 Run the tests using the `bats` program.
+
 ```bash
 bats test-hello-world.bats
 ```
@@ -13,12 +14,15 @@ See the [Testing on the Bash track][bash] page for instructions to install `bats
 
 The bats file is a bash script, with some special functions recognized by the `bats` command.
 You'll see some tests that look like
+
 ```sh
 jq -f some-exercise.jq <<< "{some,json,here}"
 ```
+
 That `<<<` syntax is a bash [Here String][here-string].
 It sends the string on the right-hand side into the standard input of the program on the left-hand side.
 It is ([approximately][so]) the same as
+
 ```sh
 echo "{some,json,here}" | jq -f some-exercise.jq
 ```
@@ -42,17 +46,21 @@ annotations prepending other tests.
 ## Overriding skips
 
 To run all tests, including the ones with `skip` annotations, you can run:
+
 ```bash
 BATS_RUN_SKIPPED=true bats test-some-exercise.bats
 ```
 
 It can be convenient to use a wrapper function to save on typing: in `bash` you can do:
+
 ```bash
 bats() {
     BATS_RUN_SKIPPED=true command bats *.bats
 }
 ```
+
 Then run tests with just:
+
 ```bash
 bats
 ```

@@ -16,11 +16,10 @@
 
 - [gron][gron]: "Flattens" JSON into a sequence of individual assignments, which makes it possible to use line-oriented tools (grep, etc) to process it.
 - [jo][jo]: A small utility to create JSON objects from shell variables.
-- [jello][jello]: jello is similar to jq except jello uses standard python dict and list syntax. 
+- [jello][jello]: jello is similar to jq except jello uses standard python dict and list syntax.
 
-
-[jq]: https://stedolan.github.io/jq 
-[github]: https://github.com/stedolan/jq 
+[jq]: https://stedolan.github.io/jq
+[github]: https://github.com/stedolan/jq
 [wiki]: https://github.com/stedolan/jq/wiki
 [jqplay]: https://jqplay.org
 [gron]: https://github.com/tomnomnom/gron#readme
@@ -30,4 +29,4 @@
 [json]: https://json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON
 [cook]: https://github.com/exercism/exercism/issues/5055
-[sshine]: https://exercism.org/profiles/sshine 
+[sshine]: https://exercism.org/profiles/sshine

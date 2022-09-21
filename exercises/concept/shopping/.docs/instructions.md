@@ -15,18 +15,19 @@ The structure of the list is:
 An ingredient is represented as a JSON object, like:
 
 ```json
-  {
-    "item": "flour",
-    "amount": {
-      "quantity": 2,
-      "unit": "cup"
-    }
+{
+  "item": "flour",
+  "amount": {
+    "quantity": 2,
+    "unit": "cup"
   }
+}
 ```
+
 An ingredient has an optional property named `"substitute"` that holds a
 string of another item that can be used instead.
 
-Let's see how we can examine the shopping list with the `jq`
+Let's see how we can examine the shopping list with `jq`
 
 ## 1. Extract the shopping list name
 
