@@ -19,18 +19,10 @@
     "average_run_time": 2.0
   },
   "files": {
-    "solution": [
-      "%{kebab_slug}.jq"
-    ],
-    "test": [
-      "test-%{kebab_slug}.bats"
-    ],
-    "example": [
-      ".meta/example.jq"
-    ],
-    "exemplar": [
-      ".meta/exemplar.jq"
-    ]
+    "solution": ["%{kebab_slug}.jq"],
+    "test": ["test-%{kebab_slug}.bats"],
+    "example": [".meta/example.jq"],
+    "exemplar": [".meta/exemplar.jq"]
   },
   "concepts": [
     {
@@ -57,10 +49,16 @@
   "exercises": {
     "foregone": [
       "grains",
-      "allergies", "secret-handshake", "variable-length-quantity",
-      "markdown", "ledger", "tree-building",
-      "dnd-character", "robot-name",
-      "bank-account", "parallel-letter-frequency",
+      "allergies",
+      "secret-handshake",
+      "variable-length-quantity",
+      "markdown",
+      "ledger",
+      "tree-building",
+      "dnd-character",
+      "robot-name",
+      "bank-account",
+      "parallel-letter-frequency",
       "hangman",
       "paasio"
     ],

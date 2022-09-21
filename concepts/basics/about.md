@@ -139,6 +139,7 @@ echo '[["question", "answer"], [54, 42]]' \
 | jq '{(.[0][0]): .[1][0], (.[0][1]): .[1][1]}'
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 It is quite common to want to extract a subset of keys from a large object.
 For example, to extract `id` and `name` from
@@ -161,6 +162,8 @@ But this is so common, there is shorthand syntax for it:
 ```
 ~~~~
 
+<!-- prettier-ignore-end -->
+
 ### Pipelines
 
 For example, given "file.json" containing
@@ -181,10 +184,13 @@ $ jq '.key2 | length' file.json
 
 We're _piping_ the output of the `.key2` expression as the input to [`length`][man-length], which unsurprisingly outputs the number of elements in the array.
 
+<!-- prettier-ignore -->
 ~~~~exercism/caution
 This is an aspect of `jq` that takes some getting used to --
 most (but not all) functions act like _filters_ where you pass data to the filter's input, not as an argument.
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ### Filters can ignore their input
 

@@ -59,6 +59,7 @@ Matching the variable name to the _object key_ offers a shortcut:
 | [$foo, $len]     # => ["bar", [10, 20]]
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 The same shortcut works in the reverse sense for _object construction_
 
@@ -66,6 +67,8 @@ The same shortcut works in the reverse sense for _object construction_
 4 as $x | 7 as $y | {$x, $y}    # => {"x":4, "y": 7}
 ```
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ## Constants
 

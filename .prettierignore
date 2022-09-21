@@ -1,0 +1,13 @@
+# using prettier:
+# - install it in the track root dir: `npm install prettier`
+#   - note the .gitignore file
+# - check the status without writing changes: `npx prettier --check .`
+# - the above, verbosely: `npx prettier --check --loglevel debug .`
+# - preview the changes: (using https://dandavison.github.io/delta/)
+#   - fish: `set f some.file; delta $f (npx prettier $f | psub)`
+#   - bash: `f="some.file"; delta "$f" <(npx prettier "$f")`
+# - write the changes: `npx prettier --write .`
+
+# ignore files written by configlet
+exercises/practice/*/.meta/config.json
+exercises/practice/*/.docs/instructions.md
