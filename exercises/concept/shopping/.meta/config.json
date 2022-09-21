@@ -1,17 +1,9 @@
 {
-  "authors": [
-    "glennj"
-  ],
+  "authors": ["glennj"],
   "files": {
-    "solution": [
-      "shopping.jq"
-    ],
-    "test": [
-      "test-shopping.bats"
-    ],
-    "exemplar": [
-      ".meta/exemplar.jq"
-    ]
+    "solution": ["shopping.jq"],
+    "test": ["test-shopping.bats"],
+    "exemplar": [".meta/exemplar.jq"]
   },
   "blurb": "jq fundamentals"
 }

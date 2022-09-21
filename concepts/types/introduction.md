@@ -21,41 +21,45 @@ The usual operators are available to work with numbers
 - arithmetic: `+`, `-`, `*`, `/`, `%`
 - standard [math functions][man-math]
 
-    For one-input functions, pipe the value into the function
+  For one-input functions, pipe the value into the function
 
-    ```sh
-    jq -n '(1 | atan) * 4'
-    ```
-    ```none
-    3.141592653589793
-    ```
+  ```sh
+  jq -n '(1 | atan) * 4'
+  ```
 
-    For two-input functions, the functions will ignore input and expect the
-    inputs as parameters
+  ```none
+  3.141592653589793
+  ```
 
-    ```sh
-    jq -n 'pow(2; 10)'
-    ```
-    ```none
-    1024
-    ```
+  For two-input functions, the functions will ignore input and expect the
+  inputs as parameters
 
-    ~~~~exercism/caution
-    Note the use of the semi-colon to separate arguments.
-    This is a [common pitfall](https://github.com/stedolan/jq/wiki/How-to:-Avoid-Pitfalls#multi-arity-functions-and-commasemi-colon-confusability).
+  ```sh
+  jq -n 'pow(2; 10)'
+  ```
 
-    `jq` uses commas to concatenate streams of data
-    ```jq
-    [range(1;4), range(11;14)] == [1, 2, 3, 11, 12, 13]
-    ```
+  ```none
+  1024
+  ```
 
-    Calling `pow(2, 10)` is calling the one-arity `pow/1` function
-    passing the **expression** `2, 10`.
+<!-- prettier-ignore -->
+  ~~~~exercism/caution
+  Note the use of the semi-colon to separate arguments.
+  This is a [common pitfall](https://github.com/stedolan/jq/wiki/How-to:-Avoid-Pitfalls#multi-arity-functions-and-commasemi-colon-confusability).
 
-    Calling `pow(2; 10)` is calling the two-arity `pow/2` function
-    passing the values `2` and `10`.
-    ~~~~
+  `jq` uses commas to concatenate streams of data
+  ```jq
+  [range(1;4), range(11;14)] == [1, 2, 3, 11, 12, 13]
+  ```
 
+  Calling `pow(2, 10)` is calling the one-arity `pow/1` function
+  passing the **expression** `2, 10`.
+
+  Calling `pow(2; 10)` is calling the two-arity `pow/2` function
+  passing the values `2` and `10`.
+  ~~~~
+
+<!-- prettier-ignore-end -->
 
 [man-types]: https://stedolan.github.io/jq/manual/v1.6/#TypesandValues
 [man-math]: https://stedolan.github.io/jq/manual/v1.6/#Math

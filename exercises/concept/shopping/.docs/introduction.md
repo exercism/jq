@@ -6,6 +6,7 @@ We'll assume you are familiar with JSON syntax and data types.
 
 jq works by passing the incoming JSON data through a _single expression_ (written as a _pipeline of filters_) to achieve the desired transformed data.
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 The `jq` language is implemented by the `jq` _program_.
 This program provides several handy command-line options to control how the input is consumed and how the output is presented.
@@ -25,6 +26,8 @@ In the examples below you'll encounter:
 
 The rest of this lesson will focus on the `jq` _lanaguage_.
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ### Filters and Pipes
 
