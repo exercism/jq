@@ -329,6 +329,11 @@ Without going into great depth (functions will be a topic for another exercise!)
         [ .[] | select(length == 4) ]
         ```
 
+## Comments
+
+Comments start with a `#` character and continue to the end of the line.
+
+
 [man-cli]: https://stedolan.github.io/jq/manual/v1.6/#Invokingjq
 [man-types]: https://stedolan.github.io/jq/manual/v1.6/#TypesandValues
 [man-length]: https://stedolan.github.io/jq/manual/v1.6/#length
