@@ -37,6 +37,9 @@ From [json.org][json]:
 > JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others.
 > These properties make JSON an ideal data-interchange language.
 
+This track is about `jq` not JSON.
+We will assume you are familiar with [JSON syntax and data types][wiki-json].
+
 ## Further reading
 
 - [`jq` home][jq]
@@ -48,4 +51,5 @@ From [json.org][json]:
 [jq-wiki]: https://github.com/stedolan/jq/wiki
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
+[wiki-json]: https://en.wikipedia.org/wiki/JSON#Syntax
 [cli-options]: https://stedolan.github.io/jq/manual/#Invokingjq

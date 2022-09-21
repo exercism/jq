@@ -9,6 +9,7 @@
 ## JSON
 
 - [JSON][json]
+- [JSON at Wikipedia][wiki-json]
 - [JSON Lines][jsonl]
 
 ## Other JSON processing tools
@@ -27,5 +28,6 @@
 [jello]: https://kellyjonbrazil.github.io/jello
 [jsonl]: https://jsonlines.org
 [json]: https://json.org
+[wiki-json]: https://en.wikipedia.org/wiki/JSON
 [cook]: https://github.com/exercism/exercism/issues/5055
 [sshine]: https://exercism.org/profiles/sshine 
