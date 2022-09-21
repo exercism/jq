@@ -7,17 +7,16 @@ The goal of this exercise is to teach the student the basics of programming in j
 ## Learning objectives
 
 - introduce "filters" concept
-    - takes an input and produces an output
-    - the output can be zero, one, or more "things"
-    - `.`
-    - access object/array elements
+  - takes an input and produces an output
+  - the output can be zero, one, or more "things"
+  - `.`
+  - access object/array elements
 - pipelines
 - parentheses
 
 One thing to keep in mind:
 the student will be working on a single jq source file, a task at a time, to build up to the final result.
 Tests for subsequent tasks should not introduce so many requirements that all break previous work fails.
-
 
 ## Out of scope
 

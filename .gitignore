@@ -1,2 +1,6 @@
 bin/configlet
 bin/configlet.exe
+
+# prettier
+node_modules
+package*.json

@@ -8,4 +8,3 @@ Need help?
   You can also ask and answer questions.
 - [Github issue tracker](https://github.com/exercism/jq/issues) is where we track our development and maintainance of `jq` exercises in exercism.
   If none of the above links help you, feel free to post an issue here.
-

@@ -43,6 +43,7 @@ Examples:
 [1, 2, 3] as [$a, $b, $c]
 | [$a, $b, $c]     # => [1, 2, 3]
 ```
+
 ```jq
 {"foo": "bar", "len": [10, 20]} as {foo: $f, len: [$h, $w]}
 | [$f, $h, $w]     # => ["bar", 10, 20]
@@ -54,6 +55,7 @@ Matching the variable name to the _object key_ offers a shortcut:
 {"x": 4, "y": 7} as {$x, $y}
 | [$x, $y]         # => [4, 7]
 ```
+
 ```jq
 {"foo": "bar", "len": [10, 20]} as {$foo, $len}
 | [$foo, $len]     # => ["bar", [10, 20]]
@@ -86,6 +88,7 @@ Consider calculating the average of a list of numbers
 ```
 
 compared to
+
 ```jq
 [2, 4, 8, 7] | add / length
 ```

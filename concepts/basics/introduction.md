@@ -67,29 +67,29 @@ $ echo '[0, 10, 20, 30, 40, 50]' | jq '.[1:4]'
 
 A filter can build an array by wrapping an expression in `[` and `]`
 
-* with a known list of elements:
+- with a known list of elements:
 
-    ```sh
-    jq -n '[1, 2, 3]'
-    ```
+  ```sh
+  jq -n '[1, 2, 3]'
+  ```
 
-* to collect a stream of elements: for example,
-    `range` is a function that outputs a stream of numbers
+- to collect a stream of elements: for example,
+  `range` is a function that outputs a stream of numbers
 
-    ```sh
-    $ jq -n 'range(10; 70; 15)'
-    10
-    25
-    40
-    55
-    ```
+  ```sh
+  $ jq -n 'range(10; 70; 15)'
+  10
+  25
+  40
+  55
+  ```
 
-    Using `[]` collects the results of the expression into an array
+  Using `[]` collects the results of the expression into an array
 
-    ```sh
-    $ jq -c -n '[range(10; 70; 15)]'
-    [10,25,40,55]
-    ```
+  ```sh
+  $ jq -c -n '[range(10; 70; 15)]'
+  [10,25,40,55]
+  ```
 
 #### Comma is an operator
 
@@ -99,7 +99,7 @@ Comma is an **operator** that joins streams.
 For example `[1, 2, 3]` is a filter that uses the array constructor `[]` to collect the result of joining the three expressions `1`, `2` and `3`.
 
 Did you notice the semi-colons in `range(10; 70; 15)` above?
-Because commas have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments. 
+Because commas have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments.
 
 ### Objects
 
@@ -123,7 +123,9 @@ Quotes are not required around keys that are "simple" strings.
 ```sh
 jq -n '{question: 6 * 9, answer: 42}'
 ```
+
 outputs
+
 ```none
 {
   "question": 54,
@@ -132,6 +134,7 @@ outputs
 ```
 
 To treat the key as an _expression_, you must wrap it in parentheses
+
 ```sh
 echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
 | jq '{(.[0].key): .[0].value, (.[1].key): .[1].value}'
@@ -143,8 +146,8 @@ For example, given "file.json" containing
 
 ```json
 {
-    "key1": "value1",
-    "key2": [5, 15, 25]
+  "key1": "value1",
+  "key2": [5, 15, 25]
 }
 ```
 
@@ -155,8 +158,7 @@ $ jq '.key2 | length' file.json
 3
 ```
 
-We're _piping_ the output of the `.key2` expression as the input to `length` which unsurprisingly outputs the  number of elements in the array.
-
+We're _piping_ the output of the `.key2` expression as the input to `length` which unsurprisingly outputs the number of elements in the array.
 
 ### Filters can ignore their input
 
@@ -200,83 +202,83 @@ Without going into great depth (functions will be a topic for another exercise!)
 
 - `length`
 
-    Given an array as input, output the number of elements in the array.
+  Given an array as input, output the number of elements in the array.
 
-    ```sh
-    $ jq -n '[10, 20, 30, 40] | length'
-    4
-    ```
+  ```sh
+  $ jq -n '[10, 20, 30, 40] | length'
+  4
+  ```
 
 - `+`
 
-    This operator does different things depending on the type of its operands:
-    it adds numbers,
-    it concatenates strings,
-    it appends arrays,
-    it merges objects.
+  This operator does different things depending on the type of its operands:
+  it adds numbers,
+  it concatenates strings,
+  it appends arrays,
+  it merges objects.
 
-    ```sh
-    $ jq -c -n '
-        3 + 4,
-        "foo" + "bar",
-        ["a", "b"] + ["c"],
-        {"m": 10} + {"n": 20}
-    '
-    7
-    "foobar"
-    ["a","b","c"]
-    {"m":10,"n":20}
-    ```
+  ```sh
+  $ jq -c -n '
+      3 + 4,
+      "foo" + "bar",
+      ["a", "b"] + ["c"],
+      {"m": 10} + {"n": 20}
+  '
+  7
+  "foobar"
+  ["a","b","c"]
+  {"m":10,"n":20}
+  ```
 
-    `add` is a function that takes an array and returns an item with all the elements added together using the rules of `+`.
-    `[1, 2, 3] | add` outputs `6`.
+  `add` is a function that takes an array and returns an item with all the elements added together using the rules of `+`.
+  `[1, 2, 3] | add` outputs `6`.
 
 - `map`
 
-    Given an array as input and a filter as an argument, output an array where the filter is applied to each element
+  Given an array as input and a filter as an argument, output an array where the filter is applied to each element
 
-    ```sh
-    $ jq -c -n '[10, 20, 30, 40] | map(. / 5)'
-    [2,4,6,8]
-    ```
+  ```sh
+  $ jq -c -n '[10, 20, 30, 40] | map(. / 5)'
+  [2,4,6,8]
+  ```
 
 - `select`
 
-    Given _some_ input and a filter as an argument:
+  Given _some_ input and a filter as an argument:
 
-    - if the filter applied to the argument results in a **true** value, output the input unchanged
-    - otherwise, output _nothing_ (not the `null` value, truly no output)
+  - if the filter applied to the argument results in a **true** value, output the input unchanged
+  - otherwise, output _nothing_ (not the `null` value, truly no output)
 
-    For example, given some numbers, select the ones divisible by 3
+  For example, given some numbers, select the ones divisible by 3
 
-    ```sh
-    $ jq -n 'range(10) | select(. % 3 == 0)'
-    0
-    3
-    6
-    9
+  ```sh
+  $ jq -n 'range(10) | select(. % 3 == 0)'
+  0
+  3
+  6
+  9
+  ```
+
+  Recall that `range` outputs a _stream_ of numbers.
+  `select` will be invoked once per each number.
+  Only the numbers "passing" the expression are output.
+
+  You often need to select elements of an array.
+  There are a couple of ways to do this.
+
+  With the input `["Anne", "Bob", "Cathy", "Dave"]`, select the names having length 4.
+
+  - use `map` and `select` together
+
+    ```jq
+    map(select(length == 4))
     ```
 
-    Recall that `range` outputs a _stream_ of numbers.
-    `select` will be invoked once per each number.
-    Only the numbers "passing" the expression are output.
+  - explode the array into elements, `select` on that stream, and collect the results
 
-    You often need to select elements of an array.
-    There are a couple of ways to do this.
-
-    With the input `["Anne", "Bob", "Cathy", "Dave"]`, select the names having length 4.
-
-    - use `map` and `select` together
-
-        ```jq
-        map(select(length == 4))
-        ```
-
-    - explode the array into elements, `select` on that stream, and collect the results
-
-        ```jq
-        [ .[] | select(length == 4) ]
-        ```
+    ```jq
+    [ .[] | select(length == 4) ]
+    ```
 
 ## Comments
 

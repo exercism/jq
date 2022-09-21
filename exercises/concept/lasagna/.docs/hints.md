@@ -27,7 +27,6 @@
 - Include the calculated value in the output array for the key `"total_time"`.
 - [The `+` operator][addition] is used for arithmetic addition on numbers.
 
-
 [subtraction]: https://stedolan.github.io/jq/manual/v1.6/#Subtraction:-
 [multiplication]: https://stedolan.github.io/jq/manual/v1.6/#Multiplication,division,modulo:*,/,and%
 [addition]: https://stedolan.github.io/jq/manual/v1.6/#Addition:+
