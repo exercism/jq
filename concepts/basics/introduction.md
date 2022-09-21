@@ -1,5 +1,7 @@
 # Introduction
 
+We'll assume you are familiar with JSON syntax and data types.
+
 jq works by passing the incoming JSON data through a _single expression_ (written as a _pipeline of filters_) to achieve the desired transformed data.
 
 ~~~~exercism/note
