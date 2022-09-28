@@ -22,6 +22,31 @@ def permutations: #:: TUPLE => *TUPLE
         choose as $i
         | .[$i:$i+1] + (del(.[$i])|permutations)
     end
+;
+
+# Combinations
+#      Generate all (ordered) combinations of _k_ items from a list of _n_ items.
+#      This is "n choose k".
+#
+# source: https://github.com/glennj/exercism.io/blob/main/elixir/lib/permutations.ex
+#
+# example: 
+#   [1,2,3,4] | combinations(3)
+# outputs
+#   [1,2,3]
+#   [1,2,4]
+#   [1,3,4]
+#   [2,3,4]
+
+def combinations($k):
+    if $k == 0 then [[]]
+    elif length == 0 then []
+    else
+        .[0] as $h      # head
+        | .[1:] as $t   # tail
+        | ($t | combinations($k - 1) | map([$h] + .)) + ($t | combinations($k))
+    end
+;
 
 # Partial permutations, Variations
 # V(n,k) = n!/(n-k)!
@@ -59,6 +84,19 @@ def permutations($k): #:: TUPLE|(number) => *TUPLE
 # Derangements
 # - no element is in its proper place
 # TODO: formula?
+# example:
+#   [1,2,3,4] | derangements
+# outputs
+#   [2,1,4,3]
+#   [2,3,4,1]
+#   [2,4,1,3]
+#   [3,1,4,2]
+#   [3,4,1,2]
+#   [3,4,2,1]
+#   [4,1,2,3]
+#   [4,3,1,2]
+#   [4,3,2,1]
+
 def derangements: #:: TUPLE => *TUPLE
     def choose($i): #:: [a]|(number) => [[number,a]]
         range(0;length) as $j
@@ -80,4 +118,3 @@ def derangements: #:: TUPLE => *TUPLE
     | [range(0;length) as $i | [$i,.[$i]]]
     | _derange(0)
 ;
-
