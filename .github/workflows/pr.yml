@@ -22,7 +22,7 @@ jobs:
           pr_endpoint=$(jq -r '"repos/\(.repository.full_name)/pulls/\(.pull_request.number)"' "$GITHUB_EVENT_PATH")
           gh api "$pr_endpoint/files" --paginate --jq '
             .[] |
-              select(.status == "added" or .status == "modified" or .status == "renamed") |
-              select(.filename | match("\\.(jq|bats|bash|md)$")) |
+              select(.status | IN("added", "modified", "renamed")) |
+              select(.filename | test("\\.(jq|bats|bash)$")) |
               .filename
           ' | xargs -r bash bin/pr
