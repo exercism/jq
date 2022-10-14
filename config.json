@@ -78,6 +78,14 @@
         "prerequisites": ["basics"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
+      },
+      {
+        "slug": "remote-control-car",
+        "name": "Remote Control Car",
+        "concepts": ["functions"],
+        "prerequisites": ["variables"],
+        "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
+        "status": "wip"
       }
     ],
     "practice": [
