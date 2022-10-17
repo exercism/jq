@@ -1,49 +1,41 @@
 # Functions in `jq`
 
 You can define your own custom functions in `jq` to encapsulate whatever logic you need.
-Functions act like builtins: functions will take an input and emit zero, one or more outputs.
+Functions act like builtins: they take an input and emit zero, one or more outputs.
 
 ## Defining a function
 
 You can define a `jq` function using the following syntax:
 
 ```jq
-def funcname: expression ;
+def funcname: expression;
 
 # or
 
-def funcname(args): expression ;
+def funcname(args): expression;
 ```
 
 - starts with `def` keyword,
-- colon after the `funcname(arglist)`,
-- the function body consists of a single expression,
+- a colon before the function body,
+- the body consists of a single expression,
 - ends with a semicolon.
 
 Like the rest of `jq` syntax, you can use arbitrary whitespace for readability.
 
-Recall that:
+Recall that the "top-level" part of a `jq` program is a single expression:
+functions are defined _before_ that single expression.
 
-> jq works by passing the incoming JSON data through a _single expression_ (written as a _pipeline of filters_) to achieve the desired transformed data.
-
-Functions are defined _outside_ of the single expression.
-A `jq` program will look like
+Functions must be defined before they are used: this is an error:
 
 ```jq
-def func1: expr1 ;
-def func2: expr2 ;
-# ...
-
-main | pipeline | goes | at | the | end
+def A: B(10);
+def B(n): n + 1;
+A
 ```
-
-## Scope
 
 A function introduces a new scope for variables and nested functons.
 
 ## Arguments
-
-Functions have an "arity" -- the number of arguments they take.
 
 Function arguments are separated by _semi-colons_ not commas.
 For example, a function that takes a number, and then adds a number and multiplies by a number:
@@ -54,14 +46,21 @@ def add_mul(adder; multiplier): (. + adder) * multiplier;
 10 | add_mul(5; 4)    # => 60
 ```
 
-This is because the comma already has a purpose in `jq`: it's an operator that joins streams.
+Semi-colons are needed because comma already has a purpose in `jq`: it's an operator that joins streams.
+
+Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_mul` function, which doesn't exist:
+
+```jq
+10 | add_mul(5, 4)
+# error: add_mul/1 is not defined
+```
 
 ### Arguments are _expressions_
 
-Function arguments are filters, not value.
+Function arguments are filters, not values.
 In this sense, they act like what other languages describe as callbacks:
 
-Using the `add_mul` function:
+Using the `add_mul` function as an example:
 
 ```jq
 10 | add_mul(. + 5; . - 2)    # => 200
@@ -69,16 +68,16 @@ Using the `add_mul` function:
 
 What's happening here?
 
-* the `adder` argument gets the expression `. + 5`
+* the `adder` argument gets the _expression_ `. + 5`
     * when the function does `. + adder`, that becomes `. + . + 5`
-    * when `. == 10` that evaluates to 25
+    * that evaluates to 25 since `. == 10`
 * similarly, the `multiplier argument is the expression `. - 2`
-    * when `. == 10` that evaluates to 8
+    * that evaluates to 8
     * then the result is `25 * 8 == 200`
 
-### Arguments are expression, not values.
+### Arguments as values
 
-Sometimes you'll want to "materialize" the argument into a variable:
+Sometimes you'll want to "materialize" an argument into a variable:
 
 ```jq
 def my_func(arg):
@@ -95,12 +94,16 @@ def my_func($arg):
 ;
 ```
 
-- ref https://glennj.github.io/jq/notes 
+Take note that this is just "syntactic sugar": the name `arg` is still in scope in the function.
+
+TODO: ref https://glennj.github.io/jq/notes
 
 ## Arity
 
+Functions have an "arity" -- the number of arguments they take.
+
 Functions can use the same name with different arities.
-The builtin [range][man-range] function demonstrates this.
+The builtin [`range`][man-range] function demonstrates this.
 
 This can be useful for defining recursive functions that carry state via arguments:
 
