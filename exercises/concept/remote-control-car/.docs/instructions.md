@@ -83,11 +83,11 @@ Update the `drive/0` function to not increase the distance driven nor decrease t
 {
   battery_percentage: 0,
   distance_driven_in_meters: 2000,
-  nickname: "Tired Truck"
+  nickname: "Red"
 } | drive
 # => {
 #      "battery_percentage": 0,
 #      "distance_driven_in_meters": 2000,
-#      "nickname": "Tired Truck"
+#      "nickname": "Red"
 #    }
 ```
