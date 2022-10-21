@@ -90,12 +90,12 @@ Using the `add_mul` function as an example:
 
 What's happening here?
 
-* the `adder` argument gets the _expression_ `. + 5`
-    * when the function does `. + adder`, that becomes `. + . + 5`
-    * that evaluates to 25 since `. == 10`
-* similarly, the `multiplier argument is the expression `. - 2`
-    * that evaluates to 8
-    * then the result is `25 * 8 == 200`
+- the `adder` argument gets the _expression_ `. + 5`
+  - when the function does `. + adder`, that becomes `. + . + 5`
+  - that evaluates to 25 since `. == 10`
+- similarly, the `multiplier argument is the expression `. - 2`
+  - that evaluates to 8
+  - then the result is `25 * 8 == 200`
 
 #### Arguments as values
 

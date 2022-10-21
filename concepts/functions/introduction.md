@@ -88,12 +88,12 @@ Using the `add_mul` function as an example:
 
 What's happening here?
 
-* the `adder` argument gets the _expression_ `. + 5`
-    * when the function does `. + adder`, that becomes `. + . + 5`
-    * that evaluates to 25 since `. == 10`
-* similarly, the `multiplier argument is the expression `. - 2`
-    * that evaluates to 8
-    * then the result is `25 * 8 == 200`
+- the `adder` argument gets the _expression_ `. + 5`
+  - when the function does `. + adder`, that becomes `. + . + 5`
+  - that evaluates to 25 since `. == 10`
+- similarly, the `multiplier argument is the expression `. - 2`
+  - that evaluates to 8
+  - then the result is `25 * 8 == 200`
 
 ### Arguments as values
 
@@ -149,7 +149,6 @@ def my_map(func):
 
 A `jq` module is a file containing only functions.
 Modules are included into a jq program with the [`include`][man-include] or [`import`][man-import] commands.
-
 
 [man-range]: https://stedolan.github.io/jq/manual/#range(upto),range(from;upto)range(from;upto;by)
 [man-import]: https://stedolan.github.io/jq/manual/#importRelativePathStringasNAME[%3Cmetadata%3E];
