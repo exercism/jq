@@ -6,5 +6,9 @@
   {
     "description": "\"Advanced Topics\" in the wiki",
     "url": "https://github.com/stedolan/jq/wiki/Advanced-Topics"
+  },
+  {
+    "description": "\"Modules\" in the manual",
+    "url": "https://stedolan.github.io/jq/manual/#Modules"
   }
 ]

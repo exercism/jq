@@ -1,29 +1,27 @@
 # Functions in `jq`
 
 You can define your own custom functions in `jq` to encapsulate whatever logic you need.
-Functions act like builtins: they take an input and emit zero, one or more outputs.
+Functions act just like builtins: they take an input and emit zero, one or more outputs.
 
 ## Defining a function
 
 You can define a `jq` function using the following syntax:
 
 ```jq
+# no arguments
 def funcname: expression;
 
-# or
-
+# or with arguments
 def funcname(args): expression;
 ```
 
 - starts with `def` keyword,
 - a colon before the function body,
 - the body consists of a single expression,
-- ends with a semicolon.
+- ends with a semicolon,
+- like the rest of `jq` syntax, you can use arbitrary whitespace for readability.
 
-Like the rest of `jq` syntax, you can use arbitrary whitespace for readability.
-
-Recall that the "top-level" part of a `jq` program is a single expression:
-functions are defined _before_ that single expression.
+## Where to put functions
 
 Functions must be defined before they are used: this is an error:
 
@@ -32,6 +30,10 @@ def A: B(10);
 def B(n): n + 1;
 A
 ```
+
+This means you have to put functions at the top of your jq code, prior to the "main" expression.
+
+## Scope
 
 A function introduces a new scope for variables and nested functons.
 
@@ -46,7 +48,8 @@ def add_mul(adder; multiplier): (. + adder) * multiplier;
 10 | add_mul(5; 4)    # => 60
 ```
 
-Semi-colons are needed because comma already has a purpose in `jq`: it's an operator that joins streams.
+~~~~exercism/note
+Semi-colons are needed because comma already has a purpose in `jq`: an operator that joins streams.
 
 Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_mul` function, which doesn't exist:
 
@@ -54,6 +57,7 @@ Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_m
 10 | add_mul(5, 4)
 # error: add_mul/1 is not defined
 ```
+~~~~
 
 ### Arguments are _expressions_
 
@@ -94,22 +98,79 @@ def my_func($arg):
 ;
 ```
 
+~~~~exercism/caution
 Take note that this is just "syntactic sugar": the name `arg` is still in scope in the function.
 
-TODO: ref https://glennj.github.io/jq/notes
+For example, I wrote something like this to solve an exercise:
+
+```jq
+# function that encodes the input value
+def code: 
+    # expression here
+    ;
+
+def equals($code):
+    (. | code) as $this_code
+    | $code == $this_code
+    ;
+
+("some key value" | code) as $key
+| ["array", "of", "values"]
+| map(select(equals($key)))
+```
+
+and I was surprised that every value of the array equalled the key.
+
+This happened because jq saw the `equals` function as 
+
+```jq
+def equals(code):
+    code as $code
+    | (. | code) as $this_code
+    | $code == $this_code
+    ;
+```
+
+The **argument** `code` _overrode_ the previously defined **function** `code`.
+That meant `(. | code)` simply outputs the **argument** instead of calculating a new code based on the input value.
+Thus `$this_code` and `$code` were always the same.
+~~~~
 
 ## Arity
 
 Functions have an "arity" -- the number of arguments they take.
 
 Functions can use the same name with different arities.
-The builtin [`range`][man-range] function demonstrates this.
+The builtin [`range`][man-range] function demonstrates this: `range/1`, `range/2` and `range/3` all co-exist.
 
-This can be useful for defining recursive functions that carry state via arguments:
+This can be useful for defining recursive functions that carry state via arguments.
+For example `map` _could_ be implemented like:
 
-TODO:  add example here
+```jq
+def my_map($accumulator; func):
+    if length == 0
+        then $accumulator
+        else first as $elem | .[1:] | my_map($accumulator + [$elem | func]; func)
+    end
+    ;
 
-While I'm talking about recursion, `jq` will perform tailcall optimization, but for 0-arity functions only.
+def my_map(func):
+    my_map([]; func)
+    ;
+
+[1, 2, 3, 4] | my_map(. * 10)   # => [10, 20, 30, 40]
+```
+
+## Recursion
+
+`jq` will perform tailcall optimization, but for 0-arity functions only.
+
+## Modules
+
+A `jq` module is a file containing only functions.
+Modules are included into a jq program with the [`include`][man-include] or [`import`][man-import] commands.
 
 
 [man-range]: https://stedolan.github.io/jq/manual/#range(upto),range(from;upto)range(from;upto;by)
+[man-import]: https://stedolan.github.io/jq/manual/#importRelativePathStringasNAME[%3Cmetadata%3E];
+[map-include]: https://stedolan.github.io/jq/manual/#includeRelativePathString[%3Cmetadata%3E];
