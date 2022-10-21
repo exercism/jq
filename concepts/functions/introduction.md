@@ -114,43 +114,7 @@ def my_func($arg):
 ;
 ```
 
-~~~~exercism/caution
-Take note that this is just "syntactic sugar": the name `arg` is still in scope in the function.
-
-For example, I wrote something like this to solve an exercise:
-
-```jq
-# function that encodes the input value
-def code:
-    # expression here
-    ;
-
-def equals($code):
-    (. | code) as $this_code
-    | $code == $this_code
-    ;
-
-("some key value" | code) as $key
-| ["array", "of", "values"]
-| map(select(equals($key)))
-```
-
-and I was surprised that every value of the array equalled the key.
-
-This happened because jq saw the `equals` function as
-
-```jq
-def equals(code):
-    code as $code
-    | (. | code) as $this_code
-    | $code == $this_code
-    ;
-```
-
-The **argument** `code` _overrode_ the previously defined **function** `code`.
-That meant `(. | code)` simply outputs the **argument** instead of calculating a new code based on the input value.
-Thus `$this_code` and `$code` were always the same.
-~~~~
+Take note that this is just "syntactic sugar": the name `arg` with no `$` is still in scope in the function.
 
 ## Arity
 

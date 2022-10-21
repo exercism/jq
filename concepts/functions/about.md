@@ -114,9 +114,9 @@ def my_func($arg):
 ;
 ```
 
-~~~~exercism/caution
-Take note that this is just "syntactic sugar": the name `arg` is still in scope in the function.
+Take note that this is just "syntactic sugar": the name `arg` with no `$` is still in scope in the function.
 
+~~~~exercism/caution
 For example, I wrote something like this to solve an exercise:
 
 ```jq
