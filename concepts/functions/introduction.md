@@ -29,9 +29,25 @@ Functions must be defined before they are used: this is an error:
 def A: B(10);
 def B(n): n + 1;
 A
+# => error: B/1 is not defined
 ```
 
-This means you have to put functions at the top of your jq code, prior to the "main" expression.
+This implies you have to place functions at the top of your jq code, prior to the "main" expression.
+
+### Nested functions
+
+Functions can be nested:
+
+```jq
+def A:
+    def B(n): n + 1;
+    B(10)
+    ;
+A
+# => 11
+```
+
+Here, the `B` function is only visible in the body of `A`.
 
 ## Scope
 
@@ -105,7 +121,7 @@ For example, I wrote something like this to solve an exercise:
 
 ```jq
 # function that encodes the input value
-def code: 
+def code:
     # expression here
     ;
 
@@ -121,7 +137,7 @@ def equals($code):
 
 and I was surprised that every value of the array equalled the key.
 
-This happened because jq saw the `equals` function as 
+This happened because jq saw the `equals` function as
 
 ```jq
 def equals(code):
@@ -173,4 +189,4 @@ Modules are included into a jq program with the [`include`][man-include] or [`im
 
 [man-range]: https://stedolan.github.io/jq/manual/#range(upto),range(from;upto)range(from;upto;by)
 [man-import]: https://stedolan.github.io/jq/manual/#importRelativePathStringasNAME[%3Cmetadata%3E];
-[map-include]: https://stedolan.github.io/jq/manual/#includeRelativePathString[%3Cmetadata%3E];
+[man-include]: https://stedolan.github.io/jq/manual/#includeRelativePathString[%3Cmetadata%3E];
