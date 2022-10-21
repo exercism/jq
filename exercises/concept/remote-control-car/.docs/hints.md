@@ -1,46 +1,29 @@
-# TODO
-
 # Hints
-
-## General
-
-- Read about [structs][getting-started-structs] in the Getting Started guide.
-- Read about [`defstruct`][docs-defstruct] in the documentation.
-- Watch [Elixir Casts - #106: Intro to Structs][elixir-casts].
 
 ## 1. Create a brand-new remote controlled car
 
-- The module attribute `@enforce_keys` can be used to specify required values. It needs to be defined before calling `defstruct`.
-- The `nickname` field should not have a default value specified.
-- The `new/0` function should initialize the `nickname` with the value `"none"`.
+- The result can use a constant object.
 
 ## 2. Create a brand-new remote controlled car with a nickname
 
-- Use [`multiple-function-clauses`][multiple-fn-clauses] to reuse the function name but accept different arguments.
-- Consider a [`default-argument`][default-arg] for the function.
+- Consider calling the 0-arity function and piping the result to assign the nickname.
 
 ## 3. Display the distance
 
-- For functions which accept only a specific type of struct, make sure you perform a pattern match to check the argument.
-- Use the _static access operator_ to obtain field values.
+- [String interpolation][string-interpolation] would be useful here.
 
 ## 4. Display the battery percentage
 
-- For functions which accept only a specific type of struct, make sure you perform a pattern match to check the argument.
-- Use the _static access operator_ to obtain field values.
+- The [if][if-then-else] expression is needed.
 
 ## 5. Driving changes the battery and distance driven
 
-- For functions which accept only a specific type of struct, make sure you perform a pattern match to check the argument.
-- Use the _static access operator_ to obtain field values.
-- Review the introduction for updating structs.
+- [Arithmetic update-assignments][update-assn] will be useful here.
 
 ## 6. Account for driving with a dead battery
 
-- If the battery is dead, it should return the struct unchanged.
+- If the battery is dead, it should return the object unchanged.
 
-[getting-started-structs]: https://elixir-lang.org/getting-started/structs.html
-[docs-defstruct]: https://hexdocs.pm/elixir/Kernel.html#defstruct/1
-[elixir-casts]: https://elixircasts.io/intro-to-structs
-[multiple-fn-clauses]: https://elixir-lang.org/getting-started/modules-and-functions.html#named-functions
-[default-arg]: https://elixir-lang.org/getting-started/modules-and-functions.html#default-arguments
+[string-interpolation]: https://stedolan.github.io/jq/manual/#Stringinterpolation-%5C(foo)
+[if-then-else]: https://stedolan.github.io/jq/manual/#if-then-else
+[update-assn]: https://stedolan.github.io/jq/manual/#Arithmeticupdate-assignment:+=,-=,*=,/=,%=,//=

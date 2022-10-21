@@ -2,8 +2,9 @@
 load bats-extra
 
 assert_key_value() {
+    local expected=$1 key=$2
     local result
-    result=$(echo "$output" | jq -r --arg key "$2" --argjson val "$1" '.[$key] == $val')
+    result=$(echo "$output" | jq -r --arg key "$key" --argjson val "$expected" '.[$key] == $val')
     [[ $result == "true" ]]
 }
 
@@ -33,58 +34,58 @@ assert_key_value() {
 
 @test "display distance for new car is zero" {
     ## task 3
-    run jq -n '
+    run jq -r -n '
         include "remote-control-car";
         new_remote_control_car | display_distance
     '
     assert_success
-    assert_output '"0 meters"'
+    assert_output '0 meters'
 }
 
 @test "display distance for car with some distance" {
     ## task 3
-    run jq -n '
+    run jq -r -n '
         include "remote-control-car";
         new_remote_control_car
         | .distance_driven_in_meters += 20
         | display_distance
     '
     assert_success
-    assert_output '"20 meters"'
+    assert_output '20 meters'
 }
 
 @test "display battery for new car is 100%" {
     ## task 4
-    run jq -n '
+    run jq -r -n '
         include "remote-control-car";
         new_remote_control_car | display_battery
     '
     assert_success
-    assert_output '"Battery at 100%"'
+    assert_output 'Battery at 100%'
 }
 
 @test "display battery for car with some usage" {
     ## task 4
-    run jq -n '
+    run jq -r -n '
         include "remote-control-car";
         new_remote_control_car
         | .battery_percentage -= 40
         | display_battery
     '
     assert_success
-    assert_output '"Battery at 60%"'
+    assert_output 'Battery at 60%'
 }
 
 @test "display battery for car with empty battery" {
     ## task 4
-    run jq -n '
+    run jq -r -n '
         include "remote-control-car";
         new_remote_control_car
         | .battery_percentage = 0
         | display_battery
     '
     assert_success
-    assert_output '"Battery empty"'
+    assert_output 'Battery empty'
 }
 
 @test "drive a new car" {
