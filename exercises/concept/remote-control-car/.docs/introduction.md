@@ -1,9 +1,11 @@
-# Functions in `jq`
+# Introduction
+
+## Functions
 
 You can define your own custom functions in `jq` to encapsulate whatever logic you need.
 Functions act just like builtins: they take an input and emit zero, one or more outputs.
 
-## Defining a function
+### Defining a function
 
 You can define a `jq` function using the following syntax:
 
@@ -21,7 +23,7 @@ def funcname(args): expression;
 - ends with a semicolon,
 - like the rest of `jq` syntax, you can use arbitrary whitespace for readability.
 
-## Where to put functions
+### Where to put functions
 
 Functions must be defined before they are used: this is an error:
 
@@ -34,7 +36,7 @@ A
 
 This implies you have to place functions at the top of your jq code, prior to the "main" expression.
 
-### Nested functions
+#### Nested functions
 
 Functions can be nested:
 
@@ -49,11 +51,11 @@ A
 
 Here, the `B` function is only visible in the body of `A`.
 
-## Scope
+### Scope
 
 A function introduces a new scope for variables and nested functons.
 
-## Arguments
+### Arguments
 
 Function arguments are separated by _semi-colons_ not commas.
 For example, a function that takes a number, and then adds a number and multiplies by a number:
@@ -75,7 +77,7 @@ Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_m
 ```
 ~~~~
 
-### Arguments are _expressions_
+#### Arguments are _expressions_
 
 Function arguments are filters, not values.
 In this sense, they act like what other languages describe as callbacks:
@@ -95,7 +97,7 @@ What's happening here?
   - that evaluates to 8
   - then the result is `25 * 8 == 200`
 
-### Arguments as values
+#### Arguments as values
 
 Sometimes you'll want to "materialize" an argument into a variable:
 
@@ -116,7 +118,7 @@ def my_func($arg):
 
 Take note that this is just "syntactic sugar": the name `arg` with no `$` is still in scope in the function.
 
-## Arity
+### Arity
 
 Functions have an "arity" -- the number of arguments they take.
 
@@ -141,11 +143,11 @@ def my_map(func):
 [1, 2, 3, 4] | my_map(. * 10)   # => [10, 20, 30, 40]
 ```
 
-## Recursion
+### Recursion
 
 `jq` will perform tailcall optimization, but for 0-arity functions only.
 
-## Modules
+### Modules
 
 A `jq` module is a file containing only functions.
 Modules are included into a jq program with the [`include`][man-include] or [`import`][man-import] commands.

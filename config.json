@@ -31,11 +31,6 @@
       "uuid": "33185105-995d-48a5-ba84-53241a41ce7e"
     },
     {
-      "slug": "types",
-      "name": "Datatypes",
-      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
-    },
-    {
       "slug": "variables",
       "name": "Variables",
       "uuid": "466a02be-fb6e-4460-b8f8-60d51398adbf"
@@ -44,6 +39,11 @@
       "slug": "functions",
       "name": "Functions",
       "uuid": "e3655c76-6f9b-4b96-9bd2-51ef26eebe35"
+    },
+    {
+      "slug": "types",
+      "name": "Datatypes",
+      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
     }
   ],
   "exercises": {
@@ -77,6 +77,14 @@
         "concepts": ["variables"],
         "prerequisites": ["basics"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
+        "status": "beta"
+      },
+      {
+        "slug": "remote-control-car",
+        "name": "Remote Control Car",
+        "concepts": ["functions"],
+        "prerequisites": ["variables"],
+        "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
         "status": "beta"
       }
     ],
