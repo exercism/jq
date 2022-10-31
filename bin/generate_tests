@@ -1,0 +1,122 @@
+#!/usr/bin/env bash
+
+usage="$(basename "$0") [-p problem_specs_path] slug"
+probspec=
+slug=
+
+err() { printf '%s\n' "$*" >&2; }
+die() { err "$*"; exit 1; }
+
+usage() {
+    [[ $1 ]] && err "$1"
+    err "$usage"
+    exit ${rc:-0}
+}
+
+getCacheDir() {
+    local cacheDir
+    cacheDir=${XDG_CACHE_HOME:="$HOME/.cache"}
+    printf '%s' "$cacheDir"
+}
+
+parseOpts() {
+    local OPTIND OPTARG
+
+    while getopts :hp: opt; do
+        case $opt in
+            h) rc=0 usage ;;
+            p) probspec=$OPTARG ;;
+            ?) rc=2 usage "Unknown option '-$OPTARG'" ;;
+        esac
+    done
+    shift $((OPTIND - 1))
+
+    (($#)) || rc=2 usage "Specify an exercise slug."
+    slug=$1
+    local exerciseDir=./exercises/practice/$slug
+    [[ -d $exerciseDir ]] || die "Directory does not exist: $exerciseDir"
+}
+
+refreshProbSpecs() {
+    local dir
+    local repo="problem-specifications"
+    local url="https://github.com/exercism/$repo"
+    if [[ -z $probspec ]]; then
+        dir="$(getCacheDir)/exercism/configlet"
+        [[ -d $dir ]] || mkdir -p "$dir"
+        probspec="$dir/$repo"
+    fi
+    if [[ ! -d $probspec ]]; then
+        (
+            cd "$probspec/.." &&
+            git clone --depth 1 --single-branch -- "$url"
+        )
+    else
+        (
+            cd "$probspec" &&
+            git checkout main
+            git fetch --quiet
+            git merge --ff-only origin/main
+        )
+    fi
+}
+
+writeTestFile() {
+    local canonicalData="$probspec/exercises/$slug/canonical-data.json"
+    [[ -f $canonicalData ]] || die "No canonical data for $slug"
+
+    local testFile="./exercises/practice/$slug/test-${slug}.bats"
+    {
+        cat <<END_PREAMBLE
+#!/usr/bin/env bats
+# generated on $(date --utc "+%FT%TZ")
+load bats-extra
+END_PREAMBLE
+
+        jq -r --arg slug "$slug" '
+            "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n" as $skip |
+            reduce .cases[] as $case (["", true]; 
+                . as [$tests, $isfirst] |
+                [$tests + 
+                ($case | 
+                 "\n" +
+                 "@test \(.description | @sh) {\n" +
+                 "    " + (if $isfirst then "#" else "" end) + $skip +
+                 "\n" +
+                 "    run jq -f \($slug).jq <<END_INPUT\n" +
+                 "\(.input | @json)\n" +
+                 "END_INPUT\n" +
+                 "\n" +
+                 "    assert_success\n" +
+                 "\n" +
+                 "    actual=$output\n" +
+                 "    expected=\(.expected | @sh)\n" +
+                 "    assert_equal \"$expected\" \"$actual\"\n" +
+                 "}\n"),
+                 false]
+            ) | first
+        ' "$canonicalData" 
+    } \
+	| awk '
+        BEGIN {jq = "jq ."}
+        /^END_INPUT/ {f=0}
+        f {
+            print |& jq
+            close(jq, "to")
+            while ((jq |& getline line) > 0) {
+                printf "        %s\n", line
+            }
+            close(jq, "from")
+            next
+        }
+        /<<END_INPUT/ {f=1}
+        {print}
+    ' \
+    | tee "$testFile"
+}
+
+[[ -d ./exercises/practice ]] || die "Run me from the repo root."
+
+parseOpts "$@"
+refreshProbSpecs
+writeTestFile
