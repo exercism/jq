@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-10-31T20:24:47Z
+# generated on 2022-10-31T20:43:10Z
 load bats-extra
 
 @test 'no items' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 100,
           "items": {}
@@ -22,7 +22,7 @@ END_INPUT
 @test 'one item, too heavy' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 10,
           "items": [
@@ -44,7 +44,7 @@ END_INPUT
 @test 'five items (cannot be greedy by weight)' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 10,
           "items": [
@@ -82,7 +82,7 @@ END_INPUT
 @test 'five items (cannot be greedy by value)' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 10,
           "items": [
@@ -120,7 +120,7 @@ END_INPUT
 @test 'example knapsack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 10,
           "items": [
@@ -154,7 +154,7 @@ END_INPUT
 @test '8 items' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 104,
           "items": [
@@ -204,7 +204,7 @@ END_INPUT
 @test '15 items' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<END_INPUT
         {
           "maximumWeight": 750,
           "items": [
