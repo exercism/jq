@@ -83,7 +83,7 @@ END_PREAMBLE
                  "@test \(.description | @sh) {\n" +
                  "    " + (if $isfirst then "#" else "" end) + $skip +
                  "\n" +
-                 "    run jq -f \($slug).jq <<END_INPUT\n" +
+                 "    run jq -r -f \($slug).jq <<END_INPUT\n" +
                  "\(.input | @json)\n" +
                  "END_INPUT\n" +
                  "\n" +

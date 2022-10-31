@@ -1,12 +1,18 @@
 #!/usr/bin/env bats
+# generated on 2022-10-31T20:42:44Z
 load bats-extra
 
-@test "Say Hi!" {
-  run jq -r -n -f hello-world.jq
+@test 'Say Hi!' {
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  # the program's exit status should be success (0)
-  assert_success
+    run jq -r -f hello-world.jq <<END_INPUT
+        {}
+END_INPUT
 
-  # program's output should be the expected text
-  assert_output "Hello, World!"
+    assert_success
+
+    actual=$output
+    expected='Hello, World!'
+    assert_equal "$expected" "$actual"
 }
+

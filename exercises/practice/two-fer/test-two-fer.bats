@@ -1,38 +1,52 @@
 #!/usr/bin/env bats
+# generated on 2022-10-31T20:43:56Z
 load bats-extra
 
+@test 'no name given' {
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-@test "no name given" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run jq -r -f two-fer.jq <<END_INPUT
+        {
+          "name": null
+        }
+END_INPUT
 
-  # The above line controls whether to skip the test.
-  # Normally, we skip every test except for the first one
-  # (the first one is always commented out).  This allows for
-  # a person to focus on solving a test at a time: you can
-  # comment out or delete the
-  # `[[ $BATS_RUN_SKIPPED == "true" ]] || skip`
-  # line to run the test when you are ready.
-  #
-  # You can also run all the tests by setting the
-  # `$BATS_RUN_SKIPPED` environment variable, like this:
-  #
-  #     $ BATS_RUN_SKIPPED=true bats test-two-fer.bats
+    assert_success
 
-  run jq -r -f two-fer.jq <<< '{"name": null}'
-  assert_success
-  assert_output "One for you, one for me."
+    actual=$output
+    expected='One for you, one for me.'
+    assert_equal "$expected" "$actual"
 }
 
-@test "a name given" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f two-fer.jq <<< '{"name": "Alice"}'
-  assert_success
-  assert_output "One for Alice, one for me."
+@test 'a name given' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f two-fer.jq <<END_INPUT
+        {
+          "name": "Alice"
+        }
+END_INPUT
+
+    assert_success
+
+    actual=$output
+    expected='One for Alice, one for me.'
+    assert_equal "$expected" "$actual"
 }
 
-@test "another name given" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f two-fer.jq <<< '{"name": "Bob"}'
-  assert_success
-  assert_output "One for Bob, one for me."
+@test 'another name given' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f two-fer.jq <<END_INPUT
+        {
+          "name": "Bob"
+        }
+END_INPUT
+
+    assert_success
+
+    actual=$output
+    expected='One for Bob, one for me.'
+    assert_equal "$expected" "$actual"
 }
+
