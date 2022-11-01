@@ -1,98 +1,158 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:36Z
 load bats-extra
 
 @test 'lowercase letter' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'a'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "a"
+        }
+END_INPUT
 
     assert_success
-    assert_output '1'
+    expected=1
+    assert_equal "$expected" "$output"
 }
 
 @test 'uppercase letter' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'A'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "A"
+        }
+END_INPUT
 
     assert_success
-    assert_output '1'
+    expected=1
+    assert_equal "$expected" "$output"
 }
 
 @test 'valuable letter' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'f'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "f"
+        }
+END_INPUT
 
     assert_success
-    assert_output '4'
+    expected=4
+    assert_equal "$expected" "$output"
 }
 
 @test 'short word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'at'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "at"
+        }
+END_INPUT
 
     assert_success
-    assert_output '2'
+    expected=2
+    assert_equal "$expected" "$output"
 }
 
 @test 'short, valuable word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'zoo'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "zoo"
+        }
+END_INPUT
 
     assert_success
-    assert_output '12'
+    expected=12
+    assert_equal "$expected" "$output"
 }
 
 @test 'medium word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'street'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "street"
+        }
+END_INPUT
 
     assert_success
-    assert_output '6'
+    expected=6
+    assert_equal "$expected" "$output"
 }
 
 @test 'medium, valuable word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'quirky'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "quirky"
+        }
+END_INPUT
 
     assert_success
-    assert_output '22'
+    expected=22
+    assert_equal "$expected" "$output"
 }
 
 @test 'long, mixed-case word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'OxyphenButazone'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "OxyphenButazone"
+        }
+END_INPUT
 
     assert_success
-    assert_output '41'
+    expected=41
+    assert_equal "$expected" "$output"
 }
 
 @test 'english-like word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'pinata'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "pinata"
+        }
+END_INPUT
 
     assert_success
-    assert_output '8'
+    expected=8
+    assert_equal "$expected" "$output"
 }
 
 @test 'empty input' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< ''
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": ""
+        }
+END_INPUT
 
     assert_success
-    assert_output '0'
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
 @test 'entire alphabet available' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'abcdefghijklmnopqrstuvwxyz'
+
+    run jq -r -f scrabble-score.jq <<'END_INPUT'
+        {
+          "word": "abcdefghijklmnopqrstuvwxyz"
+        }
+END_INPUT
 
     assert_success
-    assert_output '87'
+    expected=87
+    assert_equal "$expected" "$output"
 }
 
-@test 'bonus: blank tile counts as zero' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq --raw-input -f scrabble-score.jq <<< 'abcdefghijklmnop rstuvwxyz'
-
-    assert_success
-    assert_output '77'
-}

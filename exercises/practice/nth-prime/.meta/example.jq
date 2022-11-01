@@ -37,7 +37,7 @@ def next_prime($primes):
     $primes[-1] + 2 | _next_prime;
 
 
-if   $n == 0 then "there is no zeroth prime" | halt_error
-elif $n == 1 then 2
-else reduce range(2; $n) as $_ ([2, 3]; next_prime(.)) | .[-1]
+if   .number == 0 then "there is no zeroth prime" | halt_error
+elif .number == 1 then 2
+else reduce range(2; .number) as $_ ([2, 3]; next_prime(.)) | .[-1]
 end

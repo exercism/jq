@@ -1,93 +1,199 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:48:57Z
 load bats-extra
 
-@test "Missed target" {
+@test 'Missed target' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": -9, "y": 9 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": -9,
+          "y": 9
+        }
+END_INPUT
+
     assert_success
-    assert_output 0
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
-@test "On the outer circle" {
+@test 'On the outer circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 0, "y": 10 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 0,
+          "y": 10
+        }
+END_INPUT
+
     assert_success
-    assert_output 1
+    expected=1
+    assert_equal "$expected" "$output"
 }
 
-@test "On the middle circle" {
+@test 'On the middle circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": -5, "y": 0 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": -5,
+          "y": 0
+        }
+END_INPUT
+
     assert_success
-    assert_output 5
+    expected=5
+    assert_equal "$expected" "$output"
 }
 
-@test "On the inner circle" {
+@test 'On the inner circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 0, "y": -1 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 0,
+          "y": -1
+        }
+END_INPUT
+
     assert_success
-    assert_output 10
+    expected=10
+    assert_equal "$expected" "$output"
 }
 
-@test "Exactly on centre" {
+@test 'Exactly on centre' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 0, "y": 0 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 0,
+          "y": 0
+        }
+END_INPUT
+
     assert_success
-    assert_output 10
+    expected=10
+    assert_equal "$expected" "$output"
 }
 
-@test "Near the centre" {
+@test 'Near the centre' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": -0.1, "y": -0.1 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": -0.1,
+          "y": -0.1
+        }
+END_INPUT
+
     assert_success
-    assert_output 10
+    expected=10
+    assert_equal "$expected" "$output"
 }
 
-@test "Just within the inner circle" {
+@test 'Just within the inner circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 0.7, "y": 0.7 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 0.7,
+          "y": 0.7
+        }
+END_INPUT
+
     assert_success
-    assert_output 10
+    expected=10
+    assert_equal "$expected" "$output"
 }
 
-@test "Just outside the inner circle" {
+@test 'Just outside the inner circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 0.8, "y": -0.8 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 0.8,
+          "y": -0.8
+        }
+END_INPUT
+
     assert_success
-    assert_output 5
+    expected=5
+    assert_equal "$expected" "$output"
 }
 
-@test "Just within the middle circle" {
+@test 'Just within the middle circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": -3.5, "y": 3.5 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": -3.5,
+          "y": 3.5
+        }
+END_INPUT
+
     assert_success
-    assert_output 5
+    expected=5
+    assert_equal "$expected" "$output"
 }
 
-@test "Just outside the middle circle" {
+@test 'Just outside the middle circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": -3.6, "y": -3.6 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": -3.6,
+          "y": -3.6
+        }
+END_INPUT
+
     assert_success
-    assert_output 1
+    expected=1
+    assert_equal "$expected" "$output"
 }
 
-@test "Just within the outer circle" {
+@test 'Just within the outer circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": -7.0, "y": 7.0 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": -7,
+          "y": 7
+        }
+END_INPUT
+
     assert_success
-    assert_output 1
+    expected=1
+    assert_equal "$expected" "$output"
 }
 
-@test "Just outside the outer circle" {
+@test 'Just outside the outer circle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 7.1, "y": -7.1 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 7.1,
+          "y": -7.1
+        }
+END_INPUT
+
     assert_success
-    assert_output 0
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
-@test "Asymmetric position between the inner and middle circles" {
+@test 'Asymmetric position between the inner and middle circles' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f darts.jq <<< '{ "x": 0.5, "y": -4 }'
+
+    run jq -r -f darts.jq <<'END_INPUT'
+        {
+          "x": 0.5,
+          "y": -4
+        }
+END_INPUT
+
     assert_success
-    assert_output 5
+    expected=5
+    assert_equal "$expected" "$output"
 }
+

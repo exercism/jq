@@ -27,6 +27,7 @@
     | .[89]=4      # Y
     | .[90]=10     # Z
 ) as $tiles
+| .word
 | ascii_upcase
 | . + " "               # no empty strings
 | explode

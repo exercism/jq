@@ -1,37 +1,74 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:20Z
 load bats-extra
 
-@test "first prime" {
+@test 'first prime' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -n -f nth-prime.jq --argjson n 1
+
+    run jq -r -f nth-prime.jq <<'END_INPUT'
+        {
+          "number": 1
+        }
+END_INPUT
+
     assert_success
-    assert_output 2
+    expected=2
+    assert_equal "$expected" "$output"
 }
 
-@test "second prime" {
+@test 'second prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -n -f nth-prime.jq --argjson n 2
+
+    run jq -r -f nth-prime.jq <<'END_INPUT'
+        {
+          "number": 2
+        }
+END_INPUT
+
     assert_success
-    assert_output 3
+    expected=3
+    assert_equal "$expected" "$output"
 }
 
-@test "sixth prime" {
+@test 'sixth prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -n -f nth-prime.jq --argjson n 6
+
+    run jq -r -f nth-prime.jq <<'END_INPUT'
+        {
+          "number": 6
+        }
+END_INPUT
+
     assert_success
-    assert_output 13
+    expected=13
+    assert_equal "$expected" "$output"
 }
 
-@test "big prime" {
+@test 'big prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -n -f nth-prime.jq --argjson n 10001
+
+    run jq -r -f nth-prime.jq <<'END_INPUT'
+        {
+          "number": 10001
+        }
+END_INPUT
+
     assert_success
-    assert_output 104743
+    expected=104743
+    assert_equal "$expected" "$output"
 }
 
-@test "there is no zeroth prime" {
+@test 'there is no zeroth prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -n -f nth-prime.jq --argjson n 0
+
+    run jq -r -f nth-prime.jq <<'END_INPUT'
+        {
+          "number": 0
+        }
+END_INPUT
+
     assert_failure
-    assert_output "there is no zeroth prime"
+    expected='there is no zeroth prime'
+    assert_equal "$expected" "$output"
 }
+

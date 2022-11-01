@@ -1,50 +1,88 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:32Z
 load bats-extra
 
-@test "an empty string" {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f reverse-string.jq <<< '{"value": ""}'
+@test 'an empty string' {
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  assert_success
-  assert_output ""
+    run jq -r -f reverse-string.jq <<'END_INPUT'
+        {
+          "value": ""
+        }
+END_INPUT
+
+    assert_success
+    expected=''
+    assert_equal "$expected" "$output"
 }
 
-@test "a word" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f reverse-string.jq <<< '{"value": "robot"}'
+@test 'a word' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  assert_success
-  assert_output "tobor"
+    run jq -r -f reverse-string.jq <<'END_INPUT'
+        {
+          "value": "robot"
+        }
+END_INPUT
+
+    assert_success
+    expected='tobor'
+    assert_equal "$expected" "$output"
 }
 
-@test "a capitalised word" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f reverse-string.jq <<< '{"value": "Ramen"}'
+@test 'a capitalized word' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  assert_success
-  assert_output "nemaR"
+    run jq -r -f reverse-string.jq <<'END_INPUT'
+        {
+          "value": "Ramen"
+        }
+END_INPUT
+
+    assert_success
+    expected='nemaR'
+    assert_equal "$expected" "$output"
 }
 
-@test "a sentence with punctuation" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f reverse-string.jq <<< $'{"value": "I\'m hungry!"}'
+@test 'a sentence with punctuation' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  assert_success
-  assert_output "!yrgnuh m'I"
+    run jq -r -f reverse-string.jq <<'END_INPUT'
+        {
+          "value": "I'm hungry!"
+        }
+END_INPUT
+
+    assert_success
+    expected='!yrgnuh m'\''I'
+    assert_equal "$expected" "$output"
 }
 
-@test "a palindrome" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f reverse-string.jq <<< '{"value": "racecar"}'
+@test 'a palindrome' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  assert_success
-  assert_output "racecar"
+    run jq -r -f reverse-string.jq <<'END_INPUT'
+        {
+          "value": "racecar"
+        }
+END_INPUT
+
+    assert_success
+    expected='racecar'
+    assert_equal "$expected" "$output"
 }
 
-@test "an even-sized word" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  run jq -r -f reverse-string.jq <<< '{"value": "drawer"}'
+@test 'an even-sized word' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-  assert_success
-  assert_output "reward"
+    run jq -r -f reverse-string.jq <<'END_INPUT'
+        {
+          "value": "drawer"
+        }
+END_INPUT
+
+    assert_success
+    expected='reward'
+    assert_equal "$expected" "$output"
 }
+

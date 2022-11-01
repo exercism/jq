@@ -10,7 +10,7 @@ def validate:
   ([.bucketOne, .bucketTwo] | max) as $max |
   ([.bucketOne, .bucketTwo] | gcd) as $gcd |
   if (.goal > $max) or ($gcd != 1 and .goal % $gcd != 0)
-    then ("goal is impossible to satisfy" | halt_error)
+    then ("impossible" | halt_error)
     else .
   end;
 

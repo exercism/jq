@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: describe completions
+
 usage="$(basename "$0") [-p problem_specs_path] slug"
 probspec=
 slug=
@@ -37,6 +39,8 @@ parseOpts() {
     [[ -d $exerciseDir ]] || die "Directory does not exist: $exerciseDir"
 }
 
+# this is taken from `configlet`
+# - not fully implemented in case of unclean working directory
 refreshProbSpecs() {
     local dir
     local repo="problem-specifications"
@@ -61,6 +65,42 @@ refreshProbSpecs() {
     fi
 }
 
+arrayContains() {
+    local -n _arr=$1
+    local elem=$2 e
+    for e in "${_arr[@]}"; do
+        [[ $elem == "$e" ]] && return 0
+    done
+    return 1
+}
+
+runCommand() {
+    local compact=(
+        anagram
+        etl
+        nucleotide-count
+        protein-translation
+        proverb
+        satellite
+        sieve
+        transpose
+        two-bucket
+    )
+    case $slug in
+        rna-transcription)
+            printf 'jq -r \x27include "./rna-transcription"; .dna | toRna\x27'
+            ;;
+        collatz-conjecture)
+            printf 'jq -r \x27import "./collatz-conjecture" as Collatz; .number | Collatz::steps\x27'
+            ;;
+        *)
+            local opts
+            arrayContains compact "$slug" && opts='-c' || opts='-r'
+            printf 'jq %s -f %s.jq' "$opts" "$slug"
+            ;;
+    esac
+}
+
 writeTestFile() {
     local canonicalData="$probspec/exercises/$slug/canonical-data.json"
     [[ -f $canonicalData ]] || die "No canonical data for $slug"
@@ -73,31 +113,56 @@ writeTestFile() {
 load bats-extra
 END_PREAMBLE
 
-        jq -r --arg slug "$slug" '
-            "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n" as $skip |
-            reduce .cases[] as $case (["", true]; 
-                . as [$tests, $isfirst] |
-                [$tests + 
-                ($case | 
-                 "\n" +
-                 "@test \(.description | @sh) {\n" +
-                 "    " + (if $isfirst then "#" else "" end) + $skip +
-                 "\n" +
-                 "    run jq -r -f \($slug).jq <<END_INPUT\n" +
-                 "\(.input | @json)\n" +
-                 "END_INPUT\n" +
-                 "\n" +
-                 "    assert_success\n" +
-                 "\n" +
-                 "    actual=$output\n" +
-                 "    expected=\(.expected | @sh)\n" +
-                 "    assert_equal \"$expected\" \"$actual\"\n" +
-                 "}\n"),
-                 false]
+        jq -r --arg slug "$slug" \
+              --arg cmd  "$(runCommand)" \
+              --arg Q    "'" \
+        '
+            def generate_test($isfirst; $skip):
+                "\n"
+                + "@test \(.description | @sh) {\n"
+                + "    "
+                + (if $isfirst then "#" else "" end) + $skip
+                + "\n"
+                + "    run \($cmd) <<\($Q)END_INPUT\($Q)\n"
+                + "\(.input | @json)\n"
+                + "END_INPUT\n"
+                + "\n"
+                + ( if (.expected | type == "object")
+                    then
+                        if (.expected | has("error"))
+                        then
+                            "    assert_failure\n"
+                            + "    expected=\(.expected.error | @sh)\n"
+                        else
+                            "    assert_success\n"
+                            + "    expected=$(cat <<\($Q)END_EXPECTED\($Q)\n"
+                            + "\(.expected | @json)\n"
+                            + "END_EXPECTED\n"
+                            + ")\n"
+                        end
+                        + "    assert_equal \"$expected\" \"$output\"\n"
+                    else
+                        "    assert_success\n"
+                        + ( if (.expected | type == "array")
+                            then "    expected=\(.expected | @json | @sh)\n"
+                            else "    expected=\(.expected | @sh)\n"
+                            end )
+                        + "    assert_equal \"$expected\" \"$output\"\n"
+                    end
+                )
+                + "}\n"
+                ;
+
+            "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n" as $skip
+            | (.cases | map(select(has("reimplements")) | .reimplements)) as $reimplemented
+            | reduce (.cases | map(select(.uuid | IN($reimplemented[]) | not)))[] as $case (["", true];
+                . as [$tests_text, $isfirst]
+                | [$tests_text + ($case | generate_test($isfirst; $skip)), false]
             ) | first
-        ' "$canonicalData" 
+        ' "$canonicalData"
     } \
-	| awk '
+    | awk '
+        # this pretty-prints the JSON data in the END_INPUT heredoc
         BEGIN {jq = "jq ."}
         /^END_INPUT/ {f=0}
         f {
@@ -109,7 +174,7 @@ END_PREAMBLE
             close(jq, "from")
             next
         }
-        /<<END_INPUT/ {f=1}
+        /<<'\''END_INPUT'\''/ {f=1}
         {print}
     ' \
     | tee "$testFile"
@@ -118,5 +183,23 @@ END_PREAMBLE
 [[ -d ./exercises/practice ]] || die "Run me from the repo root."
 
 parseOpts "$@"
+
+omit=(
+    gigasecond
+    # following use nested cases, not implemented yet:
+    atbash-cipher
+    beer-song
+    forth
+    resistor-color
+    resistor-color-duo
+    resistor-color-trio
+    run-length-encoding
+    zebra-puzzle
+)
+if arrayContains omit "$slug"; then
+    err "Don't generate tests for exercise $slug"
+    exit
+fi
+
 refreshProbSpecs
 writeTestFile

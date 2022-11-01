@@ -1,52 +1,46 @@
 #!/usr/bin/env bats
-# generated on 2022-10-31T20:43:56Z
+# generated on 2022-11-01T19:49:43Z
 load bats-extra
 
 @test 'no name given' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f two-fer.jq <<END_INPUT
+    run jq -r -f two-fer.jq <<'END_INPUT'
         {
           "name": null
         }
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected='One for you, one for me.'
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test 'a name given' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f two-fer.jq <<END_INPUT
+    run jq -r -f two-fer.jq <<'END_INPUT'
         {
           "name": "Alice"
         }
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected='One for Alice, one for me.'
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test 'another name given' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f two-fer.jq <<END_INPUT
+    run jq -r -f two-fer.jq <<'END_INPUT'
         {
           "name": "Bob"
         }
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected='One for Bob, one for me.'
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 

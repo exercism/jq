@@ -1,89 +1,139 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:04Z
 load bats-extra
 
-# populates a valid JSON file like:
-#       {
-#         "strand1": "some string",
-#         "strand2": "some other string"
-#       }
-populate_test_file() {
-    jq --arg strand1 "$1" \
-       --arg strand2 "$2" \
-       -n '$ARGS.named' > input.json
-}
-
-teardown() {
-    rm -f input.json
-}
-
 @test 'empty strands' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file '' ''
-  run jq -r -f hamming.jq input.json
-  assert_success
-  assert_output "0"
+    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "",
+          "strand2": ""
+        }
+END_INPUT
+
+    assert_success
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
 @test 'single letter identical strands' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'A' 'A'
-  run jq -r -f hamming.jq input.json
-  assert_success
-  assert_output "0"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "A",
+          "strand2": "A"
+        }
+END_INPUT
+
+    assert_success
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
 @test 'single letter different strands' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'G' 'T'
-  run jq -r -f hamming.jq input.json
-  assert_success
-  assert_output "1"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "G",
+          "strand2": "T"
+        }
+END_INPUT
+
+    assert_success
+    expected=1
+    assert_equal "$expected" "$output"
 }
 
 @test 'long identical strands' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'GGACTGAAATCTG' 'GGACTGAAATCTG'
-  run jq -r -f hamming.jq input.json
-  assert_success
-  assert_output "0"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "GGACTGAAATCTG",
+          "strand2": "GGACTGAAATCTG"
+        }
+END_INPUT
+
+    assert_success
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
 @test 'long different strands' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'GGACGGATTCTG' 'AGGACGGATTCT'
-  run jq -r -f hamming.jq input.json
-  assert_success
-  assert_output "9"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "GGACGGATTCTG",
+          "strand2": "AGGACGGATTCT"
+        }
+END_INPUT
+
+    assert_success
+    expected=9
+    assert_equal "$expected" "$output"
 }
 
 @test 'disallow first strand longer' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'AATG' 'AAA'
-  run jq -r -f hamming.jq input.json
-  assert_failure
-  assert_output --partial "strands must be of equal length"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "AATG",
+          "strand2": "AAA"
+        }
+END_INPUT
+
+    assert_failure
+    expected='strands must be of equal length'
+    assert_equal "$expected" "$output"
 }
 
 @test 'disallow second strand longer' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'ATA' 'AGTG'
-  run jq -r -f hamming.jq input.json
-  assert_failure
-  assert_output --partial "strands must be of equal length"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "ATA",
+          "strand2": "AGTG"
+        }
+END_INPUT
+
+    assert_failure
+    expected='strands must be of equal length'
+    assert_equal "$expected" "$output"
 }
 
 @test 'disallow empty first strand' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file '' 'G'
-  run jq -r -f hamming.jq input.json
-  assert_failure
-  assert_output --partial "strands must be of equal length"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "",
+          "strand2": "G"
+        }
+END_INPUT
+
+    assert_failure
+    expected='strands must be of equal length'
+    assert_equal "$expected" "$output"
 }
 
 @test 'disallow empty second strand' {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-  populate_test_file 'G' ''
-  run jq -r -f hamming.jq input.json
-  assert_failure
-  assert_output --partial "strands must be of equal length"
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f hamming.jq <<'END_INPUT'
+        {
+          "strand1": "G",
+          "strand2": ""
+        }
+END_INPUT
+
+    assert_failure
+    expected='strands must be of equal length'
+    assert_equal "$expected" "$output"
 }
+

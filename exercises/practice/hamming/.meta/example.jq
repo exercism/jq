@@ -3,7 +3,7 @@ def assert(cond; errmsg):
   else .
   end;
 
-assert((.strand1 | length) == (.strand2 | length); "Error: strands must be of equal length")
+assert((.strand1 | length) == (.strand2 | length); "strands must be of equal length")
 | [(.strand1 | explode), (.strand2 | explode)]
 | transpose
 | map(select(.[0] != .[1]))
