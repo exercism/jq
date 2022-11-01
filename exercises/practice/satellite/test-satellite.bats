@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:35Z
+# generated on 2022-11-01T20:18:55Z
 load bats-extra
 
 @test 'Empty tree' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f satellite.jq <<'END_INPUT'
+    run jq -c -f satellite.jq << 'END_INPUT'
         {
           "preorder": [],
           "inorder": []
@@ -13,17 +13,14 @@ load bats-extra
 END_INPUT
 
     assert_success
-    expected=$(cat <<'END_EXPECTED'
-{}
-END_EXPECTED
-)
+    expected='{}'
     assert_equal "$expected" "$output"
 }
 
 @test 'Tree with one item' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f satellite.jq <<'END_INPUT'
+    run jq -c -f satellite.jq << 'END_INPUT'
         {
           "preorder": [
             "a"
@@ -35,17 +32,14 @@ END_EXPECTED
 END_INPUT
 
     assert_success
-    expected=$(cat <<'END_EXPECTED'
-{"v":"a","l":{},"r":{}}
-END_EXPECTED
-)
+    expected='{"v":"a","l":{},"r":{}}'
     assert_equal "$expected" "$output"
 }
 
 @test 'Tree with many items' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f satellite.jq <<'END_INPUT'
+    run jq -c -f satellite.jq << 'END_INPUT'
         {
           "preorder": [
             "a",
@@ -65,17 +59,14 @@ END_EXPECTED
 END_INPUT
 
     assert_success
-    expected=$(cat <<'END_EXPECTED'
-{"v":"a","l":{"v":"i","l":{},"r":{}},"r":{"v":"x","l":{"v":"f","l":{},"r":{}},"r":{"v":"r","l":{},"r":{}}}}
-END_EXPECTED
-)
+    expected='{"v":"a","l":{"v":"i","l":{},"r":{}},"r":{"v":"x","l":{"v":"f","l":{},"r":{}},"r":{"v":"r","l":{},"r":{}}}}'
     assert_equal "$expected" "$output"
 }
 
 @test 'Reject traversals of different length' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f satellite.jq <<'END_INPUT'
+    run jq -c -f satellite.jq << 'END_INPUT'
         {
           "preorder": [
             "a",
@@ -97,7 +88,7 @@ END_INPUT
 @test 'Reject inconsistent traversals of same length' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f satellite.jq <<'END_INPUT'
+    run jq -c -f satellite.jq << 'END_INPUT'
         {
           "preorder": [
             "x",
@@ -120,7 +111,7 @@ END_INPUT
 @test 'Reject traversals with repeated items' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f satellite.jq <<'END_INPUT'
+    run jq -c -f satellite.jq << 'END_INPUT'
         {
           "preorder": [
             "a",

@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:05Z
+# generated on 2022-11-01T20:18:25Z
 load bats-extra
 
 @test 'Say Hi!' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hello-world.jq <<'END_INPUT'
+    run jq -r -f hello-world.jq << 'END_INPUT'
         {}
 END_INPUT
 

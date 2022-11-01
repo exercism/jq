@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:40Z
+# generated on 2022-11-01T20:19:00Z
 load bats-extra
 
 @test 'empty string' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": []
         }
@@ -19,7 +19,7 @@ END_INPUT
 @test 'two characters in a row' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "A1"
@@ -35,7 +35,7 @@ END_INPUT
 @test 'two characters in a column' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "A",
@@ -52,7 +52,7 @@ END_INPUT
 @test 'simple' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "ABC",
@@ -69,7 +69,7 @@ END_INPUT
 @test 'single line' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "Single line."
@@ -85,7 +85,7 @@ END_INPUT
 @test 'first line longer than second line' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "The fourth line.",
@@ -102,7 +102,7 @@ END_INPUT
 @test 'second line longer than first line' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "The first line.",
@@ -119,7 +119,7 @@ END_INPUT
 @test 'mixed line length' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "The longest line.",
@@ -138,7 +138,7 @@ END_INPUT
 @test 'square' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "HEART",
@@ -158,7 +158,7 @@ END_INPUT
 @test 'rectangle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "FRACTURE",
@@ -177,7 +177,7 @@ END_INPUT
 @test 'triangle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "T",
@@ -198,7 +198,7 @@ END_INPUT
 @test 'jagged triangle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f transpose.jq <<'END_INPUT'
+    run jq -c -f transpose.jq << 'END_INPUT'
         {
           "lines": [
             "11",

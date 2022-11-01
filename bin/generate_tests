@@ -12,12 +12,12 @@ die() { err "$*"; exit 1; }
 usage() {
     [[ $1 ]] && err "$1"
     err "$usage"
-    exit ${rc:-0}
+    exit "${rc:-0}"
 }
 
 getCacheDir() {
     local cacheDir
-    cacheDir=${XDG_CACHE_HOME:="$HOME/.cache"}
+    cacheDir=${XDG_CACHE_HOME:-"$HOME/.cache"}
     printf '%s' "$cacheDir"
 }
 
@@ -52,15 +52,15 @@ refreshProbSpecs() {
     fi
     if [[ ! -d $probspec ]]; then
         (
-            cd "$probspec/.." &&
-            git clone --depth 1 --single-branch -- "$url"
+            cd "$probspec/.." \
+            && git clone --depth 1 --single-branch -- "$url"
         )
     else
         (
-            cd "$probspec" &&
-            git checkout main
-            git fetch --quiet
-            git merge --ff-only origin/main
+            cd "$probspec" \
+            && git checkout main \
+            && git fetch --quiet \
+            && git merge --ff-only origin/main
         )
     fi
 }
@@ -75,6 +75,7 @@ arrayContains() {
 }
 
 runCommand() {
+    # shellcheck disable=SC2034
     local compact=(
         anagram
         etl
@@ -94,9 +95,9 @@ runCommand() {
             printf 'jq -r \x27import "./collatz-conjecture" as Collatz; .number | Collatz::steps\x27'
             ;;
         *)
-            local opts
-            arrayContains compact "$slug" && opts='-c' || opts='-r'
-            printf 'jq %s -f %s.jq' "$opts" "$slug"
+            local opt
+            arrayContains compact "$slug" && opt='-c' || opt='-r'
+            printf 'jq %s -f %s.jq' "$opt" "$slug"
             ;;
     esac
 }
@@ -107,7 +108,7 @@ writeTestFile() {
 
     local testFile="./exercises/practice/$slug/test-${slug}.bats"
     {
-        cat <<END_PREAMBLE
+        cat << END_PREAMBLE
 #!/usr/bin/env bats
 # generated on $(date --utc "+%FT%TZ")
 load bats-extra
@@ -123,7 +124,7 @@ END_PREAMBLE
                 + "    "
                 + (if $isfirst then "#" else "" end) + $skip
                 + "\n"
-                + "    run \($cmd) <<\($Q)END_INPUT\($Q)\n"
+                + "    run \($cmd) << \($Q)END_INPUT\($Q)\n"
                 + "\(.input | @json)\n"
                 + "END_INPUT\n"
                 + "\n"
@@ -135,10 +136,7 @@ END_PREAMBLE
                             + "    expected=\(.expected.error | @sh)\n"
                         else
                             "    assert_success\n"
-                            + "    expected=$(cat <<\($Q)END_EXPECTED\($Q)\n"
-                            + "\(.expected | @json)\n"
-                            + "END_EXPECTED\n"
-                            + ")\n"
+                            + "    expected=\(.expected | @json | @sh)\n"
                         end
                         + "    assert_equal \"$expected\" \"$output\"\n"
                     else
@@ -174,7 +172,7 @@ END_PREAMBLE
             close(jq, "from")
             next
         }
-        /<<'\''END_INPUT'\''/ {f=1}
+        /<< '\''END_INPUT'\''/ {f=1}
         {print}
     ' \
     | tee "$testFile"
@@ -184,6 +182,7 @@ END_PREAMBLE
 
 parseOpts "$@"
 
+# shellcheck disable=SC2034
 omit=(
     gigasecond
     # following use nested cases, not implemented yet:

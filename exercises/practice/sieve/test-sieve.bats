@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:38Z
+# generated on 2022-11-01T20:18:58Z
 load bats-extra
 
 @test 'no primes under two' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f sieve.jq <<'END_INPUT'
+    run jq -c -f sieve.jq << 'END_INPUT'
         {
           "limit": 1
         }
@@ -19,7 +19,7 @@ END_INPUT
 @test 'find first prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f sieve.jq <<'END_INPUT'
+    run jq -c -f sieve.jq << 'END_INPUT'
         {
           "limit": 2
         }
@@ -33,7 +33,7 @@ END_INPUT
 @test 'find primes up to 10' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f sieve.jq <<'END_INPUT'
+    run jq -c -f sieve.jq << 'END_INPUT'
         {
           "limit": 10
         }
@@ -47,7 +47,7 @@ END_INPUT
 @test 'limit is prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f sieve.jq <<'END_INPUT'
+    run jq -c -f sieve.jq << 'END_INPUT'
         {
           "limit": 13
         }
@@ -61,7 +61,7 @@ END_INPUT
 @test 'find primes up to 1000' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -c -f sieve.jq <<'END_INPUT'
+    run jq -c -f sieve.jq << 'END_INPUT'
         {
           "limit": 1000
         }

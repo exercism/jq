@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:10Z
+# generated on 2022-11-01T20:18:29Z
 load bats-extra
 
 @test 'when teenth Monday is the 13th, the first day of the teenth week' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -22,7 +22,7 @@ END_INPUT
 @test 'when teenth Monday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -39,7 +39,7 @@ END_INPUT
 @test 'when teenth Monday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -56,7 +56,7 @@ END_INPUT
 @test 'when teenth Tuesday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -73,7 +73,7 @@ END_INPUT
 @test 'when teenth Tuesday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -90,7 +90,7 @@ END_INPUT
 @test 'when teenth Tuesday is the 13th, the first day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -107,7 +107,7 @@ END_INPUT
 @test 'when teenth Wednesday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 1,
@@ -124,7 +124,7 @@ END_INPUT
 @test 'when teenth Wednesday is the 13th, the first day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -141,7 +141,7 @@ END_INPUT
 @test 'when teenth Wednesday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -158,7 +158,7 @@ END_INPUT
 @test 'when teenth Thursday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -175,7 +175,7 @@ END_INPUT
 @test 'when teenth Thursday is the 13th, the first day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -192,7 +192,7 @@ END_INPUT
 @test 'when teenth Thursday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -209,7 +209,7 @@ END_INPUT
 @test 'when teenth Friday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -226,7 +226,7 @@ END_INPUT
 @test 'when teenth Friday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -243,7 +243,7 @@ END_INPUT
 @test 'when teenth Friday is the 13th, the first day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -260,7 +260,7 @@ END_INPUT
 @test 'when teenth Saturday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -277,7 +277,7 @@ END_INPUT
 @test 'when teenth Saturday is the 13th, the first day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -294,7 +294,7 @@ END_INPUT
 @test 'when teenth Saturday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -311,7 +311,7 @@ END_INPUT
 @test 'when teenth Sunday is the 19th, the last day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -328,7 +328,7 @@ END_INPUT
 @test 'when teenth Sunday is some day in the middle of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -345,7 +345,7 @@ END_INPUT
 @test 'when teenth Sunday is the 13th, the first day of the teenth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -362,7 +362,7 @@ END_INPUT
 @test 'when first Monday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -379,7 +379,7 @@ END_INPUT
 @test 'when first Monday is the 1st, the first day of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -396,7 +396,7 @@ END_INPUT
 @test 'when first Tuesday is the 7th, the last day of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -413,7 +413,7 @@ END_INPUT
 @test 'when first Tuesday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -430,7 +430,7 @@ END_INPUT
 @test 'when first Wednesday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 7,
@@ -447,7 +447,7 @@ END_INPUT
 @test 'when first Wednesday is the 7th, the last day of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -464,7 +464,7 @@ END_INPUT
 @test 'when first Thursday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -481,7 +481,7 @@ END_INPUT
 @test 'when first Thursday is another day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -498,7 +498,7 @@ END_INPUT
 @test 'when first Friday is the 1st, the first day of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 11,
@@ -515,7 +515,7 @@ END_INPUT
 @test 'when first Friday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 12,
@@ -532,7 +532,7 @@ END_INPUT
 @test 'when first Saturday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 1,
@@ -549,7 +549,7 @@ END_INPUT
 @test 'when first Saturday is another day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -566,7 +566,7 @@ END_INPUT
 @test 'when first Sunday is some day in the middle of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -583,7 +583,7 @@ END_INPUT
 @test 'when first Sunday is the 7th, the last day of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -600,7 +600,7 @@ END_INPUT
 @test 'when second Monday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -617,7 +617,7 @@ END_INPUT
 @test 'when second Monday is the 8th, the first day of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -634,7 +634,7 @@ END_INPUT
 @test 'when second Tuesday is the 14th, the last day of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -651,7 +651,7 @@ END_INPUT
 @test 'when second Tuesday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -668,7 +668,7 @@ END_INPUT
 @test 'when second Wednesday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 7,
@@ -685,7 +685,7 @@ END_INPUT
 @test 'when second Wednesday is the 14th, the last day of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -702,7 +702,7 @@ END_INPUT
 @test 'when second Thursday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -719,7 +719,7 @@ END_INPUT
 @test 'when second Thursday is another day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -736,7 +736,7 @@ END_INPUT
 @test 'when second Friday is the 8th, the first day of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 11,
@@ -753,7 +753,7 @@ END_INPUT
 @test 'when second Friday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 12,
@@ -770,7 +770,7 @@ END_INPUT
 @test 'when second Saturday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 1,
@@ -787,7 +787,7 @@ END_INPUT
 @test 'when second Saturday is another day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -804,7 +804,7 @@ END_INPUT
 @test 'when second Sunday is some day in the middle of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -821,7 +821,7 @@ END_INPUT
 @test 'when second Sunday is the 14th, the last day of the second week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -838,7 +838,7 @@ END_INPUT
 @test 'when third Monday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -855,7 +855,7 @@ END_INPUT
 @test 'when third Monday is the 15th, the first day of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -872,7 +872,7 @@ END_INPUT
 @test 'when third Tuesday is the 21st, the last day of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -889,7 +889,7 @@ END_INPUT
 @test 'when third Tuesday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -906,7 +906,7 @@ END_INPUT
 @test 'when third Wednesday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 7,
@@ -923,7 +923,7 @@ END_INPUT
 @test 'when third Wednesday is the 21st, the last day of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -940,7 +940,7 @@ END_INPUT
 @test 'when third Thursday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -957,7 +957,7 @@ END_INPUT
 @test 'when third Thursday is another day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -974,7 +974,7 @@ END_INPUT
 @test 'when third Friday is the 15th, the first day of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 11,
@@ -991,7 +991,7 @@ END_INPUT
 @test 'when third Friday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 12,
@@ -1008,7 +1008,7 @@ END_INPUT
 @test 'when third Saturday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 1,
@@ -1025,7 +1025,7 @@ END_INPUT
 @test 'when third Saturday is another day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -1042,7 +1042,7 @@ END_INPUT
 @test 'when third Sunday is some day in the middle of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -1059,7 +1059,7 @@ END_INPUT
 @test 'when third Sunday is the 21st, the last day of the third week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -1076,7 +1076,7 @@ END_INPUT
 @test 'when fourth Monday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -1093,7 +1093,7 @@ END_INPUT
 @test 'when fourth Monday is the 22nd, the first day of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -1110,7 +1110,7 @@ END_INPUT
 @test 'when fourth Tuesday is the 28th, the last day of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -1127,7 +1127,7 @@ END_INPUT
 @test 'when fourth Tuesday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -1144,7 +1144,7 @@ END_INPUT
 @test 'when fourth Wednesday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 7,
@@ -1161,7 +1161,7 @@ END_INPUT
 @test 'when fourth Wednesday is the 28th, the last day of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -1178,7 +1178,7 @@ END_INPUT
 @test 'when fourth Thursday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -1195,7 +1195,7 @@ END_INPUT
 @test 'when fourth Thursday is another day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -1212,7 +1212,7 @@ END_INPUT
 @test 'when fourth Friday is the 22nd, the first day of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 11,
@@ -1229,7 +1229,7 @@ END_INPUT
 @test 'when fourth Friday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 12,
@@ -1246,7 +1246,7 @@ END_INPUT
 @test 'when fourth Saturday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 1,
@@ -1263,7 +1263,7 @@ END_INPUT
 @test 'when fourth Saturday is another day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -1280,7 +1280,7 @@ END_INPUT
 @test 'when fourth Sunday is some day in the middle of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -1297,7 +1297,7 @@ END_INPUT
 @test 'when fourth Sunday is the 28th, the last day of the fourth week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -1314,7 +1314,7 @@ END_INPUT
 @test 'last Monday in a month with four Mondays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -1331,7 +1331,7 @@ END_INPUT
 @test 'last Monday in a month with five Mondays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -1348,7 +1348,7 @@ END_INPUT
 @test 'last Tuesday in a month with four Tuesdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 5,
@@ -1365,7 +1365,7 @@ END_INPUT
 @test 'last Tuesday in another month with four Tuesdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 6,
@@ -1382,7 +1382,7 @@ END_INPUT
 @test 'last Wednesday in a month with five Wednesdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 7,
@@ -1399,7 +1399,7 @@ END_INPUT
 @test 'last Wednesday in a month with four Wednesdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 8,
@@ -1416,7 +1416,7 @@ END_INPUT
 @test 'last Thursday in a month with four Thursdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 9,
@@ -1433,7 +1433,7 @@ END_INPUT
 @test 'last Thursday in a month with five Thursdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 10,
@@ -1450,7 +1450,7 @@ END_INPUT
 @test 'last Friday in a month with five Fridays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 11,
@@ -1467,7 +1467,7 @@ END_INPUT
 @test 'last Friday in a month with four Fridays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 12,
@@ -1484,7 +1484,7 @@ END_INPUT
 @test 'last Saturday in a month with four Saturdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 1,
@@ -1501,7 +1501,7 @@ END_INPUT
 @test 'last Saturday in another month with four Saturdays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 2,
@@ -1518,7 +1518,7 @@ END_INPUT
 @test 'last Sunday in a month with five Sundays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 3,
@@ -1535,7 +1535,7 @@ END_INPUT
 @test 'last Sunday in a month with four Sundays' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2013,
           "month": 4,
@@ -1552,7 +1552,7 @@ END_INPUT
 @test 'when last Wednesday in February in a leap year is the 29th' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2012,
           "month": 2,
@@ -1569,7 +1569,7 @@ END_INPUT
 @test 'last Wednesday in December that is also the last day of the year' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2014,
           "month": 12,
@@ -1586,7 +1586,7 @@ END_INPUT
 @test 'when last Sunday in February in a non-leap year is not the 29th' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2015,
           "month": 2,
@@ -1603,7 +1603,7 @@ END_INPUT
 @test 'when first Friday is the 7th, the last day of the first week' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f meetup.jq <<'END_INPUT'
+    run jq -r -f meetup.jq << 'END_INPUT'
         {
           "year": 2012,
           "month": 12,

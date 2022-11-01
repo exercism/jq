@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:38Z
+# generated on 2022-11-01T20:18:58Z
 load bats-extra
 
 @test 'age on Earth' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Earth",
           "seconds": 1000000000
@@ -20,7 +20,7 @@ END_INPUT
 @test 'age on Mercury' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Mercury",
           "seconds": 2134835688
@@ -35,7 +35,7 @@ END_INPUT
 @test 'age on Venus' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Venus",
           "seconds": 189839836
@@ -50,7 +50,7 @@ END_INPUT
 @test 'age on Mars' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Mars",
           "seconds": 2129871239
@@ -65,7 +65,7 @@ END_INPUT
 @test 'age on Jupiter' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Jupiter",
           "seconds": 901876382
@@ -80,7 +80,7 @@ END_INPUT
 @test 'age on Saturn' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Saturn",
           "seconds": 2000000000
@@ -95,7 +95,7 @@ END_INPUT
 @test 'age on Uranus' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Uranus",
           "seconds": 1210123456
@@ -110,7 +110,7 @@ END_INPUT
 @test 'age on Neptune' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Neptune",
           "seconds": 1821023456
@@ -125,7 +125,7 @@ END_INPUT
 @test 'invalid planet causes error' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f space-age.jq <<'END_INPUT'
+    run jq -r -f space-age.jq << 'END_INPUT'
         {
           "planet": "Sun",
           "seconds": 680804807

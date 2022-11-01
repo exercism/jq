@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:04Z
+# generated on 2022-11-01T20:18:23Z
 load bats-extra
 
 @test 'empty strands' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "",
           "strand2": ""
@@ -20,7 +20,7 @@ END_INPUT
 @test 'single letter identical strands' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "A",
           "strand2": "A"
@@ -35,7 +35,7 @@ END_INPUT
 @test 'single letter different strands' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "G",
           "strand2": "T"
@@ -50,7 +50,7 @@ END_INPUT
 @test 'long identical strands' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "GGACTGAAATCTG",
           "strand2": "GGACTGAAATCTG"
@@ -65,7 +65,7 @@ END_INPUT
 @test 'long different strands' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "GGACGGATTCTG",
           "strand2": "AGGACGGATTCT"
@@ -80,7 +80,7 @@ END_INPUT
 @test 'disallow first strand longer' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "AATG",
           "strand2": "AAA"
@@ -95,7 +95,7 @@ END_INPUT
 @test 'disallow second strand longer' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "ATA",
           "strand2": "AGTG"
@@ -110,7 +110,7 @@ END_INPUT
 @test 'disallow empty first strand' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "",
           "strand2": "G"
@@ -125,7 +125,7 @@ END_INPUT
 @test 'disallow empty second strand' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hamming.jq <<'END_INPUT'
+    run jq -r -f hamming.jq << 'END_INPUT'
         {
           "strand1": "G",
           "strand2": ""

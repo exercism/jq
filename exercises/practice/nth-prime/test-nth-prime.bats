@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:20Z
+# generated on 2022-11-01T20:18:40Z
 load bats-extra
 
 @test 'first prime' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f nth-prime.jq <<'END_INPUT'
+    run jq -r -f nth-prime.jq << 'END_INPUT'
         {
           "number": 1
         }
@@ -19,7 +19,7 @@ END_INPUT
 @test 'second prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f nth-prime.jq <<'END_INPUT'
+    run jq -r -f nth-prime.jq << 'END_INPUT'
         {
           "number": 2
         }
@@ -33,7 +33,7 @@ END_INPUT
 @test 'sixth prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f nth-prime.jq <<'END_INPUT'
+    run jq -r -f nth-prime.jq << 'END_INPUT'
         {
           "number": 6
         }
@@ -47,7 +47,7 @@ END_INPUT
 @test 'big prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f nth-prime.jq <<'END_INPUT'
+    run jq -r -f nth-prime.jq << 'END_INPUT'
         {
           "number": 10001
         }
@@ -61,7 +61,7 @@ END_INPUT
 @test 'there is no zeroth prime' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f nth-prime.jq <<'END_INPUT'
+    run jq -r -f nth-prime.jq << 'END_INPUT'
         {
           "number": 0
         }

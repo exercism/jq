@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:36Z
+# generated on 2022-11-01T20:18:56Z
 load bats-extra
 
 @test 'lowercase letter' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "a"
         }
@@ -19,7 +19,7 @@ END_INPUT
 @test 'uppercase letter' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "A"
         }
@@ -33,7 +33,7 @@ END_INPUT
 @test 'valuable letter' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "f"
         }
@@ -47,7 +47,7 @@ END_INPUT
 @test 'short word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "at"
         }
@@ -61,7 +61,7 @@ END_INPUT
 @test 'short, valuable word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "zoo"
         }
@@ -75,7 +75,7 @@ END_INPUT
 @test 'medium word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "street"
         }
@@ -89,7 +89,7 @@ END_INPUT
 @test 'medium, valuable word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "quirky"
         }
@@ -103,7 +103,7 @@ END_INPUT
 @test 'long, mixed-case word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "OxyphenButazone"
         }
@@ -117,7 +117,7 @@ END_INPUT
 @test 'english-like word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "pinata"
         }
@@ -131,7 +131,7 @@ END_INPUT
 @test 'empty input' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": ""
         }
@@ -145,7 +145,7 @@ END_INPUT
 @test 'entire alphabet available' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f scrabble-score.jq <<'END_INPUT'
+    run jq -r -f scrabble-score.jq << 'END_INPUT'
         {
           "word": "abcdefghijklmnopqrstuvwxyz"
         }
