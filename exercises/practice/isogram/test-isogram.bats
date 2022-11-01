@@ -1,100 +1,200 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:06Z
 load bats-extra
 
-@test "empty string" {
+@test 'empty string' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": ""
+        }
+END_INPUT
+
     assert_success
-    assert_output true
+    expected=true
+    assert_equal "$expected" "$output"
 }
 
-@test "isogram with only lower case characters" {
+@test 'isogram with only lower case characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "isogram" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "isogram"
+        }
+END_INPUT
+
     assert_success
-    assert_output true
+    expected=true
+    assert_equal "$expected" "$output"
 }
 
-@test "word with one duplicated character" {
+@test 'word with one duplicated character' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "eleven" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "eleven"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "word with one duplicated character from the end of the alphabet" {
+@test 'word with one duplicated character from the end of the alphabet' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "zzyzx" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "zzyzx"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "longest reported english isogram" {
+@test 'longest reported english isogram' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "subdermatoglyphic" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "subdermatoglyphic"
+        }
+END_INPUT
+
     assert_success
-    assert_output true
+    expected=true
+    assert_equal "$expected" "$output"
 }
 
-@test "word with duplicated character in mixed case" {
+@test 'word with duplicated character in mixed case' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "Alphabet" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "Alphabet"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "word with duplicated character in mixed case, lowercase first" {
+@test 'word with duplicated character in mixed case, lowercase first' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "alphAbet" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "alphAbet"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "hypothetical isogrammic word with hyphen" {
+@test 'hypothetical isogrammic word with hyphen' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "thumbscrew-japingly" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "thumbscrew-japingly"
+        }
+END_INPUT
+
     assert_success
-    assert_output true
+    expected=true
+    assert_equal "$expected" "$output"
 }
 
-@test "hypothetical word with duplicated character following hyphen" {
+@test 'hypothetical word with duplicated character following hyphen' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "thumbscrew-jappingly" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "thumbscrew-jappingly"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "isogram with duplicated hyphen" {
+@test 'isogram with duplicated hyphen' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "six-year-old" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "six-year-old"
+        }
+END_INPUT
+
     assert_success
-    assert_output true
+    expected=true
+    assert_equal "$expected" "$output"
 }
 
-@test "made-up name that is an isogram" {
+@test 'made-up name that is an isogram' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "Emily Jung Schwartzkopf" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "Emily Jung Schwartzkopf"
+        }
+END_INPUT
+
     assert_success
-    assert_output true
+    expected=true
+    assert_equal "$expected" "$output"
 }
 
-@test "duplicated character in the middle" {
+@test 'duplicated character in the middle' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "accentor" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "accentor"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "same first and last characters" {
+@test 'same first and last characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "angola" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "angola"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
 
-@test "word with duplicated character and with two hyphens" {
+@test 'word with duplicated character and with two hyphens' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f isogram.jq <<< '{ "phrase": "up-to-date" }'
+
+    run jq -r -f isogram.jq <<'END_INPUT'
+        {
+          "phrase": "up-to-date"
+        }
+END_INPUT
+
     assert_success
-    assert_output false
+    expected=false
+    assert_equal "$expected" "$output"
 }
+

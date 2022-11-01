@@ -19,10 +19,10 @@
 } as $c2p |
 [
     label $translate |
-    foreach (.strand | scan("[AUGC]{3}")) as $codon (null; $c2p[$codon];
+    foreach (.strand | scan(".{1,3}")) as $codon (null; $c2p[$codon];
         if . == "STOP" then break $translate
         elif . then .
-        else empty
+        else "Invalid codon" | halt_error
         end
     )
 ]  

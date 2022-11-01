@@ -1,212 +1,424 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:25Z
 load bats-extra
 
-@test "Empty RNA sequence results in no proteins" {
+@test 'Empty RNA sequence results in no proteins' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": ""}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": ""
+        }
+END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Methionine RNA sequence" {
+@test 'Methionine RNA sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "AUG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "AUG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Methionine"]'
+    expected='["Methionine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Phenylalanine RNA sequence 1" {
+@test 'Phenylalanine RNA sequence 1' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Phenylalanine"]'
+    expected='["Phenylalanine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Phenylalanine RNA sequence 2" {
+@test 'Phenylalanine RNA sequence 2' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUC"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUC"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Phenylalanine"]'
+    expected='["Phenylalanine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Leucine RNA sequence 1" {
+@test 'Leucine RNA sequence 1' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUA"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUA"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Leucine"]'
+    expected='["Leucine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Leucine RNA sequence 2" {
+@test 'Leucine RNA sequence 2' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Leucine"]'
+    expected='["Leucine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Serine RNA sequence 1" {
+@test 'Serine RNA sequence 1' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UCU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UCU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Serine"]'
+    expected='["Serine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Serine RNA sequence 2" {
+@test 'Serine RNA sequence 2' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UCC"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UCC"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Serine"]'
+    expected='["Serine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Serine RNA sequence 3" {
+@test 'Serine RNA sequence 3' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UCA"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UCA"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Serine"]'
+    expected='["Serine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Serine RNA sequence 4" {
+@test 'Serine RNA sequence 4' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UCG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UCG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Serine"]'
+    expected='["Serine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Tyrosine RNA sequence 1" {
+@test 'Tyrosine RNA sequence 1' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UAU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UAU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Tyrosine"]'
+    expected='["Tyrosine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Tyrosine RNA sequence 2" {
+@test 'Tyrosine RNA sequence 2' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UAC"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UAC"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Tyrosine"]'
+    expected='["Tyrosine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Cysteine RNA sequence 1" {
+@test 'Cysteine RNA sequence 1' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Cysteine"]'
+    expected='["Cysteine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Cysteine RNA sequence 2" {
+@test 'Cysteine RNA sequence 2' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGC"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGC"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Cysteine"]'
+    expected='["Cysteine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Tryptophan RNA sequence" {
+@test 'Tryptophan RNA sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Tryptophan"]'
+    expected='["Tryptophan"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "STOP codon RNA sequence 1" {
+@test 'STOP codon RNA sequence 1' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UAA"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UAA"
+        }
+END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "STOP codon RNA sequence 2" {
+@test 'STOP codon RNA sequence 2' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UAG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UAG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "STOP codon RNA sequence 3" {
+@test 'STOP codon RNA sequence 3' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGA"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGA"
+        }
+END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Sequence of two protein codons translates into proteins" {
+@test 'Sequence of two protein codons translates into proteins' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUUUUU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUUUUU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Phenylalanine","Phenylalanine"]'
+    expected='["Phenylalanine","Phenylalanine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Sequence of two different protein codons translates into proteins" {
+@test 'Sequence of two different protein codons translates into proteins' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUAUUG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUAUUG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Leucine","Leucine"]'
+    expected='["Leucine","Leucine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Translate RNA strand into correct protein list" {
+@test 'Translate RNA strand into correct protein list' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "AUGUUUUGG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "AUGUUUUGG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Methionine","Phenylalanine","Tryptophan"]'
+    expected='["Methionine","Phenylalanine","Tryptophan"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Translation stops if STOP codon at beginning of sequence" {
+@test 'Translation stops if STOP codon at beginning of sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UAGUGG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UAGUGG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Translation stops if STOP codon at end of two-codon sequence" {
+@test 'Translation stops if STOP codon at end of two-codon sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGGUAG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGGUAG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Tryptophan"]'
+    expected='["Tryptophan"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Translation stops if STOP codon at end of three-codon sequence" {
+@test 'Translation stops if STOP codon at end of three-codon sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "AUGUUUUAA"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "AUGUUUUAA"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Methionine","Phenylalanine"]'
+    expected='["Methionine","Phenylalanine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Translation stops if STOP codon in middle of three-codon sequence" {
+@test 'Translation stops if STOP codon in middle of three-codon sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGGUAGUGG"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGGUAGUGG"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Tryptophan"]'
+    expected='["Tryptophan"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Translation stops if STOP codon in middle of six-codon sequence" {
+@test 'Translation stops if STOP codon in middle of six-codon sequence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UGGUGUUAUUAAUGGUUU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UGGUGUUAUUAAUGGUUU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Tryptophan","Cysteine","Tyrosine"]'
+    expected='["Tryptophan","Cysteine","Tyrosine"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "Non-existing codon can't translate: ignore them" {
+@test 'Non-existing codon can'\''t translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "AAA"}'
-    assert_success
-    assert_output '[]'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "AAA"
+        }
+END_INPUT
+
+    assert_failure
+    expected='Invalid codon'
+    assert_equal "$expected" "$output"
 }
 
-@test "Unknown amino acids, not part of a codon, can't translate: ignore them" {
+@test 'Unknown amino acids, not part of a codon, can'\''t translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "XYZ"}'
-    assert_success
-    assert_output '[]'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "XYZ"
+        }
+END_INPUT
+
+    assert_failure
+    expected='Invalid codon'
+    assert_equal "$expected" "$output"
 }
 
-@test "Ignore incomplete RNA sequence can't translate" {
+@test 'Incomplete RNA sequence can'\''t translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "AUGU"}'
-    assert_success
-    assert_output '["Methionine"]'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "AUGU"
+        }
+END_INPUT
+
+    assert_failure
+    expected='Invalid codon'
+    assert_equal "$expected" "$output"
 }
 
-@test "Ignore incomplete RNA sequence after a STOP codon" {
+@test 'Incomplete RNA sequence can translate if valid until a STOP codon' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f protein-translation.jq <<< '{"strand": "UUCUUCUAAUGGU"}'
+
+    run jq -c -f protein-translation.jq <<'END_INPUT'
+        {
+          "strand": "UUCUUCUAAUGGU"
+        }
+END_INPUT
+
     assert_success
-    assert_output '["Phenylalanine","Phenylalanine"]'
+    expected='["Phenylalanine","Phenylalanine"]'
+    assert_equal "$expected" "$output"
 }
+

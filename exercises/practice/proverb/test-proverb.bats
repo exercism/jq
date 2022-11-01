@@ -1,61 +1,110 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:28Z
 load bats-extra
 
-@test "zero pieces" {
+@test 'zero pieces' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f proverb.jq <<< '[]'
+
+    run jq -c -f proverb.jq <<'END_INPUT'
+        {
+          "strings": []
+        }
+END_INPUT
+
     assert_success
-    assert_output ""
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "one piece" {
+@test 'one piece' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f proverb.jq <<< '["nail"]'
+
+    run jq -c -f proverb.jq <<'END_INPUT'
+        {
+          "strings": [
+            "nail"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_line --index 0 "And all for the want of a nail."
-    assert_equal "${#lines[@]}" 1
+    expected='["And all for the want of a nail."]'
+    assert_equal "$expected" "$output"
 }
 
-@test "two pieces" {
+@test 'two pieces' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f proverb.jq <<< '["nail", "shoe"]'
+
+    run jq -c -f proverb.jq <<'END_INPUT'
+        {
+          "strings": [
+            "nail",
+            "shoe"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_line --index 0 "For want of a nail the shoe was lost."
-    assert_line --index 1 "And all for the want of a nail."
-    assert_equal "${#lines[@]}" 2
+    expected='["For want of a nail the shoe was lost.","And all for the want of a nail."]'
+    assert_equal "$expected" "$output"
 }
 
-@test "three pieces" {
+@test 'three pieces' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f proverb.jq <<< '["nail", "shoe", "horse"]'
+
+    run jq -c -f proverb.jq <<'END_INPUT'
+        {
+          "strings": [
+            "nail",
+            "shoe",
+            "horse"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_line --index 0 "For want of a nail the shoe was lost."
-    assert_line --index 1 "For want of a shoe the horse was lost."
-    assert_line --index 2 "And all for the want of a nail."
-    assert_equal "${#lines[@]}" 3
+    expected='["For want of a nail the shoe was lost.","For want of a shoe the horse was lost.","And all for the want of a nail."]'
+    assert_equal "$expected" "$output"
 }
 
-@test "full proverb" {
+@test 'full proverb' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f proverb.jq <<< '["nail", "shoe", "horse", "rider", "message", "battle", "kingdom"]'
+
+    run jq -c -f proverb.jq <<'END_INPUT'
+        {
+          "strings": [
+            "nail",
+            "shoe",
+            "horse",
+            "rider",
+            "message",
+            "battle",
+            "kingdom"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_line --index 0 "For want of a nail the shoe was lost."
-    assert_line --index 1 "For want of a shoe the horse was lost."
-    assert_line --index 2 "For want of a horse the rider was lost."
-    assert_line --index 3 "For want of a rider the message was lost."
-    assert_line --index 4 "For want of a message the battle was lost."
-    assert_line --index 5 "For want of a battle the kingdom was lost."
-    assert_line --index 6 "And all for the want of a nail."
-    assert_equal "${#lines[@]}" 7
+    expected='["For want of a nail the shoe was lost.","For want of a shoe the horse was lost.","For want of a horse the rider was lost.","For want of a rider the message was lost.","For want of a message the battle was lost.","For want of a battle the kingdom was lost.","And all for the want of a nail."]'
+    assert_equal "$expected" "$output"
 }
 
-@test "four pieces modernized" {
+@test 'four pieces modernized' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f proverb.jq <<< '["pin", "gun", "soldier", "battle"]'
+
+    run jq -c -f proverb.jq <<'END_INPUT'
+        {
+          "strings": [
+            "pin",
+            "gun",
+            "soldier",
+            "battle"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_line --index 0 "For want of a pin the gun was lost."
-    assert_line --index 1 "For want of a gun the soldier was lost."
-    assert_line --index 2 "For want of a soldier the battle was lost."
-    assert_line --index 3 "And all for the want of a pin."
-    assert_equal "${#lines[@]}" 4
+    expected='["For want of a pin the gun was lost.","For want of a gun the soldier was lost.","For want of a soldier the battle was lost.","And all for the want of a pin."]'
+    assert_equal "$expected" "$output"
 }
+

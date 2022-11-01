@@ -1,204 +1,298 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:48:49Z
 load bats-extra
 
-@test "no matches" {
+@test 'no matches' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "diaper",
-        "candidates": ["hello", "world", "zombies", "pants"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "diaper",
+          "candidates": [
+            "hello",
+            "world",
+            "zombies",
+            "pants"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-
-@test "detects two anagrams" {
+@test 'detects two anagrams' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "solemn",
-        "candidates": ["lemons", "cherry", "melons"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "solemn",
+          "candidates": [
+            "lemons",
+            "cherry",
+            "melons"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["lemons","melons"]'
+    expected='["lemons","melons"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "does not detect anagram subsets" {
+@test 'does not detect anagram subsets' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "good",
-        "candidates": ["dog", "goody"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "good",
+          "candidates": [
+            "dog",
+            "goody"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "detects anagram" {
+@test 'detects anagram' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "listen",
-        "candidates": ["enlists", "google", "inlets", "banana"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "listen",
+          "candidates": [
+            "enlists",
+            "google",
+            "inlets",
+            "banana"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["inlets"]'
+    expected='["inlets"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "detects three anagrams" {
+@test 'detects three anagrams' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "allergy",
-        "candidates": [
-          "gallery",
-          "ballerina",
-          "regally",
-          "clergy",
-          "largely",
-          "leading"
-        ]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "allergy",
+          "candidates": [
+            "gallery",
+            "ballerina",
+            "regally",
+            "clergy",
+            "largely",
+            "leading"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["gallery","regally","largely"]'
+    expected='["gallery","regally","largely"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "detects multiple anagrams with different case" {
+@test 'detects multiple anagrams with different case' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "nose",
-        "candidates": ["Eons", "ONES"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "nose",
+          "candidates": [
+            "Eons",
+            "ONES"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["Eons","ONES"]'
+    expected='["Eons","ONES"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "does not detect non-anagrams with identical checksum" {
+@test 'does not detect non-anagrams with identical checksum' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "mass",
-        "candidates": ["last"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "mass",
+          "candidates": [
+            "last"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "detects anagrams case-insensitively" {
+@test 'detects anagrams case-insensitively' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "Orchestra",
-        "candidates": ["cashregister", "Carthorse", "radishes"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "Orchestra",
+          "candidates": [
+            "cashregister",
+            "Carthorse",
+            "radishes"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["Carthorse"]'
+    expected='["Carthorse"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "detects anagrams using case-insensitive subject" {
+@test 'detects anagrams using case-insensitive subject' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "Orchestra",
-        "candidates": ["cashregister", "carthorse", "radishes"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "Orchestra",
+          "candidates": [
+            "cashregister",
+            "carthorse",
+            "radishes"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["carthorse"]'
+    expected='["carthorse"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "detects anagrams using case-insensitive possible matches" {
+@test 'detects anagrams using case-insensitive possible matches' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "orchestra",
-        "candidates": ["cashregister", "Carthorse", "radishes"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "orchestra",
+          "candidates": [
+            "cashregister",
+            "Carthorse",
+            "radishes"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["Carthorse"]'
+    expected='["Carthorse"]'
+    assert_equal "$expected" "$output"
 }
 
-@test "does not detect an anagram if the original word is repeated" {
+@test 'does not detect an anagram if the original word is repeated' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "go",
-        "candidates": ["go Go GO"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "go",
+          "candidates": [
+            "go Go GO"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "anagrams must use all letters exactly once" {
+@test 'anagrams must use all letters exactly once' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "tapper",
-        "candidates": ["patter"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "tapper",
+          "candidates": [
+            "patter"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-
-@test "words are not anagrams of themselves" {
+@test 'words are not anagrams of themselves' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "BANANA",
-        "candidates": ["BANANA"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "BANANA",
+          "candidates": [
+            "BANANA"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "words are not anagrams of themselves even if letter case is partially different" {
+@test 'words are not anagrams of themselves even if letter case is partially different' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "BANANA",
-        "candidates": ["Banana"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "BANANA",
+          "candidates": [
+            "Banana"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "words are not anagrams of themselves even if letter case is completely different" {
+@test 'words are not anagrams of themselves even if letter case is completely different' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "BANANA",
-        "candidates": ["banana"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "BANANA",
+          "candidates": [
+            "banana"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '[]'
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-
-@test "words other than themselves can be anagrams" {
+@test 'words other than themselves can be anagrams' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f anagram.jq <<END_INPUT
-      {
-        "subject": "LISTEN",
-        "candidates": ["LISTEN", "Silent"]
-      }
+
+    run jq -c -f anagram.jq <<'END_INPUT'
+        {
+          "subject": "LISTEN",
+          "candidates": [
+            "LISTEN",
+            "Silent"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output '["Silent"]'
+    expected='["Silent"]'
+    assert_equal "$expected" "$output"
 }
+

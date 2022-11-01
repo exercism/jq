@@ -10,4 +10,4 @@ def rtrim_nulls:
 def restringify:
     rtrim_nulls | map(. // 32) | implode;
 
-map(explode) | transpose | map(restringify)
+.lines | map(explode) | transpose | map(restringify)

@@ -1,5 +1,5 @@
 [
-    to_entries[] |
+    .legacy | to_entries[] |
     {
         key: (.value[] | ascii_downcase),
         value: (.key | tonumber)

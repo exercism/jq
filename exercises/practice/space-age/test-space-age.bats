@@ -1,119 +1,139 @@
 #!/usr/bin/env bats
+# generated on 2022-11-01T19:49:38Z
 load bats-extra
 
-@test "age on Earth" {
+@test 'age on Earth' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Earth",
-        "seconds": 1000000000
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Earth",
+          "seconds": 1000000000
+        }
 END_INPUT
 
     assert_success
-    assert_output 31.69
+    expected=31.69
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Mercury" {
+@test 'age on Mercury' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Mercury",
-        "seconds": 2134835688
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Mercury",
+          "seconds": 2134835688
+        }
 END_INPUT
 
     assert_success
-    assert_output 280.88
+    expected=280.88
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Venus" {
+@test 'age on Venus' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Venus",
-        "seconds": 189839836
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Venus",
+          "seconds": 189839836
+        }
 END_INPUT
 
     assert_success
-    assert_output 9.78
+    expected=9.78
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Mars" {
+@test 'age on Mars' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Mars",
-        "seconds": 2129871239
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Mars",
+          "seconds": 2129871239
+        }
 END_INPUT
 
     assert_success
-    assert_output 35.88
+    expected=35.88
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Jupiter" {
+@test 'age on Jupiter' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Jupiter",
-        "seconds": 901876382
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Jupiter",
+          "seconds": 901876382
+        }
 END_INPUT
 
     assert_success
-    assert_output 2.41
+    expected=2.41
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Saturn" {
+@test 'age on Saturn' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Saturn",
-        "seconds": 2000000000
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Saturn",
+          "seconds": 2000000000
+        }
 END_INPUT
 
     assert_success
-    assert_output 2.15
+    expected=2.15
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Uranus" {
+@test 'age on Uranus' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Uranus",
-        "seconds": 1210123456
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Uranus",
+          "seconds": 1210123456
+        }
 END_INPUT
 
     assert_success
-    assert_output 0.46
+    expected=0.46
+    assert_equal "$expected" "$output"
 }
 
-@test "age on Neptune" {
+@test 'age on Neptune' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Neptune",
-        "seconds": 1821023456
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Neptune",
+          "seconds": 1821023456
+        }
 END_INPUT
 
     assert_success
-    assert_output 0.35
+    expected=0.35
+    assert_equal "$expected" "$output"
 }
 
-@test "invalid planet causes error" {
+@test 'invalid planet causes error' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f space-age.jq <<END_INPUT
-      {
-        "planet": "Sun",
-        "seconds": 680804807
-      }
+
+    run jq -r -f space-age.jq <<'END_INPUT'
+        {
+          "planet": "Sun",
+          "seconds": 680804807
+        }
 END_INPUT
 
     assert_failure
-    assert_output "not a planet"
+    expected='not a planet'
+    assert_equal "$expected" "$output"
 }
+

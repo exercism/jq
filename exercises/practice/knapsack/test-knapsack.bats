@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-10-31T20:43:10Z
+# generated on 2022-11-01T19:49:08Z
 load bats-extra
 
 @test 'no items' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 100,
           "items": {}
@@ -13,16 +13,14 @@ load bats-extra
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=0
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test 'one item, too heavy' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 10,
           "items": [
@@ -35,16 +33,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=0
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test 'five items (cannot be greedy by weight)' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 10,
           "items": [
@@ -73,16 +69,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=21
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test 'five items (cannot be greedy by value)' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 10,
           "items": [
@@ -111,16 +105,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=80
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test 'example knapsack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 10,
           "items": [
@@ -145,16 +137,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=90
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test '8 items' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 104,
           "items": [
@@ -195,16 +185,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=900
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
 @test '15 items' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f knapsack.jq <<END_INPUT
+    run jq -r -f knapsack.jq <<'END_INPUT'
         {
           "maximumWeight": 750,
           "items": [
@@ -273,9 +261,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected=1458
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 

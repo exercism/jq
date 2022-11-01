@@ -1,18 +1,16 @@
 #!/usr/bin/env bats
-# generated on 2022-10-31T20:42:44Z
+# generated on 2022-11-01T19:49:05Z
 load bats-extra
 
 @test 'Say Hi!' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f hello-world.jq <<END_INPUT
+    run jq -r -f hello-world.jq <<'END_INPUT'
         {}
 END_INPUT
 
     assert_success
-
-    actual=$output
     expected='Hello, World!'
-    assert_equal "$expected" "$actual"
+    assert_equal "$expected" "$output"
 }
 
