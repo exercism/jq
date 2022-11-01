@@ -290,6 +290,14 @@
         "difficulty": 4
       },
       {
+        "slug": "square-root",
+        "name": "Square Root",
+        "uuid": "54421d36-c2d2-4c62-910c-536b0d08ccbe",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
@@ -309,6 +317,14 @@
         "slug": "meetup",
         "name": "Meetup",
         "uuid": "6a69721e-1b96-40bd-8334-de198b4e59f3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "64890036-c508-4a52-a663-0e4c874625be",
         "practices": [],
         "prerequisites": [],
         "difficulty": 6
@@ -352,14 +368,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 9
-      },
-      {
-        "slug": "knapsack",
-        "name": "Knapsack",
-        "uuid": "64890036-c508-4a52-a663-0e4c874625be",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 6
       }
     ]
   },
