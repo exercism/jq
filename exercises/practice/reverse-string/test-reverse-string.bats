@@ -1,11 +1,11 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T19:49:32Z
+# generated on 2022-11-01T20:18:52Z
 load bats-extra
 
 @test 'an empty string' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f reverse-string.jq <<'END_INPUT'
+    run jq -r -f reverse-string.jq << 'END_INPUT'
         {
           "value": ""
         }
@@ -19,7 +19,7 @@ END_INPUT
 @test 'a word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f reverse-string.jq <<'END_INPUT'
+    run jq -r -f reverse-string.jq << 'END_INPUT'
         {
           "value": "robot"
         }
@@ -33,7 +33,7 @@ END_INPUT
 @test 'a capitalized word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f reverse-string.jq <<'END_INPUT'
+    run jq -r -f reverse-string.jq << 'END_INPUT'
         {
           "value": "Ramen"
         }
@@ -47,7 +47,7 @@ END_INPUT
 @test 'a sentence with punctuation' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f reverse-string.jq <<'END_INPUT'
+    run jq -r -f reverse-string.jq << 'END_INPUT'
         {
           "value": "I'm hungry!"
         }
@@ -61,7 +61,7 @@ END_INPUT
 @test 'a palindrome' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f reverse-string.jq <<'END_INPUT'
+    run jq -r -f reverse-string.jq << 'END_INPUT'
         {
           "value": "racecar"
         }
@@ -75,7 +75,7 @@ END_INPUT
 @test 'an even-sized word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -r -f reverse-string.jq <<'END_INPUT'
+    run jq -r -f reverse-string.jq << 'END_INPUT'
         {
           "value": "drawer"
         }
