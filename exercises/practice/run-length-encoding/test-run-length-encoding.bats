@@ -1,151 +1,342 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:59:44Z
 load bats-extra
 
-# run-length encode a string
-
-@test "encode: empty string" {
+@test 'run-length encode a string:empty string' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode
-    ' <<< '{ "string": "" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "string": ""
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '""'
+    expected=''
+    assert_equal "$expected" "$output"
 }
 
-@test "encode: single characters only are encoded without count" {
+@test 'run-length encode a string:single characters only are encoded without count' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode
-    ' <<< '{ "string": "XYZ" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "string": "XYZ"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"XYZ"'
+    expected='XYZ'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode: string with no single characters" {
+@test 'run-length encode a string:string with no single characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode
-    ' <<< '{ "string": "AABBBCCCC" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "string": "AABBBCCCC"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"2A3B4C"'
+    expected='2A3B4C'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode: single characters mixed with repeated characters" {
+@test 'run-length encode a string:single characters mixed with repeated characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode
-    ' <<< '{ "string": "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "string": "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"12WB12W3B24WB"'
+    expected='12WB12W3B24WB'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode: multiple whitespace mixed in string" {
+@test 'run-length encode a string:multiple whitespace mixed in string' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode
-    ' <<< '{ "string": "  hsqq qww  " }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "string": "  hsqq qww  "
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"2 hs2q q2w2 "'
+    expected='2 hs2q q2w2 '
+    assert_equal "$expected" "$output"
 }
 
-@test "encode: lowercase characters" {
+@test 'run-length encode a string:lowercase characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode
-    ' <<< '{ "string": "aabbbcccc" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "string": "aabbbcccc"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"2a3b4c"'
+    expected='2a3b4c'
+    assert_equal "$expected" "$output"
 }
 
-# run-length decode a string
-
-@test "decode: empty string" {
+@test 'run-length decode a string:empty string' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | decode
-    ' <<< '{ "string": "" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "string": ""
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '""'
+    expected=''
+    assert_equal "$expected" "$output"
 }
 
-@test "decode: single characters only" {
+@test 'run-length decode a string:single characters only' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | decode
-    ' <<< '{ "string": "XYZ" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "string": "XYZ"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"XYZ"'
+    expected='XYZ'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode: string with no single characters" {
+@test 'run-length decode a string:string with no single characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | decode
-    ' <<< '{ "string": "2A3B4C" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "string": "2A3B4C"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"AABBBCCCC"'
+    expected='AABBBCCCC'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode: single characters with repeated characters" {
+@test 'run-length decode a string:single characters with repeated characters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | decode
-    ' <<< '{ "string": "12WB12W3B24WB" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "string": "12WB12W3B24WB"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"'
+    expected='WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode: multiple whitespace mixed in string" {
+@test 'run-length decode a string:multiple whitespace mixed in string' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | decode
-    ' <<< '{ "string": "2 hs2q q2w2 " }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "string": "2 hs2q q2w2 "
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"  hsqq qww  "'
+    expected='  hsqq qww  '
+    assert_equal "$expected" "$output"
 }
 
-@test "decode: lowercase string" {
+@test 'run-length decode a string:lowercase string' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | decode
-    ' <<< '{ "string": "2a3b4c" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "string": "2a3b4c"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"aabbbcccc"'
+    expected='aabbbcccc'
+    assert_equal "$expected" "$output"
 }
 
-# encode and then decode
-
-@test "encode followed by decode gives original string" {
+@test 'encode and then decode:encode followed by decode gives original string' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq '
-        include "run-length-encoding";
-        .string | encode | decode
-    ' <<< '{ "string": "zzz ZZ  zZ" }'
+
+    run jq -r '
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    ' << 'END_INPUT'
+        {
+          "property": "consistency",
+          "input": {
+            "string": "zzz ZZ  zZ"
+          }
+        }
+END_INPUT
 
     assert_success
-    assert_output '"zzz ZZ  zZ"'
+    expected='zzz ZZ  zZ'
+    assert_equal "$expected" "$output"
 }
+

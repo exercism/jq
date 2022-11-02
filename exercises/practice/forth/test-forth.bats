@@ -1,585 +1,785 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:59:07Z
 load bats-extra
 
-# parsing and numbers
-
-@test "numbers just get pushed onto the stack" {
+@test 'parsing and numbers:numbers just get pushed onto the stack' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 3 4 5"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 3 4 5"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,2,3,4,5]"
+    expected='[1,2,3,4,5]'
+    assert_equal "$expected" "$output"
 }
 
-@test "pushes negative numbers onto the stack" {
+@test 'parsing and numbers:pushes negative numbers onto the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["-1 -2 -3 -4 -5"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "-1 -2 -3 -4 -5"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[-1,-2,-3,-4,-5]"
+    expected='[-1,-2,-3,-4,-5]'
+    assert_equal "$expected" "$output"
 }
 
-# addition
-
-@test "can add two numbers" {
+@test 'addition:can add two numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 +"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 +"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[3]"
+    expected='[3]'
+    assert_equal "$expected" "$output"
 }
 
-@test "addition errors if there is nothing on the stack" {
+@test 'addition:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["+"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "+"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-@test "addition errors if there is only one value on the stack" {
+@test 'addition:errors if there is only one value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 +"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 +"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "only one value on the stack"
+    expected='only one value on the stack'
+    assert_equal "$expected" "$output"
 }
 
-# subtraction
-
-@test "can subtract two numbers" {
+@test 'subtraction:can subtract two numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["3 4 -"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "3 4 -"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[-1]"
+    expected='[-1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "subtraction errors if there is nothing on the stack" {
+@test 'subtraction:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["-"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "-"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-@test "subtraction errors if there is only one value on the stack" {
+@test 'subtraction:errors if there is only one value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 -"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 -"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "only one value on the stack"
+    expected='only one value on the stack'
+    assert_equal "$expected" "$output"
 }
 
-# multiplication
-
-@test "can multiply two numbers" {
+@test 'multiplication:can multiply two numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["2 4 *"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "2 4 *"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[8]"
+    expected='[8]'
+    assert_equal "$expected" "$output"
 }
 
-@test "multiplication errors if there is nothing on the stack" {
+@test 'multiplication:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["*"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "*"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-@test "multiplication errors if there is only one value on the stack" {
+@test 'multiplication:errors if there is only one value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 *"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 *"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "only one value on the stack"
+    expected='only one value on the stack'
+    assert_equal "$expected" "$output"
 }
 
-# division
-
-@test "can divide two numbers" {
+@test 'division:can divide two numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["12 3 /"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "12 3 /"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[4]"
+    expected='[4]'
+    assert_equal "$expected" "$output"
 }
 
-@test "performs integer division" {
+@test 'division:performs integer division' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["8 3 /"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "8 3 /"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[2]"
+    expected='[2]'
+    assert_equal "$expected" "$output"
 }
 
-@test "errors if dividing by zero" {
+@test 'division:errors if dividing by zero' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["4 0 /"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "4 0 /"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "divide by zero"
+    expected='divide by zero'
+    assert_equal "$expected" "$output"
 }
 
-@test "division errors if there is nothing on the stack" {
+@test 'division:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["/"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "/"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-@test "division errors if there is only one value on the stack" {
+@test 'division:errors if there is only one value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 /"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 /"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "only one value on the stack"
+    expected='only one value on the stack'
+    assert_equal "$expected" "$output"
 }
 
-# combined arithmetic
-
-@test "addition and subtraction" {
+@test 'combined arithmetic:addition and subtraction' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 + 4 -"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 + 4 -"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[-1]"
+    expected='[-1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "multiplication and division" {
+@test 'combined arithmetic:multiplication and division' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["2 4 * 3 /"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "2 4 * 3 /"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[2]"
+    expected='[2]'
+    assert_equal "$expected" "$output"
 }
 
-# dup
-
-@test "copies a value on the stack" {
+@test 'dup:copies a value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 dup"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 dup"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1]"
+    expected='[1,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "copies the top value on the stack" {
+@test 'dup:copies the top value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 dup"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 dup"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,2,2]"
+    expected='[1,2,2]'
+    assert_equal "$expected" "$output"
 }
 
-@test "dup errors if there is nothing on the stack" {
+@test 'dup:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["dup"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "dup"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-# drop
-
-@test "removes the top value on the stack if it is the only one" {
+@test 'drop:removes the top value on the stack if it is the only one' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 drop"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 drop"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[]"
+    expected='[]'
+    assert_equal "$expected" "$output"
 }
 
-@test "removes the top value on the stack if it is not the only one" {
+@test 'drop:removes the top value on the stack if it is not the only one' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 drop"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 drop"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1]"
+    expected='[1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "drop errors if there is nothing on the stack" {
+@test 'drop:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["drop"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "drop"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-# swap
-
-@test "swaps the top two values on the stack if they are the only ones" {
+@test 'swap:swaps the top two values on the stack if they are the only ones' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 swap"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 swap"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[2,1]"
+    expected='[2,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "swaps the top two values on the stack if they are not the only ones" {
+@test 'swap:swaps the top two values on the stack if they are not the only ones' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 3 swap"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 3 swap"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,3,2]"
+    expected='[1,3,2]'
+    assert_equal "$expected" "$output"
 }
 
-@test "swap errors if there is nothing on the stack" {
+@test 'swap:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["swap"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "swap"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-@test "swap errors if there is only one value on the stack" {
+@test 'swap:errors if there is only one value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 swap"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 swap"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "only one value on the stack"
+    expected='only one value on the stack'
+    assert_equal "$expected" "$output"
 }
 
-# over
-
-@test "copies the second element if there are only two" {
+@test 'over:copies the second element if there are only two' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 over"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 over"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,2,1]"
+    expected='[1,2,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "copies the second element if there are more than two" {
+@test 'over:copies the second element if there are more than two' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 3 over"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 3 over"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,2,3,2]"
+    expected='[1,2,3,2]'
+    assert_equal "$expected" "$output"
 }
 
-@test "over errors if there is nothing on the stack" {
+@test 'over:errors if there is nothing on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["over"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "over"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "empty stack"
+    expected='empty stack'
+    assert_equal "$expected" "$output"
 }
 
-@test "over errors if there is only one value on the stack" {
+@test 'over:errors if there is only one value on the stack' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 over"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 over"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "only one value on the stack"
+    expected='only one value on the stack'
+    assert_equal "$expected" "$output"
 }
 
-# user-defined words
-
-@test "can consist of built-in words" {
+@test 'user-defined words:can consist of built-in words' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": dup-twice dup dup ;",
-              "1 dup-twice"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": dup-twice dup dup ;",
+            "1 dup-twice"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1,1]"
+    expected='[1,1,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "execute in the right order" {
+@test 'user-defined words:execute in the right order' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": countup 1 2 3 ;",
-              "countup"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": countup 1 2 3 ;",
+            "countup"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,2,3]"
+    expected='[1,2,3]'
+    assert_equal "$expected" "$output"
 }
 
-@test "can override other user-defined words" {
+@test 'user-defined words:can override other user-defined words' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": foo dup ;",
-              ": foo dup dup ;",
-              "1 foo"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": foo dup ;",
+            ": foo dup dup ;",
+            "1 foo"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1,1]"
+    expected='[1,1,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "can override built-in words" {
+@test 'user-defined words:can override built-in words' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": swap dup ;",
-              "1 swap"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": swap dup ;",
+            "1 swap"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1]"
+    expected='[1,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "can override built-in operators" {
+@test 'user-defined words:can override built-in operators' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": + * ;",
-              "3 4 +"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": + * ;",
+            "3 4 +"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[12]"
+    expected='[12]'
+    assert_equal "$expected" "$output"
 }
 
-@test "can use different words with the same name" {
+@test 'user-defined words:can use different words with the same name' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": foo 5 ;",
-              ": bar foo ;",
-              ": foo 6 ;",
-              "bar foo"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": foo 5 ;",
+            ": bar foo ;",
+            ": foo 6 ;",
+            "bar foo"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[5,6]"
+    expected='[5,6]'
+    assert_equal "$expected" "$output"
 }
 
-@test "can define word that uses word with the same name" {
+@test 'user-defined words:can define word that uses word with the same name' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": foo 10 ;",
-              ": foo foo 1 + ;",
-              "foo"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": foo 10 ;",
+            ": foo foo 1 + ;",
+            "foo"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[11]"
+    expected='[11]'
+    assert_equal "$expected" "$output"
 }
 
-@test "cannot redefine non-negative numbers" {
+@test 'user-defined words:cannot redefine non-negative numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [": 1 2 ;"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": 1 2 ;"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "illegal operation"
+    expected='illegal operation'
+    assert_equal "$expected" "$output"
 }
 
-@test "cannot redefine negative numbers" {
+@test 'user-defined words:cannot redefine negative numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [": -1 2 ;"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": -1 2 ;"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "illegal operation"
+    expected='illegal operation'
+    assert_equal "$expected" "$output"
 }
 
-@test "errors if executing a non-existent word" {
+@test 'user-defined words:errors if executing a non-existent word' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["foo"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "foo"
+          ]
+        }
 END_INPUT
+
     assert_failure
-    assert_output --partial "undefined operation"
+    expected='undefined operation'
+    assert_equal "$expected" "$output"
 }
 
-# case-insensitivity
-
-@test "DUP is case-insensitive" {
+@test 'case-insensitivity:DUP is case-insensitive' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 DUP Dup dup"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 DUP Dup dup"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1,1,1]"
+    expected='[1,1,1,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "DROP is case-insensitive" {
+@test 'case-insensitivity:DROP is case-insensitive' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 3 4 DROP Drop drop"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 3 4 DROP Drop drop"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1]"
+    expected='[1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "SWAP is case-insensitive" {
+@test 'case-insensitivity:SWAP is case-insensitive' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 SWAP 3 Swap 4 swap"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 SWAP 3 Swap 4 swap"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[2,3,4,1]"
+    expected='[2,3,4,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "OVER is case-insensitive" {
+@test 'case-insensitivity:OVER is case-insensitive' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": ["1 2 OVER Over over"]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            "1 2 OVER Over over"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,2,1,2,1]"
+    expected='[1,2,1,2,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "user-defined words are case-insensitive" {
+@test 'case-insensitivity:user-defined words are case-insensitive' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": foo dup ;",
-              "1 FOO Foo foo"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": foo dup ;",
+            "1 FOO Foo foo"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1,1,1]"
+    expected='[1,1,1,1]'
+    assert_equal "$expected" "$output"
 }
 
-@test "definitions are case-insensitive" {
+@test 'case-insensitivity:definitions are case-insensitive' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f forth.jq << END_INPUT
-          {
-            "instructions": [
-              ": SWAP DUP Dup dup ;",
-              "1 swap"
-            ]
-          }
+
+    run jq -c -f forth.jq << 'END_INPUT'
+        {
+          "instructions": [
+            ": SWAP DUP Dup dup ;",
+            "1 swap"
+          ]
+        }
 END_INPUT
+
     assert_success
-    assert_output "[1,1,1,1]"
+    expected='[1,1,1,1]'
+    assert_equal "$expected" "$output"
 }
+

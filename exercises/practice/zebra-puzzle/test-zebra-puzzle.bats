@@ -1,10 +1,34 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:59:55Z
 load bats-extra
 
-@test "zebra-puzzle" {
+@test 'resident who drinks water' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -n -f zebra-puzzle.jq
+
+    run jq -r -f zebra-puzzle.jq << 'END_INPUT'
+        {
+          "property": "drinksWater",
+          "input": {}
+        }
+END_INPUT
+
     assert_success
-    assert_line --partial '"drinksWater": "Norwegian"'
-    assert_line --partial '"ownsZebra": "Japanese"'
+    expected='Norwegian'
+    assert_equal "$expected" "$output"
 }
+
+@test 'resident who owns zebra' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f zebra-puzzle.jq << 'END_INPUT'
+        {
+          "property": "ownsZebra",
+          "input": {}
+        }
+END_INPUT
+
+    assert_success
+    expected='Japanese'
+    assert_equal "$expected" "$output"
+}
+

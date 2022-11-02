@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:19:03Z
+# generated on 2022-11-02T20:59:54Z
 load bats-extra
 
 @test 'no name given' {

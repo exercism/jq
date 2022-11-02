@@ -1,9 +1,11 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:59:40Z
 load bats-extra
 
-@test "Black" {
+@test 'Color codes:Black' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color.jq <<END_INPUT
+
+    run jq -c -f resistor-color.jq << 'END_INPUT'
         {
           "property": "colorCode",
           "input": {
@@ -13,12 +15,14 @@ load bats-extra
 END_INPUT
 
     assert_success
-    assert_output 0
+    expected=0
+    assert_equal "$expected" "$output"
 }
 
-@test "White" {
+@test 'Color codes:White' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color.jq <<END_INPUT
+
+    run jq -c -f resistor-color.jq << 'END_INPUT'
         {
           "property": "colorCode",
           "input": {
@@ -28,12 +32,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-    assert_output 9
+    expected=9
+    assert_equal "$expected" "$output"
 }
 
-@test "Orange" {
+@test 'Color codes:Orange' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color.jq <<END_INPUT
+
+    run jq -c -f resistor-color.jq << 'END_INPUT'
         {
           "property": "colorCode",
           "input": {
@@ -43,12 +49,14 @@ END_INPUT
 END_INPUT
 
     assert_success
-    assert_output 3
+    expected=3
+    assert_equal "$expected" "$output"
 }
 
-@test "Colors" {
+@test 'Colors' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f resistor-color.jq <<END_INPUT
+
+    run jq -c -f resistor-color.jq << 'END_INPUT'
         {
           "property": "colors",
           "input": {}
@@ -56,5 +64,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    assert_output '["black","brown","red","orange","yellow","green","blue","violet","grey","white"]'
+    expected='["black","brown","red","orange","yellow","green","blue","violet","grey","white"]'
+    assert_equal "$expected" "$output"
 }
+

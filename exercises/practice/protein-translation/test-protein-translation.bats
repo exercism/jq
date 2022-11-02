@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:18:45Z
+# generated on 2022-11-02T20:59:34Z
 load bats-extra
 
 @test 'Empty RNA sequence results in no proteins' {

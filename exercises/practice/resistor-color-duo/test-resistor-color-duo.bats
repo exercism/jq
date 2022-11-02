@@ -1,51 +1,124 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:59:40Z
 load bats-extra
 
-@test "Brown and black" {
+@test 'Brown and black' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["brown", "black"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "brown",
+            "black"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 10
+    expected=10
+    assert_equal "$expected" "$output"
 }
 
-@test "Blue and grey" {
+@test 'Blue and grey' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["blue", "grey"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "blue",
+            "grey"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 68
+    expected=68
+    assert_equal "$expected" "$output"
 }
 
-@test "Yellow and violet" {
+@test 'Yellow and violet' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["yellow", "violet"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "yellow",
+            "violet"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 47
+    expected=47
+    assert_equal "$expected" "$output"
 }
 
-@test "White and red" {
+@test 'White and red' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["white", "red"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "white",
+            "red"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 92
+    expected=92
+    assert_equal "$expected" "$output"
 }
 
-@test "Orange and orange" {
+@test 'Orange and orange' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["orange", "orange"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "orange",
+            "orange"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 33
+    expected=33
+    assert_equal "$expected" "$output"
 }
 
-@test "Ignore additional colors" {
+@test 'Ignore additional colors' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["green", "brown", "orange"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "green",
+            "brown",
+            "orange"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 51
+    expected=51
+    assert_equal "$expected" "$output"
 }
 
-@test "Black and brown, one-digit" {
+@test 'Black and brown, one-digit' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -f resistor-color-duo.jq <<< '["black", "brown"]'
+
+    run jq -r -f resistor-color-duo.jq << 'END_INPUT'
+        {
+          "colors": [
+            "black",
+            "brown"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output 1
+    expected=1
+    assert_equal "$expected" "$output"
 }
+

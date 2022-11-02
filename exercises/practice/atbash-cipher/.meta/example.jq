@@ -17,9 +17,9 @@ def decode($map): . / "" | map($map[.] // "") | join("") ;
 
 def encode($map): decode($map) | grouped;
 
-.phrase |= ascii_downcase
-| if   .property == "encode" then .phrase | encode(mapping)
-  elif .property == "decode" then .phrase | decode(mapping)
+.input.phrase |= ascii_downcase
+| if   .property == "encode" then .input.phrase | encode(mapping)
+  elif .property == "decode" then .input.phrase | decode(mapping)
   else empty
   end
 

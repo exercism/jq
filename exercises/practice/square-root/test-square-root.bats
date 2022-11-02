@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:27:35Z
+# generated on 2022-11-02T20:59:50Z
 load bats-extra
 
 @test 'root of 1' {
