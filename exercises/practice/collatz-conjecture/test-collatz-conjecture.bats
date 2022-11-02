@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:18:15Z
+# generated on 2022-11-02T20:59:03Z
 load bats-extra
 
 @test 'zero steps for one' {

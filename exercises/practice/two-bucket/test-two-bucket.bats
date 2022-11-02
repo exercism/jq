@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:19:01Z
+# generated on 2022-11-02T20:59:53Z
 load bats-extra
 
 @test 'Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one' {

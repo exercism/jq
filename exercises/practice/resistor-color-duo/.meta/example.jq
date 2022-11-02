@@ -10,5 +10,5 @@
     grey:    8,
     white:   9
 } as $colors |
-
+.colors |
 10 * $colors[.[0]] + $colors[.[1]]

@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:18:44Z
+# generated on 2022-11-02T20:59:33Z
 load bats-extra
 
 @test 'empty strand' {

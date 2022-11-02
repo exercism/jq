@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO: describe completions
-
-usage="$(basename "$0") [-p problem_specs_path] slug"
+usage="$(basename "$0") [-p problem_specs_path] exercise-name"
 probspec=
 slug=
 
@@ -13,12 +11,6 @@ usage() {
     [[ $1 ]] && err "$1"
     err "$usage"
     exit "${rc:-0}"
-}
-
-getCacheDir() {
-    local cacheDir
-    cacheDir=${XDG_CACHE_HOME:-"$HOME/.cache"}
-    printf '%s' "$cacheDir"
 }
 
 parseOpts() {
@@ -37,6 +29,12 @@ parseOpts() {
     slug=$1
     local exerciseDir=./exercises/practice/$slug
     [[ -d $exerciseDir ]] || die "Directory does not exist: $exerciseDir"
+}
+
+getCacheDir() {
+    local cacheDir
+    cacheDir=${XDG_CACHE_HOME:-"$HOME/.cache"}
+    printf '%s' "$cacheDir"
 }
 
 # this is taken from `configlet`
@@ -78,10 +76,14 @@ runCommand() {
     # shellcheck disable=SC2034
     local compact=(
         anagram
+        beer-song
         etl
+        forth
         nucleotide-count
         protein-translation
         proverb
+        resistor-color
+        resistor-color-trio
         satellite
         sieve
         transpose
@@ -93,6 +95,18 @@ runCommand() {
             ;;
         collatz-conjecture)
             printf 'jq -r \x27import "./collatz-conjecture" as Collatz; .number | Collatz::steps\x27'
+            ;;
+        run-length-encoding)
+            printf 'jq -r \x27
+                include "./run-length-encoding";
+                if .property == "encode" then
+                    .input.string | encode
+                elif .property == "decode" then
+                    .input.string | decode
+                else
+                    .input.string | encode | decode
+                end
+    \x27'
             ;;
         *)
             local opt
@@ -106,6 +120,16 @@ writeTestFile() {
     local canonicalData="$probspec/exercises/$slug/canonical-data.json"
     [[ -f $canonicalData ]] || die "No canonical data for $slug"
 
+    # shellcheck disable=SC2034
+    local wantProperty=(
+        atbash-cipher
+        resistor-color
+        run-length-encoding
+        zebra-puzzle
+    )
+    local property=false
+    arrayContains wantProperty "$slug" && property=true
+
     local testFile="./exercises/practice/$slug/test-${slug}.bats"
     {
         cat << END_PREAMBLE
@@ -114,18 +138,42 @@ writeTestFile() {
 load bats-extra
 END_PREAMBLE
 
+        # not entirely happy this this mess
+
         jq -r --arg slug "$slug" \
               --arg cmd  "$(runCommand)" \
               --arg Q    "'" \
+              --argjson property "$property" \
         '
-            def generate_test($isfirst; $skip):
+			def prefix(desc): if desc == "" then "" else "\(desc):" end;
+
+			def test_cases(desc):
+				if has("cases") then
+                    # recurse to extract the nested test cases
+                    .description as $d | .cases[] | test_cases(prefix(desc) + $d)
+				elif $slug == "forth" and (.scenarios//[] as $s | "local-scope" | IN($s[])) then
+                    # do not want this particular test
+                    empty
+                else
+                    # emit this case with an updated description
+                    .description = prefix(desc) + .description
+				end
+				;
+
+            def exclude_reimplemented:
+                map(select(has("reimplements")) | .reimplements) as $reimplemented_uuids
+                | map(select(.uuid | IN($reimplemented_uuids[]) | not))
+                ;
+
+             def generate_test($isfirst):
                 "\n"
                 + "@test \(.description | @sh) {\n"
                 + "    "
-                + (if $isfirst then "#" else "" end) + $skip
+                + (if $isfirst then "#" else "" end)
+                + "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n"
                 + "\n"
                 + "    run \($cmd) << \($Q)END_INPUT\($Q)\n"
-                + "\(.input | @json)\n"
+                + "\(if $property then {property, input} else .input end | @json)\n"
                 + "END_INPUT\n"
                 + "\n"
                 + ( if (.expected | type == "object")
@@ -151,12 +199,13 @@ END_PREAMBLE
                 + "}\n"
                 ;
 
-            "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n" as $skip
-            | (.cases | map(select(has("reimplements")) | .reimplements)) as $reimplemented
-            | reduce (.cases | map(select(.uuid | IN($reimplemented[]) | not)))[] as $case (["", true];
+			# main
+			[.cases[] | test_cases("")] | exclude_reimplemented
+            | reduce .[] as $case (["", true];
                 . as [$tests_text, $isfirst]
-                | [$tests_text + ($case | generate_test($isfirst; $skip)), false]
-            ) | first
+                | [$tests_text + ($case | generate_test($isfirst)), false]
+              )
+            | first
         ' "$canonicalData"
     } \
     | awk '
@@ -185,15 +234,6 @@ parseOpts "$@"
 # shellcheck disable=SC2034
 omit=(
     gigasecond
-    # following use nested cases, not implemented yet:
-    atbash-cipher
-    beer-song
-    forth
-    resistor-color
-    resistor-color-duo
-    resistor-color-trio
-    run-length-encoding
-    zebra-puzzle
 )
 if arrayContains omit "$slug"; then
     err "Don't generate tests for exercise $slug"

@@ -20,7 +20,7 @@ def labelled($unit):
     violet:  7,
     grey:    8,
     white:   9
-} as $colors |
-
-(10 * $colors[.[0]] + $colors[.[1]]) * pow(10; $colors[.[2]])
+} as $colors
+| .colors
+| (10 * $colors[.[0]] + $colors[.[1]]) * pow(10; $colors[.[2]])
 | labelled("ohms")

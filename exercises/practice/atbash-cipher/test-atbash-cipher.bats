@@ -1,170 +1,242 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:58:57Z
 load bats-extra
 
-@test "encode yes" {
+@test 'encode:encode yes' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "yes"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "yes"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "bvh"
+    expected='bvh'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode no" {
+@test 'encode:encode no' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "no"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "no"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "ml"
+    expected='ml'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode OMG" {
+@test 'encode:encode OMG' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "OMG"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "OMG"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "lnt"
+    expected='lnt'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode spaces" {
+@test 'encode:encode spaces' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "O M G"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "O M G"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "lnt"
+    expected='lnt'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode mindblowingly" {
+@test 'encode:encode mindblowingly' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "mindblowingly"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "mindblowingly"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "nrmwy oldrm tob"
+    expected='nrmwy oldrm tob'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode numbers" {
+@test 'encode:encode numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "Testing,1 2 3, testing."
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "Testing,1 2 3, testing."
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "gvhgr mt123 gvhgr mt"
+    expected='gvhgr mt123 gvhgr mt'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode deep thought" {
+@test 'encode:encode deep thought' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "Truth is fiction."
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "Truth is fiction."
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "gifgs rhurx grlm"
+    expected='gifgs rhurx grlm'
+    assert_equal "$expected" "$output"
 }
 
-@test "encode all the letters" {
+@test 'encode:encode all the letters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "encode",
-        "phrase": "The quick brown fox jumps over the lazy dog."
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "encode",
+          "input": {
+            "phrase": "The quick brown fox jumps over the lazy dog."
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
+    expected='gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode exercism" {
+@test 'decode:decode exercism' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "decode",
-        "phrase": "vcvix rhn"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "phrase": "vcvix rhn"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "exercism"
+    expected='exercism'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode a sentence" {
+@test 'decode:decode a sentence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "decode",
-        "phrase": "zmlyh gzxov rhlug vmzhg vkkrm thglm v"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "phrase": "zmlyh gzxov rhlug vmzhg vkkrm thglm v"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "anobstacleisoftenasteppingstone"
+    expected='anobstacleisoftenasteppingstone'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode numbers" {
+@test 'decode:decode numbers' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "decode",
-        "phrase": "gvhgr mt123 gvhgr mt"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "phrase": "gvhgr mt123 gvhgr mt"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "testing123testing"
+    expected='testing123testing'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode all the letters" {
+@test 'decode:decode all the letters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "decode",
-        "phrase": "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "phrase": "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "thequickbrownfoxjumpsoverthelazydog"
+    expected='thequickbrownfoxjumpsoverthelazydog'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode with too many spaces" {
+@test 'decode:decode with too many spaces' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "decode",
-        "phrase": "vc vix    r hn"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "phrase": "vc vix    r hn"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "exercism"
+    expected='exercism'
+    assert_equal "$expected" "$output"
 }
 
-@test "decode with no spaces" {
+@test 'decode:decode with no spaces' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -r -f atbash-cipher.jq << END_INPUT
-      {
-        "property": "decode",
-        "phrase": "zmlyhgzxovrhlugvmzhgvkkrmthglmv"
-      }
+
+    run jq -r -f atbash-cipher.jq << 'END_INPUT'
+        {
+          "property": "decode",
+          "input": {
+            "phrase": "zmlyhgzxovrhlugvmzhgvkkrmthglmv"
+          }
+        }
 END_INPUT
+
     assert_success
-    assert_output "anobstacleisoftenasteppingstone"
+    expected='anobstacleisoftenasteppingstone'
+    assert_equal "$expected" "$output"
 }
+

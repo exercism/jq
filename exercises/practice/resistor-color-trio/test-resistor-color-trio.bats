@@ -1,38 +1,94 @@
 #!/usr/bin/env bats
+# generated on 2022-11-02T20:59:41Z
 load bats-extra
+
+@test 'Orange and orange and black' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-@test "Orange and orange and black" {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f resistor-color-trio.jq <<< '["orange", "orange", "black"]'
+    run jq -c -f resistor-color-trio.jq << 'END_INPUT'
+        {
+          "colors": [
+            "orange",
+            "orange",
+            "black"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output '{"value":33,"unit":"ohms"}'
+    expected='{"value":33,"unit":"ohms"}'
+    assert_equal "$expected" "$output"
 }
 
-@test "Blue and grey and brown" {
+@test 'Blue and grey and brown' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f resistor-color-trio.jq <<< '["blue", "grey", "brown"]'
+
+    run jq -c -f resistor-color-trio.jq << 'END_INPUT'
+        {
+          "colors": [
+            "blue",
+            "grey",
+            "brown"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output '{"value":680,"unit":"ohms"}'
+    expected='{"value":680,"unit":"ohms"}'
+    assert_equal "$expected" "$output"
 }
 
-@test "Red and black and red" {
+@test 'Red and black and red' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f resistor-color-trio.jq <<< '["red", "black", "red"]'
+
+    run jq -c -f resistor-color-trio.jq << 'END_INPUT'
+        {
+          "colors": [
+            "red",
+            "black",
+            "red"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output '{"value":2,"unit":"kiloohms"}'
+    expected='{"value":2,"unit":"kiloohms"}'
+    assert_equal "$expected" "$output"
 }
 
-@test "Green and brown and orange" {
+@test 'Green and brown and orange' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f resistor-color-trio.jq <<< '["green", "brown", "orange"]'
+
+    run jq -c -f resistor-color-trio.jq << 'END_INPUT'
+        {
+          "colors": [
+            "green",
+            "brown",
+            "orange"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output '{"value":51,"unit":"kiloohms"}'
+    expected='{"value":51,"unit":"kiloohms"}'
+    assert_equal "$expected" "$output"
 }
 
-@test "Yellow and violet and yellow" {
+@test 'Yellow and violet and yellow' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-    run jq -c -f resistor-color-trio.jq <<< '["yellow", "violet", "yellow"]'
+
+    run jq -c -f resistor-color-trio.jq << 'END_INPUT'
+        {
+          "colors": [
+            "yellow",
+            "violet",
+            "yellow"
+          ]
+        }
+END_INPUT
+
     assert_success
-    assert_output '{"value":470,"unit":"kiloohms"}'
+    expected='{"value":470,"unit":"kiloohms"}'
+    assert_equal "$expected" "$output"
 }
+

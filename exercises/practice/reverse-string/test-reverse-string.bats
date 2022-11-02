@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-01T20:18:52Z
+# generated on 2022-11-02T20:59:42Z
 load bats-extra
 
 @test 'an empty string' {

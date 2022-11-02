@@ -146,4 +146,7 @@ def solveForColour($state):
     end;
 
 
-permute5 | solveForColour({})
+.property as $property
+| permute5 
+| solveForColour({}) 
+| .[$property]
