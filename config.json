@@ -13,7 +13,7 @@
   "online_editor": {
     "indent_style": "space",
     "indent_size": 2,
-    "highlightjs_language": "jq"
+    "highlightjs_language": "json"
   },
   "test_runner": {
     "average_run_time": 2.0
