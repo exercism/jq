@@ -1,4 +1,4 @@
-# Introduction
+# About
 
 jq works by passing the incoming JSON data through a _single expression_ (written as a _pipeline of filters_) to achieve the desired transformed data.
 
