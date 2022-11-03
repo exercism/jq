@@ -22,7 +22,7 @@ In the examples below you'll encounter:
     It it extremely useful for humans to view the data when it's nicely formatted.
     However that's not necessary for machines: the `--compact-output` option removes the formatting whitespace to minimize the size of the resulting JSON.
 
-The rest of this lesson will focus on the `jq` _lanaguage_.
+The rest of this lesson will focus on the `jq` _language_.
 ~~~~
 
 <!-- prettier-ignore-end -->
