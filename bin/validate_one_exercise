@@ -25,6 +25,9 @@ tests=$(jq -r '.files.test[0]' "$config")
 solution=$(jq -r '.files.example[0] // .files.exemplar[0]' "$config")
 [[ -f ${solution} ]] || die "Missing solution file for $exercise"
 
+# this is usually empty but might have multiple files in it
+readarray -t editor_files < <(jq -r '.files.editor[]?' "$config")
+
 # hello-world has no skips
 # neither do concept exercises
 if [[ ${exercise} != "hello-world" ]] && ! [[ $PWD =~ exercises/concept/ ]]; then
@@ -45,7 +48,7 @@ trap cleanup EXIT
 dir=$(mktemp -d)
 cp "${solution}" "${dir}/${stub}"
 cp "${tests}" "${dir}/${tests}"
-cp bats-extra.bash "${dir}"
+cp bats-extra.bash "${editor_files[@]}" "${dir}"
 
 # Run the tests
 cd "${dir}"
