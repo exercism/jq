@@ -1,2 +1,1 @@
-#.value | split("") | reduce .[] as $char (""; $char + .)
-.value | explode | reverse | implode
+.value | reduce split("")[] as $char (""; $char + .)
