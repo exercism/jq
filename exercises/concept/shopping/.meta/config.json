@@ -3,7 +3,8 @@
   "files": {
     "solution": ["shopping.jq"],
     "test": ["test-shopping.bats"],
-    "exemplar": [".meta/exemplar.jq"]
+    "exemplar": [".meta/exemplar.jq"],
+    "editor": ["shopping-list.json"]
   },
   "blurb": "jq fundamentals"
 }
