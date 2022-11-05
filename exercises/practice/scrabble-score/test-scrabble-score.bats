@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected=1
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'uppercase letter' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected=1
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'valuable letter' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected=4
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'short word' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected=2
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'short, valuable word' {
@@ -69,7 +69,7 @@ END_INPUT
 
     assert_success
     expected=12
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'medium word' {
@@ -83,7 +83,7 @@ END_INPUT
 
     assert_success
     expected=6
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'medium, valuable word' {
@@ -97,7 +97,7 @@ END_INPUT
 
     assert_success
     expected=22
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'long, mixed-case word' {
@@ -111,7 +111,7 @@ END_INPUT
 
     assert_success
     expected=41
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'english-like word' {
@@ -125,7 +125,7 @@ END_INPUT
 
     assert_success
     expected=8
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'empty input' {
@@ -139,7 +139,7 @@ END_INPUT
 
     assert_success
     expected=0
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'entire alphabet available' {
@@ -153,6 +153,6 @@ END_INPUT
 
     assert_success
     expected=87
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

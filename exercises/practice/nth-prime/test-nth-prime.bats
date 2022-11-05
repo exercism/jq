@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected=2
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'second prime' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected=3
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'sixth prime' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected=13
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'big prime' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected=104743
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'there is no zeroth prime' {
@@ -69,6 +69,6 @@ END_INPUT
 
     assert_failure
     expected='there is no zeroth prime'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

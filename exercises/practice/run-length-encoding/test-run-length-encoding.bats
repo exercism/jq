@@ -25,7 +25,7 @@ END_INPUT
 
     assert_success
     expected=''
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length encode a string:single characters only are encoded without count' {
@@ -51,7 +51,7 @@ END_INPUT
 
     assert_success
     expected='XYZ'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length encode a string:string with no single characters' {
@@ -77,7 +77,7 @@ END_INPUT
 
     assert_success
     expected='2A3B4C'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length encode a string:single characters mixed with repeated characters' {
@@ -103,7 +103,7 @@ END_INPUT
 
     assert_success
     expected='12WB12W3B24WB'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length encode a string:multiple whitespace mixed in string' {
@@ -129,7 +129,7 @@ END_INPUT
 
     assert_success
     expected='2 hs2q q2w2 '
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length encode a string:lowercase characters' {
@@ -155,7 +155,7 @@ END_INPUT
 
     assert_success
     expected='2a3b4c'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length decode a string:empty string' {
@@ -181,7 +181,7 @@ END_INPUT
 
     assert_success
     expected=''
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length decode a string:single characters only' {
@@ -207,7 +207,7 @@ END_INPUT
 
     assert_success
     expected='XYZ'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length decode a string:string with no single characters' {
@@ -233,7 +233,7 @@ END_INPUT
 
     assert_success
     expected='AABBBCCCC'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length decode a string:single characters with repeated characters' {
@@ -259,7 +259,7 @@ END_INPUT
 
     assert_success
     expected='WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length decode a string:multiple whitespace mixed in string' {
@@ -285,7 +285,7 @@ END_INPUT
 
     assert_success
     expected='  hsqq qww  '
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'run-length decode a string:lowercase string' {
@@ -311,7 +311,7 @@ END_INPUT
 
     assert_success
     expected='aabbbcccc'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode and then decode:encode followed by decode gives original string' {
@@ -337,6 +337,6 @@ END_INPUT
 
     assert_success
     expected='zzz ZZ  zZ'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

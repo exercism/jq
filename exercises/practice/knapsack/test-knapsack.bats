@@ -14,7 +14,7 @@ END_INPUT
 
     assert_success
     expected=0
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'one item, too heavy' {
@@ -34,7 +34,7 @@ END_INPUT
 
     assert_success
     expected=0
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'five items (cannot be greedy by weight)' {
@@ -70,7 +70,7 @@ END_INPUT
 
     assert_success
     expected=21
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'five items (cannot be greedy by value)' {
@@ -106,7 +106,7 @@ END_INPUT
 
     assert_success
     expected=80
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'example knapsack' {
@@ -138,7 +138,7 @@ END_INPUT
 
     assert_success
     expected=90
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test '8 items' {
@@ -186,7 +186,7 @@ END_INPUT
 
     assert_success
     expected=900
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test '15 items' {
@@ -262,6 +262,6 @@ END_INPUT
 
     assert_success
     expected=1458
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

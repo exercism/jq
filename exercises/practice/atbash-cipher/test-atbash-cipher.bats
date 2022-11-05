@@ -16,7 +16,7 @@ END_INPUT
 
     assert_success
     expected='bvh'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode no' {
@@ -33,7 +33,7 @@ END_INPUT
 
     assert_success
     expected='ml'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode OMG' {
@@ -50,7 +50,7 @@ END_INPUT
 
     assert_success
     expected='lnt'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode spaces' {
@@ -67,7 +67,7 @@ END_INPUT
 
     assert_success
     expected='lnt'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode mindblowingly' {
@@ -84,7 +84,7 @@ END_INPUT
 
     assert_success
     expected='nrmwy oldrm tob'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode numbers' {
@@ -101,7 +101,7 @@ END_INPUT
 
     assert_success
     expected='gvhgr mt123 gvhgr mt'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode deep thought' {
@@ -118,7 +118,7 @@ END_INPUT
 
     assert_success
     expected='gifgs rhurx grlm'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'encode:encode all the letters' {
@@ -135,7 +135,7 @@ END_INPUT
 
     assert_success
     expected='gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'decode:decode exercism' {
@@ -152,7 +152,7 @@ END_INPUT
 
     assert_success
     expected='exercism'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'decode:decode a sentence' {
@@ -169,7 +169,7 @@ END_INPUT
 
     assert_success
     expected='anobstacleisoftenasteppingstone'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'decode:decode numbers' {
@@ -186,7 +186,7 @@ END_INPUT
 
     assert_success
     expected='testing123testing'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'decode:decode all the letters' {
@@ -203,7 +203,7 @@ END_INPUT
 
     assert_success
     expected='thequickbrownfoxjumpsoverthelazydog'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'decode:decode with too many spaces' {
@@ -220,7 +220,7 @@ END_INPUT
 
     assert_success
     expected='exercism'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'decode:decode with no spaces' {
@@ -237,6 +237,6 @@ END_INPUT
 
     assert_success
     expected='anobstacleisoftenasteppingstone'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

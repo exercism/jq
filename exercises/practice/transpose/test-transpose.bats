@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'two characters in a row' {
@@ -29,7 +29,7 @@ END_INPUT
 
     assert_success
     expected='["A","1"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'two characters in a column' {
@@ -46,7 +46,7 @@ END_INPUT
 
     assert_success
     expected='["A1"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'simple' {
@@ -63,7 +63,7 @@ END_INPUT
 
     assert_success
     expected='["A1","B2","C3"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'single line' {
@@ -79,7 +79,7 @@ END_INPUT
 
     assert_success
     expected='["S","i","n","g","l","e"," ","l","i","n","e","."]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'first line longer than second line' {
@@ -96,7 +96,7 @@ END_INPUT
 
     assert_success
     expected='["TT","hh","ee","  ","ff","oi","uf","rt","th","h "," l","li","in","ne","e.","."]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'second line longer than first line' {
@@ -113,7 +113,7 @@ END_INPUT
 
     assert_success
     expected='["TT","hh","ee","  ","fs","ie","rc","so","tn"," d","l ","il","ni","en",".e"," ."]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'mixed line length' {
@@ -132,7 +132,7 @@ END_INPUT
 
     assert_success
     expected='["TAAA","h   ","elll"," ooi","lnnn","ogge","n e.","glr","ei ","snl","tei"," .n","l e","i .","n","e","."]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'square' {
@@ -152,7 +152,7 @@ END_INPUT
 
     assert_success
     expected='["HEART","EMBER","ABUSE","RESIN","TREND"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'rectangle' {
@@ -171,7 +171,7 @@ END_INPUT
 
     assert_success
     expected='["FOBS","RULE","ATOP","CLOT","TIME","UNIT","RENT","EDGE"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'triangle' {
@@ -192,7 +192,7 @@ END_INPUT
 
     assert_success
     expected='["TEASER"," EASER","  ASER","   SER","    ER","     R"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'jagged triangle' {
@@ -213,6 +213,6 @@ END_INPUT
 
     assert_success
     expected='["123456","1 3456","  3456","  3 56","    56","    5"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

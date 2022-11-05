@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected=1
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'root of 4' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected=2
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'root of 25' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected=5
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'root of 81' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected=9
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'root of 196' {
@@ -69,7 +69,7 @@ END_INPUT
 
     assert_success
     expected=14
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'root of 65025' {
@@ -83,6 +83,6 @@ END_INPUT
 
     assert_success
     expected=255
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

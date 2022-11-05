@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected=''
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'RNA complement of cytosine is guanine' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected='G'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'RNA complement of guanine is cytosine' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected='C'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'RNA complement of thymine is adenine' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected='A'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'RNA complement of adenine is uracil' {
@@ -69,7 +69,7 @@ END_INPUT
 
     assert_success
     expected='U'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'RNA complement' {
@@ -83,6 +83,6 @@ END_INPUT
 
     assert_success
     expected='UGCACCAGAAUU'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

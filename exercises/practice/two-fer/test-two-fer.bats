@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected='One for you, one for me.'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'a name given' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected='One for Alice, one for me.'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'another name given' {
@@ -41,6 +41,6 @@ END_INPUT
 
     assert_success
     expected='One for Bob, one for me.'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

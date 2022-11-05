@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected=true
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'isogram with only lower case characters' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected=true
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'word with one duplicated character' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'word with one duplicated character from the end of the alphabet' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'longest reported english isogram' {
@@ -69,7 +69,7 @@ END_INPUT
 
     assert_success
     expected=true
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'word with duplicated character in mixed case' {
@@ -83,7 +83,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'word with duplicated character in mixed case, lowercase first' {
@@ -97,7 +97,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'hypothetical isogrammic word with hyphen' {
@@ -111,7 +111,7 @@ END_INPUT
 
     assert_success
     expected=true
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'hypothetical word with duplicated character following hyphen' {
@@ -125,7 +125,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'isogram with duplicated hyphen' {
@@ -139,7 +139,7 @@ END_INPUT
 
     assert_success
     expected=true
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'made-up name that is an isogram' {
@@ -153,7 +153,7 @@ END_INPUT
 
     assert_success
     expected=true
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'duplicated character in the middle' {
@@ -167,7 +167,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'same first and last characters' {
@@ -181,7 +181,7 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'word with duplicated character and with two hyphens' {
@@ -195,6 +195,6 @@ END_INPUT
 
     assert_success
     expected=false
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
