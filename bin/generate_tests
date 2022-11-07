@@ -145,20 +145,20 @@ END_PREAMBLE
               --arg Q    "'" \
               --argjson property "$property" \
         '
-			def prefix(desc): if desc == "" then "" else "\(desc):" end;
+            def prefix(desc): if desc == "" then "" else "\(desc):" end;
 
-			def test_cases(desc):
-				if has("cases") then
+            def test_cases(desc):
+                if has("cases") then
                     # recurse to extract the nested test cases
                     .description as $d | .cases[] | test_cases(prefix(desc) + $d)
-				elif $slug == "forth" and (.scenarios//[] as $s | "local-scope" | IN($s[])) then
+                elif $slug == "forth" and (.scenarios//[] as $s | "local-scope" | IN($s[])) then
                     # do not want this particular test
                     empty
                 else
                     # emit this case with an updated description
                     .description = prefix(desc) + .description
-				end
-				;
+                end
+                ;
 
             def exclude_reimplemented:
                 map(select(has("reimplements")) | .reimplements) as $reimplemented_uuids
@@ -198,8 +198,8 @@ END_PREAMBLE
                 + "}\n"
                 ;
 
-			# main
-			[.cases[] | test_cases("")] | exclude_reimplemented
+            # main
+            [.cases[] | test_cases("")] | exclude_reimplemented
             | reduce .[] as $case (["", true];
                 . as [$tests_text, $isfirst]
                 | [$tests_text + ($case | generate_test($isfirst)), false]
@@ -233,7 +233,7 @@ parseOpts "$@"
 # shellcheck disable=SC2034
 omit=(
     gigasecond
-	nth-prime
+    nth-prime
 )
 if arrayContains omit "$slug"; then
     err "Don't generate tests for exercise $slug"
