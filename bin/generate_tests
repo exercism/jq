@@ -186,15 +186,14 @@ END_PREAMBLE
                             "    assert_success\n"
                             + "    expected=\(.expected | @json | @sh)\n"
                         end
-                        + "    assert_equal \"$output\" \"$expected\"\n"
                     else
                         "    assert_success\n"
                         + ( if (.expected | type == "array")
                             then "    expected=\(.expected | @json | @sh)\n"
                             else "    expected=\(.expected | @sh)\n"
                             end )
-                        + "    assert_equal \"$output\" \"$expected\"\n"
                     end
+                    + "    assert_equal \"$output\" \"$expected\"\n"
                 )
                 + "}\n"
                 ;
