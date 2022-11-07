@@ -233,6 +233,7 @@ parseOpts "$@"
 # shellcheck disable=SC2034
 omit=(
     gigasecond
+    nth-prime
 )
 if arrayContains omit "$slug"; then
     err "Don't generate tests for exercise $slug"
