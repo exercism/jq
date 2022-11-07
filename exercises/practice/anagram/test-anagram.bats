@@ -19,7 +19,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects two anagrams' {
@@ -38,7 +38,7 @@ END_INPUT
 
     assert_success
     expected='["lemons","melons"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'does not detect anagram subsets' {
@@ -56,7 +56,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects anagram' {
@@ -76,7 +76,7 @@ END_INPUT
 
     assert_success
     expected='["inlets"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects three anagrams' {
@@ -98,7 +98,7 @@ END_INPUT
 
     assert_success
     expected='["gallery","regally","largely"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects multiple anagrams with different case' {
@@ -116,7 +116,7 @@ END_INPUT
 
     assert_success
     expected='["Eons","ONES"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'does not detect non-anagrams with identical checksum' {
@@ -133,7 +133,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects anagrams case-insensitively' {
@@ -152,7 +152,7 @@ END_INPUT
 
     assert_success
     expected='["Carthorse"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects anagrams using case-insensitive subject' {
@@ -171,7 +171,7 @@ END_INPUT
 
     assert_success
     expected='["carthorse"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'detects anagrams using case-insensitive possible matches' {
@@ -190,7 +190,7 @@ END_INPUT
 
     assert_success
     expected='["Carthorse"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'does not detect an anagram if the original word is repeated' {
@@ -207,7 +207,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'anagrams must use all letters exactly once' {
@@ -224,7 +224,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'words are not anagrams of themselves' {
@@ -241,7 +241,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'words are not anagrams of themselves even if letter case is partially different' {
@@ -258,7 +258,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'words are not anagrams of themselves even if letter case is completely different' {
@@ -275,7 +275,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'words other than themselves can be anagrams' {
@@ -293,6 +293,6 @@ END_INPUT
 
     assert_success
     expected='["Silent"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

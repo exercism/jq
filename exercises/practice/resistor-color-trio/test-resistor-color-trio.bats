@@ -17,7 +17,7 @@ END_INPUT
 
     assert_success
     expected='{"value":33,"unit":"ohms"}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Blue and grey and brown' {
@@ -35,7 +35,7 @@ END_INPUT
 
     assert_success
     expected='{"value":680,"unit":"ohms"}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Red and black and red' {
@@ -53,7 +53,7 @@ END_INPUT
 
     assert_success
     expected='{"value":2,"unit":"kiloohms"}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Green and brown and orange' {
@@ -71,7 +71,7 @@ END_INPUT
 
     assert_success
     expected='{"value":51,"unit":"kiloohms"}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Yellow and violet and yellow' {
@@ -89,6 +89,6 @@ END_INPUT
 
     assert_success
     expected='{"value":470,"unit":"kiloohms"}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

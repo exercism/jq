@@ -14,7 +14,7 @@ END_INPUT
 
     assert_success
     expected='Norwegian'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'resident who owns zebra' {
@@ -29,6 +29,6 @@ END_INPUT
 
     assert_success
     expected='Japanese'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

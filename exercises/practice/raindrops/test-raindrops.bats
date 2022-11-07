@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected='1'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 3 is Pling' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected='Pling'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 5 is Plang' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected='Plang'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 7 is Plong' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected='Plong'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 6 is Pling as it has a factor 3' {
@@ -69,7 +69,7 @@ END_INPUT
 
     assert_success
     expected='Pling'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test '2 to the power 3 does not make a raindrop sound as 3 is the exponent not the base' {
@@ -83,7 +83,7 @@ END_INPUT
 
     assert_success
     expected='8'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 9 is Pling as it has a factor 3' {
@@ -97,7 +97,7 @@ END_INPUT
 
     assert_success
     expected='Pling'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 10 is Plang as it has a factor 5' {
@@ -111,7 +111,7 @@ END_INPUT
 
     assert_success
     expected='Plang'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 14 is Plong as it has a factor of 7' {
@@ -125,7 +125,7 @@ END_INPUT
 
     assert_success
     expected='Plong'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 15 is PlingPlang as it has factors 3 and 5' {
@@ -139,7 +139,7 @@ END_INPUT
 
     assert_success
     expected='PlingPlang'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 21 is PlingPlong as it has factors 3 and 7' {
@@ -153,7 +153,7 @@ END_INPUT
 
     assert_success
     expected='PlingPlong'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 25 is Plang as it has a factor 5' {
@@ -167,7 +167,7 @@ END_INPUT
 
     assert_success
     expected='Plang'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 27 is Pling as it has a factor 3' {
@@ -181,7 +181,7 @@ END_INPUT
 
     assert_success
     expected='Pling'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 35 is PlangPlong as it has factors 5 and 7' {
@@ -195,7 +195,7 @@ END_INPUT
 
     assert_success
     expected='PlangPlong'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 49 is Plong as it has a factor 7' {
@@ -209,7 +209,7 @@ END_INPUT
 
     assert_success
     expected='Plong'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 52 is 52' {
@@ -223,7 +223,7 @@ END_INPUT
 
     assert_success
     expected='52'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 105 is PlingPlangPlong as it has factors 3, 5 and 7' {
@@ -237,7 +237,7 @@ END_INPUT
 
     assert_success
     expected='PlingPlangPlong'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'the sound for 3125 is Plang as it has a factor 5' {
@@ -251,6 +251,6 @@ END_INPUT
 
     assert_success
     expected='Plang'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

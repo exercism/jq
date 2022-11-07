@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected='{"A":0,"C":0,"G":0,"T":0}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'can count one nucleotide in single-character input' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected='{"A":0,"C":0,"G":1,"T":0}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'strand with repeated nucleotide' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected='{"A":0,"C":0,"G":7,"T":0}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'strand with multiple nucleotides' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected='{"A":20,"C":12,"G":17,"T":21}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'strand with invalid nucleotides' {
@@ -69,6 +69,6 @@ END_INPUT
 
     assert_failure
     expected='Invalid nucleotide in strand'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

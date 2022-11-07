@@ -14,7 +14,7 @@ END_INPUT
 
     assert_success
     expected=31.69
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Mercury' {
@@ -29,7 +29,7 @@ END_INPUT
 
     assert_success
     expected=280.88
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Venus' {
@@ -44,7 +44,7 @@ END_INPUT
 
     assert_success
     expected=9.78
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Mars' {
@@ -59,7 +59,7 @@ END_INPUT
 
     assert_success
     expected=35.88
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Jupiter' {
@@ -74,7 +74,7 @@ END_INPUT
 
     assert_success
     expected=2.41
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Saturn' {
@@ -89,7 +89,7 @@ END_INPUT
 
     assert_success
     expected=2.15
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Uranus' {
@@ -104,7 +104,7 @@ END_INPUT
 
     assert_success
     expected=0.46
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'age on Neptune' {
@@ -119,7 +119,7 @@ END_INPUT
 
     assert_success
     expected=0.35
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'invalid planet causes error' {
@@ -134,6 +134,6 @@ END_INPUT
 
     assert_failure
     expected='not a planet'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

@@ -14,7 +14,7 @@ END_INPUT
 
     assert_success
     expected='{}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Tree with one item' {
@@ -33,7 +33,7 @@ END_INPUT
 
     assert_success
     expected='{"v":"a","l":{},"r":{}}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Tree with many items' {
@@ -60,7 +60,7 @@ END_INPUT
 
     assert_success
     expected='{"v":"a","l":{"v":"i","l":{},"r":{}},"r":{"v":"x","l":{"v":"f","l":{},"r":{}},"r":{"v":"r","l":{},"r":{}}}}'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Reject traversals of different length' {
@@ -82,7 +82,7 @@ END_INPUT
 
     assert_failure
     expected='traversals must have the same length'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Reject inconsistent traversals of same length' {
@@ -105,7 +105,7 @@ END_INPUT
 
     assert_failure
     expected='traversals must have the same elements'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Reject traversals with repeated items' {
@@ -128,6 +128,6 @@ END_INPUT
 
     assert_failure
     expected='traversals must contain unique items'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 

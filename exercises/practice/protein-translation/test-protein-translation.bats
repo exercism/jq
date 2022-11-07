@@ -13,7 +13,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Methionine RNA sequence' {
@@ -27,7 +27,7 @@ END_INPUT
 
     assert_success
     expected='["Methionine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Phenylalanine RNA sequence 1' {
@@ -41,7 +41,7 @@ END_INPUT
 
     assert_success
     expected='["Phenylalanine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Phenylalanine RNA sequence 2' {
@@ -55,7 +55,7 @@ END_INPUT
 
     assert_success
     expected='["Phenylalanine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Leucine RNA sequence 1' {
@@ -69,7 +69,7 @@ END_INPUT
 
     assert_success
     expected='["Leucine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Leucine RNA sequence 2' {
@@ -83,7 +83,7 @@ END_INPUT
 
     assert_success
     expected='["Leucine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Serine RNA sequence 1' {
@@ -97,7 +97,7 @@ END_INPUT
 
     assert_success
     expected='["Serine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Serine RNA sequence 2' {
@@ -111,7 +111,7 @@ END_INPUT
 
     assert_success
     expected='["Serine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Serine RNA sequence 3' {
@@ -125,7 +125,7 @@ END_INPUT
 
     assert_success
     expected='["Serine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Serine RNA sequence 4' {
@@ -139,7 +139,7 @@ END_INPUT
 
     assert_success
     expected='["Serine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Tyrosine RNA sequence 1' {
@@ -153,7 +153,7 @@ END_INPUT
 
     assert_success
     expected='["Tyrosine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Tyrosine RNA sequence 2' {
@@ -167,7 +167,7 @@ END_INPUT
 
     assert_success
     expected='["Tyrosine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Cysteine RNA sequence 1' {
@@ -181,7 +181,7 @@ END_INPUT
 
     assert_success
     expected='["Cysteine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Cysteine RNA sequence 2' {
@@ -195,7 +195,7 @@ END_INPUT
 
     assert_success
     expected='["Cysteine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Tryptophan RNA sequence' {
@@ -209,7 +209,7 @@ END_INPUT
 
     assert_success
     expected='["Tryptophan"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'STOP codon RNA sequence 1' {
@@ -223,7 +223,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'STOP codon RNA sequence 2' {
@@ -237,7 +237,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'STOP codon RNA sequence 3' {
@@ -251,7 +251,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Sequence of two protein codons translates into proteins' {
@@ -265,7 +265,7 @@ END_INPUT
 
     assert_success
     expected='["Phenylalanine","Phenylalanine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Sequence of two different protein codons translates into proteins' {
@@ -279,7 +279,7 @@ END_INPUT
 
     assert_success
     expected='["Leucine","Leucine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Translate RNA strand into correct protein list' {
@@ -293,7 +293,7 @@ END_INPUT
 
     assert_success
     expected='["Methionine","Phenylalanine","Tryptophan"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Translation stops if STOP codon at beginning of sequence' {
@@ -307,7 +307,7 @@ END_INPUT
 
     assert_success
     expected='[]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Translation stops if STOP codon at end of two-codon sequence' {
@@ -321,7 +321,7 @@ END_INPUT
 
     assert_success
     expected='["Tryptophan"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Translation stops if STOP codon at end of three-codon sequence' {
@@ -335,7 +335,7 @@ END_INPUT
 
     assert_success
     expected='["Methionine","Phenylalanine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Translation stops if STOP codon in middle of three-codon sequence' {
@@ -349,7 +349,7 @@ END_INPUT
 
     assert_success
     expected='["Tryptophan"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Translation stops if STOP codon in middle of six-codon sequence' {
@@ -363,7 +363,7 @@ END_INPUT
 
     assert_success
     expected='["Tryptophan","Cysteine","Tyrosine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Non-existing codon can'\''t translate' {
@@ -377,7 +377,7 @@ END_INPUT
 
     assert_failure
     expected='Invalid codon'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Unknown amino acids, not part of a codon, can'\''t translate' {
@@ -391,7 +391,7 @@ END_INPUT
 
     assert_failure
     expected='Invalid codon'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Incomplete RNA sequence can'\''t translate' {
@@ -405,7 +405,7 @@ END_INPUT
 
     assert_failure
     expected='Invalid codon'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
 @test 'Incomplete RNA sequence can translate if valid until a STOP codon' {
@@ -419,6 +419,6 @@ END_INPUT
 
     assert_success
     expected='["Phenylalanine","Phenylalanine"]'
-    assert_equal "$expected" "$output"
+    assert_equal "$output" "$expected"
 }
 
