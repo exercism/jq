@@ -99,3 +99,20 @@ This highlights one of the most powerful aspects of `jq`: the input to a filter 
 - the input array `[2,4,8,7]` is passed to `add` (which sums the numbers by applying the `+` operator to all the elements)
 - _in parallel_, `[2,4,8,7]` is also passed to `length`
 - when these sub-expressions complete, their results are then divided, returning the average value of the numbers in the input array.
+
+---
+
+## `jq` operators you'll need for the learning exercise
+
+### Alternative operator: `//`
+
+The expression `a // b` outputs `b` if `a` is false or null, otherwise it outputs `a`.
+In the context of setting a variable, this is very handy for providing a default value:
+
+```jq
+(.input.theAnswer // 42) as $answer | ...
+```
+
+### Arithmetic operators
+
+* `+`, `-`, `*` are the usual numeric addition, subtraction and multiplication operators.
