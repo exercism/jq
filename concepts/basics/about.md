@@ -22,9 +22,9 @@ In the examples below you'll encounter:
 
 - `-f filename` or `--from-file filename`
 
-  Instead of providing the `jq` program on the command line, read it from `filename.
-  `sed` and `awk` both use the `-f` option for exactly the same purpose.
-  You'll see this used in the test scripts for the practice exercises.
+  Read the `jq` program from `filename instead of providing it on the command line.
+  `sed` and `awk` both use the `-f` option for the same purpose.
+  You will see this used in the test scripts for the practice exercises.
 
 See [the manual][man-cli] for details about all the options.
 
@@ -53,7 +53,7 @@ $ echo '[1, 2, 3]' | jq '.'
 ### Arrays
 
 This will be quick introduction to working with arrays.
-We'll cover this topic in greater detail later.
+We will cover this topic in greater detail later.
 
 Array elements are accessed with brackets, and are zero-indexed.
 
@@ -100,7 +100,7 @@ Because commas have a specific purpose in the `jq` language, functions that take
 
 ### Objects
 
-Again, just a quick introduction to objects.
+A quick introduction to objects.
 
 Similar to many programming languages, use dots to access object properties
 
@@ -109,9 +109,10 @@ $ echo '{"foo": {"bar": "qux"}}' | jq '.foo.bar'
 "qux"
 ```
 
-You can also use brackets but then keys need to be quoted: this is one way to handle keys containing spaces:
+Brackets can be used for objects too, but then quotes are needed for string literals.
+This is one method to work with keys containing spaces.
 
-```jq
+```sh
 $ echo '{"foo bar": "qux"}' | jq '.["foo bar"]'
 "qux"
 ```
@@ -231,7 +232,7 @@ Once you understand this technique, you'll realize very powerful jq filters can 
 ## Parentheses
 
 Parentheses are used to group sub-expressions together to enforce the order of operations, just like in other languages.
-However in `jq`, the need for them can be somewhat surprising.
+In `jq`, the need for them can appear to be somewhat surprising.
 
 For example, let's say we want to construct an array with 2 elements: the square root of 9; and _e_ raised to the power 1.
 The two individual expressions are `9 | sqrt` and `1 | exp`.
@@ -253,7 +254,8 @@ Why didn't we get what we expected? `jq` interprets that like this:
 
 `jq`  builds a stream of two elements (`3` and `1`) which are each given to `exp`.
 
-What we need instead: force `exp` to only take `1` as input:
+We need to ensure that `exp` only takes one number as input.
+In other words, we need to enforce that the pipe is evaluated before the comma.
 
 ```jq
 $ jq -n '[ 9|sqrt, (1|exp) ]'
@@ -291,7 +293,7 @@ The values `false` and `null` are considered false. Any other value
 
 ## Functions and Operators
 
-Without going into great depth (functions will be a topic for another exercise!), here are some useful builtin functions:
+Without going into great depth (functions will be a topic for another exercise), here are some useful builtin functions:
 
 - [`length`][man-length]
 
