@@ -33,41 +33,77 @@ JBOL includes an implementation of [pseudo-random numbers][jbol-chance].
 
 ## How to port an exercise
 
-Using `square-root` as an example:
+Using `grep` as an example:
 
 - fork this repo
 - create a branch
-- copy an existing exercise
+- add the exercise to `config.json` (just pick a difficulty value, this can always be changed later)
 
   ```sh
-  cp -r ./exercises/practice{reverse-string,square-root}
+  jq --arg slug "grep" \
+     --arg name "Grep" \
+     --arg uuid "$(bin/configlet uuid)" \
+     --argjson difficulty 5 \
+     --argjson practices '[]' \
+     --argjson prerequisites '[]' \
+     '.exercises.practice += [$ARGS.named]' \
+     config.json \
+  | sponge config.json
   ```
 
-- edit the exercise config file to set the right file names: `./exercises/practice/square-root/.meta/config.json`
+  This uses the `sponge` utility (from the linux `moreutils` package) to write back to the original file.
+  `jq` does not have a `-i` option like sed.
+  If you {don't have,can't install} sponge then do:
+
+  ```sh
+  jq ... config.json > config.tmp && mv config.tmp config.json
+  ```
+
+- use configlet to create the exercise directory structure:
+
+  ```sh
+  bin/fetch-configlet
+  bin/configlet sync --exercise grep --docs --update --yes
+  bin/configlet sync --exercise grep --metadata --update --yes
+  bin/configlet sync --exercise grep --tests include --update
+  ```
+
+- populate the exercise config file:
+  ```sh
+  conf=./exercises/practice/grep/.meta/config.json
+  jq --arg slug grep --arg author "yourGithubHandle" '
+    .authors += [$author]
+    | .files.solution = ["\($slug).jq"]
+    | .files.test = ["test-\($slug).bats"]
+    | .files.example = [".meta/example.jq"]
+  ' "$conf" | sponge "$conf"
+  ```
+
+- copy `./exercises/practice/grep/bats-extra.bash` from another exercise
+- create the stub solution file `./exercises/practice/grep/grep.jq` (or copy it from another exercise)
 - generate the test script
 
   ```sh
-  bin/generate_tests square-root
+  bin/generate_tests grep
   ```
 
-  If this creates a dubious-looking test suite, you may need to create it manually
-  (the test generator currently does not handle exercises where there are nested "cases" objects in the problem-specifications canonical-data.json file).
+  If this creates a dubious-looking test suite, or if you have specific intentions, you may need to create it manually.
+  If that's the case, consider the contents of the `generate_tests.json` config file.
 
-- implement the example solution `./exercises/practice/square-root/.meta/example.jq`
+- implement the example solution `./exercises/practice/grep/.meta/example.jq`
 - test with
 
   ```sh
-  bin/validate_one_exercise ./exercises/practice/square-root
+  bin/validate_one_exercise ./exercises/practice/grep
   ```
 
-- when the tests pass, add the exercise to `config.json` in the `.exercises.practice` array:
-  the list of practice exercises is sorted by difficulty.
-- sync the exercise with problem-specifications:
+- when the tests pass, reconsider the difficulty for the exercise in `config.json`: the list of practice exercises is sorted by difficulty.
+- should you create a `./exercises/practice/grep/.docs/instructions.append.md`?
+  Is there any specific new aspect of `jq` that needs to be written about?
+- re-sync the exercise with problem-specifications:
 
     ```sh
-    bin/configlet sync -e square-root --docs --update
-    bin/configlet sync -e square-root --metadata --update
-    bin/configlet sync -e square-root --tests --update
+    bin/configlet sync -e grep
     bin/configlet lint
     ```
 

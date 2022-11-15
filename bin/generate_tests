@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-usage="$(basename "$0") [-p problem_specs_path] exercise-name"
 probspec=
 slug=
+generator_config="generate_tests.json"
 
 err() { printf '%s\n' "$*" >&2; }
 die() { err "$*"; exit 1; }
 
 usage() {
     [[ $1 ]] && err "$1"
-    err "$usage"
+    err "$(basename "$0") [-p problem_specs_path] exercise-name"
+    err ""
+    err "Default problem_specs_path is $(defaultProbSpecsPath)"
     exit "${rc:-0}"
 }
 
@@ -37,20 +39,24 @@ getCacheDir() {
     printf '%s' "$cacheDir"
 }
 
+defaultProbSpecsPath() {
+    # configlet stashes the problem-specifications here:
+    printf '%s/exercism/configlet/problem-specifications' "$(getCacheDir)"
+}
+
 # this is taken from `configlet`
 # - not fully implemented in case of unclean working directory
 refreshProbSpecs() {
+    [[ -z $probspec ]] && probspec="$(defaultProbSpecsPath)"  # global
+    local url="https://github.com/exercism/problem-specifications"
     local dir
-    local repo="problem-specifications"
-    local url="https://github.com/exercism/$repo"
-    if [[ -z $probspec ]]; then
-        dir="$(getCacheDir)/exercism/configlet"
-        [[ -d $dir ]] || mkdir -p "$dir"
-        probspec="$dir/$repo"
+    dir=$(dirname "$probspec")
+    if [[ ! -d $dir ]]; then
+        mkdir -p "$dir"
     fi
     if [[ ! -d $probspec ]]; then
         (
-            cd "$probspec/.." \
+            cd "$dir" \
             && git clone --depth 1 --single-branch -- "$url"
         )
     else
@@ -73,62 +79,34 @@ arrayContains() {
 }
 
 runCommand() {
-    # shellcheck disable=SC2034
-    local compact=(
-        anagram
-        beer-song
-        etl
-        forth
-        nucleotide-count
-        protein-translation
-        proverb
-        resistor-color
-        resistor-color-trio
-        satellite
-        sieve
-        transpose
-        two-bucket
-    )
-    case $slug in
-        rna-transcription)
-            printf 'jq -r \x27include "./rna-transcription"; .dna | toRna\x27'
-            ;;
-        collatz-conjecture)
-            printf 'jq -r \x27import "./collatz-conjecture" as Collatz; .number | Collatz::steps\x27'
-            ;;
-        run-length-encoding)
-            printf 'jq -r \x27
-                include "./run-length-encoding";
-                if .property == "encode" then
-                    .input.string | encode
-                elif .property == "decode" then
-                    .input.string | decode
-                else
-                    .input.string | encode | decode
-                end
-    \x27'
-            ;;
-        *)
-            local opt
-            arrayContains compact "$slug" && opt='-c' || opt='-r'
-            printf 'jq %s -f %s.jq' "$opt" "$slug"
-            ;;
-    esac
+    jq -r --arg slug "$slug" '
+        (.["runner code"][$slug] // ["jq -r -f \($slug).jq"])
+        | join("\n")
+    ' "$generator_config"
 }
 
 writeTestFile() {
     local canonicalData="$probspec/exercises/$slug/canonical-data.json"
     [[ -f $canonicalData ]] || die "No canonical data for $slug"
 
-    # shellcheck disable=SC2034
-    local wantProperty=(
-        atbash-cipher
-        resistor-color
-        run-length-encoding
-        zebra-puzzle
+    local property
+    property=$(
+        jq --arg slug "$slug" '
+            .["include .property in input json"] as $slugs
+            | $slug | IN($slugs[])
+        ' "$generator_config"
     )
-    local property=false
-    arrayContains wantProperty "$slug" && property=true
+
+    local uuids
+    uuids=$(
+        awk -v RS='\n\n' -F '\n' '
+            $1 ~ /^[[]/ && ! /include = false/ {
+                gsub(/[][]/, "", $1)
+                print $1
+            }
+        ' ./exercises/practice/"$slug"/.meta/tests.toml \
+        | jq -Rc '[., inputs]'
+    )
 
     local testFile="./exercises/practice/$slug/test-${slug}.bats"
     {
@@ -138,90 +116,73 @@ writeTestFile() {
 load bats-extra
 END_PREAMBLE
 
-        # not entirely happy this this mess
-
         jq -r --arg slug "$slug" \
               --arg cmd  "$(runCommand)" \
               --arg Q    "'" \
               --argjson property "$property" \
+              --argjson included_uuids "$uuids" \
         '
-			def prefix(desc): if desc == "" then "" else "\(desc):" end;
+            def prefix(desc): if desc == "" then "" else "\(desc):" end;
 
-			def test_cases(desc):
-				if has("cases") then
+            def test_cases(desc):
+                if has("cases") then
                     # recurse to extract the nested test cases
                     .description as $d | .cases[] | test_cases(prefix(desc) + $d)
-				elif $slug == "forth" and (.scenarios//[] as $s | "local-scope" | IN($s[])) then
+                elif $slug == "forth" and (.scenarios//[] as $s | "local-scope" | IN($s[])) then
                     # do not want this particular test
                     empty
                 else
                     # emit this case with an updated description
                     .description = prefix(desc) + .description
-				end
-				;
-
-            def exclude_reimplemented:
-                map(select(has("reimplements")) | .reimplements) as $reimplemented_uuids
-                | map(select(.uuid | IN($reimplemented_uuids[]) | not))
+                end
                 ;
 
-             def generate_test($isfirst):
+            def included_tests:
+                map(select(.uuid | IN($included_uuids[])))
+                ;
+
+             def generate_test:
                 "\n"
                 + "@test \(.description | @sh) {\n"
                 + "    "
-                + (if $isfirst then "#" else "" end)
                 + "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n"
                 + "\n"
-                + "    run \($cmd) << \($Q)END_INPUT\($Q)\n"
-                + "\(if $property then {property, input} else .input end | @json)\n"
-                + "END_INPUT\n"
-                + "\n"
-                + ( if (.expected | type == "object")
+                + "    run \($cmd) << \($Q)END_INPUT\($Q)"
+                , if $property then {property, input} else .input end
+                , "END_INPUT\n"
+                , ( if (.expected | type == "object" and has("error"))
                     then
-                        if (.expected | has("error"))
-                        then
-                            "    assert_failure\n"
-                            + "    expected=\(.expected.error | @sh)\n"
-                        else
-                            "    assert_success\n"
-                            + "    expected=\(.expected | @json | @sh)\n"
-                        end
+                        "    assert_failure\n"
+                        + "    expected=\(.expected.error | @sh)\n"
                     else
-                        "    assert_success\n"
-                        + ( if (.expected | type == "array")
-                            then "    expected=\(.expected | @json | @sh)\n"
-                            else "    expected=\(.expected | @sh)\n"
-                            end )
+                        "    assert_success"
+                        , ( .expected
+                            | if type | IN("array","object")
+                                then
+                                  "    expected=$(cat << \($Q)END_EXPECTED\($Q)"
+                                  , .
+                                  , "END_EXPECTED\n)"
+                                else "    expected=\(@sh)"
+                              end
+                          )
                     end
-                    + "    assert_equal \"$output\" \"$expected\"\n"
+                    , "    assert_equal \"$output\" \"$expected\""
                 )
-                + "}\n"
+                , "}"
                 ;
 
-			# main
-			[.cases[] | test_cases("")] | exclude_reimplemented
-            | reduce .[] as $case (["", true];
-                . as [$tests_text, $isfirst]
-                | [$tests_text + ($case | generate_test($isfirst)), false]
-              )
-            | first
+            # main
+            [.cases[] | test_cases("")] | included_tests
+            | .[] | generate_test
         ' "$canonicalData"
     } \
     | awk '
-        # this pretty-prints the JSON data in the END_INPUT heredoc
-        BEGIN {jq = "jq ."}
-        /^END_INPUT/ {f=0}
-        f {
-            print |& jq
-            close(jq, "to")
-            while ((jq |& getline line) > 0) {
-                printf "        %s\n", line
-            }
-            close(jq, "from")
-            next
+        # skip the first test
+        /BATS_RUN_SKIPPED/ && !seen {
+            sub(/[[]/, "#[")
+            seen = 1
         }
-        /<< '\''END_INPUT'\''/ {f=1}
-        {print}
+        1
     ' \
     | tee "$testFile"
 }
@@ -230,12 +191,7 @@ END_PREAMBLE
 
 parseOpts "$@"
 
-# shellcheck disable=SC2034
-omit=(
-    gigasecond
-    nth-prime
-)
-if arrayContains omit "$slug"; then
+if jq --arg slug "$slug" '.omit as $o | $slug | IN($o[]) // halt_error' "$generator_config" >/dev/null 2>&1; then
     err "Don't generate tests for exercise $slug"
     exit
 fi
