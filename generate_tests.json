@@ -1,0 +1,52 @@
+{
+  "comments": {
+    "omit": [
+      "These are exercises where the test script has been created manually",
+      "in order to make some educational point."
+    ],
+    "include .property in input json": [
+      "These are exercises where the canonical data uses more than one 'property' value."
+    ],
+    "runner code": [
+      "These are exercises that are either demonstrating aspects of modules,",
+      "or are doing things with different properties.",
+      "The odd indentation is meant to make the tests pretty."
+    ]
+  },
+  "omit": [
+    "gigasecond",
+    "nth-prime"
+  ],
+  "include .property in input json": [
+    "atbash-cipher",
+    "resistor-color",
+    "run-length-encoding",
+    "zebra-puzzle"
+  ],
+  "runner code": {
+    "rna-transcription": [
+      "jq -r '",
+      "  include \"./rna-transcription\";",
+      "  .dna | toRna",
+      "'"
+    ],
+    "collatz-conjecture": [
+      "jq -r '",
+      "  import \"./collatz-conjecture\" as Collatz;",
+      "  .number | Collatz::steps",
+      "'"
+    ],
+    "run-length-encoding": [
+      "jq -r '",
+      "        include \"./run-length-encoding\";",
+      "        if .property == \"encode\" then",
+      "            .input.string | encode",
+      "        elif .property == \"decode\" then",
+      "            .input.string | decode",
+      "        else",
+      "            .input.string | encode | decode",
+      "        end",
+      "    '"
+    ]
+  }
+}
