@@ -22,7 +22,7 @@ In the examples below you'll encounter:
 
 - `-f filename` or `--from-file filename`
 
-  Read the `jq` program from `filename instead of providing it on the command line.
+  Read the `jq` program from `filename` instead of providing it on the command line.
   `sed` and `awk` both use the `-f` option for the same purpose.
   You will see this used in the test scripts for the practice exercises.
 
@@ -35,7 +35,7 @@ Filters are also known as Expressions.
 A filter takes an input and produces an output.
 Like the way you work in a unix shell, you can join filters with a pipe `|` to connect the output of one filter to the input of another.
 
-### The Identity Filter: `.`
+## The Identity Filter: `.`
 
 This is the simplest filter.
 It simply passes its input to its output.
@@ -50,7 +50,7 @@ $ echo '[1, 2, 3]' | jq '.'
 ]
 ```
 
-### Arrays
+## Arrays
 
 This will be quick introduction to working with arrays.
 We will cover this topic in greater detail later.
@@ -98,7 +98,7 @@ For example `[1, 2, 3]` is a filter that uses the array constructor `[]` to coll
 Did you notice the semi-colons in `range(10; 70; 15)` above?
 Because commas have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments.
 
-### Objects
+## Objects
 
 A quick introduction to objects.
 
