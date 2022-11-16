@@ -44,6 +44,11 @@
       "slug": "numbers",
       "name": "Numbers",
       "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
+    },
+    {
+      "slug": "strings",
+      "name": "Strings",
+      "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab"
     }
   ],
   "exercises": {
@@ -80,10 +85,18 @@
         "status": "beta"
       },
       {
+        "slug": "log-line-parser",
+        "name": "Log Line Parser",
+        "concepts": ["strings"],
+        "prerequisites": ["basics"],
+        "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
+        "status": "beta"
+      },
+      {
         "slug": "lasagna",
         "name": "Lasagna",
         "concepts": ["variables"],
-        "prerequisites": ["numbers"],
+        "prerequisites": ["numbers", "strings"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
       },
