@@ -54,6 +54,11 @@
       "slug": "numbers",
       "name": "Numbers",
       "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
+    },
+    {
+      "slug": "strings",
+      "name": "Strings",
+      "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab"
     }
   ],
   "exercises": {
