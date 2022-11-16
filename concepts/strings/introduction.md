@@ -16,18 +16,11 @@ Within a string, use the backslash character to embed "special" characters:
 
 ## String length
 
-To find the number of characters: `length`
+To find the number of characters, use the `length` function.
 ```sh
 $ jq -cn --args  '$ARGS.positional[] | length' "Hello world!" "❄🌡🤧🤒🏥🕰😀"
 12
 7
-```
-
-To find the number of actual _bytes_: `utf8bytelength`
-```sh
-$ jq -cn --args  '$ARGS.positional[] | utf8bytelength' "Hello world!" "❄🌡🤧🤒🏥🕰😀"
-12
-27
 ```
 
 ## Concatenation
@@ -48,13 +41,13 @@ Use `add` when given an array of strings:
 
 ## Split and Join
 
-Splitting uses the `split/1` function or `/`
+Splitting uses the `split/1` function or the `/` operator:
 
 ```jq
-"Hello world!" | split(" ")   # => ["Hello", "world!"]
+"Hello beautiful world!" | split(" ")   # => ["Hello", "beautiful", "world!"]
 ```
 ```jq
-"Hello world!" / " "          # => ["Hello", "world!"]
+"Hello beautiful world!" / " "          # => ["Hello", "beautiful", "world!"]
 ```
 
 The inverse of `split/1` is `join/1`.
@@ -78,45 +71,18 @@ There are two ways to do this:
 
 ## String interpolation
 
-Within a string, the sequence `\(expression)` will embed the _result_ of that expression:
+Within a string, the sequence `\(expression)` will embed the _result_ of that expression [into the string][interpolate]:
 
 ```jq
 "The current datetime is \(now | strflocaltime("%c"))"   # => "The current datetime is Wed Nov 16 17:06:33 2022"
 ```
 
-## Cast a string to a number
+### Case conversion
 
-Use the `tonumber` function.
+Use the `ascii_downcase` and `ascii_upcase` functions.
 
-This raises an error if the string cannot be cast to a number, so `try-catch` may be needed.
+### Regular expressions
 
-```jq
-$ jq -cn --args '$ARGS.positional[] | [., tonumber]' 42 3.14 oops 1e6 0xbeef
-["42",42]
-["3.14",3.14]
-jq: error (at <unknown>): Invalid numeric literal at EOF at line 1, column 4 (while parsing 'oops')
+`jq` has rich support for regular expressions: this will be the topic of a later lesson.
 
-$ echo $?
-5
-
-$ jq -cn --args '$ARGS.positional[] | try [., tonumber] catch "not a number"' 42 3.14 oops 1e6 0xbeef
-["42",42]
-["3.14",3.14]
-"not a number"
-["1e6",1000000]
-"not a number"
-```
-
-Note that JSON numbers do not include hex or octal variations that some languages support.
-
-## Other functions
-
-Check [the manual][manual] for more details about these functions:
-
-- repeat a string: `*`
-- testing containment: `contains/1`, `inside/1`, `indices/1`, `index/1`, `rindex/1`, `startswith/1`, `endswith/1`
-- trim: `lsrimstr/1`, `rtrimstr/1`
-- case conversion: `ascii_downcase`, `ascii_upcase`
-- formatting functions: `@text`, `@json`, `@html`, `@uri`, `@csv`, `@tsv`, `@sh`, `@base64`, `@base64d`
-
-[manual]: https://stedolan.github.io/jq/manual/v1.6/
+[interpolate]: https://stedolan.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)
