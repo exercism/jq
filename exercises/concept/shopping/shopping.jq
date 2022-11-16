@@ -20,16 +20,17 @@
 #       3
 #     '
 # 
+# You'll need to use parenthses to control order of operations
 
-# Task 1: replace `null` with the appropriate expression
+# Task 1: replace `null` with the "name" element of the shopping list.
 null,
 
-# Task 2: replace `null` with the appropriate expression
-null,
+# Task 2: replace `null` with the count of the required ingredients.
+(null),
 
-# Task 3: replace `null` with the appropriate expression
-null,
+# Task 3: replace `null` with the amount of sugar.
+(null),
 
-# Task 4: replace `null` with the appropriate expression
+# Task 4: replace `null` with the mapping of ingredient names with their substitutions
 # (no comma after the last filter)
-null
+(null)

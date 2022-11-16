@@ -2,7 +2,7 @@
 
 ## Basics
 
-We'll assume you are familiar with JSON syntax and data types.
+We will assume you are familiar with JSON syntax and data types.
 
 jq works by passing the incoming JSON data through a _single expression_ (written as a _pipeline of filters_) to achieve the desired transformed data.
 
@@ -23,6 +23,12 @@ In the examples below you'll encounter:
     `jq` pretty-prints its output by default.
     It it extremely useful for humans to view the data when it's nicely formatted.
     However that's not necessary for machines: the `--compact-output` option removes the formatting whitespace to minimize the size of the resulting JSON.
+
+- `-f filename` or `--from-file filename`
+
+    Read the `jq` program from `filename instead of providing it on the command line.
+    `sed` and `awk` both use the `-f` option for the same purpose.
+    You will see this used in the test scripts for the practice exercises.
 
 The rest of this lesson will focus on the `jq` _lanaguage_.
 ~~~~
@@ -50,24 +56,16 @@ $ echo '[1, 2, 3]' | jq '.'
 ]
 ```
 
-#### Arrays
+### Arrays
+
+This will be quick introduction to working with arrays.
+We will cover this topic in greater detail later.
 
 Array elements are accessed with brackets, and are zero-indexed.
 
 ```sh
 $ echo '[10, 20, 30]' | jq '.[1]'
 20
-```
-
-Array slices use a colon and return the subarray _from_ (inclusive) _to_ (exclusive)
-
-```sh
-$ echo '[0, 10, 20, 30, 40, 50]' | jq '.[1:4]'
-[
-  10,
-  20,
-  30
-]
 ```
 
 A filter can build an array by wrapping an expression in `[` and `]`
@@ -96,7 +94,7 @@ A filter can build an array by wrapping an expression in `[` and `]`
   [10,25,40,55]
   ```
 
-##### Comma is an operator
+### Comma is an operator
 
 The comma is not just syntax that separates array elements.
 Comma is an **operator** that joins streams.
@@ -106,7 +104,9 @@ For example `[1, 2, 3]` is a filter that uses the array constructor `[]` to coll
 Did you notice the semi-colons in `range(10; 70; 15)` above?
 Because commas have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments.
 
-#### Objects
+### Objects
+
+A quick introduction to objects.
 
 Similar to many programming languages, use dots to access object properties
 
@@ -115,12 +115,18 @@ $ echo '{"foo": {"bar": "qux"}}' | jq '.foo.bar'
 "qux"
 ```
 
-Brackets can be used for objects too, but then quotes are needed for string literals:
+<!-- prettier-ignore -->
+~~~~exercism/note
+Brackets can be used for objects too, but then quotes are needed for string literals.
+This is one method to work with keys containing spaces.
 
 ```sh
-$ echo '{"foo": {"bar": "qux"}}' | jq '.["foo"]["bar"]'
+$ echo '{"foo bar": "qux"}' | jq '.["foo bar"]'
 "qux"
 ```
+~~~~
+
+<!-- prettier-ignore-end -->
 
 You can construct an object with `{}` and `key: value` pairs.
 Quotes are not required around keys that are "simple" strings.
@@ -145,7 +151,7 @@ echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
 | jq '{(.[0].key): .[0].value, (.[1].key): .[1].value}'
 ```
 
-#### Pipelines
+### Pipelines
 
 For example, given "file.json" containing
 
@@ -174,7 +180,7 @@ $ echo '{"answer": 42}' | jq '6 * 9'
 54
 ```
 
-#### Filters can output streams of data
+### Filters can output streams of data
 
 A filter can output more than one value.
 For example, the `.[]` filter outputs each element of an array as a separate value:
@@ -201,9 +207,45 @@ $ jq -n -c '[1, 2, 3] | .[] | . * 2'
 This is like implicit iteration.
 Once you understand this technique, you'll realize very powerful jq filters can be very concise.
 
+### Parentheses
+
+Parentheses are used to group sub-expressions together to enforce the order of operations, just like in other languages.
+In `jq`, the need for them can appear to be somewhat surprising.
+
+For example, let's say we want to construct an array with 2 elements: the square root of 9; and _e_ raised to the power 1.
+The two individual expressions are `9 | sqrt` and `1 | exp`.
+We expect the output to be the array `[3, 2.7...]`
+
+```jq
+$ jq -n '[ 9|sqrt, 1|exp ]'
+[
+  20.085536923187668,
+  2.718281828459045
+]
+```
+
+Why didn't we get what we expected? `jq` interprets that like this:
+
+```jq
+[ ((9|sqrt), 1) | exp ]
+```
+
+`jq`  builds a stream of two elements (`3` and `1`) which are each given to `exp`.
+
+We need to ensure that `exp` only takes one number as input.
+In other words, we need to enforce that the pipe is evaluated before the comma.
+
+```jq
+$ jq -n '[ 9|sqrt, (1|exp) ]'
+[
+  3,
+  2.718281828459045
+]
+```
+
 ### Functions and Operators
 
-Without going into great depth (functions will be a topic for another exercise!), here are some useful builtin functions:
+Without going into great depth (functions will be a topic for another exercise), here are some useful builtin functions:
 
 - `length`
 
