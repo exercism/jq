@@ -24,7 +24,7 @@ In the examples below you'll encounter:
 
 - `-f filename` or `--from-file filename`
 
-    Read the `jq` program from `filename instead of providing it on the command line.
+    Read the `jq` program from `filename` instead of providing it on the command line.
     `sed` and `awk` both use the `-f` option for the same purpose.
     You will see this used in the test scripts for the practice exercises.
 
@@ -40,7 +40,7 @@ Filters are also known as Expressions.
 A filter takes an input and produces an output.
 Like the way you work in a unix shell, you can join filters with a pipe `|` to connect the output of one filter to the input of another.
 
-### The Identity Filter: `.`
+## The Identity Filter: `.`
 
 This is the simplest filter.
 It simply passes its input to its output.
@@ -169,7 +169,7 @@ $ jq '.key2 | length' file.json
 
 We're _piping_ the output of the `.key2` expression as the input to `length` which unsurprisingly outputs the number of elements in the array.
 
-### Filters can ignore their input
+## Filters can ignore their input
 
 In this example, the input JSON data is ignored and has no impact on the output:
 
