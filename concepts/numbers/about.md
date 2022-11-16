@@ -8,6 +8,7 @@ This limits us to 53 bits of precision.
 The usual operators are available to work with numbers
 
 - arithmetic: `+`, `-`, `*`, `/`, `%`
+- comparison: `==`, `!=`, `<`, `<=`, `>=`, `>`
 - standard [math functions][man-math]
 
   For one-input functions, pipe the value into the function
@@ -78,7 +79,6 @@ Additional conditions use `elif`
      end
 # => "medium"
 ```
-
 
 [man-types]: https://stedolan.github.io/jq/manual/v1.6/#TypesandValues
 [man-math]: https://stedolan.github.io/jq/manual/v1.6/#Math
