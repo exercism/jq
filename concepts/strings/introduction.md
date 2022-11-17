@@ -86,7 +86,7 @@ There are two ways to do this:
 
 ## Find the index of a substring
 
-Use the `index/1` function: the index is zero-based.
+Use the `index/1` function; the index is zero-based.
 
 ```jq
 "hello" | index("el")'   # => 1

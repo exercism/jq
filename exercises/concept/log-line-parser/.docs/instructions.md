@@ -1,6 +1,6 @@
 # Instructions
 
-In this exercise you'll be processing log-lines.
+In this exercise you'll be processing log entries.
 
 Each log line is a string formatted as follows: `"[<LEVEL>]: <MESSAGE>"`.
 

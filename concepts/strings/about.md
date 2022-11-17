@@ -16,14 +16,14 @@ Within a string, use the backslash character to embed "special" characters:
 
 ## String length
 
-To find the number of characters: [`length`][length]
+To find the number of characters, use the [`length`][length] function.
 ```sh
 $ jq -cn --args  '$ARGS.positional[] | length' "Hello world!" "❄🌡🤧🤒🏥🕰😀"
 12
 7
 ```
 
-To find the number of actual _bytes_: [`utf8bytelength`][utf8bytelength]
+To find the number of actual _bytes_, use the [`utf8bytelength`][utf8bytelength] function.
 ```sh
 $ jq -cn --args  '$ARGS.positional[] | utf8bytelength' "Hello world!" "❄🌡🤧🤒🏥🕰😀"
 12
@@ -93,7 +93,7 @@ There are two ways to do this:
 
 ## Find the index of a substring
 
-Use the [`index/1`][index/1] function: the index is zero-based.
+Use the [`index/1`][index/1] function; the index is zero-based.
 
 ```jq
 "hello" | index("el")'   # => 1
@@ -104,7 +104,7 @@ If the substring is not in the string, the result is `null`
 "hello" | index("elk")   # => null
 ```
 
-Also useful: [`rindex/1`][index/1] and [`indices`][indices]
+Other useful functions are [`rindex/1`][index/1] and [`indices`][indices].
 
 ## String interpolation
 
@@ -116,11 +116,11 @@ Within a string, the sequence `\(expression)` will embed the _result_ of that ex
 
 ## Case conversion
 
-Use the [`ascii_downcase`][ascii_downcase] and [`ascii_upcase`][ascii_downcase] functions.
+Use the [`ascii_downcase`][ascii_downcase] and [`ascii_upcase`][ascii_downcase] functions to change the case of a string.
 
 ## Cast a string to a number
 
-Use the [`tonumber`][tonumber] function.
+Use the [`tonumber`][tonumber] function to create a number from a string.
 
 This raises an error if the string cannot be cast to a number, so [`try-catch`][try-catch] may be needed.
 
