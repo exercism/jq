@@ -40,6 +40,7 @@
       "name": "Functions",
       "uuid": "e3655c76-6f9b-4b96-9bd2-51ef26eebe35"
     },
+    {
       "slug": "numbers",
       "name": "Numbers",
       "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
@@ -48,11 +49,6 @@
       "slug": "strings",
       "name": "Strings",
       "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab"
-    },
-    {
-      "slug": "numbers",
-      "name": "Numbers",
-      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
     }
   ],
   "exercises": {
@@ -86,14 +82,6 @@
         "concepts": ["numbers"],
         "prerequisites": ["basics"],
         "uuid": "decbf137-ed00-412d-99ce-9b963da014a5",
-        "status": "beta"
-      },
-      {
-        "slug": "log-line-parser",
-        "name": "Log Line Parser",
-        "concepts": ["strings"],
-        "prerequisites": ["basics"],
-        "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
         "status": "beta"
       },
       {

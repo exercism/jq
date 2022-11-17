@@ -1,9 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-<<<<<<<< HEAD:concepts/strings/.meta/config.json
   "blurb": "jq data types: strings"
-========
-  "blurb": "jq data types: numbers"
->>>>>>>> 870e901 (Numbers concept and Assembly Line exercise (#93)):concepts/numbers/.meta/config.json
 }
