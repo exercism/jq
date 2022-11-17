@@ -5,7 +5,7 @@
 All numbers, whether integers or otherwise, are represented as C `double` type: IEEE754 double precision floating point numbers.
 This limits us to 53 bits of precision.
 
-The usual operators are available to work with numbers
+The usual operators are available to use with numbers:
 
 - arithmetic: `+`, `-`, `*`, `/`, `%`
 - comparison: `==`, `!=`, `<`, `<=`, `>=`, `>`
@@ -25,6 +25,8 @@ The usual operators are available to work with numbers
   $ jq -n 'pow(2; 10)'
   1024
   ```
+
+  Semi-colon is the separator for function arguments, not comma.
 
 <!-- prettier-ignore -->
 ~~~~exercism/caution
@@ -51,7 +53,7 @@ $ jq -n 'pow(2;53) as $n | [$n, $n+1]'
 ```
 
 Those numbers should not be equal. 
-That's the loss of precision.
+This is what "loss of precision" looks like.
 This means that `jq` is not capable of handling arbitrarily large numbers.
 ~~~~
 
@@ -62,7 +64,7 @@ This means that `jq` is not capable of handling arbitrarily large numbers.
 `jq` uses an [`if-then-else` expression][if-then-else] for conditional expressions.
 As an _expression_, it is placed in a pipeline.
 
-Then syntax is: `if A then B else C end`.
+Then syntax is: `if CONDTITION then TRUE_EXPR else FALSE_EXPR end`.
 The `else` clause is required in jq v1.6.
 
 ```jq

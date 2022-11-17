@@ -11,7 +11,7 @@ Let's focus on *numbers*.
 All numbers, whether integers or otherwise, are represented as C `double` type: IEEE754 double precision floating point numbers.
 This limits us to 53 bits of precision.
 
-The usual operators are available to work with numbers
+The usual operators are available to use with numbers:
 
 - arithmetic: `+`, `-`, `*`, `/`, `%`
 - comparison: `==`, `!=`, `<`, `<=`, `>=`, `>`
@@ -32,6 +32,8 @@ The usual operators are available to work with numbers
   1024
   ```
 
+  Semi-colon is the separator for function arguments, not comma.
+
 ## Other `jq` expressions
 
 To solve the exercise, you will need to know about conditional expressions.
@@ -41,7 +43,7 @@ To solve the exercise, you will need to know about conditional expressions.
 `jq` uses an [`if-then-else` expression][if-then-else] for conditional expressions.
 As an _expression_, it is placed in a pipeline.
 
-Then syntax is: `if A then B else C end`.
+Then syntax is: `if CONDITION then TRUE_EXPR else FALSE_EXPR end`.
 The `else` clause is required in jq v1.6.
 
 ```jq

@@ -2,7 +2,7 @@
 
 ## Goal
 
-The goal of this exercise is to teach the student how the concept of numbers is implemented in jq.
+The goal of this exercise is to teach the student how the concept of numbers is implemented in `jq`.
 
 ## Learning objectives
 
