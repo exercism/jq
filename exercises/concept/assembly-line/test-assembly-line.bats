@@ -24,6 +24,13 @@ assert_float() {
     assert_equal "$actual" "$expected"
 }
 
+@test production_rate_per_hour_for_speed_zero {
+    ## task 1
+    run jq -f assembly-line.jq <<< '{"speed": 0}'
+    assert_success
+    assert_float -d 4 -- "${lines[0]}" 0
+}
+
 @test production_rate_per_hour_for_speed_one {
     ## task 1
     run jq -f assembly-line.jq <<< '{"speed": 1}'
