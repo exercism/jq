@@ -19,7 +19,7 @@ def working_items_per_hour:
 
 
 # Please don't change the line below: it is responsible for passing
-# the input speed value (a number between 1 and 10 inclusive)
+# the input speed value (a number between 0 and 10 inclusive)
 # to the two functions defined above.
 #
 .speed | (production_rate_per_hour, working_items_per_hour)
