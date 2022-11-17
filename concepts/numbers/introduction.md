@@ -8,7 +8,7 @@ Let's focus on *numbers*.
 
 ## Numbers and numeric operators
 
-All numbers, whether integers or otherwise, are represented as C `double` type: IEEE754 double precision floating point numbers.
+All numbers, whether integers or otherwise, are IEEE754 double precision floating point numbers.
 This limits us to 53 bits of precision.
 
 The usual operators are available to use with numbers:
