@@ -41,8 +41,8 @@
       "uuid": "e3655c76-6f9b-4b96-9bd2-51ef26eebe35"
     },
     {
-      "slug": "types",
-      "name": "Datatypes",
+      "slug": "numbers",
+      "name": "Numbers",
       "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
     }
   ],
@@ -72,10 +72,18 @@
         "status": "beta"
       },
       {
+        "slug": "assembly-line",
+        "name": "Assembly Line",
+        "concepts": ["numbers"],
+        "prerequisites": ["basics"],
+        "uuid": "decbf137-ed00-412d-99ce-9b963da014a5",
+        "status": "beta"
+      },
+      {
         "slug": "lasagna",
         "name": "Lasagna",
         "concepts": ["variables"],
-        "prerequisites": ["basics"],
+        "prerequisites": ["numbers"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
       },

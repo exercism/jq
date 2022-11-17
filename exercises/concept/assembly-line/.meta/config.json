@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "assembly-line.jq"
+    ],
+    "test": [
+      "test-assembly-line.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
+  },
+  "forked_from": [
+    "ruby/assembly-line"
+  ],
+  "blurb": "Learn about numbers by analyzing the production of an assembly line."
+}
