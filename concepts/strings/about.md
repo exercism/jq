@@ -37,8 +37,12 @@ The ["slice" notation][slice] can be used to extract substrings:
 ```jq
 "abcdefghij"[3:6]   # => "def"
 "abcdefghij"[3:]    # => "defghij"
-"abcdefghij"[3:-2]  # => "defgh"
+"abcdefghij"[:-2]   # => "abcdefgh"
 ```
+
+The first number is the (zero-based) start index (or 0 if absent).
+The second number is the end index _plus one_ (or end of string if absent).
+That is a bit confusing, but it corresponds with the `range/2` function where the 2 parameters are the range start (inclusive) and range end (exclusive).
 ## Concatenation
 
 Use [`+`][+] to join strings:
@@ -108,7 +112,7 @@ Within a string, the sequence `\(expression)` will embed the _result_ of that ex
 "The current datetime is \(now | strflocaltime("%c"))"   # => "The current datetime is Wed Nov 16 17:06:33 2022"
 ```
 
-### Case conversion
+## Case conversion
 
 Use the [`ascii_downcase`][ascii_downcase] and [`ascii_upcase`][ascii_downcase] functions.
 
@@ -146,7 +150,7 @@ Check [the manual][manual] for more details about these functions:
 - trim: `lsrimstr/1`, `rtrimstr/1`
 - formatting functions: `@text`, `@json`, `@html`, `@uri`, `@csv`, `@tsv`, `@sh`, `@base64`, `@base64d`
 
-### Regular expressions
+## Regular expressions
 
 `jq` has rich support for regular expressions: this will be the topic of a later lesson.
 
