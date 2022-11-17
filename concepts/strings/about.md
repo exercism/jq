@@ -32,7 +32,12 @@ $ jq -cn --args  '$ARGS.positional[] | utf8bytelength' "Hello world!" "❄🌡�
 
 ## Substrings
 
-The ["slice" notation][slice] can be used to extract substrings:
+The ["slice" notation][slice] can be used to extract substrings.
+The syntax is `.[i:j]`.
+The substring returned is of length `j - i`, returning characters from index `i` (inclusive) to index `j` (exclusive).
+Either index can be negative, in which case it counts backwards from the end of the string.
+Either index can be omitted, in which case it refers to the start or end of the string.
+Indexes are zero-based.
 
 ```jq
 "abcdefghij"[3:6]   # => "def"
@@ -40,9 +45,6 @@ The ["slice" notation][slice] can be used to extract substrings:
 "abcdefghij"[:-2]   # => "abcdefgh"
 ```
 
-The first number is the (zero-based) start index (or 0 if absent).
-The second number is the end index _plus one_ (or end of string if absent).
-That is a bit confusing, but it corresponds with the `range/2` function where the 2 parameters are the range start (inclusive) and range end (exclusive).
 ## Concatenation
 
 Use [`+`][+] to join strings:
