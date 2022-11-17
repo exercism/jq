@@ -2,39 +2,34 @@
 
 ## Goal
 
-The goal of this exercise is to teach the student the basics of the Concept of Strings in [Ruby][ruby-doc.org-string].
+The goal of this exercise is to teach the student the basics of the Concept of Strings in `jq`.
 
 ## Learning objectives
 
-- Know of the existence of the `String` object.
+- Know that a jq string is defined as a JSON string.
 - Know how to create a string.
-- Know of some basic string methods (like finding the index of a character at a position, or returning a part the string).
-- Know how to do basic string interpolation.
+- Know of some basic string functions
+- Know how to do string interpolation.
 
 ## Out of scope
 
-- Using standard or custom format strings.
-- Memory and performance characteristics.
-- Strings can be a collection.
+- n/a
 
 ## Concepts
 
 The Concepts this exercise unlocks are:
 
-- `strings-basic`: know of the existence of the `String` object; know of some basic functions (like looking up a character at a position, or slicing the string); know how to do basic string interpolation.
+- `strings`
 
 ## Prerequisites
 
-There are no prerequisites.
+n/a
 
 ## Representer
 
-This exercise does not require any specific representation logic to be added to the [representer][representer].
+n/a
 
 ## Analyzer
 
-This exercise does not require any specific logic to be added to the [analyzer][analyzer].
+n/a
 
-[analyzer]: https://github.com/exercism/ruby-analyzer
-[representer]: https://github.com/exercism/ruby-representer
-[ruby-doc.org-string]: https://ruby-doc.org/core-2.7.0/String.html

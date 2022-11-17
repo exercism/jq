@@ -23,6 +23,16 @@ $ jq -cn --args  '$ARGS.positional[] | length' "Hello world!" "❄🌡🤧🤒�
 7
 ```
 
+## Substrings
+
+The "slice" notation can be used to extract substrings:
+
+```jq
+"abcdefghij"[3:6]   # => "def"
+"abcdefghij"[3:]    # => "defghij"
+"abcdefghij"[3:-2]  # => "defgh"
+```
+
 ## Concatenation
 
 Use `+` to join strings:
@@ -68,6 +78,19 @@ There are two ways to do this:
     ```
 
     `implode` is the inverse of `explode`.
+
+## Find the index of a substring
+
+Use the `index/1` function: the index is zero-based.
+
+```jq
+"hello" | index("el")'   # => 1
+```
+
+If the substring is not in the string, the result is `null`
+```jq
+"hello" | index("elk")   # => null
+```
 
 ## String interpolation
 

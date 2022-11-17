@@ -1,10 +1,11 @@
 {
   "blurb": "Learn about strings by processing logs.",
   "icon": "logs-logs-logs",
-  "authors": ["pvcarrera"],
+  "authors": ["glennj"],
+  "forked_from": "ruby/log-line-parser",
   "files": {
-    "solution": ["log_line_parser.rb"],
-    "test": ["log_line_parser_test.rb"],
-    "exemplar": [".meta/exemplar.rb"]
+    "solution": ["log-line-parser.jq"],
+    "test": ["test-log-line-parser.bats"],
+    "exemplar": [".meta/exemplar.jq"]
   }
 }

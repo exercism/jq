@@ -30,6 +30,15 @@ $ jq -cn --args  '$ARGS.positional[] | utf8bytelength' "Hello world!" "❄🌡�
 27
 ```
 
+## Substrings
+
+The ["slice" notation][slice] can be used to extract substrings:
+
+```jq
+"abcdefghij"[3:6]   # => "def"
+"abcdefghij"[3:]    # => "defghij"
+"abcdefghij"[3:-2]  # => "defgh"
+```
 ## Concatenation
 
 Use [`+`][+] to join strings:
@@ -75,6 +84,21 @@ There are two ways to do this:
     ```
 
     [`implode`][implode] is the inverse of [`explode`][explode].
+
+## Find the index of a substring
+
+Use the [`index/1`][index/1] function: the index is zero-based.
+
+```jq
+"hello" | index("el")'   # => 1
+```
+
+If the substring is not in the string, the result is `null`
+```jq
+"hello" | index("elk")   # => null
+```
+
+Also useful: [`rindex/1`][index/1] and [`indices`][indices]
 
 ## String interpolation
 
@@ -141,3 +165,6 @@ Check [the manual][manual] for more details about these functions:
 [tonumber]: https://stedolan.github.io/jq/manual/v1.6/#tonumber
 [try-catch]: https://stedolan.github.io/jq/manual/v1.6/#try-catch
 [json-numbers]: https://www.json.org/json-en.html
+[indices]: https://stedolan.github.io/jq/manual/v1.6/#indices(s)
+[index/1]: https://stedolan.github.io/jq/manual/v1.6/#index(s),rindex(s)
+[slice]: https://stedolan.github.io/jq/manual/v1.6/#Array/StringSlice:.[10:15]
