@@ -48,6 +48,11 @@
       "slug": "strings",
       "name": "Strings",
       "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab"
+    },
+    {
+      "slug": "numbers",
+      "name": "Numbers",
+      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
     }
   ],
   "exercises": {
@@ -76,19 +81,19 @@
         "status": "beta"
       },
       {
-<<<<<<< HEAD
         "slug": "assembly-line",
         "name": "Assembly Line",
         "concepts": ["numbers"],
         "prerequisites": ["basics"],
         "uuid": "decbf137-ed00-412d-99ce-9b963da014a5",
-=======
+        "status": "beta"
+      },
+      {
         "slug": "log-line-parser",
         "name": "Log Line Parser",
         "concepts": ["strings"],
         "prerequisites": ["basics"],
         "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
->>>>>>> 476135a (first pass at concept introduction)
         "status": "beta"
       },
       {
@@ -103,15 +108,7 @@
         "slug": "lasagna",
         "name": "Lasagna",
         "concepts": ["variables"],
-<<<<<<< HEAD
         "prerequisites": ["numbers", "strings"],
-=======
-<<<<<<< HEAD
-        "prerequisites": ["numbers"],
-=======
-        "prerequisites": ["strings"],
->>>>>>> 476135a (first pass at concept introduction)
->>>>>>> 399e33f (first pass at concept introduction)
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
       },
