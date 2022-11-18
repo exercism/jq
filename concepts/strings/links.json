@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#TypesandValues]",
+    "description": "Types and Values"
+  },
+  {
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)",
+    "description": "String interpolation"
+  },
+  {
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#Formatstringsandescaping",
+    "description": "Format strings and escaping"
+  }
+]
