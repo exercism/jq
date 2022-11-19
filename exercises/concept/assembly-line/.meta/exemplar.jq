@@ -14,8 +14,8 @@ def production_rate_per_hour:
   . * base_cars_per_hour * success_rate
 ;
 
-def working_items_per_hour:
+def working_items_per_minute:
   production_rate_per_hour / 60 | trunc
 ;
 
-.speed | (production_rate_per_hour, working_items_per_hour)
+.speed | (production_rate_per_hour, working_items_per_minute)

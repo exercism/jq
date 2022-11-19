@@ -12,7 +12,7 @@ def production_rate_per_hour:
 ;
 
 # Task 2: calculate the number of working items produces per minute
-def working_items_per_hour:
+def working_items_per_minute:
   # remove the constant and implement this function
   -2
 ;
@@ -22,4 +22,4 @@ def working_items_per_hour:
 # the input speed value (a number between 0 and 10 inclusive)
 # to the two functions defined above.
 #
-.speed | (production_rate_per_hour, working_items_per_hour)
+.speed | (production_rate_per_hour, working_items_per_minute)
