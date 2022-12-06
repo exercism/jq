@@ -31,8 +31,11 @@ Array indexing is zero-based.
 Retrieve an element from an array with a bracket expression:
 `.[2]` gets the third element.
 
+Negative indexes count backwards from the end of the array:
+`.[-1]` gets the last element; `.[-2]` is the second last.
+
 A "slice" is a sub-sequence of the array.
-.`[10:15]` returns 5 elements starting from index 10
+.`[10:15]` returns 5 elements starting from index 10; the end index is _not included_.
 
 There are some convenience functions:
 
@@ -49,8 +52,8 @@ Suppose we want a stream of the lengths of the strings in an array
 
 ```jq
 ["a", "be", "cat", "door"] | length        # => 4, we don't want the length of the array
-["a", "be", "cat", "door"] | .[] | length  # => the stream 1, 2, 3, 4
-["a", "be", "cat", "door"][] | length      # => the stream 1, 2, 3, 4
+["a", "be", "cat", "door"] | .[] | length  # => the stream 1, 2, 3, 4 -- the lengths of each element
+["a", "be", "cat", "door"][] | length      # => same as above
 ```
 
 ## Concatenating and Subtracting
@@ -78,12 +81,18 @@ The `-` operator removes elements in the right-hand array from the left-hand arr
 
 - `select(expr)` is a function that applies the `expr` to a _single value_:
   if the result of the expression is true, then the value is returned;
-  if the result is false, _nothing_ (actually `empty`) is returned -- not `null`, actually nothing.
+  if the result is false, _nothing_ is returned -- not `null`, actually nothing.
 
   To apply that to an array, combine it with `map`
 
   ```jq
   [range(10)] | map(select(. % 2 == 0))    # => [0, 2, 4, 6, 8]
+  ```
+  
+  Alternately, apply `select` to a _stream_ and collect the results
+
+  ```jq
+  [range(10) | select(. % 2 == 0)]    # => [0, 2, 4, 6, 8]
   ```
 
 - `any(condition)` and `all(condition)` return a boolean value whether any/all elements in the array pass the condition.

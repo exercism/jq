@@ -2,36 +2,27 @@
 
 ## General
 
-- The bird count per day is stored in a [instance variable][instance-variables] named `birds_per_day`.
-- The bird count per day is an array that contains exactly 7 integers.
-
 ## 1. Check what the counts were last week
 
-- As this method does _not_ depend on the current week's count, it is defined as a [`class` method][class-method].
-- There are [several ways to define an array][array-definition].
+- Return the _second last_ element of the array.
 
 ## 2. Check how many birds visited yesterday
 
-- Remember that the counts are ordered by day from oldest to most recent, with the last element representing today.
-- Accessing the second last element can be done either by using its (fixed) index (remember to start counting from zero) or by calculating its index using the [array's size][array-length].
+- As the data is an array of arrays, you'll need to index once to get the correct weekly array, then index again to get the wanted day.
+- "Today" is the last element of the weekly array.
 
 ## 3. Calculate the total number of visiting birds
 
-- It's possible to calculate the sum of a collection using the [Array#sum][array-sum] method.
+- It's possible to calculate the sum of an array using the [add][manual-add] filter.
+  You saw this expression in the Basics concept and the Shopping exercise.
 
 ## 4. Calculate the number of busy days
 
-- Ruby also provides a method for [counting elements on a collection][array-count]
+- You'll need to _select_ the days with count greater then or equal to 5, then return the size of the resulting array.
 
 ## 5. Check if there was a day with no visiting birds
 
-- There are some methods that can be use to check the existence on an element on a collection. For example [Enumerable#any?][enumerable-any] and [Enumerable#all?][enumerable-all]
+- The one-argument version of the [any][manual-any] filter will be appropriate.
 
-[instance-variables]: http://ruby-for-beginners.rubymonstas.org/writing_classes/instance_variables.html
-[class-method]: http://www.rubyfleebie.com/2007/04/09/understanding-class-methods-in-ruby/
-[array-definition]: https://ruby-doc.org/core-2.7.0/Array.html#class-Array-label-Creating+Arrays
-[array-length]: https://ruby-doc.org/core-2.7.0/Array.html#class-Array-label-Obtaining+Information+about+an+Array
-[array-sum]: https://ruby-doc.org/core-2.7.0/Array.html#method-i-sum
-[array-count]: https://ruby-doc.org/core-2.7.0/Array.html#method-i-count
-[enumerable-any]: https://ruby-doc.org/core-2.7.0/Enumerable.html#method-i-any-3F
-[enumerable-all]: https://ruby-doc.org/core-2.7.0/Enumerable.html#method-i-all-3F
+[manual-add]: https://stedolan.github.io/jq/manual/v1.6/#add
+[manual-any]: https://stedolan.github.io/jq/manual/v1.6/#all,all(condition),all(generator;condition)
