@@ -1,6 +1,10 @@
 [
   {
-    "url": "https://example.com",
-    "description": "change this text"
+    "url": "http://programminghistorian.org/lessons/json-and-jq",
+    "description": "Reshaping JSON with jq"
+  },
+  {
+    "url": "https://github.com/stedolan/jq/wiki/jq-Language-Description#Array-and-Object-Accessors-and-Iterators",
+    "description": "Array and Object Accessors and Iterators"
   }
 ]
