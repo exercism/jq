@@ -13,7 +13,7 @@ Array elements do not need to be all the same type.
 
 ### Creating arrays
 
-Use brackets to collect elements into an array
+Use brackets to collect elements into an array.
 ```jq
 [1, 2, 3]
 ```
@@ -51,7 +51,7 @@ There are some convenience functions:
 
 `jq` provides many functions to cover common iteration functionality:
 
-- `map(expr)` returns a new array where the `expr` is applied to each element in turn
+- `map(expr)` returns a new array where the `expr` is applied to each element in turn.
 
   ```jq
   [1, 2, 3] | map(. * 10)    # => [10, 20, 30]
@@ -60,13 +60,13 @@ There are some convenience functions:
   if the result of the expression is true, then the value is returned;
   if the result is false, _nothing_ is returned -- not `null`, actually nothing.
 
-  To apply that to an array, combine it with `map`
+  To apply that to an array, combine it with `map`.
 
   ```jq
   [range(10)] | map(select(. % 2 == 0))    # => [0, 2, 4, 6, 8]
   ```
   
-  Alternately, apply `select` to a _stream_ and collect the results
+  Alternately, apply `select` to a _stream_ and collect the results.
 
   ```jq
   [range(10) | select(. % 2 == 0)]    # => [0, 2, 4, 6, 8]

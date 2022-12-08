@@ -11,7 +11,7 @@ Array elements do not need to be all the same type.
 
 ## Creating arrays
 
-Use brackets to collect elements into an array
+Use brackets to collect elements into an array.
 ```jq
 [1, 2, 3]
 ```
@@ -50,13 +50,13 @@ There are some convenience functions:
 There are circumstances where we want to stream the elements of an array individually.
 For this we use `.[]`.
 
-Suppose we want a stream of the lengths of the strings in an array
+Suppose we want a stream of the lengths of the strings in an array.
 
 ```jq
 ["a", "be", "cat", "door"] | length        # => 4 -- the number of elements in the array
 ["a", "be", "cat", "door"] | .[] | length  # => 1, 2, 3, 4 -- the lengths of each element
 ```
-The empty brackets can be placed beside the previous expression, omitting the pipe:
+The empty brackets can be placed beside the previous expression, omitting the pipe.
 ```jq
 ["a", "be", "cat", "door"][] | length      # => 1, 2, 3, 4 -- the lengths of each element
 # ........................^^
@@ -64,7 +64,7 @@ The empty brackets can be placed beside the previous expression, omitting the pi
 
 ## Concatenating and Subtracting
 
-Use `+` to concatenate arrays
+Use `+` to concatenate arrays.
 
 ```jq
 [1, 2, 3] + [4, 5]          # => [1, 2, 3, 4, 5]
@@ -80,7 +80,7 @@ The `-` operator removes elements in the right-hand array from the left-hand arr
 
 `jq` provides many functions to cover common iteration functionality:
 
-- `map(expr)` returns a new array where the `expr` is applied to each element in turn
+- `map(expr)` returns a new array where the `expr` is applied to each element in turn.
 
   ```jq
   [1, 2, 3] | map(. * 10)    # => [10, 20, 30]
@@ -89,13 +89,13 @@ The `-` operator removes elements in the right-hand array from the left-hand arr
   if the result of the expression is true, then the value is returned;
   if the result is false, _nothing_ is returned -- not `null`, actually nothing.
 
-  To apply that to an array, combine it with `map`
+  To apply that to an array, combine it with `map`.
 
   ```jq
   [range(10)] | map(select(. % 2 == 0))    # => [0, 2, 4, 6, 8]
   ```
   
-  Alternately, apply `select` to a _stream_ and collect the results
+  Alternately, apply `select` to a _stream_ and collect the results.
 
   ```jq
   [range(10) | select(. % 2 == 0)]    # => [0, 2, 4, 6, 8]
@@ -123,7 +123,7 @@ otherwise the funtion returns `null`.
 ```
 
 There is an inverse function called `IN` (yes, in capital letters).
-The wrinkle with `IN` is that it's argument is not an array, but a _stream_
+The wrinkle with `IN` is that it's argument is not an array, but a _stream_.
 
 ```jq
 "beef" | IN(["carrots", "beef", "potatoes"][])    # => true
@@ -133,8 +133,9 @@ The wrinkle with `IN` is that it's argument is not an array, but a _stream_
 ## Other functions (refer to the manual for details)
 
 - Ruby has a handy `each_with_index` method that pairs the element value with its index.
+  Python has `enumerate`.
   `jq` has something similar, named `to_entries`.
-  This transforms the array to an array of `{key: index, value: value}` objects:
+  This transforms the array to an array of `{key: index, value: value}` objects.
 
   ```jq
   [11, 22, 33, 44] | to_entries

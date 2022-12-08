@@ -55,7 +55,7 @@ $ jq -f bird-count.jq < bird-counting-data.json
 
 Some days are busier than others.
 A busy day is one where five or more birds have visited your garden.
-Implement the filter to return the number of busy days this week:
+Implement the filter to return the number of busy days this week.
 
 ```jq
 $ jq -f bird-count.jq < bird-counting-data.json
@@ -67,7 +67,7 @@ $ jq -f bird-count.jq < bird-counting-data.json
 
 ## 5. Check if there was a day with no visiting birds
 
-Implement the filter that returns `true` if there was any day this week when zero birds visited the garden; otherwise, return `false`:
+Implement the filter that returns `true` if there was any day this week when zero birds visited the garden; otherwise, return `false`.
 
 ```jq
 $ jq -f bird-count.jq < bird-counting-data.json
