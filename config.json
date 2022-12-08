@@ -49,6 +49,11 @@
       "slug": "strings",
       "name": "Strings",
       "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab"
+    },
+    {
+      "slug": "arrays",
+      "name": "Arrays",
+      "uuid": "e6681982-94de-41bb-a4e6-3174aa8e6797"
     }
   ],
   "exercises": {
@@ -90,6 +95,14 @@
         "concepts": ["strings"],
         "prerequisites": ["basics"],
         "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
+        "status": "beta"
+      },
+      {
+        "slug": "bird-count",
+        "name": "Bird Count",
+        "concepts": ["arrays"],
+        "prerequisites": ["basics"],
+        "uuid": "8d974499-a5bb-4c34-ab2b-cd34e28c66a0",
         "status": "beta"
       },
       {

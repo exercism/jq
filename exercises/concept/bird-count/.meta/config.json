@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "bird-count.jq"
+    ],
+    "test": [
+      "test-bird-count.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ],
+    "editor": [
+      "bird-counting-data.json"
+    ]
+  },
+  "forked_from": [
+    "ruby/bird-count"
+  ],
+  "blurb": "Learn about arrays by keeping track of how many birds visit your garden."
+}
