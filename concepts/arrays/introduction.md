@@ -37,13 +37,13 @@ Negative indexes count backwards from the end of the array:
 `.[-1]` gets the last element; `.[-2]` is the second last.
 
 A "slice" is a sub-sequence of the array.
-.`[10:15]` returns 5 elements starting from index 10; the end index is _not included_.
+`.[10:15]` returns 5 elements starting from index 10; the end index is _not included_.
 
 There are some convenience functions:
 
-- `first` gets the first element,
-- `last` gets the last element,
-- `nth(n)` gets the element at index `n`
+- `first` gets the first element.
+- `last` gets the last element.
+- `nth(n)` gets the element at index `n`.
 
 ## Iterating
 
@@ -54,7 +54,7 @@ There are some convenience functions:
   ```jq
   [1, 2, 3] | map(. * 10)    # => [10, 20, 30]
 
-- `select(expr)` is a function that applies the `expr` to a _single value_:
+- `select(expr)` is a function that applies the `expr` to a _single value_;
   if the result of the expression is true, then the value is returned;
   if the result is false, _nothing_ is returned -- not `null`, actually nothing.
 
