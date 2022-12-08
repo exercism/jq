@@ -1,14 +1,14 @@
 # Instructions
 
-You're an avid bird watcher that keeps track of how many birds have visited your garden in the last seven days.
+You are an avid bird watcher that keeps track of how many birds have visited your garden in the last seven days.
 
 You have five tasks, all dealing with the numbers of birds that visited your garden.
 
 ## 1. Check what the counts were last week
 
-You store your bird counts in a file of JSON data.
+You store your bird counts in JSON format.
 A "main" array stores arrays of weekly counts.
-Each weekly count is an array of seven integers, one count for each weekday.
+Each weekly count is an array of seven integers, one number for each day of the week.
 You always append new weeks at the end of the main array.
 Implement the filter that returns last week's counts.
 

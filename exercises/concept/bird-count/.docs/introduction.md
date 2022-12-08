@@ -8,7 +8,8 @@ JSON defines an array as:
 > An array begins with `[` left bracket and ends with `]` right bracket.
 > Values are separated by `,` comma.
 
-Arrays can contain zero or more of _any kind_ of JSON value.
+Arrays can contain zero or more of _any kind_ of JSON values.
+Array elements do not need to be all the same type.
 
 ### Creating arrays
 
@@ -17,14 +18,15 @@ Use brackets to collect elements into an array
 [1, 2, 3]
 ```
 
-Inside the brackets can be an expression that generates a _stream_ of elements
+The elements of a _stream_ can be captured into an array by enclosing it in brackets.
 ```jq
-[range(5)]   # => [0, 1, 2, 3, 4]
+range(5)     # => a stream of 5 numbers
+[range(5)]   # => the array [0, 1, 2, 3, 4]
 ```
 
 ### Size
 
-The `length` function returns the number of elements in the array.
+The `length` function returns the number of elements in an array.
 
 ### Indexing and slicing
 
@@ -45,9 +47,9 @@ There are some convenience functions:
 - `last` gets the last element,
 - `nth(n)` gets the element at index `n`
 
-### Enumeration
+### Iterating
 
-`jq` provides many functions to cover common enumerable functionality:
+`jq` provides many functions to cover common iteration functionality:
 
 - `map(expr)` returns a new array where the `expr` is applied to each element in turn
 
@@ -70,7 +72,7 @@ There are some convenience functions:
   [range(10) | select(. % 2 == 0)]    # => [0, 2, 4, 6, 8]
   ```
 
-- `any(condition)` and `all(condition)` return a boolean value whether any/all elements in the array pass the condition.
+- `any(condition)` and `all(condition)` return a boolean value whether any/all of the elements in the array pass the condition.
 
   ```jq
   [1, 2, 3, 4] | any(. > 4)    # false
