@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "high-score-board.jq"
+    ],
+    "test": [
+      "test-high-score-board.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
+  },
+  "forked_from": [
+    "javascript/high-score-board"
+  ],
+  "blurb": "Practice jq objects by tracking high scores of an arcade game."
+}

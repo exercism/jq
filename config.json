@@ -54,6 +54,11 @@
       "slug": "arrays",
       "name": "Arrays",
       "uuid": "e6681982-94de-41bb-a4e6-3174aa8e6797"
+    },
+    {
+      "slug": "objects",
+      "name": "Objects",
+      "uuid": "5adcd50d-90fb-41b2-8ca4-c58eecd361ff"
     }
   ],
   "exercises": {
@@ -120,6 +125,14 @@
         "prerequisites": ["variables"],
         "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
         "status": "beta"
+      },
+      {
+        "slug": "high-score-board",
+        "name": "High Score Board",
+        "concepts": ["objects"],
+        "prerequisites": ["basics"],
+        "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
+        "status": "wip"
       }
     ],
     "practice": [
