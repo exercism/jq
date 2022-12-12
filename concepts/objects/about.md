@@ -63,6 +63,12 @@ If you cannot refer to the key as an identifier, use _bracket notation_.
 "name" as $key | {name: "Jane", age: 42} | .[$key]  # => "Jane"
 ```
 
+If the key is not in the object, the result is `null`
+
+```jq
+{name: "Jane", age: 42} | .sport  # => null
+```
+
 ## Adding key-value pairs
 
 Use the `=` assignment operator, with an index expression on the left-hand side
@@ -73,6 +79,16 @@ Use the `=` assignment operator, with an index expression on the left-hand side
 #      "name": "Jane",
 #      "age": 42,
 #      "sport": "tennis"
+#    }
+```
+
+The `+` operator will _merge_ objects:
+
+```jq
+{Richard: 54} + {Jane: 42}
+# => {
+#      "Richard": 54,
+#      "Jane": 42
 #    }
 ```
 
