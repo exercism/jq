@@ -14,4 +14,4 @@ def apply_monday_bonus:
   with_entries(.value += 100);
 
 def total_score:
-  to_entries | map(.value) | add // 0;
+  [.[]] | add // 0;

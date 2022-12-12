@@ -34,6 +34,13 @@ Even though the names must be strings, they do not need to be quoted if the name
 {name: "Jane", age: 42}
 ```
 
+It is valid to use keys that are not "identifier-like".
+Just quote them.
+
+```jq
+{"first name": "Jane", "last name": "Lopez", age: 42}
+```
+
 If the name is the result of an expression, the expression **must** be in parentheses.
 
 ```sh
@@ -47,6 +54,42 @@ jq: 2 compile errors
 $ echo "Jane" | jq -Rc '{(.): 42}'
 {"Jane":42}
 ```
+
+### Short-hand notations
+
+A couple of frequent cases for object construction have short-hand syntax.
+
+1. Re-using key-value pairs from an input object.
+
+   ```sh
+   $ jq -n '$ENV | {USER: .USER, EDITOR: .EDITOR}'
+   {
+     "USER": "glennj",
+     "EDITOR": "vim"
+   }
+   ```
+
+   `$ENV` is a object holding the name-value pairs of the environment.
+
+   The repetitive `key: .key` pairs can be written as just `key`
+
+   ```sh
+   $ jq -n '$ENV | {USER, EDITOR}'
+   {
+     "USER": "glennj",
+     "EDITOR": "vim"
+   }
+   ```
+		
+1. Similarly, there's a short-hand when using variables.
+
+   ```sh
+   $ jq -cn '"foo" as $a | "bar" as $b | {a: $a, b: $b}'
+   {"a":"foo","b":"bar"}
+
+   $ jq -cn '"foo" as $a | "bar" as $b | {$a, $b}'
+   {"a":"foo","b":"bar"}
+   ```
 
 ## Indexing
 
@@ -69,9 +112,27 @@ If the key is not in the object, the result is `null`
 {name: "Jane", age: 42} | .sport  # => null
 ```
 
-## Adding key-value pairs
+### Indexing nested values
 
-Use the `=` assignment operator, with an index expression on the left-hand side
+You will discover that this is an action you need to do again and again when parsing results from API queries.
+
+Given an object that contains array or object values, we can "chain" index expressions together.
+
+```jq
+{
+  "name": "Jane",
+  "age": 42,
+  "pets": ["cat", "fish"],
+  "address": {"street": "123 Main St", "city": "Springfield"}
+} as $example
+|
+  $example.pets[1],       # => "fish"
+  $example.address.city   # => "Springfield"
+```
+
+## Adding or changing key-value pairs
+
+Use the `=` assignment operator, with an index expression on the left-hand side.
 
 ```jq
 {name: "Jane", age: 42} | .sport = "tennis"
@@ -92,22 +153,6 @@ The `+` operator will _merge_ objects:
 #    }
 ```
 
-## Indexing nested values
-
-Given an object that contains array or object values, we can "chain" index expressions together
-
-```jq
-{
-  "name": "Jane",
-  "age": 42,
-  "pets": ["cat", "fish"],
-  "address": {"street": "123 Main St", "city": "Springfield"}
-} as $example
-|
-  $example.pets[1],       # => "fish"
-  $example.address.city   # => "Springfield"
-```
-
 ## Removing a key
 
 Use the `del` function.
@@ -125,7 +170,7 @@ It returns the updated object.
   {name: "Jane", age: 42} as $example
   |
     ($example | has("name")),    # => true
-    ($example | has("sport"))    # => false 
+    ($example | has("sport"))    # => false
   ```
 
 - Test if a key is `in` an object
@@ -134,17 +179,33 @@ It returns the updated object.
   {name: "Jane", age: 42} as $example
   |
     ("name"  | in($example)),    # => true
-    ("sport" | in($example))     # => false 
+    ("sport" | in($example))     # => false
   ```
 
 ## List all the keys
 
-Use the `keys` function to output a list of all the keys. 
+Use the `keys` function to output a list of all the keys.
 
 Note that `keys` will _sort_ the keys.
 To retrieve the keys in the original order, use `keys_unsorted`.
 
+There is no equivalent function to list all the _values_.
+However the `.[]` filter outputs the object values as a _stream_, and that stream can be captured with the `[...]` array constructor.
+
+```jq
+[{first: "Jane", last: "Lopez", status: "awesome!"} | .[]]
+# => ["Jane", "Lopez", "awesome!"]
+```
+
 ## Iterating
+
+- The `map_values(filter)` function applies the filter to each _value_ in the object.
+
+  ```jq
+  {first: "Jane", last: "Lopez", status: "awesome!"}
+  | map_values(ascii_upcase)
+  # => {"first": "JANE", "last": "LOPEZ", "status": "AWESOME!"}
+  ```
 
 - To iterate over an object, we must first convert it to an array of key-value objects.
   The `to_entries` function does that.
