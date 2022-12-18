@@ -182,7 +182,7 @@ It returns the updated object.
     ("sport" | in($example))     # => false
   ```
 
-## List all the keys
+## List the keys or values
 
 Use the `keys` function to output a list of all the keys.
 
