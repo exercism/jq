@@ -235,7 +235,7 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
   [
     {"key":"name", "value":"Jane"},
     {"key":"age", "value":42}
-  ] | from_entries                  # =>{"name": "Jane", "age": 42}
+  ] | from_entries                  # => {"name": "Jane", "age": 42}
   ```
 
 - To apply a filter to _each_ key-value pair in an object, use the `with_entries(filter)` function.
