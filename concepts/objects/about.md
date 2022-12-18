@@ -1,6 +1,6 @@
 # About
 
-To use terminology from other languages, a JSON object is a "hash" or "map" or "dictionary".
+A JSON object is, to use terminology from other languages, a "hash", "map", or "dictionary".
 
 JSON defines an object as:
 
