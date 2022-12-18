@@ -2,7 +2,7 @@
 
 ## Learning objectives
 
-- What are objects - for now describe them as maps/dictionaries that hold key-value pairs, more advanced things will be taught later
+- What are objects. For now describe them as maps/dictionaries that hold key-value pairs, more advanced things will be taught later
 - How to create an object literal with `{}` (either empty or with some initial values)
 - What keys are allowed
 - What values are allowed (e.g., numbers, strings etc or other objects, arrays or even functions)
