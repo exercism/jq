@@ -33,7 +33,7 @@ The function outputs the score board object with the new player added.
 If players violate the rules of the arcade hall, they are manually removed from the high score board.
 Implement `remove_player` which takes a board as input and one parameter, the name of the player to remove.
 This function should remove the entry for the given player from the board and output the new board.
-If the player was not on the board in the first place, nothing should happen to the board, it should be returned as is.
+If the player was not on the board in the first place, nothing should happen to the board; it should be returned as is.
 
 ```q
 {"Dave Thomas": 0} | remove_player("Dave Thomas")
