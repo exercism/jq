@@ -12,7 +12,7 @@ Further, the _name_ must be a string.
 Another word for _name_ is _key_.
 
 The _value_ can be of any JSON type.
-Different keys in the object can have values of different type, like this example.
+Different _values_ in the same object can be different type, like this example.
 
 ```json
 {
