@@ -155,7 +155,7 @@ The `+` operator will _merge_ objects:
 
 ## Removing a key
 
-Use the `del` function.
+Use the `del` function to remove a key.
 It returns the updated object.
 
 ```jq
