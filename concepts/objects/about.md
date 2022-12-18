@@ -164,7 +164,7 @@ It returns the updated object.
 
 ## Membership
 
-- Test if the object `has` a key.
+- To test if the object has a key, use the `has` function.
 
   ```jq
   {name: "Jane", age: 42} as $example
