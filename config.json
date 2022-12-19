@@ -111,10 +111,18 @@
         "status": "beta"
       },
       {
+        "slug": "high-score-board",
+        "name": "High Score Board",
+        "concepts": ["objects"],
+        "prerequisites": ["basics"],
+        "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
+        "status": "beta"
+      },
+      {
         "slug": "lasagna",
         "name": "Lasagna",
         "concepts": ["variables"],
-        "prerequisites": ["numbers", "strings"],
+        "prerequisites": ["numbers", "strings", "arrays", "objects"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
       },
@@ -125,14 +133,6 @@
         "prerequisites": ["variables"],
         "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
         "status": "beta"
-      },
-      {
-        "slug": "high-score-board",
-        "name": "High Score Board",
-        "concepts": ["objects"],
-        "prerequisites": ["basics"],
-        "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
-        "status": "wip"
       }
     ],
     "practice": [
