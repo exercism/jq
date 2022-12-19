@@ -98,6 +98,17 @@ It returns the updated object.
 {name: "Jane", age: 42} | del(.age)   # => {name: "Jane"}
 ```
 
+The parameter to `del` is a _path expression_ that resolves to a key in the object.
+That is to say, it is an **index** expression.
+It is not sufficient to just give a string.
+
+```jq
+{name: "Jane", age: 42} | del(name)        # error: name/0 is not defined
+{name: "Jane", age: 42} | del("name")      # error: Invalid path expression with result "name"
+{name: "Jane", age: 42} | del(.name)       # OK
+{name: "Jane", age: 42} | del(.["name"])   # OK
+```
+
 ## Membership
 
 - To test if the object has a key, use the `has` function.

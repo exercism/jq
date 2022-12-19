@@ -17,6 +17,7 @@
 
 - Use the [del expression][man-del].
 - Reference the key like you have done in the task before (bracket notation).
+- Remember that the argument to `del` is a _path expression_ not just a string.
 
 ## 4. Increase a player's score
 
@@ -36,7 +37,7 @@
 - The `add` expression can be used to find the sum of a list of numbers.
 
 [man-plus]: https://stedolan.github.io/jq/manual/v1.6/#Addition:+
-[man-delete]: https://stedolan.github.io/jq/manual/v1.6/#del(path_expression)
+[man-del]: https://stedolan.github.io/jq/manual/v1.6/#del(path_expression)
 [man-update-assignment]: https://stedolan.github.io/jq/manual/v1.6/#Arithmeticupdate-assignment:+=,-=,*=,/=,%=,//=
 [man-map_values]: https://stedolan.github.io/jq/manual/v1.6/#map(x),map_values(x)
 [man-brackets]: https://stedolan.github.io/jq/manual/v1.6/#Array/ObjectValueIterator:.[]
