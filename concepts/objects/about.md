@@ -8,7 +8,7 @@ JSON defines an object as:
 > An object begins with `{`left brace and ends with `}`right brace.
 > Each _name_ is followed by `:`colon and the _name/value_ pairs are separated by `,`comma.
 
-Further, the _name_ must be a string.
+The _name_ **must be a string**.
 Another word for _name_ is _key_.
 
 The _value_ can be of any JSON type.
@@ -132,18 +132,18 @@ Given an object that contains array or object values, we can "chain" index expre
 
 ## Adding or changing key-value pairs
 
-Use the `=` assignment operator, with an index expression on the left-hand side.
+To add a new key-value pair to an array, or to update the value of an existing key, use the `=` assignment operator, with an index expression on the left-hand side.
 
 ```jq
-{name: "Jane", age: 42} | .sport = "tennis"
+{name: "Jane", age: 42} | .sport = "tennis" | .age = 21
 # => {
 #      "name": "Jane",
-#      "age": 42,
+#      "age": 21,
 #      "sport": "tennis"
 #    }
 ```
 
-The `+` operator will _merge_ objects:
+The `+` operator will _merge_ objects.
 
 ```jq
 {Richard: 54} + {Jane: 42}
@@ -186,6 +186,10 @@ It returns the updated object.
 
 Use the `keys` function to output a list of all the keys.
 
+```jq
+{name: "Jane", age: 42} | keys   # => ["age", "name"]
+```
+
 Note that `keys` will _sort_ the keys.
 To retrieve the keys in the original order, use `keys_unsorted`.
 
@@ -211,23 +215,20 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
   The `to_entries` function does that.
 
   ```jq
-  {name: "Jane", age: 42} | to_entries'
-  ```
-  outputs
-  ```json
-  [
-    {
-      "key": "name",
-      "value": "Jane"
-    },
-    {
-      "key": "age",
-      "value": 42
-    }
-  ]
+  {name: "Jane", age: 42} | to_entries
+  # => [
+  #      {
+  #        "key": "name",
+  #        "value": "Jane"
+  #      },
+  #      {
+  #        "key": "age",
+  #        "value": 42
+  #      }
+  #    ]
   ```
 
-  At this point, we can use the array iteration functions, like `map`.
+  At this point, we can use array iteration functions, like `map`.
 
 - The `from_entries` function is the inverse: convert an array of key-value objects into an object
 

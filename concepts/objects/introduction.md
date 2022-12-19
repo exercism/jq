@@ -1,6 +1,6 @@
 # Introduction
 
-To use terminology from other languages, a JSON object is a "hash" or "map" or "dictionary".
+A JSON object is, to use terminology from other languages, a "hash", "map", or "dictionary".
 
 JSON defines an object as:
 
@@ -8,11 +8,11 @@ JSON defines an object as:
 > An object begins with `{`left brace and ends with `}`right brace.
 > Each _name_ is followed by `:`colon and the _name/value_ pairs are separated by `,`comma.
 
-Further, the _name_ must be a string.
+The _name_ **must be a string**.
 Another word for _name_ is _key_.
 
 The _value_ can be of any JSON type.
-Different keys in the object can have values of different type, like this example.
+Different _values_ in the same object can be different type, like this example.
 
 ```json
 {
@@ -68,13 +68,13 @@ If you cannot refer to the key as an identifier, use _bracket notation_.
 
 ## Adding or changing key-value pairs
 
-Use the `=` assignment operator, with an index expression on the left-hand side.
+To add a new key-value pair to an array, or to update the value of an existing key, use the `=` assignment operator, with an index expression on the left-hand side.
 
 ```jq
-{name: "Jane", age: 42} | .sport = "tennis"
+{name: "Jane", age: 42} | .sport = "tennis" | .age = 21
 # => {
 #      "name": "Jane",
-#      "age": 42,
+#      "age": 21,
 #      "sport": "tennis"
 #    }
 ```
@@ -91,7 +91,7 @@ The `+` operator will _merge_ objects:
 
 ## Removing a key
 
-Use the `del` function.
+Use the `del` function to remove a key.
 It returns the updated object.
 
 ```jq
@@ -100,7 +100,7 @@ It returns the updated object.
 
 ## Membership
 
-- Test if the object `has` a key.
+- To test if the object has a key, use the `has` function.
 
   ```jq
   {name: "Jane", age: 42} as $example
@@ -121,6 +121,10 @@ It returns the updated object.
 ## List all the keys
 
 Use the `keys` function to output a list of all the keys.
+
+```jq
+{name: "Jane", age: 42} | keys   # => ["age", "name"]
+```
 
 Note that `keys` will _sort_ the keys.
 To retrieve the keys in the original order, use `keys_unsorted`.
@@ -148,22 +152,19 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
 
   ```jq
   {name: "Jane", age: 42} | to_entries'
-  ```
-  outputs
-  ```json
-  [
-    {
-      "key": "name",
-      "value": "Jane"
-    },
-    {
-      "key": "age",
-      "value": 42
-    }
-  ]
+  # => [
+  #      {
+  #        "key": "name",
+  #        "value": "Jane"
+  #      },
+  #      {
+  #        "key": "age",
+  #        "value": 42
+  #      }
+  #    ]
   ```
 
-  At this point, we can use the array iteration functions, like `map`.
+  At this point, we can use array iteration functions, like `map`.
 
 - The `from_entries` function is the inverse: convert an array of key-value objects into an object
 
