@@ -100,8 +100,8 @@ It returns the updated object.
 {name: "Jane", age: 42} | del(.age)   # => {name: "Jane"}
 ```
 
-The parameter to `del` is a _path expression_ that resolves to a key in the object.
-That is to say, it is an **index** expression.
+The parameter to `del` is an **index expression** (using dot- or bracket-notation) that resolves to a key in the object.
+`jq` calls it a "path expression".
 It is not sufficient to just give a string.
 
 ```jq

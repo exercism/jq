@@ -17,7 +17,7 @@
 
 - Use the [del expression][man-del].
 - Reference the key like you have done in the task before (bracket notation).
-- Remember that the argument to `del` is a _path expression_ not just a string.
+- Remember that the argument to `del` is a _index expression_ not just a string.
 
 ## 4. Increase a player's score
 
