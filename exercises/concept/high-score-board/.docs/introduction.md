@@ -81,7 +81,7 @@ To add a new key-value pair to an array, or to update the value of an existing k
 #    }
 ```
 
-The `+` operator will _merge_ objects:
+The `+` operator will _merge_ objects.
 
 ```jq
 {Richard: 54} + {Jane: 42}
@@ -111,7 +111,7 @@ It returns the updated object.
     ($example | has("sport"))    # => false
   ```
 
-- Test if a key is `in` an object
+- Test if a key is in an object with `in`.
 
   ```jq
   {name: "Jane", age: 42} as $example
@@ -168,7 +168,7 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
 
   At this point, we can use array iteration functions, like `map`.
 
-- The `from_entries` function is the inverse: convert an array of key-value objects into an object
+- The `from_entries` function is the inverse: convert an array of key-value objects into an object.
 
   ```jq
   [
@@ -179,7 +179,7 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
 
 - To apply a filter to _each_ key-value pair in an object, use the `with_entries(filter)` function.
 
-  For example, with an object that maps a name to an age, to swap the keys and values:
+  For example, given an object that maps a name to an age, the keys and values can be swapped as follows.
 
   ```jq
   {"Jane": 42, "Richard": 54}

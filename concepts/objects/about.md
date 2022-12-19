@@ -106,7 +106,7 @@ If you cannot refer to the key as an identifier, use _bracket notation_.
 "name" as $key | {name: "Jane", age: 42} | .[$key]  # => "Jane"
 ```
 
-If the key is not in the object, the result is `null`
+If the key is not in the object, the result is `null`.
 
 ```jq
 {name: "Jane", age: 42} | .sport  # => null
@@ -124,10 +124,11 @@ Given an object that contains array or object values, we can "chain" index expre
   "age": 42,
   "pets": ["cat", "fish"],
   "address": {"street": "123 Main St", "city": "Springfield"}
-} as $example
-|
-  $example.pets[1],       # => "fish"
-  $example.address.city   # => "Springfield"
+}
+| (
+  .pets[1],       # => "fish"
+  .address.city   # => "Springfield"
+)
 ```
 
 ## Adding or changing key-value pairs
@@ -173,7 +174,7 @@ It returns the updated object.
     ($example | has("sport"))    # => false
   ```
 
-- Test if a key is `in` an object
+- Test if a key is in an object with `in`.
 
   ```jq
   {name: "Jane", age: 42} as $example
@@ -230,7 +231,7 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
 
   At this point, we can use array iteration functions, like `map`.
 
-- The `from_entries` function is the inverse: convert an array of key-value objects into an object
+- The `from_entries` function is the inverse: convert an array of key-value objects into an object.
 
   ```jq
   [
@@ -241,7 +242,7 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
 
 - To apply a filter to _each_ key-value pair in an object, use the `with_entries(filter)` function.
 
-  For example, with an object that maps a name to an age, to swap the keys and values:
+  For example, given an object that maps a name to an age, the keys and values can be swapped as follows.
 
   ```jq
   {"Jane": 42, "Richard": 54}
