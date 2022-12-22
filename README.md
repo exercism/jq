@@ -31,6 +31,26 @@ JBOL includes an implementation of [pseudo-random numbers][jbol-chance].
 [jbol-bitwise]: https://github.com/fadado/JBOL/blob/master/fadado.github.io/math/bitwise.jq
 [jbol-chance]: https://github.com/fadado/JBOL/blob/master/fadado.github.io/math/chance.jq
 
+## Creating concepts
+
+These are a big amount of work, but I think I've figured out a decent checklist to focus the effort needed.
+
+1. select an exercise
+   - this was surprisingly tricky for the early exercises, but it seems I'm kind of aligning with Javascript now.
+1. add concept and exercise to the "root" config.json
+1. edit concept's and exercise's config.json
+1. write tests, exemplar and stub
+   - doing this _after_ altering the config files enables the bin/validate script
+1. edit instructions
+1. edit design.md
+   - once the exercise is handled, we can think a little deeper about what concepts the exercise demonstrates
+1. write about.md
+   - this is the most work to get right
+1. copy and prune to create introduction.md
+   - the introduction is seen _before_ the exercise is completed, and the about is shown thereafter
+1. edit hints
+1. add links
+
 ## How to port an exercise
 
 Using `grep` as an example:
