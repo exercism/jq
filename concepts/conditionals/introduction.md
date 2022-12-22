@@ -1,34 +1,75 @@
 # Introduction
 
-A common way to conditionally execute logic in JavaScript is the if-statement.
-It consists of the `if` keyword, a condition wrapped in round brackets and a code block wrapped in curly brackets.
-The code block will only be executed if the condition evaluates to `true`.
+## General Syntax
 
-```javascript
-if (condition) {
-  // code that is executed if "condition" is true
-}
+`jq`'s conditional expression is `if A then B else C end`.
+
+If the expression `A` produces a "truthy" value, then the `if` filter outputs the result of passing the input to `B`.
+Otherwise the `if` filter outputs the result of passing the input to `C`.
+
+`if-then-else` is a filter like all jq builtins: it takes an input and produces an output.
+
+```jq
+42 | if . < 50 then "small" else "big" end      # => "small"
+```
+```jq
+5 | if . % 2 == 0 then . / 2 else . * 4 end     # => 20
 ```
 
-It can be used stand-alone or combined with the `else` keyword.
+The `else` clause is **mandatory** in the current `jq` release (version 1.6).
 
-```javascript
-if (condition) {
-  // code that is executed if "condition" is true
-} else {
-  // code that is executed otherwise
-}
+## Nested If-Statements
+
+Further conditions can be added with `elif`.
+
+```jq
+42 | if . < 33 then "small"
+     elif . < 66 then "medium"
+     else "big"
+     end
+# => "medium"
 ```
 
-To nest another condition into the `else` statement you can use `else if`.
+Use as many `elif` clauses as you need.
 
-```javascript
-if (condition1) {
-  // code that is executed if "condition1" is true
-} else if (condition2) {
-  // code that is executed if "condition2" is true
-  // but "condition1" was false
-} else {
-  // code that is executed otherwise
-}
+## Truthiness
+
+The only "false" values in `jq` are: `false` and `null`.
+Everything else is "true", even the number zero and the empty string/array/object.
+
+## Complex Conditions
+
+The boolean operators `and` and `or` can be used to build complex queries.
+
+```jq
+42 | if . < 33 or . > 66 then "big or small"
+     else "medium"
+     end
+```
+
+To negate, use `not`. This is a **filter** not an operator.
+
+```jq
+42 | if (. < 33 or . > 66 | not) then "medium"
+     else "big or small"
+     end
+```
+
+## Alternative Operator
+
+The alternative operator allows you to specify a "default" value if an expression is false or null.
+
+```jq
+A // B
+
+# This is identical to
+if A then A else B end
+```
+
+To demonstrate
+
+```jq
+[3, 5, 18] | add / 2       # => 13
+[]         | add / 2       # => error: null (null) and number (2) cannot be divided
+[]         | add // 0 / 2  # => 0
 ```

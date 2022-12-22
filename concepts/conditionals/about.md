@@ -2,144 +2,83 @@
 
 ## General Syntax
 
-A common way to conditionally execute logic in JavaScript is the if-statement.
-It consists of the `if` keyword, a condition wrapped in round brackets and a code block wrapped in curly brackets.
-The code block will only be executed if the condition evaluates to `true`.
+`jq`'s conditional expression is `if A then B else C end`.
 
-```javascript
-if (condition) {
-  // code that is executed if "condition" is true
-}
+If the expression `A` produces a "truthy" value, then the `if` filter outputs the result of passing the input to `B`.
+Otherwise the `if` filter outputs the result of passing the input to `C`.
+
+`if-then-else` is a filter like all jq builtins: it takes an input and produces an output.
+
+```jq
+42 | if . < 50 then "small" else "big" end      # => "small"
+```
+```jq
+5 | if . % 2 == 0 then . / 2 else . * 4 end     # => 20
 ```
 
-It can be used stand-alone or combined with the `else` keyword.
+The `else` clause is **mandatory** in the current `jq` release (version 1.6).
 
-```javascript
-if (condition) {
-  // code that is executed if "condition" is true
-} else {
-  // code that is executed otherwise
-}
+```sh
+$ jq -n 'if 1 < 2 then "OK" end'
+jq: error: syntax error, unexpected end (Unix shell quoting issues?) at <top-level>, line 1:
+if 1 < 2 then "OK" end
+jq: error: Possibly unterminated 'if' statement at <top-level>, line 1:
+if 1 < 2 then "OK" end
+jq: 2 compile errors
 ```
 
 ## Nested If-Statements
 
-To nest another condition into the `else` statement you can use `else if`.
-Note that there is no `elseif` keyword in JavaScript.
-Instead, write `else` followed by another `if` statement.
+Further conditions can be added with `elif`.
 
-```javascript
-if (condition1) {
-  // code that is executed if "condition1" is true
-} else if (condition2) {
-  // code that is executed if "condition2" is true
-  // but "condition1" was false
-} else {
-  // code that is executed otherwise
-}
+```jq
+42 | if . < 33 then "small"
+     elif . < 66 then "medium"
+     else "big"
+     end
+# => "medium"
 ```
 
-Theoretically, you can nest as many additional conditions as you want.
-In practice you would use a [`switch` statement](/tracks/javascript/concepts/conditionals-switch) instead in these cases.
+Use as many `elif` clauses as you need.
 
-```javascript
-if (condition1) {
-  // ...
-} else if (condition2) {
-  // ...
-} else if (condition3) {
-  // ...
-} else if (condition4) {
-  // ...
-} else {
-  // ...
-}
+## Truthiness
+
+The only "false" values in `jq` are: `false` and `null`.
+Everything else is "true", even the number zero and the empty string/array/object.
+
+## Complex Conditions
+
+The boolean operators `and` and `or` can be used to build complex queries.
+
+```jq
+42 | if . < 33 or . > 66 then "big or small"
+     else "medium"
+     end
 ```
 
-## Condition
+To negate, use `not`. This is a **filter** not an operator.
 
-When constructing complex conditions, refer to the [operator precedence table][mdn-operator-precedence] to avoid unnecessary brackets.
-
-```javascript
-if (num >= 0 && num < 1) {
-  // ...
-}
-
-// The inner brackets are obsolete because relational operators
-// have higher precedence than logical operators.
-<!-- prettier-ignore-start -->
-
-if ((num >= 0) && (num < 1)) {
-  // ...
-}
-<!-- prettier-ignore-end -->
-
+```jq
+42 | if (. < 33 or . > 66 | not) then "medium"
+     else "big or small"
+     end
 ```
 
-Also, consider using additional variables to make the code more readable.
+## Alternative Operator
 
-```javascript
-const isPositive = num >= 0;
-const isSmall = num < 1;
-if (isPositive && isSmall) {
-  // ...
-}
+The alternative operator allows you to specify a "default" value if an expression is false or null.
+
+```jq
+A // B
+
+# This is identical to
+if A then A else B end
 ```
 
-In JavaScript, the condition does not have to be of type boolean.
-If any other type than boolean is provided in a boolean context like the if-statement, JavaScript will implicitly convert the value to boolean.
-Refer to the [type conversion concept][concept-type-conversion] for details on which values are _truthy_ and _falsy_, respectively.
+To demonstrate
 
-```javascript
-const num = 4;
-if (num) {
-  // this code block will be executed because 4 is truthy
-}
+```jq
+[3, 5, 18] | add / 2       # => 13
+[]         | add / 2       # => error: null (null) and number (2) cannot be divided
+[]         | add // 0 / 2  # => 0
 ```
-
-## Short-Hand Notations
-
-If you only want to execute one statement in the code block for `if` or `else`, it is possible in JavaScript to omit the curly brackets.
-
-<!-- prettier-ignore-start -->
-```javascript
-if (condition) doSomething();
-
-// or
-
-if (condition)
-  doSomething();
-```
-<!-- prettier-ignore-end -->
-
-This is sometimes used when checking for an error condition for example.
-In general, it is not recommended because it is easy to forget to add the brackets back in when adding a second statement that should depend on the same condition.
-
-When writing functions, it is a common pattern to omit the `else` block and use an early `return` in the `if` block instead.
-In many cases, this reduces _nesting_ and makes the code more readable and easier to follow.
-
-```javascript
-function checkNumber(num) {
-  let message = '';
-
-  if (num === 0) {
-    message = 'You passed 0, please provide another number.';
-  } else {
-    message = 'Thanks for passing such a nice number.';
-  }
-
-  return message;
-}
-
-// Can also be written as ...
-function checkNumber(num) {
-  if (num === 0) {
-    return 'You passed 0, please provide another number.';
-  }
-
-  return 'Thanks for passing such a nice number.';
-}
-```
-
-[concept-type-conversion]: /tracks/javascript/concepts/type-conversion
-[mdn-operator-precedence]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table
