@@ -1,6 +1,6 @@
 # Introduction
 
-## General Syntax
+## If Expression
 
 `jq`'s conditional expression is `if A then B else C end`.
 
@@ -37,7 +37,7 @@ Use as many `elif` clauses as you need.
 The only "false" values in `jq` are: `false` and `null`.
 Everything else is "true", even the number zero and the empty string/array/object.
 
-## Complex Conditions
+## Boolean Operators
 
 The boolean operators `and` and `or` can be used to build complex queries.
 

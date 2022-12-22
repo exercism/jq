@@ -2,7 +2,6 @@
   "authors": [
     "glennj"
   ],
-  "contributors": [ ],
   "files": {
     "solution": [
       "vehicle-purchase.jq"
