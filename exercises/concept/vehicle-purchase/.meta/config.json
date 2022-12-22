@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [ ],
+  "files": {
+    "solution": [
+      "vehicle-purchase.jq"
+    ],
+    "test": [
+      "test-vehicle-purchase.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
+  },
+  "forked_from": [
+    "javascript/vehicle-purchase"
+  ],
+  "blurb": "Learn about comparison and conditionals while preparing for your next vehicle purchase"
+}

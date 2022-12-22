@@ -59,6 +59,16 @@
       "slug": "objects",
       "name": "Objects",
       "uuid": "5adcd50d-90fb-41b2-8ca4-c58eecd361ff"
+    },
+    {
+      "slug": "comparison",
+      "name": "Comparison",
+      "uuid": "2cbe3378-9cae-43a1-b6cd-fbe77380dc56"
+    },
+    {
+      "slug": "conditionals",
+      "name": "Conditionals",
+      "uuid": "5afdc5e4-0128-4e2f-a5c2-ba6e3121c672"
     }
   ],
   "exercises": {
@@ -132,6 +142,14 @@
         "concepts": ["functions"],
         "prerequisites": ["variables"],
         "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
+        "status": "beta"
+      },
+      {
+        "slug": "vehicle-purchase",
+        "name": "Vehicle Purchase",
+        "concepts": ["comparison", "conditionals"],
+        "prerequisites": ["numbers", "strings"],
+        "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "status": "beta"
       }
     ],
