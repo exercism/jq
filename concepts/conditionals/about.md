@@ -4,10 +4,10 @@
 
 `jq`'s conditional expression is `if A then B else C end`.
 
+`if-then-else` is a filter like all jq builtins: it takes an input and produces an output.
+
 If the expression `A` produces a "truthy" value, then the `if` filter outputs the result of passing the input to `B`.
 Otherwise the `if` filter outputs the result of passing the input to `C`.
-
-`if-then-else` is a filter like all jq builtins: it takes an input and produces an output.
 
 ```jq
 42 | if . < 50 then "small" else "big" end      # => "small"
@@ -82,3 +82,10 @@ To demonstrate
 []         | add / 2       # => error: null (null) and number (2) cannot be divided
 []         | add // 0 / 2  # => 0
 ```
+
+## Are there more?
+
+Programmers coming from differnt languages might be expecting a wider variety of conditional commands, such as `cond`, `case`, `switch`, `when`, `unless`, a ternary operator, etc.
+This is all you get.
+
+
