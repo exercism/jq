@@ -88,8 +88,9 @@ Two objects are equal if they have the same key-value pairs.
 
 `if-then-else` is a filter like all jq builtins: it takes an input and produces an output.
 
-If the expression `A` produces a "truthy" value, then the `if` filter outputs the result of passing the input to `B`.
-Otherwise the `if` filter outputs the result of passing the input to `C`.
+If the expression `A` produces a "truthy" value, then the `if` filter evaluates `B`.
+Otherwise it evaluates `C`.
+The input to the `if` filter will be passed to `B` or `C`.
 
 ```jq
 42 | if . < 50 then "small" else "big" end      # => "small"
