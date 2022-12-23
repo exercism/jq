@@ -65,7 +65,7 @@ Two arrays are equal if all the corresponding elements are equal.
 
 ## Comparing Objects
 
-Two objects are equal if they have the same key:value pairs.
+Two objects are equal if they have the same key-value pairs.
 
 ```jq
 {name: "Joe", age: 42} == {age: 42, name: "Joe"}                # => true
