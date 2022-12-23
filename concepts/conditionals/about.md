@@ -85,7 +85,7 @@ To demonstrate
 
 ## Are there more?
 
-Programmers coming from differnt languages might be expecting a wider variety of conditional commands, such as `cond`, `case`, `switch`, `when`, `unless`, a ternary operator, etc.
+Programmers coming from different languages might be expecting a wider variety of conditional commands, such as `cond`, `case`, `switch`, `when`, `unless`, a ternary operator, etc.
 This is all you get.
 
 
