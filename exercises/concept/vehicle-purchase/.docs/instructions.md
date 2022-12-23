@@ -7,7 +7,7 @@ You have three tasks: determine if you will need to get a licence; choose betwee
 ## 1. Determine if you will need a drivers licence
 
 Some kinds of vehicles require a drivers license to operate them.
-Assume only the kinds `"car"` and `"truck"` require a license, everything else can be operated without a license.
+Assume only the kinds `"car"` and `"truck"` require a license; everything else can be operated without a license.
 
 Implement the `needs_license` function that takes the kind of vehicle and returns a boolean indicating whether you need a license for that kind of vehicle.
 
