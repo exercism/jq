@@ -86,6 +86,6 @@ To demonstrate
 ## Are there more?
 
 Programmers coming from different languages might be expecting a wider variety of conditional commands, such as `cond`, `case`, `switch`, `when`, `unless`, a ternary operator, etc.
-This is all you get.
+The operators listed above are everything that `jq` offers.
 
 
