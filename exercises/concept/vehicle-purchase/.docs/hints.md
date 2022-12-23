@@ -11,7 +11,7 @@
 - You will need the `if-then-else` [conditional expression] for this task.
 - Use a [comparison operator] to determine which option comes first in dictionary order.
 - Finally, construct the recommendation sentence.
-  For that, you can use the concatenation or string interpolation that you learned in the Strings concept.
+  You can use the concatenation or string interpolation that you learned in the Strings concept to construct the recommendation sentence.
 
 ## 3. Calculate an estimation for the price of a used vehicle
 
