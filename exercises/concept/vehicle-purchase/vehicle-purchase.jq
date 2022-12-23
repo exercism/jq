@@ -13,7 +13,6 @@ def needs_license:
 #
 # input: {array of strings} options to consider
 # output: {string} a sentence of advice which option to choose
-:
 def choose_vehicle:
   halt_error("Please implement the chooseVehicle function");
 
