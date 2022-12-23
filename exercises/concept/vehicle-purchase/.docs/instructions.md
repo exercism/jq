@@ -23,7 +23,7 @@ Implement the `needs_license` function that takes the kind of vehicle and return
 
 You evaluate your options of available vehicles.
 You manage to narrow it down to two options but you need help making the final decision.
-For that implement the function `choose_vehicle` that takes an array of two vehicles as input and returns a decision that includes the option that comes first in dictionary order.
+Implement the function `choose_vehicle` that takes an array of two vehicles as input and returns a decision, which is the option that comes first in dictionary order.
 
 ```jq
 ["Wuling Hongguang", "Toyota Corolla"] | choose_vehicle
