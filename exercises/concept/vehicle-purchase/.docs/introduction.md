@@ -67,7 +67,7 @@ Two arrays are equal if all the corresponding elements are equal.
 
 ### Comparing Objects
 
-Two objects are equal if they have the same key:value pairs.
+Two objects are equal if they have the same key-value pairs.
 
 ```jq
 {name: "Joe", age: 42} == {age: 42, name: "Joe"}                # => true
@@ -117,7 +117,7 @@ Use as many `elif` clauses as you need.
 ### Truthiness
 
 The only "false" values in `jq` are: `false` and `null`.
-Everything else is "true", even the number zero and the empty string/array/object.
+Everything else is "true", even the number zero and the empty string, array and object.
 
 ### Boolean Operators
 

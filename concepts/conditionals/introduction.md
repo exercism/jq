@@ -35,7 +35,7 @@ Use as many `elif` clauses as you need.
 ## Truthiness
 
 The only "false" values in `jq` are: `false` and `null`.
-Everything else is "true", even the number zero and the empty string/array/object.
+Everything else is "true", even the number zero and the empty string, array and object.
 
 ## Boolean Operators
 
