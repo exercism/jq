@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#%3E,%3E=,%3C=,%3C",
+    "description": "Relational operators"
+  },
+  {
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#==,!=",
+    "description": " operators"
+  },
+  {
+    "url": "https://www.fileformat.info/info/charset/UTF-16/list.htm",
+    "description": "List of UTF-16 character order"
+  }
+]
