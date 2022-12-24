@@ -69,6 +69,11 @@
       "slug": "conditionals",
       "name": "Conditionals",
       "uuid": "5afdc5e4-0128-4e2f-a5c2-ba6e3121c672"
+    },
+    {
+      "slug": "recursion",
+      "name": "Recursion",
+      "uuid": "3ae02c6b-9b1d-442f-b3f3-aafc98b5d2a8"
     }
   ],
   "exercises": {
@@ -151,6 +156,14 @@
         "prerequisites": ["numbers", "strings"],
         "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "status": "beta"
+      },
+      {
+        "slug": "recursive-functions",
+        "name": "Recursive Functions",
+        "concepts": ["recursion"],
+        "prerequisites": ["functions", "conditionals"],
+        "uuid": "3b981b48-5826-4460-8c3e-59b2c28f46f1",
+        "status": "wip"
       }
     ],
     "practice": [
