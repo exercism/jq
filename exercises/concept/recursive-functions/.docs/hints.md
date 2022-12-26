@@ -2,33 +2,29 @@
 
 ## General
 
-- Recall that variable assignment is an expression in a pipeline,
-  and it outputs the same value that was its input.
-- Use [the alternative operator `//`][alternative] for providing default values.
+- Try to split a problem into a base case and a recursive case
+  For example, let's say you want to count how many cookies are there in the cookie jar with a recursive approach
+  A base case is an empty jar - it has zero cookies.
+  If the jar is not empty, then the number of cookies in the jar is equal to one cookie plus the number of cookies in the jar after removing one cookie.
 
-## 1. Define the expected oven time in minutes
+## 1. Implement a function to add the numbers in an array
 
-- Define a variable holding the value for the expected time.
-- Include the value in the output object for the key `"expected_minutes_in_oven"`.
-- The object construction shortcut `{$foo}` is the same as `{foo: $foo}`
+- The recursion is to iterate over elements in the array, adding each to an accumulator.
+- The base case is an empty array, which has sum equal to zero.
+- Recall array indexing and slicing from [the Arrays concept][arrays-concept]  to separate the first array element from the rest of the elements.
 
-## 2. Calculate the remaining oven time in minutes
+## 2. Reverse an array
 
-- Include the calculated value in the output object for the key `"remaining_minutes_in_oven"`.
-- [The `-` operator][subtraction] is used for arithmetic subtraction on numbers.
+- The recursion is to iterate over elements in the array, adding each to another array in reverse order.
+- Depending on your implementation, you'll either append or prepend the element to the accumulator array.
+- The base case is an empty array.
+- Use the [`+` operator][manual-addition] that concatenates when applied to arrays.
 
-## 3. Calculate the preparation time in minutes
+## 3. Map an array
 
-- Include the calculated value in the output object for the key `"preparation_time"`.
-- [The `*` operator][multiplication] is used for arithmetic multiplication on numbers.
-- Good style suggests using a variable to put a name to the "magic value" for the time spent per layer.
+- The recursion is to iterate over elements in the array, adding to an accumulator array the result of applying the filter to the element.
+- To apply the filter parameter to an element, use the usual pipe syntax: `.element | filter`.
+- The base case is an empty array.
 
-## 4. Calculate the total working time in minutes
-
-- Include the calculated value in the output object for the key `"total_time"`.
-- [The `+` operator][addition] is used for arithmetic addition on numbers.
-
-[subtraction]: https://stedolan.github.io/jq/manual/v1.6/#Subtraction:-
-[multiplication]: https://stedolan.github.io/jq/manual/v1.6/#Multiplication,division,modulo:*,/,and%
-[addition]: https://stedolan.github.io/jq/manual/v1.6/#Addition:+
-[alternative]: https://stedolan.github.io/jq/manual/v1.6/#Alternativeoperator://
+[arrays-concept]: /tracks/jq/concepts/arrays
+[manual-addition]: https://stedolan.github.io/jq/manual/v1.6/#Addition:+

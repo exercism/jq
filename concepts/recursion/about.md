@@ -22,7 +22,7 @@ def count:
 ```
 
 A recursive function can have many base cases and/or many recursive cases.
-For example [the Fibonacci sequence][fibonacci] is a recursive sequence with two base cases:
+For example [the Fibonacci sequence][wiki-fibonacci] is a recursive sequence with two base cases:
 
 ```jq
 def fibonacci:
@@ -39,7 +39,7 @@ def fibonacci:
 
 Counting the number of occurrences of some given value `x` in a list has two recursive cases:
 
-```elixir
+```jq
 def count_occurrences(x):
   if length == 0 then
     0

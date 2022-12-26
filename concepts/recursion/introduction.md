@@ -39,7 +39,7 @@ def fibonacci:
 
 Counting the number of occurrences of some given value `x` in a list has two recursive cases:
 
-```elixir
+```jq
 def count_occurrences(x):
   if length == 0 then
     0

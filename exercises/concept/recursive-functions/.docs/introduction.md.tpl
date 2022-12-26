@@ -1,3 +1,3 @@
 # Introduction
 
-%{concept:variables}
+%{concept:recursion}

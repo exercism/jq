@@ -23,7 +23,7 @@ n/a
 
 - `functions`
 - `conditionals`
-- `arrays` are essential, but have already been unlocked
+- `arrays` are essential, but are already a prereq of functions.
 
 ## Representer
 
