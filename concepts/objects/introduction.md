@@ -5,8 +5,8 @@ A JSON object is, to use terminology from other languages, a "hash", "map", or "
 JSON defines an object as:
 
 > An object is an unordered set of **name**/**value** pairs.
-> An object begins with `{`left brace and ends with `}`right brace.
-> Each _name_ is followed by `:`colon and the _name/value_ pairs are separated by `,`comma.
+> An object begins with `{` left brace and ends with `}` right brace.
+> Each _name_ is followed by `:` colon and the _name/value_ pairs are separated by `,` comma.
 
 The _name_ **must be a string**.
 Another word for _name_ is _key_.
