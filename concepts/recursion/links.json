@@ -1,10 +1,13 @@
 [
   {
-    "url": "https://elixir-lang.org/getting-started/recursion.html",
-    "description": "Getting Started guide - Recursion"
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#Recursion",
+    "description": "Recursion in the manual"
   },
   {
-    "url": "https://elixirschool.com/blog/recursion/",
-    "description": "Understanding Recursion - Elixir School Blog"
+    "url": "https://github.com/stedolan/jq/wiki/Advanced-Topics#recursion-and-tail-recursion-optimization",
+    "description": "jq Advanced Topics - Recursion and Tail Recursion Optimization"
+  {
+    "url": "https://en.wikipedia.org/wiki/Recursion",
+    "description": "Recursion  at Wikiepdia"
   }
 ]
