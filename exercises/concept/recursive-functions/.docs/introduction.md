@@ -1,120 +1,63 @@
 # Introduction
 
-## Variables
+## Recursion
 
-Recall that a `jq` program is a _pipeline of expressions_.
-Variable assigmnent follows this rule: a variable assignment is an expression that looks like:
+Recursive functions are functions that call themselves.
 
-```jq
-... | expr as $varname | ...
-```
+A recursive function needs to have at least one _base case_ and at least one _recursive case_.
 
-### The filter outputs the input
+A _base case_ returns a value without calling the function again.
+A _recursive case_ calls the function again, modifying the input so that it will at some point match the base case.
 
-Like the _identity expression_ `.`, the variable assignment's output is the same as its input.
-Setting the variable's value is a side-effect.
-
-Example, showing `.` after the assignment is the same as the initial input:
-
-```sh
-$ jq -c -n '42 | (. * 2) as $double | [., $double]'
-[42,84]
-```
-
-### Variable scope
-
-The scope of the variable is "lexical" -- the variable will be in scope for the rest of the pipeline.
-Variables defined in functions (we'll get to functions later) are "local" to the function.
-
-### Variable names
-
-The variable must begin with `$`.
-The rest of the variable name is an "identifier": starts with a letter or underscore followed by letters, numbers or underscores.
-
-### Destructuring assignment
-
-From the manual:
-
-> Multiple variables may be declared using a single `as` expression by providing a pattern that _matches the structure of the input_ (this is known as "destructuring").
-
-Examples:
+Here is an example that counts the elements of an array.
 
 ```jq
-[1, 2, 3] as [$a, $b, $c]
-| [$a, $b, $c]     # => [1, 2, 3]
+def count:
+  if length == 0 then
+    0                       # base case
+  else
+    1 + (.[1:] | count)     # recursive case
+  end;
+
+([] | count),           # => 0
+([11, 22, 33] | count)  # => 3
 ```
+
+A recursive function can have many base cases and/or many recursive cases.
+For example [the Fibonacci sequence][wiki-fibonacci] is a recursive sequence with two base cases:
 
 ```jq
-{"foo": "bar", "len": [10, 20]} as {foo: $f, len: [$h, $w]}
-| [$f, $h, $w]     # => ["bar", 10, 20]
+def fibonacci:
+  if . == 0 then
+    0
+  elif . == 1 then
+    1
+  else
+    (. - 1 | fibonacci) + (. - 2 | fibonacci)
+  end;
+
+10 | fibonacci          # => 55
 ```
 
-Matching the variable name to the _object key_ offers a shortcut:
+Counting the number of occurrences of some given value `x` in a list has two recursive cases:
 
 ```jq
-{"x": 4, "y": 7} as {$x, $y}
-| [$x, $y]         # => [4, 7]
+def count_occurrences(x):
+  if length == 0 then
+    0
+  elif first == x then
+    1 + (.[1:] | count_occurrences(x))
+  else
+    (.[1:] | count_occurrences(x))
+  end;
+
+[11, 22, 33, 22, 44] | count_occurrences(22)    # => 2
 ```
 
-```jq
-{"foo": "bar", "len": [10, 20]} as {$foo, $len}
-| [$foo, $len]     # => ["bar", [10, 20]]
-```
+In practice, iterating over lists and other enumerable data structures is most often done using builtin functions,
+such as `map` and `reduce`, or by [using streams][map-implementation] like `[.[] | select(...)]`.
+Under the hood, some builtins are [implemented using recursion][range-implementation].
 
-<!-- prettier-ignore -->
-~~~~exercism/note
-The same shortcut works in the reverse sense for _object construction_
-
-```jq
-4 as $x | 7 as $y | {$x, $y}    # => {"x":4, "y": 7}
-```
-~~~~
-
-<!-- prettier-ignore-end -->
-
-### Constants
-
-As shows in the above example, variables are handy for storing constants.
-It's better to give constants a name rather than have "magic numbers" show up in the code.
-
-### Often variables are not needed
-
-It is often more readable to omit variables.
-
-Consider calculating the average of a list of numbers
-
-```jq
-[2, 4, 8, 7]
-| add as $sum
-| length as $len
-| $sum / $len
-```
-
-compared to
-
-```jq
-[2, 4, 8, 7] | add / length
-```
-
-This highlights one of the most powerful aspects of `jq`: the input to a filter is provided to _every_ sub-expression:
-
-- the input array `[2,4,8,7]` is passed to `add` (which sums the numbers by applying the `+` operator to all the elements)
-- _in parallel_, `[2,4,8,7]` is also passed to `length`
-- when these sub-expressions complete, their results are then divided, returning the average value of the numbers in the input array.
-
----
-
-### `jq` operators you'll need for the learning exercise
-
-#### Alternative operator: `//`
-
-The expression `a // b` outputs `b` if `a` is false or null, otherwise it outputs `a`.
-In the context of setting a variable, this is very handy for providing a default value:
-
-```jq
-(.input.theAnswer // 42) as $answer | ...
-```
-
-#### Arithmetic operators
-
-* `+`, `-`, `*` are the usual numeric addition, subtraction and multiplication operators.
+[map-implementation]: https://github.com/stedolan/jq/blob/jq-1.6/src/builtin.jq#L3
+[range-implementation]: https://github.com/stedolan/jq/blob/jq-1.6/src/builtin.jq#L157
+[wiki-fibonacci]: https://en.wikipedia.org/wiki/Fibonacci_number

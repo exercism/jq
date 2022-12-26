@@ -11,12 +11,12 @@
 
 - The recursion is to iterate over elements in the array, adding each to an accumulator.
 - The base case is an empty array, which has sum equal to zero.
+- The recursive case adds the first element to the sum of the rest of the array.
 - Recall array indexing and slicing from [the Arrays concept][arrays-concept]  to separate the first array element from the rest of the elements.
 
 ## 2. Reverse an array
 
 - The recursion is to iterate over elements in the array, adding each to another array in reverse order.
-- Depending on your implementation, you'll either append or prepend the element to the accumulator array.
 - The base case is an empty array.
 - Use the [`+` operator][manual-addition] that concatenates when applied to arrays.
 

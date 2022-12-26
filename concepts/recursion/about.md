@@ -72,7 +72,8 @@ This problem of infinite execution can be caused by:
 
 As [described in Wikipedia][wiki-tail-call]: 
 
-> a tail call is a subroutine call performed as the final action of a procedure. If the target of a tail is the same subroutine, the subroutine is said to be tail recursive
+> A tail call is a subroutine call performed as the final action of a procedure.
+> If the target of a tail is the same subroutine, the subroutine is said to be tail recursive
 
 Consider the implementation of `fibonacci` implemented above.
 The recursive case calls itself twice.
@@ -87,16 +88,16 @@ The way to take advantage of this is to define an "inner" 0-arity function that 
 The inner function can modify the state as required, and pass the new state to the tail recursive call.
 The outer function creates the initial state and passes it to the inner function to start the recursion.
 
-A tail-recursive fibonacci function might maintain the series calculated so far as part of the state.
+A tail-recursive fibonacci function could be implemented by keeping the series calculated so far as part of the state.
 
 ```jq
 def fibonacci:
   def _fib:
     # input: {limit: number, series: array}
     if (.series | length - 1) >= .limit then
-      .series[.limit]
+      .series[.limit]                                   # base case
     else
-      .series += [.series[-1] + .series[-2]] | _fib
+      .series += [.series[-1] + .series[-2]] | _fib     # recursive case
     end;
   {limit: ., series: [0, 1]} | _fib;
 
