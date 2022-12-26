@@ -37,12 +37,13 @@ These are a big amount of work, but I think I've figured out a decent checklist 
 
 1. select an exercise
    - this was surprisingly tricky for the early exercises, but it seems I'm kind of aligning with Javascript now.
+1. make a first draft of the design.md file, laying out the goals for the concept & exercise.
 1. add concept and exercise to the "root" config.json
 1. edit concept's and exercise's config.json
 1. write tests, exemplar and stub
    - doing this _after_ altering the config files enables the bin/validate script
 1. edit instructions
-1. edit design.md
+1. revisit design.md
    - once the exercise is handled, we can think a little deeper about what concepts the exercise demonstrates
 1. write about.md
    - this is the most work to get right
