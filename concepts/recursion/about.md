@@ -56,13 +56,13 @@ In practice, iterating over lists and other enumerable data structures is most o
 such as `map` and `reduce`, or by [using streams][map-implementation] like `[.[] | select(...)]`.
 Under the hood, some builtins are [implemented using recursion][range-implementation].
 
-## Infinite execution
+## Infinite recursion
 
 Recursive functions, if implemented incorrectly, might never return their result.
 This can be problematic because each time a function is called, a reference is stored in memory where the VM should return the result (on the [call stack][wiki-call-stack]).
 If a recursive function calls itself infinitely, it is possible to run out of memory causing the VM to crash (a [stack overflow error][wiki-stack-overflow]).
 
-This problem of infinite execution can be caused by:
+This problem of infinite recursion can be caused by:
 
 - Forgetting to implement a base case.
 - Not defining the base case as the first clause.
@@ -78,9 +78,9 @@ As [described in Wikipedia][wiki-tail-call]:
 Consider the implementation of `fibonacci` implemented above.
 The recursive case calls itself twice.
 The last action that the function needs to perform is addition.
-Since the last action is not a call to itself, hat function is recursive, but not _tail recursive_.
+Since the last action is not a call to itself, that function is recursive, but not tail recursive.
 
-Some languages implement a "tail call optimization", such that the tail call can _reuse_ the current stack frame instead of having to add a new frame to the [call stack][wiki-call-stack].
+Some languages implement "tail call optimization", such that the tail call can reuse the current stack frame instead of having to add a new frame to the [call stack][wiki-call-stack].
 This can have performance benefits above guarding against the dreaded [stack overflow][wiki-stack-overflow].
 
 `jq` does implement tail call optimization, _but only for 0-arity functions_.
@@ -88,7 +88,7 @@ The way to take advantage of this is to define an "inner" 0-arity function that 
 The inner function can modify the state as required, and pass the new state to the tail recursive call.
 The outer function creates the initial state and passes it to the inner function to start the recursion.
 
-A tail-recursive fibonacci function could be implemented by keeping the series calculated so far as part of the state.
+A tail-recursive `fibonacci` function could be implemented by keeping the series calculated so far as part of the state.
 
 ```jq
 def fibonacci:
