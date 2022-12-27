@@ -22,7 +22,7 @@ def count:
 ```
 
 A recursive function can have many base cases and/or many recursive cases.
-For example [the Fibonacci sequence][wiki-fibonacci] is a recursive sequence with two base cases:
+For example [the Fibonacci sequence][wiki-fibonacci] is a recursive sequence with two base cases.
 
 ```jq
 def fibonacci:
@@ -37,7 +37,7 @@ def fibonacci:
 10 | fibonacci          # => 55
 ```
 
-Counting the number of occurrences of some given value `x` in a list has two recursive cases:
+Counting the number of occurrences of some given value `x` in a list has two recursive cases.
 
 ```jq
 def count_occurrences(x):
@@ -73,12 +73,12 @@ This problem of infinite execution can be caused by:
 As [described in Wikipedia][wiki-tail-call]: 
 
 > A tail call is a subroutine call performed as the final action of a procedure.
-> If the target of a tail is the same subroutine, the subroutine is said to be tail recursive
+> If the target of a tail is the same subroutine, the subroutine is said to be tail recursive.
 
 Consider the implementation of `fibonacci` implemented above.
 The recursive case calls itself twice.
-But the last action that the function needs to perform is addition.
-That function is recursive, but not _tail recursive_.
+The last action that the function needs to perform is addition.
+Since the last action is not a call to itself, hat function is recursive, but not _tail recursive_.
 
 Some languages implement a "tail call optimization", such that the tail call can _reuse_ the current stack frame instead of having to add a new frame to the [call stack][wiki-call-stack].
 This can have performance benefits above guarding against the dreaded [stack overflow][wiki-stack-overflow].

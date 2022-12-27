@@ -13,5 +13,5 @@
       ".meta/exemplar.jq"
     ]
   },
-  "blurb": "Demonstrating recursive functions in jq"
+  "blurb": "Demonstrate recursive functions in jq"
 }
