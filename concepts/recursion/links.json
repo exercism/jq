@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#Recursion",
+    "description": "Recursion in the manual"
+  },
+  {
+    "url": "https://github.com/stedolan/jq/wiki/Advanced-Topics#recursion-and-tail-recursion-optimization",
+    "description": "jq Advanced Topics - Recursion and Tail Recursion Optimization"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Recursion",
+    "description": "Recursion  at Wikiepdia"
+  }
+]
