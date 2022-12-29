@@ -60,7 +60,7 @@ Under the hood, some builtins are [implemented using recursion][range-implementa
 
 Recursive functions, if implemented incorrectly, might never return their result.
 This can be problematic because each time a function is called, a reference is stored in memory where the VM should return the result (on the [call stack][wiki-call-stack]).
-If a recursive function calls itself infinitely, it is possible to run out of memory causing the VM to crash (a [stack overflow error][wiki-stack-overflow]).
+If a recursive function calls itself infinitely, it is possible to run out of memory, and causing the VM to crash with a [stack overflow error][wiki-stack-overflow].
 
 This problem of infinite recursion can be caused by:
 
@@ -80,7 +80,7 @@ The recursive case calls itself twice.
 The last action that the function needs to perform is addition.
 Since the last action is not a call to itself, that function is recursive, but not tail recursive.
 
-Some languages implement "tail call optimization", such that the tail call can reuse the current stack frame instead of having to add a new frame to the [call stack][wiki-call-stack].
+Some languages implement _tail call optimization_, such that the tail call can reuse the current stack frame instead of having to add a new frame to the [call stack][wiki-call-stack].
 This can have performance benefits above guarding against the dreaded [stack overflow][wiki-stack-overflow].
 
 `jq` does implement tail call optimization, _but only for 0-arity functions_.
