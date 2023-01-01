@@ -27,7 +27,7 @@ The result of the comparison is always a boolean value, so either `true` or `fal
 
 The comparison operators above can also be used to compare strings.
 In that case, a dictionary (lexicographical) order is applied.
-The ordering is "by unicode codepoint value".
+The ordering is _by unicode codepoint value_.
 
 ```jq
 "Apple" > "Pear",   # => false

@@ -4,7 +4,7 @@ From [the manual][man-types]
 
 > jq supports the same set of datatypes as JSON - numbers, strings, booleans, arrays, objects (which in JSON-speak are hashes with only string keys), and "null".
 
-Let's focus on *numbers*.
+Let's focus on **numbers**.
 
 ## Numbers and numeric operators
 
@@ -40,7 +40,7 @@ To solve the exercise, you will need to know about conditional expressions.
 
 ### Conditional Expressions
 
-`jq` uses an [`if-then-else` expression][if-then-else] for conditional expressions.
+`jq` uses an [`if-then-else` expression][if-then-else] for **conditional expressions**.
 As an _expression_, it is placed in a pipeline.
 
 Then syntax is: `if CONDITION then TRUE_EXPR else FALSE_EXPR end`.

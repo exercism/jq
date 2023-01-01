@@ -1,8 +1,8 @@
 # About
 
-A JSON object is, to use terminology from other languages, a "hash", "map", or "dictionary".
+A JSON **object** is, to use terminology from other languages, a "hash", "map", or "dictionary".
 
-JSON defines an object as:
+JSON defines an _object_ as:
 
 > An object is an unordered set of **name**/**value** pairs.
 > An object begins with `{` left brace and ends with `}` right brace.
@@ -28,13 +28,13 @@ Note that there **must not** be a comma following the _last_ key-value pair.
 ## Creating objects
 
 Use braces to collect the name/value pairs.
-Even though the names must be strings, they do not need to be quoted if the names are "identifier-like" (composed of alphanumeric characters and underscore, and not started with a digit).
+Even though the names must be strings, they do not need to be quoted if the names are **identifier-like** (composed of alphanumeric characters and underscore, and not started with a digit).
 
 ```jq
 {name: "Jane", age: 42}
 ```
 
-It is valid to use keys that are not "identifier-like".
+It is valid to use keys that are not _identifier-like_.
 Just quote them.
 
 ```jq
@@ -93,13 +93,13 @@ A couple of frequent cases for object construction have short-hand syntax.
 
 ## Indexing
 
-Values are retrieved from an object with _dot notation_.
+Values are retrieved from an object with **dot notation**.
 
 ```jq
 {name: "Jane", age: 42} | .age    # => 42
 ```
 
-If you cannot refer to the key as an identifier, use _bracket notation_.
+If you cannot refer to the key as an identifier, use **bracket notation**.
 
 ```jq
 "name" as $key | {name: "Jane", age: 42} | .$key    # => error
@@ -164,7 +164,7 @@ It returns the updated object.
 ```
 
 The parameter to `del` is an **index expression** (using dot- or bracket-notation) that resolves to a key in the object.
-`jq` calls it a "path expression".
+`jq` calls it a **path expression**.
 It is not sufficient to just give a string.
 
 ```jq
