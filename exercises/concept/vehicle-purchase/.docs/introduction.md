@@ -29,7 +29,7 @@ The result of the comparison is always a boolean value, so either `true` or `fal
 
 The comparison operators above can also be used to compare strings.
 In that case, a dictionary (lexicographical) order is applied.
-The ordering is "by unicode codepoint value".
+The ordering is _by unicode codepoint value_.
 
 ```jq
 "Apple" > "Pear",   # => false
@@ -84,9 +84,9 @@ Two objects are equal if they have the same key-value pairs.
 
 ### If Expression
 
-`jq`'s conditional expression is `if A then B else C end`.
+`jq`'s **conditional expression** is `if A then B else C end`.
 
-`if-then-else` is a filter like all jq builtins: it takes an input and produces an output.
+`if-then-else` is a filter like all `jq` builtins: it takes an input and produces an output.
 
 If the expression `A` produces a "truthy" value, then the `if` filter evaluates `B`.
 Otherwise it evaluates `C`.
@@ -122,7 +122,7 @@ Everything else is "true", even the number zero and the empty string, array and 
 
 ### Boolean Operators
 
-The boolean operators `and` and `or` can be used to build complex queries.
+The **boolean operators** `and` and `or` can be used to build complex queries.
 
 ```jq
 42 | if . < 33 or . > 66 then "big or small"
@@ -140,7 +140,7 @@ To negate, use `not`. This is a **filter** not an operator.
 
 ### Alternative Operator
 
-The alternative operator allows you to specify a "default" value if an expression is false or null.
+The **alternative operator** allows you to specify a "default" value if an expression is false or null.
 
 ```jq
 A // B

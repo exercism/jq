@@ -37,14 +37,14 @@ The rest of this lesson will focus on the `jq` _lanaguage_.
 
 ### Filters and Pipes
 
-Filters are also known as Expressions.
+**Filters** are also known as **Expressions**.
 
-A filter takes an input and produces an output.
-Like the way you work in a unix shell, you can join filters with a pipe `|` to connect the output of one filter to the input of another.
+A _filter_ takes an input and produces an output.
+Like the way you work in a unix shell, you can join _filters_ with a pipe `|` to connect the output of one _filter_ to the input of another.
 
 ### The Identity Filter: `.`
 
-This is the simplest filter.
+This is the simplest _filter_.
 It simply passes its input to its output.
 
 ```sh
@@ -58,17 +58,17 @@ $ echo '[1, 2, 3]' | jq '.'
 
 ### Arrays
 
-This will be quick introduction to working with arrays.
+This will be quick introduction to working with **arrays**.
 We will cover this topic in greater detail later.
 
-Array elements are accessed with brackets, and are zero-indexed.
+_Array_ elements are accessed with brackets, and are zero-indexed.
 
 ```sh
 $ echo '[10, 20, 30]' | jq '.[1]'
 20
 ```
 
-A filter can build an array by wrapping an expression in `[` and `]`
+A _filter_ can build an _array_ by wrapping an expression in `[` and `]`
 
 - with a known list of elements:
 
@@ -96,19 +96,19 @@ A filter can build an array by wrapping an expression in `[` and `]`
 
 ### Comma is an operator
 
-The comma is not just syntax that separates array elements.
-Comma is an **operator** that joins streams.
+The _comma_ is not just syntax that separates _array_ elements.
+**Comma** is an **operator** that joins streams.
 
-For example `[1, 2, 3]` is a filter that uses the array constructor `[]` to collect the result of joining the three expressions `1`, `2` and `3`.
+For example `[1, 2, 3]` is a _filter_ that uses the _arraya_ constructor `[]` to collect the result of joining the three expressions `1`, `2` and `3`.
 
 Did you notice the semi-colons in `range(10; 70; 15)` above?
-Because commas have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments.
+Because _commas_ have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments.
 
 ### Objects
 
-A quick introduction to objects.
+A quick introduction to **objects**.
 
-Similar to many programming languages, use dots to access object properties
+Similar to many programming languages, use dots to access _object_ properties
 
 ```sh
 $ echo '{"foo": {"bar": "qux"}}' | jq '.foo.bar'
@@ -117,7 +117,7 @@ $ echo '{"foo": {"bar": "qux"}}' | jq '.foo.bar'
 
 <!-- prettier-ignore -->
 ~~~~exercism/note
-Brackets can be used for objects too, but then quotes are needed for string literals.
+Brackets can be used for _objects_ too, but then quotes are needed for string literals.
 This is one method to work with keys containing spaces.
 
 ```sh
@@ -128,8 +128,8 @@ $ echo '{"foo bar": "qux"}' | jq '.["foo bar"]'
 
 <!-- prettier-ignore-end -->
 
-You can construct an object with `{}` and `key: value` pairs.
-Quotes are not required around keys that are "simple" strings.
+You can construct an _object_ with `{}` and `key: value` pairs.
+Quotes are not required around _keys_ that are "simple" strings.
 
 ```sh
 jq -n '{question: 6 * 9, answer: 42}'
@@ -144,7 +144,7 @@ outputs
 }
 ```
 
-To treat the key as an _expression_, you must wrap it in parentheses
+To treat the _key_ as an _expression_, you must wrap it in parentheses
 
 ```sh
 echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
@@ -153,7 +153,7 @@ echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
 
 ### Pipelines
 
-For example, given "file.json" containing
+For example, given `file.json` containing
 
 ```json
 {
@@ -162,14 +162,14 @@ For example, given "file.json" containing
 }
 ```
 
-Let's calculate the length of the key2 array:
+Let's calculate the length of the key2 _array_:
 
 ```sh
 $ jq '.key2 | length' file.json
 3
 ```
 
-We're _piping_ the output of the `.key2` expression as the input to `length` which unsurprisingly outputs the number of elements in the array.
+We're _piping_ the output of the `.key2` expression as the input to `length` which unsurprisingly outputs the number of elements in the _array_.
 
 ### Filters can ignore their input
 
@@ -182,8 +182,8 @@ $ echo '{"answer": 42}' | jq '6 * 9'
 
 ### Filters can output streams of data
 
-A filter can output more than one value.
-For example, the `.[]` filter outputs each element of an array as a separate value:
+A _filter_ can output more than one value.
+For example, the `.[]` _filter_ outputs each element of an _array_ as a separate value:
 
 ```sh
 $ jq -n -c '[1, 2, 3]'
@@ -195,7 +195,7 @@ $ jq -n -c '[1, 2, 3] | .[]'
 3
 ```
 
-Piping such a filter into another will execute the 2nd filter **_for each value_**:
+Piping such a _filter_ into another will execute the 2nd _filter_ **_for each value_**:
 
 ```sh
 $ jq -n -c '[1, 2, 3] | .[] | . * 2'
@@ -205,16 +205,16 @@ $ jq -n -c '[1, 2, 3] | .[] | . * 2'
 ```
 
 This is like implicit iteration.
-Once you understand this technique, you'll realize very powerful jq filters can be very concise.
+Once you understand this technique, you'll realize very powerful `jq` _filters_ can be very concise.
 
 ### Parentheses
 
-Parentheses are used to group sub-expressions together to enforce the order of operations, just like in other languages.
+**Parentheses** are used to group sub-expressions together to enforce the order of operations, just like in other languages.
 In `jq`, the need for them can appear to be somewhat surprising.
 
-For example, let's say we want to construct an array with 2 elements: the square root of 9; and _e_ raised to the power 1.
+For example, let's say we want to construct an _array_ with 2 elements: the square root of 9; and _e_ raised to the power 1.
 The two individual expressions are `9 | sqrt` and `1 | exp`.
-We expect the output to be the array `[3, 2.7...]`
+We expect the output to be the _array_ `[3, 2.7...]`
 
 ```jq
 $ jq -n '[ 9|sqrt, 1|exp ]'
@@ -293,7 +293,7 @@ Without going into great depth (functions will be a topic for another exercise),
 
   Given _some_ input and a filter as an argument:
 
-  - if the filter applied to the argument results in a **true** value, output the input unchanged
+  - if the filter applied to the argument results in a _true_ value, output the input unchanged
   - otherwise, output _nothing_ (not the `null` value, truly no output)
 
   For example, given some numbers, select the ones divisible by 3
