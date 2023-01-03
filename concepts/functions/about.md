@@ -73,6 +73,16 @@ Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_m
 10 | add_mul(5, 4)
 # error: add_mul/1 is not defined
 ```
+
+The comma in `5, 4` concatenates the numbers 5 and 4 into a stream. 
+When we call a function with a stream as an argument, `jq` will call that function multiple times, once for each value in the stream. 
+This is an example of the "implicit iteration" inherent in `jq` streams.
+`10 | add_mul(5, 4)` is equivalent to the following.
+
+```jq
+(10 | add_mul(5)), (10 | add_mul(4))
+```
+Now we can see how the `add_mul/1 is not defined` error pops up.
 ~~~~
 
 ### Arguments are _expressions_
