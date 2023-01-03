@@ -2,7 +2,7 @@
 
 ## Numbers and numeric operators
 
-All numbers, whether integers or otherwise, are IEEE754 double precision floating point numbers.
+All **numbers**, whether integers or otherwise, are IEEE754 double precision floating point numbers.
 The implementation of `jq` uses the C `double` type.
 This limits us to 53 bits of precision.
 
@@ -62,7 +62,7 @@ This means that `jq` is not capable of handling arbitrarily large numbers.
 
 ## Conditional Expressions
 
-`jq` uses an [`if-then-else` expression][if-then-else] for conditional expressions.
+`jq` uses an [`if-then-else` expression][if-then-else] for **conditional expressions**.
 As an _expression_, it is placed in a pipeline.
 
 Then syntax is: `if CONDTITION then TRUE_EXPR else FALSE_EXPR end`.

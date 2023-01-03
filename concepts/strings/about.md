@@ -1,7 +1,7 @@
 # About
 
 Recall that `jq` supports the same datatypes as JSON.
-JSON describes strings as:
+JSON describes **strings** as:
 
 > A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes.
 
@@ -32,7 +32,7 @@ $ jq -cn --args  '$ARGS.positional[] | utf8bytelength' "Hello world!" "❄🌡�
 
 ## Substrings
 
-The ["slice" notation][slice] can be used to extract substrings.
+The [**slice** notation][slice] can be used to extract substrings.
 The syntax is `.[i:j]`.
 The substring returned is of length `j - i`, returning characters from index `i` (inclusive) to index `j` (exclusive).
 Either index can be negative, in which case it counts backwards from the end of the string.

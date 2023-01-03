@@ -2,12 +2,12 @@
 
 ## Recursion
 
-Recursive functions are functions that call themselves.
+**Recursive functions** are functions that call themselves.
 
-A recursive function needs to have at least one _base case_ and at least one _recursive case_.
+A _recursive function_ needs to have at least one _base case_ and at least one _recursive case_.
 
-A _base case_ returns a value without calling the function again.
-A _recursive case_ calls the function again, modifying the input so that it will at some point match the base case.
+A **base case** returns a value without calling the function again.
+A **recursive case** calls the function again, modifying the input so that it will at some point match the base case.
 
 Here is an example that counts the elements of an array.
 
@@ -23,8 +23,8 @@ def count:
 ([11, 22, 33] | count)  # => 3
 ```
 
-A recursive function can have many base cases and/or many recursive cases.
-For example [the Fibonacci sequence][wiki-fibonacci] is a recursive sequence with two base cases.
+A _recursive function_ can have many _base cases_ and/or many _recursive cases_.
+For example [the Fibonacci sequence][wiki-fibonacci] is a recursive sequence with two _base cases_.
 
 ```jq
 def fibonacci:
@@ -39,7 +39,7 @@ def fibonacci:
 10 | fibonacci          # => 55
 ```
 
-Counting the number of occurrences of some given value `x` in a list has two recursive cases.
+Counting the number of occurrences of some given value `x` in a list has two _recursive cases_.
 
 ```jq
 def count_occurrences(x):
