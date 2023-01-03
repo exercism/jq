@@ -55,7 +55,7 @@ A _function_ introduces a new **scope** for variables and nested functons.
 
 ## Arguments
 
-_Function_ arguments are separated by _semi-colons_ not commas.
+_Function_ **arguments** are separated by _semi-colons_ not commas.
 For example, a _function_ that takes a number, and then adds a number and multiplies by a number:
 
 ```jq
