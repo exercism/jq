@@ -87,7 +87,7 @@ Now we can see how the `add_mul/1 is not defined` error pops up.
 
 ### Arguments are _expressions_
 
-**Function arguments** are filters, not values.
+Function _arguments_ are filters, not values.
 In this sense, they act like what other languages describe as callbacks:
 
 Using the `add_mul` function as an example:
