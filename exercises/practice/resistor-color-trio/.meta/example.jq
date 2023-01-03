@@ -1,7 +1,8 @@
 def labelled($unit):
     def get_prefix_idx:
-        if .value % 1000 != 0 then .
-        else .value /= 1000 | .idx += 1 | get_prefix_idx
+        if .value == 0 or .value % 1000 != 0
+          then .
+          else .value /= 1000 | .idx += 1 | get_prefix_idx
         end;
 
     {value: ., idx: 0}
