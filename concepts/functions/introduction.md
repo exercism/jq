@@ -55,7 +55,7 @@ A _function_ introduces a new **scope** for variables and nested functons.
 
 ## Arguments
 
-_Function_ arguments are separated by _semi-colons_ not commas.
+_Function_ **arguments** are separated by _semi-colons_ not commas.
 For example, a _function_ that takes a number, and then adds a number and multiplies by a number:
 
 ```jq
@@ -77,7 +77,7 @@ Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_m
 
 ### Arguments are _expressions_
 
-**Function arguments** are filters, not values.
+Function _arguments_ are filters, not values.
 In this sense, they act like what other languages describe as callbacks:
 
 Using the `add_mul` function as an example:
