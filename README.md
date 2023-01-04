@@ -52,6 +52,20 @@ These are a big amount of work, but I think I've figured out a decent checklist 
 1. edit hints
 1. add links
 
+```none
+- [ ] select an exercise
+- [ ] make a first draft of the design.md file, laying out the goals for the concept & exercise.
+- [ ] add concept and exercise to the "root" config.json
+- [ ] edit concept's and exercise's config.json
+- [ ] write tests, exemplar and stub
+- [ ] edit instructions
+- [ ] revisit design.md
+- [ ] write about.md
+- [ ] copy and prune to create introduction.md
+- [ ] edit hints
+- [ ] add links
+```
+
 ## How to port an exercise
 
 Using `grep` as an example:
