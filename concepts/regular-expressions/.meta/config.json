@@ -3,5 +3,6 @@
   "authors": [
     "glennj"
   ],
-  "contributors": []
+  "contributors": [],
+  "forked_from": ["javascript/regular-expressions"]
 }
