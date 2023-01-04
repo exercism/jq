@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "contributors": [
+  ],
+  "files": {
+    "solution": [
+      "regular-chatbot.jq"
+    ],
+    "test": [
+      "test-regular-chatbot.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
+  },
+  "blurb": "Learn the basics of regular expressions in jq by helping a chatbot understand humans."
+}

@@ -1,0 +1,7 @@
+{
+  "blurb": "jq supports Perl-compatible regular expressions as a very powerful way to test and manipulate strings.",
+  "authors": [
+    "glennj"
+  ],
+  "contributors": []
+}
