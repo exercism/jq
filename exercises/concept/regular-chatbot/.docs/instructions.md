@@ -7,10 +7,9 @@ It is in a very basic phase of development, hence your mission is to use Regular
 ## Check Valid Command
 
 Apart from being smart, the Chatbot is also a loyal assistant.
-
-To ask something to the chatbot, the user must say the word “**Chatbot**” in the first position of the command.
-
-It doesn't matter if the keyword is in UPPERCASE or lowercase. The important aspect here is the position of the word.
+To ask something to the chatbot, the user must say the word "**Chatbot**" in the first position of the command.
+It doesn't matter if the keyword is in UPPERCASE or lowercase.
+The important aspect here is the position of the word.
 
 Implement the function `is_valid_command` that helps the Chatbot recognize when the user is giving a command.
 
@@ -26,16 +25,12 @@ Implement the function `is_valid_command` that helps the Chatbot recognize when 
 ## Remove encrypted emojis
 
 The Chatbot has a difficult time understanding how humans use emojis to express their emotions.
-
 When the chatbot receives user messages, each emoji is represented as the letters "emoji" followed by an _id number_.
 
 Implement the `remove_emoji` method to take a string and remove all the emoji throughout the message.
 
 Lines not containing emojis should be returned unmodified.
-
 Just remove the emoji string. Do not attempt to adjust the whitespace.
-
-For this particular challenge, use constructor syntax for creating the regular expression.
 
 ```jq
 "I love playing videogames emoji3465 it's one of my hobbies" | remove_emoji
@@ -45,10 +40,10 @@ For this particular challenge, use constructor syntax for creating the regular e
 ## Check Valid Phone Number
 
 Considering the download of chatbot features on a mobile app, the user is expected to write a phone number during the conversation.
-
 The problem is that the chatbot can only read and validate a number with a specific format.
 
 Implement the `check_phone_number` function.
+
 If the number is valid, the chatbot answers with a message thanking the user and confirming the number.
 If the number is invalid, the function informs the user that the phone number is not valid.
 
@@ -85,6 +80,7 @@ A polite chatbot will speak to users by name.
 When a user introduces themselves, our Chatbot will detect their name and respond with a friendly greeting.
 
 Write the function `nice_to_meet_you`.
+
 If the input string contains "my name is Someone", capture the name and return the string "Nice to meet you, Someone".
 
 ```jq
