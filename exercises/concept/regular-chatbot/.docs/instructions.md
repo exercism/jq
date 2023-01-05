@@ -22,7 +22,7 @@ Implement the function `is_valid_command` that helps the Chatbot recognize when 
 # => true
 ```
 
-## Remove encrypted emojis
+## Remove Encrypted Emojis
 
 The Chatbot has a difficult time understanding how humans use emojis to express their emotions.
 When the chatbot receives user messages, each emoji is represented as the letters "emoji" followed by an _id number_.
@@ -56,7 +56,7 @@ The expected format is `(+NN) NNN-NNN-NNN`, where N is a digit.
 # => "Oops, it seems like I can't reach out to 659-771-594"
 ```
 
-## Get website link
+## Get Website Link
 
 The Chatbot is a really curious software.
 Even though it can search on the internet about a particular topic, it likes to ask users about cool websites or URLs to go find relevant information.

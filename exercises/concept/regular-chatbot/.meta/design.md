@@ -4,12 +4,11 @@
 
 - Learn about the flavour of jq Regular Expressions.
 - How to create a regular expression, in jq with strings only.
-- How to use the most common regex related functions
-    - test, match, capture, split, scan
-- How to pass flags in both versions
+- How to use the regex related functions
+    - test, match, capture, split, scan, sub, gsub
+- How to pass flags
 - Understanding the different parts of the match result, incl. capture results
 - Using the replace method alongside regular expressions
-- Being aware of performance implications
 
 ## Out of scope
 
