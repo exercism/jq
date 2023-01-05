@@ -2,8 +2,6 @@
   "authors": [
     "glennj"
   ],
-  "contributors": [
-  ],
   "files": {
     "solution": [
       "regular-chatbot.jq"
@@ -15,6 +13,8 @@
       ".meta/exemplar.jq"
     ]
   },
-  "forked_from": ["javascript/regular-chatbot"],
+  "forked_from": [
+    "javascript/regular-chatbot"
+  ],
   "blurb": "Learn the basics of regular expressions in jq by helping a chatbot understand humans."
 }

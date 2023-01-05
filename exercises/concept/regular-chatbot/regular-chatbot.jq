@@ -1,52 +1,59 @@
-// @ts-check
+# Given a certain command, help the chatbot recognize whether
+# the command is valid or not.
+# - valid if "Chatbot" is at the start of the input
+#
+# input: {string} a command
+# output: {boolean} whether or not is the command valid
+#
+def is_valid_command:
+  . # implement the body of this function
+;
 
-/**
- * Given a certain command, help the chatbot recognize whether the command is valid or not.
- *
- * @param {string} command
- * @returns {boolean} whether or not is the command valid
- */
+# Given a certain message, help the chatbot get rid of all the 
+# "encrypted" emojis throught the message.
+# - an "encrypted emoji" is the string "emoji" followed by digits
+#
+# input: {string} message
+# output: {string} The message without the emojis
+def remove_emoji:
+  . # implement the body of this function
+;
 
-export function isValidCommand(command) {
-  throw new Error('Please implement the isValidCommand function');
-}
+# Given a certain phone number, help the chatbot recognize
+# whether it is in the correct format.
+# - a phone number has the form "(+NN) NNN-NNN-NNN"
+#   where N is a digit
+#
+# input: {string} number
+# output: {string} the Chatbot response to the phone Validation
+def check_phone_number:
+  . # implement the body of this function
+;
 
-/**
- * Given a certain message, help the chatbot get rid of all the emoji's encryption throught the message.
- *
- * @param {string} message
- * @returns {string} The message without the emojis encryption
- */
-export function removeEmoji(message) {
-  throw new Error('Please implement the removeEmoji function');
-}
+# Given a certain response from the user, help the chatbot get
+# only the URLs
+# - a URL consists of sequences of word characters joined by dots
+#
+# input: {string} userInput
+# output: {array} all the possible URLs
+def get_url:
+  . # implement the body of this function
+;
 
-/**
- * Given a certain phone number, help the chatbot recognize whether it is in the correct format.
- *
- * @param {string} number
- * @returns {string} the Chatbot response to the phone Validation
- */
-export function checkPhoneNumber(number) {
-  throw new Error('Please implement the checkPhoneNumber function');
-}
+# Greet the user using their name
+# - the phrase "my name is Something" must be in the input
+#
+# input: {string} sentence with name clause
+# output: {string} Greeting from the chatbot
+def nice_to_meet_you:
+  . # implement the body of this function
+;
 
-/**
- * Given a certain response from the user, help the chatbot get only the URL
- *
- * @param {string} userInput
- * @returns {string[] | null} all the possible URL's that the user may have answered
- */
-export function getURL(userInput) {
-  throw new Error('Please implement the userInput function');
-}
-
-/**
- * Greet the user using its full name data from the profile
- *
- * @param {string} fullName
- * @returns {string} Greeting from the chatbot
- */
-export function niceToMeetYou(fullName) {
-  throw new Error('Please implement the fullName function');
-}
+# Perform very simple CSV parsing
+# - fields are separated by a comma and optional whitespace
+#
+# input: {string} comma-separated row
+# output: {array} fields
+def parse_csv:
+  . # implement the body of this function
+;
