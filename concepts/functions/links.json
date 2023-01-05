@@ -1,7 +1,7 @@
 [
   {
     "description": "\"Defining Functions\" in the manual",
-    "url": "https://stedolan.github.io/jq/manual/#DefiningFunctions"
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#DefiningFunctions"
   },
   {
     "description": "\"Advanced Topics\" in the wiki",
@@ -9,6 +9,6 @@
   },
   {
     "description": "\"Modules\" in the manual",
-    "url": "https://stedolan.github.io/jq/manual/#Modules"
+    "url": "https://stedolan.github.io/jq/manual/v1.6/#Modules"
   }
 ]

@@ -51,4 +51,4 @@ We will assume you are familiar with [JSON syntax and data types][wiki-json].
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON#Syntax
-[cli-options]: https://stedolan.github.io/jq/manual/#Invokingjq
+[cli-options]: https://stedolan.github.io/jq/manual/v1.6/#Invokingjq
