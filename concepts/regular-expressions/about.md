@@ -24,7 +24,7 @@ For example, the digit character class (`\d`) must be written as `"\\d"`.
 
 Regular expressions in `jq` are limited to [a set of filters][jq-regex-funcs].
 
-### Simple matching
+### Simple Matching
 
 When you need to know if a string matches a pattern, use the `test` filter.
 
@@ -41,7 +41,7 @@ This filter outputs a _boolean_ result.
 "Goodbye Mars" | test("W")    # => false
 ```
 
-### Information about the match
+### Information About the Match
 
 When you need to extract the substring that actually matched the pattern, use the `match` filter.
 
@@ -88,7 +88,7 @@ This example shows the `"g"` flag in action to find all the vowels.
 #    { "offset": 9, "length": 1, "string": "a", "captures": [] }
 ```
 
-### Captured substrings
+### Captured Substrings
 
 Similar to the `match` filter, the `capture` filter returns an object if there was a match.
 
@@ -108,7 +108,7 @@ The returned object is a mapping of the **named captures**.
 #    }
 ```
 
-### Just the substrings
+### Just the Substrings
 
 The `scan` filter is similar to `match` with the `"g"` flag.
 
@@ -135,7 +135,7 @@ Use the `[...]` array constructor to capture the substrings.
 # => ["o", "o", "e", "a"]
 ```
 
-### Splitting a string
+### Splitting a String
 
 If you know the parts of the string you want to **keep**, use `match` or `scan`.
 If you know the parts that you want to **discard**, use `split`.

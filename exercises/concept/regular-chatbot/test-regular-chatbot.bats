@@ -21,6 +21,21 @@ load bats-extra
     assert_output false
 }
 
+@test 'does not care about UPPERCASE or lowercase' {
+    ## task 1
+    run jq -R '
+        include "regular-chatbot";
+        is_valid_command
+    ' << END_INPUT
+CHATBOT Is it okey if I shout at you?
+chatbot - please tell me what is happening here.
+END_INPUT
+    assert_success
+    assert_equal 2 "${#lines[@]}"
+    assert_line --index 0 true
+    assert_line --index 1 true
+}
+
 @test 'does not recognize word characters after "chatbot"' {
     ## task 1
     run jq -R '
@@ -38,21 +53,6 @@ END_INPUT
     assert_line --index 2 true
 }
 
-@test 'does not care about UPPERCASE or lowercase' {
-    ## task 1
-    run jq -R '
-        include "regular-chatbot";
-        is_valid_command
-    ' << END_INPUT
-CHATBOT Is it okey if I shout at you?
-chatbot - please tell me what is happening here.
-END_INPUT
-    assert_success
-    assert_equal 2 "${#lines[@]}"
-    assert_line --index 0 true
-    assert_line --index 1 true
-}
-
 @test 'removes properly one single emoji encryption' {
     ## task 2
     run jq -Rr '
@@ -68,9 +68,9 @@ END_INPUT
     run jq -Rr '
         include "regular-chatbot";
         remove_emoji
-    ' <<< 'emoji5321 How about ordering emoji8921 ?'
+    ' <<< 'emoji5321 How about ordering emoji8921?'
     assert_success
-    assert_output ' How about ordering  ?'
+    assert_output ' How about ordering ?'
 }
 
 @test 'with no encrypted emojis returns input unchanged' {
@@ -88,9 +88,9 @@ END_INPUT
     run jq -Rr '
         include "regular-chatbot";
         check_phone_number
-    ' <<< '(+34) 643-876-459'
+    ' <<< 'chatbot, phone (+34) 643-876-459 please'
     assert_success
-    assert_output 'Thanks! You can now download me to your phone.'
+    assert_output 'Thanks! Your phone number is OK.'
 }
 
 @test 'recognizes a phone number with another correct format' {
@@ -99,7 +99,7 @@ END_INPUT
         check_phone_number
     ' <<< '(+49) 543-928-190'
     assert_success
-    assert_output 'Thanks! You can now download me to your phone.'
+    assert_output 'Thanks! Your phone number is OK.'
 }
 
 @test 'informs the user that it is a wrong phone number format' {
@@ -109,7 +109,7 @@ END_INPUT
         "322-787-654" | check_phone_number
     '
     assert_success
-    assert_output "Oops, it seems like I can't reach out to 322-787-654"
+    assert_output "Oops, it seems like I can't reach out to 322-787-654."
 }
 
 @test 'informs the user that it is another wrong phone number format' {
@@ -119,14 +119,14 @@ END_INPUT
         "4355-67-274" | check_phone_number
     '
     assert_success
-    assert_output "Oops, it seems like I can't reach out to 4355-67-274"
+    assert_output "Oops, it seems like I can't reach out to 4355-67-274."
 }
 
 @test 'returns only the link of the website' {
     ## task 4
     run jq -Rc '
         include "regular-chatbot";
-        get_url
+        get_domains
     ' <<< 'You can check more info on youtube.com'
     assert_success
     assert_output '["youtube.com"]'
@@ -136,7 +136,7 @@ END_INPUT
     ## task 4
     run jq -Rc '
         include "regular-chatbot";
-        get_url
+        get_domains
     ' <<< 'There is a cool website called theodinproject.com to learn from'
     assert_success
     assert_output '["theodinproject.com"]'
@@ -146,7 +146,7 @@ END_INPUT
     ## task 4
     run jq -nc '
         include "regular-chatbot";
-        "hello Chatbot" | get_url
+        "hello Chatbot" | get_domains
     '
     assert_success
     assert_output '[]'
@@ -156,7 +156,7 @@ END_INPUT
     ## task 4
     run jq -Rc '
         include "regular-chatbot";
-        get_url
+        get_domains
     ' <<< 'That was from reddit.com and notion.so'
     assert_success
     assert_output '["reddit.com","notion.so"]'

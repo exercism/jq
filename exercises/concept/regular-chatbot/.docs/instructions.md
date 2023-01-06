@@ -8,7 +8,7 @@ Your mission is to use Regular Expressions to improve the Chatbot's ability to u
 ## Check Valid Command
 
 Apart from being smart, the Chatbot is also a loyal assistant.
-To ask the chatbot something, the user must say the word "**Chatbot**" in the first position of the command.
+To ask the Chatbot something, the user must say the word "**Chatbot**" in the first position of the command.
 It doesn't matter if the keyword is in UPPERCASE or lowercase.
 The important part is the position of the word.
 
@@ -26,7 +26,7 @@ Implement the function `is_valid_command` that helps the Chatbot recognize when 
 ## Remove Encrypted Emojis
 
 The Chatbot has a difficult time understanding how humans use emojis to express their emotions.
-When the chatbot receives user messages, each emoji is represented as the string "emoji" followed by an _id number_.
+When the Chatbot receives user messages, each emoji is represented as the string "emoji" followed by an _id number_.
 
 Implement the `remove_emoji` method which takes a string and removes all the emoji throughout the message.
 
@@ -41,27 +41,27 @@ Do not adjust the whitespace.
 
 ## Check Valid Phone Number
 
-Considering the download of chatbot features on a mobile app, the user is expected to write a phone number during the conversation.
-The problem is that the chatbot can only read and validate a number with a specific format.
+At some point in the interaction with the Chatbot, the user will provide a phone number.
+The Chatbot can only call a number with a specific format.
 
 Implement the `check_phone_number` function.
 
-If the number is valid, the chatbot answers with a message thanking the user and confirming the number.
-If the number is invalid, the chatbot informs the user that the phone number is not valid.
+If the number is valid, the Chatbot answers with a message thanking the user and confirming the number.
+If the number is invalid, the Chatbot informs the user that the phone number is not valid.
 
 The expected format is `(+NN) NNN-NNN-NNN`, where N is a digit.
 
 ```jq
-"(+34) 659-771-594" | check_phone_number
-# => "Thanks! You can now download me to your phone."
-"659-771-594" | check_phone_number
+"chatbot my phone number is (+34) 659-771-594" | check_phone_number
+# => "Thanks! Your phone number is OK."
+"chatbot, call me at 659-771-594" | check_phone_number
 # => "Oops, it seems like I can't reach out to 659-771-594."
 ```
 
 ## Get Website Link
 
 The Chatbot is a really curious software.
-Even though it can search the internet for a particular topic, it likes to ask users about cool websites or URLs to visit to find relevant information.
+Even though it can search the internet for a particular topic, it likes to ask users about cool websites to visit to find relevant information.
 
 Example conversation:
 
@@ -69,15 +69,15 @@ Example conversation:
 
 > **User**: I learned a lot from exercism.org, there's lots of great stuff there.
 
-Implement the function `get_url` which returns an array of website domains.
+Implement the function `get_domains` which returns an array of website domains.
 ```jq
-"I learned a lot from exercism.org and google.com" | get_url
+"I learned a lot from exercism.org and google.com" | get_domains
 # => ["exercism.org", "google.com"]
 ```
 
-## Greet the user
+## Greet the User
 
-A polite chatbot will speak to users by name.
+A polite Chatbot will speak to users by name.
 When a user introduces themselves, our Chatbot will detect their name and respond with a friendly greeting.
 
 Write the function `nice_to_meet_you`.

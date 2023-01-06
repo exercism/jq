@@ -2,31 +2,31 @@
 
 ## Regular Expressions
 
-**Regular expressions** are sequences of characters that specify a search pattern in text.
+**Regular expressions** (regexes) are sequences of characters that specify a search pattern in text.
 
 Learning regular expression syntax is beyond the scope of this topic.
 We will focus on the expressions that `jq` provides to utilize regexes.
 
 ### Regex Flavour
 
-Different tools implement regular expressions differently.
+Different tools implement different versions of regular expressions.
 `jq` incorporates the [Oniguruma][oniguruma] regex library that is largely compatible with Perl v5.8 regexes.
 
-The specific syntax used by `jq` version 1.6 can be [found on github][onig-syntax].
+The specific syntax used by `jq` version 1.6 can be [found on the Oniguruma GitHub repo][onig-syntax].
 
 ~~~~exercism/caution
 `jq` does not have any special syntax for regular expressions.
 They are simply expressed as strings.
 That means that any backslashes in the regular expression need to be escaped in the string.
 
-For example, the digit character class (`\d`) must be written like `"\\d"`.
+For example, the digit character class (`\d`) must be written as `"\\d"`.
 ~~~~
 
 ### Regex Functions
 
 Regular expressions in `jq` are limited to [a set of filters][jq-regex-funcs].
 
-#### Simple matching
+#### Simple Matching
 
 When you need to know if a string matches a pattern, use the `test` filter.
 
@@ -43,7 +43,7 @@ This filter outputs a _boolean_ result.
 "Goodbye Mars" | test("W")    # => false
 ```
 
-#### Information about the match
+#### Information About the Match
 
 When you need to extract the substring that actually matched the pattern, use the `match` filter.
 
@@ -57,7 +57,7 @@ This filter outputs:
 - nothing if there was no match, or
 - an object containing various properties if there was a match.
 
-This example looks for two identical consecutive vowels.
+This example looks for two identical consecutive vowels by using the backref syntax, `\1`.
 
 ```jq
 "Hello World!" | match("([aeiou])\\1")
@@ -90,7 +90,7 @@ This example shows the `"g"` flag in action to find all the vowels.
 #    { "offset": 9, "length": 1, "string": "a", "captures": [] }
 ```
 
-#### Captured substrings
+#### Captured Substrings
 
 Similar to the `match` filter, the `capture` filter returns an object if there was a match.
 
@@ -110,7 +110,7 @@ The returned object is a mapping of the **named captures**.
 #    }
 ```
 
-#### Just the substrings
+#### Just the Substrings
 
 The `scan` filter is similar to `match` with the `"g"` flag.
 
@@ -137,7 +137,7 @@ Use the `[...]` array constructor to capture the substrings.
 # => ["o", "o", "e", "a"]
 ```
 
-#### Splitting a string
+#### Splitting a String
 
 If you know the parts of the string you want to **keep**, use `match` or `scan`.
 If you know the parts that you want to **discard**, use `split`.
@@ -161,7 +161,7 @@ An example that splits a string on arbitrary whitespace.
 
 #### Substitutions
 
-The `sub` and `gsub` filters can modify the input string, replacing matched portions of the input with a replacement string.
+The `sub` and `gsub` filters can transform the input string, replacing matched portions of the input with a replacement string.
 
 To replace just the first match, use `sub`.
 To replace all the matches, use `gsub`.
