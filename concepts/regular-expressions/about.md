@@ -1,23 +1,23 @@
 # About
 
-**Regular expressions** are sequences of characters that specify a search pattern in text.
+**Regular expressions** (regexes) are sequences of characters that specify a search pattern in text.
 
 Learning regular expression syntax is beyond the scope of this topic.
 We will focus on the expressions that `jq` provides to utilize regexes.
 
 ## Regex Flavour
 
-Different tools implement regular expressions differently.
+Different tools implement different versions of regular expressions.
 `jq` incorporates the [Oniguruma][oniguruma] regex library that is largely compatible with Perl v5.8 regexes.
 
-The specific syntax used by `jq` version 1.6 can be [found on github][onig-syntax].
+The specific syntax used by `jq` version 1.6 can be [found on the Oniguruma GitHub repo][onig-syntax].
 
 ~~~~exercism/caution
 `jq` does not have any special syntax for regular expressions.
 They are simply expressed as strings.
 That means that any backslashes in the regular expression need to be escaped in the string.
 
-For example, the digit character class (`\d`) must be written like `"\\d"`.
+For example, the digit character class (`\d`) must be written as `"\\d"`.
 ~~~~
 
 ## Regex Functions
@@ -55,7 +55,7 @@ This filter outputs:
 - nothing if there was no match, or
 - an object containing various properties if there was a match.
 
-This example looks for two identical consecutive vowels.
+This example looks for two identical consecutive vowels by using the backref syntax, `\1`.
 
 ```jq
 "Hello World!" | match("([aeiou])\\1")
@@ -158,7 +158,7 @@ An example that splits a string on arbitrary whitespace.
 ```
 
 ~~~~exercism/note
-To show what happens if we forget the flags argument:
+This is what happens if we forget the flags argument.
 
 ```jq
 "first   second           third fourth" | split("\\s+")
@@ -178,7 +178,7 @@ Splitting on a space gives this result.
 
 ### Substitutions
 
-The `sub` and `gsub` filters can modify the input string, replacing matched portions of the input with a replacement string.
+The `sub` and `gsub` filters can transform the input string, replacing matched portions of the input with a replacement string.
 
 To replace just the first match, use `sub`.
 To replace all the matches, use `gsub`.

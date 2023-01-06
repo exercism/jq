@@ -7,13 +7,13 @@
 
 ## 2. Remove Encrypted Emojis
 
-- Thanks to the common encryption of each emoji, we can use `[0-9]` to search for any digit after the `emoji`word.
+- Thanks to the common encryption of each emoji, we can use `[0-9]` to search for any digit after the `emoji` word.
 - The character `+` matches one or more consecutive items.
 - Use the [gsub][regex-gsub] method to replace each emoji with an empty string.
 
 ## 3. Check Valid Phone Number
 
-- This [article][phone-validation] is really good at explaining different ways of number validation.
+- This [article][phone-validation] is really good at explaining different ways to validate a phone number.
 - Use the `test` filter to check whether the phone number is valid or not.
 - Return the final answer with an `if-then-else` expression.
 
@@ -23,12 +23,12 @@
 - The [match][regex-match] filter with the `g` flag can be used.
 - The [scan][regex-scan] filter might be easier to use.
 
-## 5. Greet the user
+## 5. Greet the User
 
 - Using [named capture groups][named-capture] is convenient to re-use the matched text.
 - The [capture][regex-capture] filter is nice for referring to the named group.
 
-## 6. Very simple CSV parsing
+## 6. Very Simple CSV Parsing
 
 - Here, we want to use [split][regex-split] because we know the delimiter.
 - The pattern is "comma followed by zero or more whitespace".

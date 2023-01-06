@@ -3,7 +3,7 @@
 # - valid if "Chatbot" is at the start of the input
 #
 # input: {string} a command
-# output: {boolean} whether or not is the command valid
+# output: {boolean} whether or not the command is valid
 #
 def is_valid_command:
   . # implement the body of this function
@@ -14,7 +14,7 @@ def is_valid_command:
 # - an "encrypted emoji" is the string "emoji" followed by digits
 #
 # input: {string} message
-# output: {string} The message without the emojis
+# output: {string} the message without the emojis
 def remove_emoji:
   . # implement the body of this function
 ;
@@ -25,7 +25,7 @@ def remove_emoji:
 #   where N is a digit
 #
 # input: {string} number
-# output: {string} the Chatbot response to the phone Validation
+# output: {string} the Chatbot response to the phone validation
 def check_phone_number:
   . # implement the body of this function
 ;
@@ -35,7 +35,7 @@ def check_phone_number:
 # - a URL consists of sequences of word characters joined by dots
 #
 # input: {string} userInput
-# output: {array} all the possible URLs
+# output: {array} all the URLs in the input
 def get_url:
   . # implement the body of this function
 ;
@@ -44,7 +44,7 @@ def get_url:
 # - the phrase "my name is Something" must be in the input
 #
 # input: {string} sentence with name clause
-# output: {string} Greeting from the chatbot
+# output: {string} greeting from the chatbot
 def nice_to_meet_you:
   . # implement the body of this function
 ;
