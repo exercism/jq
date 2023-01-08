@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://github.com/kkos/oniguruma/blob/6fa38f4084b448592888ed9ee43c6e90a46b5f5c/doc/RE",
+    "description": "Oniguruma regular expression syntax"
+  },
+  {
+    "url": "https://github.com/stedolan/jq/wiki/FAQ#support-for-regular-expressions",
+    "description": "jq regex FAQ"
+  }
+]

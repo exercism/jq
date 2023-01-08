@@ -99,7 +99,7 @@ A _filter_ can build an _array_ by wrapping an expression in `[` and `]`
 The _comma_ is not just syntax that separates _array_ elements.
 **Comma** is an **operator** that joins streams.
 
-For example `[1, 2, 3]` is a _filter_ that uses the _arraya_ constructor `[]` to collect the result of joining the three expressions `1`, `2` and `3`.
+For example `[1, 2, 3]` is a _filter_ that uses the _array_ constructor `[]` to collect the result of joining the three expressions `1`, `2` and `3`.
 
 Did you notice the semi-colons in `range(10; 70; 15)` above?
 Because _commas_ have a specific purpose in the `jq` language, functions that take multiple arguments use semi-colons to separate the arguments.

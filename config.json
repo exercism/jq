@@ -74,6 +74,11 @@
       "slug": "recursion",
       "name": "Recursion",
       "uuid": "3ae02c6b-9b1d-442f-b3f3-aafc98b5d2a8"
+    },
+    {
+      "slug": "regular-expressions",
+      "name": "Regular Expressions",
+      "uuid": "87548899-a18f-4bcc-b2de-8e9c6b91aa6a"
     }
   ],
   "exercises": {
@@ -164,6 +169,14 @@
         "concepts": ["recursion"],
         "prerequisites": ["functions", "conditionals"],
         "uuid": "3b981b48-5826-4460-8c3e-59b2c28f46f1",
+        "status": "wip"
+      },
+      {
+        "slug": "regular-chatbot",
+        "name": "Regular Chatbot",
+        "concepts": ["regular-expressions"],
+        "prerequisites": ["functions", "strings"],
+        "uuid": "a75968a8-5c37-4f20-a966-7c6e549e17fe",
         "status": "wip"
       }
     ],
