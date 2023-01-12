@@ -1,7 +1,7 @@
 # About
 
-Reducing is a process to iterate over a data structure, applying a function at each step that updates some form of accumulated result.
-In `jq`, this process is implemented in the [`reduce`][jq-man-reduce] filter.
+Reducing is a process to iterate over the elements of a data structure, applying a function at each step that updates some form of accumulated result.
+In `jq`, this process is implemented in the [`reduce` filter][jq-man-reduce].
 In other languages, it might be called "fold", "fold-left", "inject", or "aggregate".
 
 The `jq` `reduce` expression looks like this.
@@ -11,7 +11,7 @@ reduce STREAM as $var (INITIAL_STATE; REDUCING_EXPRESSION)
 
 - STREAM is a _stream_ of items, each stored in the $var variable in turn.
 - INITIAL\_STATE is the starting value of the accumulated result.
-- The REDUCING\_EXPRESSION is the where the current value from the stream is "folded" into the accumulated result.
+- The REDUCING\_EXPRESSION is the where the current value $var from the stream is "folded" into the accumulated result.
   - In the context of this expression, `.` is the current value of the accumulator.
   - The output of the expression is stored into the accumulator for use in the next iteration.
   - After the last iteration, the accumulated result is the output of `reduce`.
@@ -35,7 +35,7 @@ Expressed with the `reduce` filter we have
 ```
 
 ~~~~exercism/note
-The `add` builtin [is actually implemented with `reduce`][jq-code-add], but uses "null" as the initial state (any data type can be added to null).
+The `add` builtin is actually [implemented with `reduce`][jq-code-add], but uses "null" as the initial state (any data type can be added to null).
 
 ```jq
 def add: reduce .[] as $x (null; . + $x);
@@ -45,24 +45,25 @@ def add: reduce .[] as $x (null; . + $x);
 ## Some things to keep in mind
 
 - In the reducing expression, `.` is the accumulator.
-  If the input is some object that you need to refer to inside the reducing function, you'll want to store it in a variable.
+  If the input is some object that you need to reference inside the reducing function, you'll want to store it in a variable.
 
   ```jq
-  # a contrived example
-  {"apple": 10, "banana": 16, "carrot": 4} as $obj
+  {"apple": 10, "banana": 16, "carrot": 4}
+  | . as $obj
   | reduce (keys | .[]) as $key (0; . + $obj[$key])     # => 30
   ```
 
-- The accumulator can be any type of data.
+- The accumulator can be of any type of data.
   For example you may want to reverse an array.
 
   ```jq
   ["alpha", "beta", "gamma", "delta"]
-  | reduce .[] as $elem ([]; [$elem] + .)       # ["delta", "gamma", "beta", "alpha"]
+  | reduce .[] as $elem ([]; [$elem] + .)       # => ["delta", "gamma", "beta", "alpha"]
   ```
 
 - `reduce` uses a _stream_ of data to iterate over.
-  You'll need to utilize the `.[]` iterator filter.
+  You'll often need to utilize the [`.[]` iterator filter][jq-man-iterator].
 
 [jq-man-reduce]: https://stedolan.github.io/jq/manual/v1.6/#Reduce
 [jq-code-add]: https://github.com/stedolan/jq/blob/master/src/builtin.jq#L11
+[jq-man-iterator]: https://stedolan.github.io/jq/manual/v1.6/#Array/ObjectValueIterator:.[]
