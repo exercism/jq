@@ -9,13 +9,13 @@ Now you need to translate that to a letter grade and count how many students hav
 The `letter_grade` function will take a numeric grade as input, and it will output the letter.
 Use these ranges:
 
-Letter | Grade
----|---
-A | 90% - 100%
-B | 80% -  89%
-C | 70% -  79%
-D | 60% -  69%
-F |  0% -  59%
+| Letter | Grade |
+| :---: | ---: |
+| A | 90% - 100% |
+| B | 80% -  89% |
+| C | 70% -  79% |
+| D | 60% -  69% |
+| F |  0% -  59% |
 
 Example:
 
@@ -25,7 +25,7 @@ Example:
 
 ## Count the number of students for each letter grade
 
-The function `count_letter_grades` will take as input an object mapping a student's name to their grade. 
+The function `count_letter_grades` will take an object mapping a student's name to their grade. 
 The output will be an object mapping the letter grade to the number of students with that grade.
 
 Example:
@@ -36,4 +36,3 @@ Example:
 
 There are a few different ways to solve this.
 Use the `reduce` filter for practice.
-

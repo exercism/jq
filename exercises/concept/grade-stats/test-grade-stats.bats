@@ -1,6 +1,12 @@
 #!/usr/bin/env bats
 load bats-extra
 
+assert_key_value() {
+    local key=$1 expected=$2 actual
+    actual=$(jq -rc --arg key "$key" '.[$key]' <<< "$output")
+    assert_equal "$actual" "$expected"
+}
+
 @test 'number to letter grade A' {
     ## task 1
     run jq -nc '
@@ -59,5 +65,23 @@ load bats-extra
         count_letter_grades
     ' grades.json
     assert_success
-    assert_output '{"A":6,"B":1,"C":6,"D":2,"F":5}'
+    assert_key_value "A" 6 "$output"
+    assert_key_value "B" 1 "$output"
+    assert_key_value "C" 6 "$output"
+    assert_key_value "D" 2 "$output"
+    assert_key_value "F" 5 "$output"
+}
+
+@test 'aggregate, all letter grades are present even if zero students' {
+    ## task 2
+    run jq -c '
+        include "grade-stats";
+        count_letter_grades
+    ' <<< '{"alpha": 95, "bravo": 88}'
+    assert_success
+    assert_key_value "A" 1 "$output"
+    assert_key_value "B" 1 "$output"
+    assert_key_value "C" 0 "$output"
+    assert_key_value "D" 0 "$output"
+    assert_key_value "F" 0 "$output"
 }

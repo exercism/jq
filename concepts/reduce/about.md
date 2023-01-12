@@ -1,18 +1,21 @@
 # About
 
-Reducing is a process to iterate over the elements of a data structure, applying a function at each step that updates some form of accumulated result.
+Reducing is a way to combine all the elements of a data structure into a single value.
+The process iterates over the data structure, applying a function to each element to update the accumulated result.
+
 In `jq`, this process is implemented in the [`reduce` filter][jq-man-reduce].
 In other languages, it might be called "fold", "fold-left", "inject", or "aggregate".
 
 The `jq` `reduce` expression looks like this.
 ```jq
-reduce STREAM as $var (INITIAL_STATE; REDUCING_EXPRESSION)
+reduce STREAM_EXPRESSION as $var (INITIAL_VALUE; UPDATE_EXPRESSION)
 ```
 
-- STREAM is a _stream_ of items, each stored in the $var variable in turn.
-- INITIAL\_STATE is the starting value of the accumulated result.
-- The REDUCING\_EXPRESSION is the where the current value $var from the stream is "folded" into the accumulated result.
-  - In the context of this expression, `.` is the current value of the accumulator.
+- STREAM\_EXPRESSION is a _stream_ of items, each stored in the $var variable in turn.
+  - Recall, to stream an array, use the [iterator filter `.[]`][jq-man-iterator]: `$myArray | .[]`
+- INITIAL\_VALUE is the starting value of the accumulated result (known as the "accumulator").
+- The UPDATE\_EXPRESSION combines ("folds") the current value ($var) into the accumulator.
+  - In the context of this expression, `.` is the value of the accumulator.
   - The output of the expression is stored into the accumulator for use in the next iteration.
   - After the last iteration, the accumulated result is the output of `reduce`.
 
@@ -27,6 +30,12 @@ If we use `[10, 20, 30, 40]` as the input, and taking zero as the initial state,
 | 2 | 10 | 20 | 10 + 20 |  30 |
 | 3 | 30 | 30 | 30 + 30 |  60 |
 | 4 | 60 | 40 | 60 + 40 | 100 |
+
+In `jq` syntax, this looks like
+
+```jq
+0 + 10 | . + 20 | . + 30 | . + 40
+```
 
 Expressed with the `reduce` filter we have
 
@@ -60,9 +69,6 @@ def add: reduce .[] as $x (null; . + $x);
   ["alpha", "beta", "gamma", "delta"]
   | reduce .[] as $elem ([]; [$elem] + .)       # => ["delta", "gamma", "beta", "alpha"]
   ```
-
-- `reduce` uses a _stream_ of data to iterate over.
-  You'll often need to utilize the [`.[]` iterator filter][jq-man-iterator].
 
 [jq-man-reduce]: https://stedolan.github.io/jq/manual/v1.6/#Reduce
 [jq-code-add]: https://github.com/stedolan/jq/blob/master/src/builtin.jq#L11
