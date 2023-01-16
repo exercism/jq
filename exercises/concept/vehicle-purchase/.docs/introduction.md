@@ -1,6 +1,6 @@
 # Introduction
 
-## Comparison
+## Compare
 
 ### Comparing Numbers
 

@@ -61,8 +61,8 @@
       "uuid": "5adcd50d-90fb-41b2-8ca4-c58eecd361ff"
     },
     {
-      "slug": "comparison",
-      "name": "Comparison",
+      "slug": "compare",
+      "name": "Compare",
       "uuid": "2cbe3378-9cae-43a1-b6cd-fbe77380dc56"
     },
     {
@@ -155,7 +155,7 @@
       {
         "slug": "vehicle-purchase",
         "name": "Vehicle Purchase",
-        "concepts": ["comparison", "conditionals"],
+        "concepts": ["compare", "conditionals"],
         "prerequisites": ["arrays", "objects"],
         "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "status": "beta"
