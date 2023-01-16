@@ -132,7 +132,7 @@
         "slug": "bird-count",
         "name": "Bird Count",
         "concepts": ["arrays"],
-        "prerequisites": ["strings", "numbers"],
+        "prerequisites": ["numbers", "strings"],
         "uuid": "8d974499-a5bb-4c34-ab2b-cd34e28c66a0",
         "status": "beta"
       },
@@ -140,7 +140,7 @@
         "slug": "high-score-board",
         "name": "High Score Board",
         "concepts": ["objects"],
-        "prerequisites": ["strings", "numbers"],
+        "prerequisites": ["numbers", "strings"],
         "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
         "status": "beta"
       },
