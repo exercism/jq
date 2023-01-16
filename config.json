@@ -132,7 +132,7 @@
         "slug": "bird-count",
         "name": "Bird Count",
         "concepts": ["arrays"],
-        "prerequisites": ["basics"],
+        "prerequisites": ["strings", "numbers"],
         "uuid": "8d974499-a5bb-4c34-ab2b-cd34e28c66a0",
         "status": "beta"
       },
@@ -140,7 +140,7 @@
         "slug": "high-score-board",
         "name": "High Score Board",
         "concepts": ["objects"],
-        "prerequisites": ["basics"],
+        "prerequisites": ["strings", "numbers"],
         "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
         "status": "beta"
       },
@@ -148,8 +148,16 @@
         "slug": "lasagna",
         "name": "Lasagna",
         "concepts": ["variables"],
-        "prerequisites": ["numbers", "strings", "arrays", "objects"],
+        "prerequisites": ["arrays", "objects"],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
+        "status": "beta"
+      },
+      {
+        "slug": "vehicle-purchase",
+        "name": "Vehicle Purchase",
+        "concepts": ["comparison", "conditionals"],
+        "prerequisites": ["arrays", "objects"],
+        "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "status": "beta"
       },
       {
@@ -161,11 +169,11 @@
         "status": "beta"
       },
       {
-        "slug": "vehicle-purchase",
-        "name": "Vehicle Purchase",
-        "concepts": ["comparison", "conditionals"],
-        "prerequisites": ["numbers", "strings"],
-        "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
+        "slug": "grade-stats",
+        "name": "Grade Stats",
+        "concepts": ["reduce"],
+        "prerequisites": ["variables"],
+        "uuid": "f18aa833-4fdb-4668-8511-4d027d983042",
         "status": "beta"
       },
       {
@@ -174,23 +182,15 @@
         "concepts": ["recursion"],
         "prerequisites": ["functions", "conditionals"],
         "uuid": "3b981b48-5826-4460-8c3e-59b2c28f46f1",
-        "status": "wip"
+        "status": "beta"
       },
       {
         "slug": "regular-chatbot",
         "name": "Regular Chatbot",
         "concepts": ["regular-expressions"],
-        "prerequisites": ["functions", "strings"],
+        "prerequisites": ["strings"],
         "uuid": "a75968a8-5c37-4f20-a966-7c6e549e17fe",
-        "status": "wip"
-      },
-      {
-        "slug": "grade-stats",
-        "name": "Grade Stats",
-        "concepts": ["reduce"],
-        "prerequisites": ["variables"],
-        "uuid": "f18aa833-4fdb-4668-8511-4d027d983042",
-        "status": "wip"
+        "status": "beta"
       }
     ],
     "practice": [
