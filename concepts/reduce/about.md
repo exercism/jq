@@ -1,28 +1,29 @@
 # About
 
-Reducing is a way to combine all the elements of a data structure into a single value.
+**Reduce** is a way to combine all the elements of a data structure into a single value.
 The process iterates over the data structure, applying a function to each element to update the accumulated result.
 
 In `jq`, this process is implemented in the [`reduce` filter][jq-man-reduce].
 In other languages, it might be called "fold", "fold-left", "inject", or "aggregate".
 
 The `jq` `reduce` expression looks like this.
+
 ```jq
 reduce STREAM_EXPRESSION as $var (INITIAL_VALUE; UPDATE_EXPRESSION)
 ```
 
-- STREAM\_EXPRESSION is a _stream_ of items, each stored in the $var variable in turn.
+- `STREAM_EXPRESSION` is a _stream_ of items, each stored in the `$var variable` in turn.
   - Recall, to stream an array, use the [iterator filter `.[]`][jq-man-iterator]: `$myArray | .[]`
-- INITIAL\_VALUE is the starting value of the accumulated result (known as the "accumulator").
-- The UPDATE\_EXPRESSION combines ("folds") the current value ($var) into the accumulator.
+- `INITIAL_VALUE` is the starting value of the accumulated result (known as the "accumulator").
+- The `UPDATE_EXPRESSION` combines ("folds") the current value (`$var`) into the accumulator.
   - In the context of this expression, `.` is the value of the accumulator.
   - The output of the expression is stored into the accumulator for use in the next iteration.
   - After the last iteration, the accumulated result is the output of `reduce`.
 
-Let's look at an example -- adding up the numbers in an array.
-Of course the `add` filter is designed just for this purpose, but we'll see how to implement it.
+Let's look at an example: adding up the numbers in an array.
+The `add` filter does just this, but we'll see how to implement it.
 
-If we use `[10, 20, 30, 40]` as the input, and taking zero as the initial state, what we're going to is:
+If we use `[10, 20, 30, 40]` as the input, and taking zero as the initial state, this is what each step looks like.
 
 | \# | state | element | reducer | result |
 | --- | --- | --- | --- | --- |
@@ -54,7 +55,7 @@ def add: reduce .[] as $x (null; . + $x);
 ## Some things to keep in mind
 
 - In the reducing expression, `.` is the accumulator.
-  If the input is some object that you need to reference inside the reducing function, you'll want to store it in a variable.
+  If the input is some object that you need to reference inside the reducing function, you need to store it in a variable.
 
   ```jq
   {"apple": 10, "banana": 16, "carrot": 4}
