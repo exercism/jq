@@ -6,7 +6,7 @@
 
 - `false` and `null` are "false"; all else is "true"
 
-### Comparison
+### Compare
 
 - How to compare numbers and strings with relational operators (`<`, `>`, `>=`, `<=`)
 - Equality checks with equals (`==`) and not equals (`!=`)
@@ -26,13 +26,10 @@ How to write if-statements
 
 The Concepts this exercise unlocks are:
 
-- `comparison`
+- `compare`
 - `conditionals`
 
 ## Prerequisites
-
-- `numbers` because they are used to practice comparison
-- `strings` also because they are used to practice comparison
 
 ## Analyzer
 

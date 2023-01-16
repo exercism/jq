@@ -1,5 +1,5 @@
 # Introduction
 
-%{concept:comparison}
+%{concept:compare}
 
 %{concept:conditionals}
