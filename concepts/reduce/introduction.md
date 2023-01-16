@@ -1,5 +1,22 @@
 # Introduction
 
+Suppose we want to sum an array of numbers.
+There are many ways to accomplish this goal.
+
+- In many languages, this problem is expressed as a loop with an accumulator variable.
+- This problem can be written as a recursive function.
+  In pseudo-code, we might have this.
+
+  ```none
+  function add(x, sum=0):
+    if x is empty
+      return sum
+    else
+      return add(rest(x), sum + first(x))
+  ```
+
+  This method of dividing the problem into smaller pieces can also be described as "reducing towards the base case."
+
 **Reduce** is a way to combine all the elements of a data structure into a single value.
 The process iterates over the data structure, applying a function to each element to update the accumulated result.
 
