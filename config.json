@@ -79,6 +79,11 @@
       "slug": "regular-expressions",
       "name": "Regular Expressions",
       "uuid": "87548899-a18f-4bcc-b2de-8e9c6b91aa6a"
+    },
+    {
+      "slug": "reduce",
+      "name": "Reduce",
+      "uuid": "fe26c133-f9ef-4a69-abcd-4886605aa343"
     }
   ],
   "exercises": {
@@ -177,6 +182,14 @@
         "concepts": ["regular-expressions"],
         "prerequisites": ["functions", "strings"],
         "uuid": "a75968a8-5c37-4f20-a966-7c6e549e17fe",
+        "status": "wip"
+      },
+      {
+        "slug": "grade-stats",
+        "name": "Grade Stats",
+        "concepts": ["reduce"],
+        "prerequisites": ["variables"],
+        "uuid": "f18aa833-4fdb-4668-8511-4d027d983042",
         "status": "wip"
       }
     ],
