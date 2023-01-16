@@ -8,11 +8,13 @@ There are many ways to accomplish this goal.
   In pseudo-code, we might have this.
 
   ```none
-  function add(x, sum=0):
-    if x is empty
-      return sum
+  function Add(X, Sum=0):
+    if X is empty then
+      return Sum
     else
-      return add(rest(x), sum + first(x))
+      return Add(rest(X), Sum + first(X))
+    end
+  end
   ```
 
   This method of dividing the problem into smaller pieces can also be described as "reducing towards the base case."

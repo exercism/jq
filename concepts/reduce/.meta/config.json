@@ -3,7 +3,5 @@
   "authors": [
     "glennj"
   ],
-  "contributors": [],
-  "forked_from": ["common-lisp/reducing"]
+  "contributors": ["IsaacG"]
 }
-

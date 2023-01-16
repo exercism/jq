@@ -8,11 +8,13 @@ There are many ways to accomplish this goal.
   In pseudo-code, we might have this.
 
   ```none
-  function add(x, sum=0):
-    if x is empty
-      return sum
+  function Add(X, Sum=0):
+    if X is empty then
+      return Sum
     else
-      return add(rest(x), sum + first(x))
+      return Add(rest(X), Sum + first(X))
+    end
+  end
   ```
 
   This method of dividing the problem into smaller pieces can also be described as "reducing towards the base case."
@@ -29,8 +31,8 @@ The `jq` `reduce` expression looks like this.
 reduce STREAM_EXPRESSION as $var (INITIAL_VALUE; UPDATE_EXPRESSION)
 ```
 
-- `STREAM_EXPRESSION` is a _stream_ of items, each stored in the $var variable in turn.
-  - Recall, to stream an array, use the [iterator filter `.[]`][jq-man-iterator]: `$myArray | .[]`
+- `STREAM_EXPRESSION` is a _stream_ of items, each stored in the `$var` variable in turn.
+  - Recall, to stream an array, use the [iterator filter `.[]`][jq-man-iterator]: `$myArray | .[]`.
 - `INITIAL_VALUE` is the starting value of the accumulated result (known as the "accumulator").
 - The `UPDATE_EXPRESSION` combines ("folds") the current value ($var) into the accumulator.
   - In the context of this expression, `.` is the value of the accumulator.
@@ -49,13 +51,13 @@ If we use `[10, 20, 30, 40]` as the input, and taking zero as the initial state,
 | 3 | 30 | 30 | 30 + 30 |  60 |
 | 4 | 60 | 40 | 60 + 40 | 100 |
 
-In `jq` syntax, this looks like
+In `jq` syntax, this looks like this code.
 
 ```jq
 0 + 10 | . + 20 | . + 30 | . + 40
 ```
 
-Expressed with the `reduce` filter we have
+We can express that with the `reduce` filter.
 
 ```jq
 [10, 20, 30, 40] | reduce .[] as $n (0; . + $n)     # => 100
