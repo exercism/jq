@@ -69,6 +69,8 @@ The `add` builtin is actually [implemented with `reduce`][jq-code-add], but uses
 ```jq
 def add: reduce .[] as $x (null; . + $x);
 ```
+
+[jq-code-add]: https://github.com/stedolan/jq/blob/jq-1.6/src/builtin.jq#L11
 ~~~~
 
 ## Some things to keep in mind
@@ -86,10 +88,9 @@ def add: reduce .[] as $x (null; . + $x);
   For example you may want to reverse an array.
 
   ```jq
-  ["alpha", "beta", "gamma", "delta"]
-  | reduce .[] as $elem ([]; [$elem] + .)       # => ["delta", "gamma", "beta", "alpha"]
+  ["A", "B", "C", "D"]
+  | reduce .[] as $elem ([]; [$elem] + .)       # => ["D", "C", "B", "A"]
   ```
 
 [jq-man-reduce]: https://stedolan.github.io/jq/manual/v1.6/#Reduce
-[jq-code-add]: https://github.com/stedolan/jq/blob/master/src/builtin.jq#L11
 [jq-man-iterator]: https://stedolan.github.io/jq/manual/v1.6/#Array/ObjectValueIterator:.[]
