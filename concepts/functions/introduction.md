@@ -64,6 +64,7 @@ def add_mul(adder; multiplier): (. + adder) * multiplier;
 10 | add_mul(5; 4)    # => 60
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 Semi-colons are needed because comma already has a purpose in `jq`: an operator that joins streams.
 
@@ -74,6 +75,8 @@ Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_m
 # error: add_mul/1 is not defined
 ```
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ### Arguments are _expressions_
 
@@ -151,5 +154,6 @@ A `jq` module is a file containing only functions.
 Modules are included into a jq program with the [`include`][man-include] or [`import`][man-import] commands.
 
 [man-range]: https://stedolan.github.io/jq/manual/v1.6/#range(upto),range(from;upto)range(from;upto;by)
+
 [man-import]: https://stedolan.github.io/jq/manual/v1.6/#importRelativePathStringasNAME[%3Cmetadata%3E];
 [man-include]: https://stedolan.github.io/jq/manual/v1.6/#includeRelativePathString[%3Cmetadata%3E];

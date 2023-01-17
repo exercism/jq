@@ -13,6 +13,7 @@ The input to the `if` filter will be passed to `B` or `C`.
 ```jq
 42 | if . < 50 then "small" else "big" end      # => "small"
 ```
+
 ```jq
 5 | if . % 2 == 0 then . / 2 else . * 4 end     # => 20
 ```

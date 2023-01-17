@@ -1,8 +1,6 @@
 {
   "blurb": "Recursive functions are functions that call themselves. In immutable functional languages like jq, recursion is useful to achieve the behavior that loops have in other languages.",
-  "authors": [
-    "glennj"
-  ],
+  "authors": ["glennj"],
   "contributors": [],
   "forked_from": ["elixir/recursion"]
 }

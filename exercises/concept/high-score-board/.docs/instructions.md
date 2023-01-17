@@ -89,4 +89,3 @@ It takes a score board as input, and outputs the sum of all the players' scores.
 | total_score
 # => 848
 ```
-```

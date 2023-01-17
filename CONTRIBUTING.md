@@ -23,8 +23,8 @@ These are a big amount of work, but I think I've figured out a decent checklist 
 1. edit hints
 1. add links
 
-
 The following can be cut-n-pasted into the description of an issue to track progress:
+
 ```none
 - [ ] select an exercise
 - [ ] make a first draft of the design.md file, laying out the goals for the concept & exercise.
@@ -79,6 +79,7 @@ Using `grep` as an example:
   ```
 
 - populate the exercise config file:
+
   ```sh
   conf=./exercises/practice/grep/.meta/config.json
   jq --arg slug grep --arg author "yourGithubHandle" '
@@ -112,9 +113,19 @@ Using `grep` as an example:
   Is there any specific new aspect of `jq` that needs to be written about?
 - re-sync the exercise with problem-specifications:
 
-    ```sh
-    bin/configlet sync -e grep
-    bin/configlet lint
-    ```
+  ```sh
+  bin/configlet sync -e grep
+  bin/configlet lint
+  ```
 
 - commit, push and create a PR.
+
+---
+
+## Prettier
+
+We use [Prettier][prettier] to keep our markdown files tidy.
+Read the [.prettierignore][prettier-ignore] file for more details.
+
+[prettier]: https://prettier.io
+[prettier-ignore]: https://github.com/exercism/jq/blob/main/.prettierignore

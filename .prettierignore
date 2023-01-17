@@ -8,6 +8,12 @@
 #   - bash: `f="some.file"; delta "$f" <(npx prettier "$f")`
 # - write the changes: `npx prettier --write .`
 
-# ignore files written by configlet
+# ignore files written by configlet or Exercism org-wide files
 exercises/practice/*/.meta/config.json
 exercises/practice/*/.docs/instructions.md
+CODE_OF_CONDUCT.md
+
+# things that don't need to be inspected
+generate_tests.json
+.github/pull_request_template.md
+exercises/concept/*/.meta/config.json

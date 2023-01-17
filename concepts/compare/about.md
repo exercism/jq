@@ -4,14 +4,14 @@
 
 In `jq` numbers can be compared using the following relational and equality operators.
 
-| Comparison             | Operator  |
-| ---------------------- | --------- |
-| Greater than           | `a > b`   |
-| Greater than or equals | `a >= b`  |
-| Less than              | `a < b`   |
-| Less than or equals    | `a <= b`  |
-| Equals                 | `a == b`  |
-| Not equals             | `a != b`  |
+| Comparison             | Operator |
+| ---------------------- | -------- |
+| Greater than           | `a > b`  |
+| Greater than or equals | `a >= b` |
+| Less than              | `a < b`  |
+| Less than or equals    | `a <= b` |
+| Equals                 | `a == b` |
+| Not equals             | `a != b` |
 
 The result of the comparison is always a boolean value, so either `true` or `false`.
 

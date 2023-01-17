@@ -11,7 +11,7 @@
 - How to retrieve nested values
 - How to remove an entry
 - How to check a key exists in the object
-- How to iterate through the keys with to\_entries
+- How to iterate through the keys with to_entries
 
 ## Out of Scope
 
@@ -25,7 +25,7 @@ The Concepts this exercise unlocks are:
 
 ## Prerequisites
 
-- `basics` 
+- `basics`
 
 ## Analyzer
 

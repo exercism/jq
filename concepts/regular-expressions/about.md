@@ -12,6 +12,7 @@ Different tools implement different versions of regular expressions.
 
 The specific syntax used by `jq` version 1.6 can be [found on the Oniguruma GitHub repo][onig-syntax].
 
+<!-- prettier-ignore -->
 ~~~~exercism/caution
 `jq` does not have any special syntax for regular expressions.
 They are simply expressed as strings.
@@ -19,6 +20,8 @@ That means that any backslashes in the regular expression need to be escaped in 
 
 For example, the digit character class (`\d`) must be written as `"\\d"`.
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ## Regex Functions
 
@@ -52,6 +55,7 @@ STRING | match([REGEX, FLAGS])
 ```
 
 This filter outputs:
+
 - nothing if there was no match, or
 - an object containing various properties if there was a match.
 
@@ -77,7 +81,7 @@ This example looks for two identical consecutive vowels by using the backref syn
 #    }
 ```
 
-The `match` filter returns an object for _each_ match. 
+The `match` filter returns an object for _each_ match.
 This example shows the `"g"` flag in action to find all the vowels.
 
 ```jq
@@ -144,11 +148,14 @@ If you know the parts that you want to **discard**, use `split`.
 STRING | split(REGEX; FLAGS)
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/caution
 The **1-arity** `split` filter treats its argument as a **fixed string**.
 
 To use a regex with `split`, you **must** provide the 2nd argument; it's OK to use an empty string.
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 An example that splits a string on arbitrary whitespace.
 
@@ -157,6 +164,7 @@ An example that splits a string on arbitrary whitespace.
 # => ["first", "second", "third", "fourth"]
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 This is what happens if we forget the flags argument.
 
@@ -175,6 +183,8 @@ Splitting on a space gives this result.
 #     "", "", "", "", "", "", "third", "fourth" ]
 ```
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ### Substitutions
 
@@ -233,7 +243,6 @@ For example
                      (?<issue_num> \\d+ )  # followed by digits
                    "; "x")
 ```
-
 
 [oniguruma]: https://github.com/kkos/oniguruma
 [onig-syntax]: https://github.com/kkos/oniguruma/blob/6fa38f4084b448592888ed9ee43c6e90a46b5f5c/doc/RE

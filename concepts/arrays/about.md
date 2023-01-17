@@ -12,11 +12,13 @@ Array elements do not need to be all the same type.
 ## Creating arrays
 
 Use brackets to collect elements into an array.
+
 ```jq
 [1, 2, 3]
 ```
 
 The elements of a _stream_ can be captured into an array by enclosing it in brackets.
+
 ```jq
 range(5)     # => a stream of 5 numbers
 [range(5)]   # => the array [0, 1, 2, 3, 4]
@@ -56,7 +58,9 @@ Suppose we want a stream of the lengths of the strings in an array.
 ["a", "be", "cat", "door"] | length        # => 4 -- the number of elements in the array
 ["a", "be", "cat", "door"] | .[] | length  # => 1, 2, 3, 4 -- the lengths of each element
 ```
+
 The empty brackets can be placed beside the previous expression, omitting the pipe.
+
 ```jq
 ["a", "be", "cat", "door"][] | length      # => 1, 2, 3, 4 -- the lengths of each element
 # ........................^^
@@ -85,6 +89,8 @@ The `-` operator removes elements in the right-hand array from the left-hand arr
   ```jq
   [1, 2, 3] | map(. * 10)    # => [10, 20, 30]
 
+  ```
+
 - `select(expr)` is a function that applies the `expr` to a _single value_;
   if the result of the expression is true, then the value is returned;
   if the result is false, _nothing_ is returned -- not `null`, actually nothing.
@@ -94,7 +100,7 @@ The `-` operator removes elements in the right-hand array from the left-hand arr
   ```jq
   [range(10)] | map(select(. % 2 == 0))    # => [0, 2, 4, 6, 8]
   ```
-  
+
   Alternately, apply `select` to a _stream_ and collect the results.
 
   ```jq
@@ -139,7 +145,7 @@ The wrinkle with `IN` is that it's argument is not an array, but a _stream_.
 
   ```jq
   [11, 22, 33, 44] | to_entries
-  # => [{key: 0, value: 11}, {key: 1, value: 22}, {key: 2, value: 33}, {key: 3, value: 44}] 
+  # => [{key: 0, value: 11}, {key: 1, value: 22}, {key: 2, value: 33}, {key: 3, value: 44}]
   ```
 
 - `sort` and `sort_by`
@@ -147,4 +153,3 @@ The wrinkle with `IN` is that it's argument is not an array, but a _stream_.
 - `min`, `max`, `min_by`, `max_by`
 - `unique`, `unique_by`
 - `flatten`
- 
