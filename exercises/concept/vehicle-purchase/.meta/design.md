@@ -10,7 +10,7 @@
 
 - How to compare numbers and strings with relational operators (`<`, `>`, `>=`, `<=`)
 - Equality checks with equals (`==`) and not equals (`!=`)
-    - compare to Javascript's "strict equals" `===`
+  - compare to Javascript's "strict equals" `===`
 
 ### Conditionals
 

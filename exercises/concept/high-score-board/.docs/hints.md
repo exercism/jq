@@ -40,4 +40,5 @@
 [man-del]: https://stedolan.github.io/jq/manual/v1.6/#del(path_expression)
 [man-update-assignment]: https://stedolan.github.io/jq/manual/v1.6/#Arithmeticupdate-assignment:+=,-=,*=,/=,%=,//=
 [man-map_values]: https://stedolan.github.io/jq/manual/v1.6/#map(x),map_values(x)
+
 [man-brackets]: https://stedolan.github.io/jq/manual/v1.6/#Array/ObjectValueIterator:.[]

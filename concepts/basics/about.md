@@ -252,7 +252,7 @@ Why didn't we get what we expected? `jq` interprets that like this:
 [ ((9|sqrt), 1) | exp ]
 ```
 
-`jq`  builds a stream of two elements (`3` and `1`) which are each given to `exp`.
+`jq` builds a stream of two elements (`3` and `1`) which are each given to `exp`.
 
 We need to ensure that `exp` only takes one number as input.
 In other words, we need to enforce that the pipe is evaluated before the comma.

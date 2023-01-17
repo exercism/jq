@@ -70,7 +70,7 @@ This problem of infinite recursion can be caused by:
 
 ## Tail call optimization
 
-As [described in Wikipedia][wiki-tail-call]: 
+As [described in Wikipedia][wiki-tail-call]:
 
 > A tail call is a subroutine call performed as the final action of a procedure.
 > If the target of a tail is the same subroutine, the subroutine is said to be tail recursive.

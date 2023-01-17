@@ -6,14 +6,14 @@
 
 In `jq` numbers can be compared using the following relational and equality operators.
 
-| Comparison             | Operator  |
-| ---------------------- | --------- |
-| Greater than           | `a > b`   |
-| Greater than or equals | `a >= b`  |
-| Less than              | `a < b`   |
-| Less than or equals    | `a <= b`  |
-| Equals                 | `a == b`  |
-| Not equals             | `a != b`  |
+| Comparison             | Operator |
+| ---------------------- | -------- |
+| Greater than           | `a > b`  |
+| Greater than or equals | `a >= b` |
+| Less than              | `a < b`  |
+| Less than or equals    | `a <= b` |
+| Equals                 | `a == b` |
+| Not equals             | `a != b` |
 
 The result of the comparison is always a boolean value, so either `true` or `false`.
 
@@ -95,6 +95,7 @@ The input to the `if` filter will be passed to `B` or `C`.
 ```jq
 42 | if . < 50 then "small" else "big" end      # => "small"
 ```
+
 ```jq
 5 | if . % 2 == 0 then . / 2 else . * 4 end     # => 20
 ```

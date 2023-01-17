@@ -17,6 +17,7 @@ Within a string, use the backslash character to embed "special" characters:
 ## String length
 
 To find the number of characters, use the [`length`][length] function.
+
 ```sh
 $ jq -cn --args  '$ARGS.positional[] | length' "Hello world!" "❄🌡🤧🤒🏥🕰😀"
 12
@@ -24,6 +25,7 @@ $ jq -cn --args  '$ARGS.positional[] | length' "Hello world!" "❄🌡🤧🤒�
 ```
 
 To find the number of actual _bytes_, use the [`utf8bytelength`][utf8bytelength] function.
+
 ```sh
 $ jq -cn --args  '$ARGS.positional[] | utf8bytelength' "Hello world!" "❄🌡🤧🤒🏥🕰😀"
 12
@@ -68,6 +70,7 @@ Splitting uses the [`split/1`][split/1] function or the [`/`][/] operator:
 ```jq
 "Hello beautiful world!" | split(" ")   # => ["Hello", "beautiful", "world!"]
 ```
+
 ```jq
 "Hello beautiful world!" / " "          # => ["Hello", "beautiful", "world!"]
 ```
@@ -79,17 +82,17 @@ There are two ways to do this:
 
 1. split on an empty string
 
-    ```jq
-    "Hi friend 😀" / ""   # => ["H","i"," ","f","r","i","e","n","d"," ","😀"]
-    ```
+   ```jq
+   "Hi friend 😀" / ""   # => ["H","i"," ","f","r","i","e","n","d"," ","😀"]
+   ```
 
 1. [`explode`][explode] into an array of _codepoints_
 
-    ```jq
-    "Hi friend 😀" | explode   # => [72,105,32,102,114,105,101,110,100,32,128512]
-    ```
+   ```jq
+   "Hi friend 😀" | explode   # => [72,105,32,102,114,105,101,110,100,32,128512]
+   ```
 
-    [`implode`][implode] is the inverse of [`explode`][explode].
+   [`implode`][implode] is the inverse of [`explode`][explode].
 
 ## Find the index of a substring
 
@@ -100,6 +103,7 @@ Use the [`index/1`][index/1] function; the index is zero-based.
 ```
 
 If the substring is not in the string, the result is `null`
+
 ```jq
 "hello" | index("elk")   # => null
 ```
@@ -173,4 +177,5 @@ Check [the manual][manual] for more details about these functions:
 [json-numbers]: https://www.json.org/json-en.html
 [indices]: https://stedolan.github.io/jq/manual/v1.6/#indices(s)
 [index/1]: https://stedolan.github.io/jq/manual/v1.6/#index(s),rindex(s)
+
 [slice]: https://stedolan.github.io/jq/manual/v1.6/#Array/StringSlice:.[10:15]

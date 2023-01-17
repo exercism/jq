@@ -64,6 +64,7 @@ def add_mul(adder; multiplier): (. + adder) * multiplier;
 10 | add_mul(5; 4)    # => 60
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 Semi-colons are needed because comma already has a purpose in `jq`: an operator that joins streams.
 
@@ -84,6 +85,8 @@ This is an example of the "implicit iteration" inherent in `jq` streams.
 ```
 Now we can see how the `add_mul/1 is not defined` error pops up.
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 ### Arguments are _expressions_
 
@@ -126,6 +129,7 @@ def my_func($arg):
 
 Take note that this is just "syntactic sugar": the name `arg` with no `$` is still in scope in the _function_.
 
+<!-- prettier-ignore -->
 ~~~~exercism/caution
 For example, I wrote something like this to solve an exercise:
 
@@ -162,6 +166,8 @@ That meant `(. | code)` simply outputs the **argument** instead of calculating a
 Thus `$this_code` and `$code` were always the same.
 ~~~~
 
+<!-- prettier-ignore-end -->
+
 ## Arity
 
 _Functions_ have an **arity** -- the number of _arguments_ they take.
@@ -197,5 +203,6 @@ A `jq` module is a file containing only functions.
 Modules are included into a jq program with the [`include`][man-include] or [`import`][man-import] commands.
 
 [man-range]: https://stedolan.github.io/jq/manual/v1.6/#range(upto),range(from;upto)range(from;upto;by)
+
 [man-import]: https://stedolan.github.io/jq/manual/v1.6/#importRelativePathStringasNAME[%3Cmetadata%3E];
 [man-include]: https://stedolan.github.io/jq/manual/v1.6/#includeRelativePathString[%3Cmetadata%3E];

@@ -14,6 +14,7 @@ Another word for _name_ is _key_.
 The _value_ can be of any JSON type.
 Different _values_ in the same object can be different type, like this example.
 
+<!-- prettier-ignore -->
 ```json
 {
   "name": "Jane",
@@ -22,6 +23,8 @@ Different _values_ in the same object can be different type, like this example.
   "address": {"street": "123 Main St", "city": "Springfield"}
 }
 ```
+
+<!-- prettier-ignore-end -->
 
 Note that there **must not** be a comma following the _last_ key-value pair.
 
@@ -194,7 +197,9 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
   {"Jane": 42, "Richard": 54}
   | with_entries({key: (.value | tostring), value: .key})
   ```
+
   outputs
+
   ```json
   {
     "42": "Jane",
@@ -203,6 +208,7 @@ However the `.[]` filter outputs the object values as a _stream_, and that strea
   ```
 
   `with_entries(filter)` is the same as
+
   ```jq
   to_entries | map(filter) | from_entries
   ```

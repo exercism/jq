@@ -66,6 +66,7 @@ def add_mul(adder; multiplier): (. + adder) * multiplier;
 10 | add_mul(5; 4)    # => 60
 ```
 
+<!-- prettier-ignore -->
 ~~~~exercism/note
 Semi-colons are needed because comma already has a purpose in `jq`: an operator that joins streams.
 
@@ -76,6 +77,8 @@ Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_m
 # error: add_mul/1 is not defined
 ```
 ~~~~
+
+<!-- prettier-ignore-end -->
 
 #### Arguments are _expressions_
 

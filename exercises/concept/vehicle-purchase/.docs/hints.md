@@ -15,7 +15,7 @@
 
 ## 3. Calculate an estimation for the price of a used vehicle
 
-- Start with determining the percentage based on the age of the vehicle. 
+- Start with determining the percentage based on the age of the vehicle.
   Use an `if-elsif-else` expression.
 - To calculate the result, apply the percentage to the original price.
   For example, `30% of x` can be calculated by multiplying `x` by `30` and dividing by `100`.
