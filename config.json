@@ -1,7 +1,7 @@
 {
   "language": "jq",
   "slug": "jq",
-  "active": false,
+  "active": true,
   "status": {
     "concept_exercises": true,
     "test_runner": true,
