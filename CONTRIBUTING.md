@@ -22,6 +22,10 @@ These are a big amount of work, but I think I've figured out a decent checklist 
    - the introduction is seen _before_ the exercise is completed, and the about is shown thereafter
 1. edit hints
 1. add links
+1. determine where in the syllabus it goes
+   - what are the prerequisites for this concept?
+1. revisit practice exercises "practices" and "prerequisites"
+   - are we moving practice exercises into this concept?
 
 The following can be cut-n-pasted into the description of an issue to track progress:
 
@@ -37,7 +41,19 @@ The following can be cut-n-pasted into the description of an issue to track prog
 - [ ] copy and prune to create introduction.md
 - [ ] edit hints
 - [ ] add links
+- [ ] determine where in the syllabus it goes
+- [ ] revisit practice exercises "practices" and "prerequisites"
 ```
+
+---
+
+### Difficulty ratings
+
+We only use 3 difficulty values since the website only displays easy/medium/hard.
+
+- an "easy" exercise has difficulty 2.
+- a "medium" exercise has difficulty 5.
+- a "hard" exercise has difficulty 9.
 
 ---
 
