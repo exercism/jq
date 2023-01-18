@@ -16,7 +16,7 @@
     "highlightjs_language": "jq"
   },
   "test_runner": {
-    "average_run_time": 2
+    "average_run_time": 54.4
   },
   "files": {
     "solution": [
