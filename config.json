@@ -16,13 +16,21 @@
     "highlightjs_language": "jq"
   },
   "test_runner": {
-    "average_run_time": 2.0
+    "average_run_time": 54.4
   },
   "files": {
-    "solution": ["%{kebab_slug}.jq"],
-    "test": ["test-%{kebab_slug}.bats"],
-    "example": [".meta/example.jq"],
-    "exemplar": [".meta/exemplar.jq"]
+    "solution": [
+      "%{kebab_slug}.jq"
+    ],
+    "test": [
+      "test-%{kebab_slug}.bats"
+    ],
+    "example": [
+      ".meta/example.jq"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ]
   },
   "concepts": [
     {
@@ -107,7 +115,9 @@
       {
         "slug": "shopping",
         "name": "Shopping List",
-        "concepts": ["basics"],
+        "concepts": [
+          "basics"
+        ],
         "prerequisites": [],
         "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
         "status": "beta"
@@ -115,80 +125,126 @@
       {
         "slug": "assembly-line",
         "name": "Assembly Line",
-        "concepts": ["numbers"],
-        "prerequisites": ["basics"],
+        "concepts": [
+          "numbers"
+        ],
+        "prerequisites": [
+          "basics"
+        ],
         "uuid": "decbf137-ed00-412d-99ce-9b963da014a5",
         "status": "beta"
       },
       {
         "slug": "log-line-parser",
         "name": "Log Line Parser",
-        "concepts": ["strings"],
-        "prerequisites": ["basics"],
+        "concepts": [
+          "strings"
+        ],
+        "prerequisites": [
+          "basics"
+        ],
         "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
         "status": "beta"
       },
       {
         "slug": "bird-count",
         "name": "Bird Count",
-        "concepts": ["arrays"],
-        "prerequisites": ["numbers", "strings"],
+        "concepts": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "numbers",
+          "strings"
+        ],
         "uuid": "8d974499-a5bb-4c34-ab2b-cd34e28c66a0",
         "status": "beta"
       },
       {
         "slug": "high-score-board",
         "name": "High Score Board",
-        "concepts": ["objects"],
-        "prerequisites": ["numbers", "strings"],
+        "concepts": [
+          "objects"
+        ],
+        "prerequisites": [
+          "numbers",
+          "strings"
+        ],
         "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
         "status": "beta"
       },
       {
         "slug": "lasagna",
         "name": "Lasagna",
-        "concepts": ["variables"],
-        "prerequisites": ["arrays", "objects"],
+        "concepts": [
+          "variables"
+        ],
+        "prerequisites": [
+          "arrays",
+          "objects"
+        ],
         "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
       },
       {
         "slug": "vehicle-purchase",
         "name": "Vehicle Purchase",
-        "concepts": ["compare", "conditionals"],
-        "prerequisites": ["arrays", "objects"],
+        "concepts": [
+          "compare",
+          "conditionals"
+        ],
+        "prerequisites": [
+          "arrays",
+          "objects"
+        ],
         "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "status": "beta"
       },
       {
         "slug": "remote-control-car",
         "name": "Remote Control Car",
-        "concepts": ["functions"],
-        "prerequisites": ["variables"],
+        "concepts": [
+          "functions"
+        ],
+        "prerequisites": [
+          "variables"
+        ],
         "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
         "status": "beta"
       },
       {
         "slug": "grade-stats",
         "name": "Grade Stats",
-        "concepts": ["reduce"],
-        "prerequisites": ["variables"],
+        "concepts": [
+          "reduce"
+        ],
+        "prerequisites": [
+          "variables"
+        ],
         "uuid": "f18aa833-4fdb-4668-8511-4d027d983042",
         "status": "beta"
       },
       {
         "slug": "recursive-functions",
         "name": "Recursive Functions",
-        "concepts": ["recursion"],
-        "prerequisites": ["functions", "conditionals"],
+        "concepts": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "functions",
+          "conditionals"
+        ],
         "uuid": "3b981b48-5826-4460-8c3e-59b2c28f46f1",
         "status": "beta"
       },
       {
         "slug": "regular-chatbot",
         "name": "Regular Chatbot",
-        "concepts": ["regular-expressions"],
-        "prerequisites": ["strings"],
+        "concepts": [
+          "regular-expressions"
+        ],
+        "prerequisites": [
+          "strings"
+        ],
         "uuid": "a75968a8-5c37-4f20-a966-7c6e549e17fe",
         "status": "beta"
       }
@@ -200,151 +256,249 @@
         "name": "Hello World",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 1
+        "difficulty": 2
       },
       {
         "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
         "slug": "two-fer",
         "name": "Two Fer",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1
+        "practices": [
+          "strings"
+        ],
+        "prerequisites": [
+          "strings"
+        ],
+        "difficulty": 2
       },
       {
         "uuid": "159b04aa-5814-4f04-822b-be4b4c6265a8",
         "slug": "raindrops",
         "name": "Raindrops",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "numbers",
+          "conditionals"
+        ],
+        "prerequisites": [
+          "numbers"
+        ],
         "difficulty": 2
       },
       {
         "uuid": "12820127-b3a2-47f3-9c77-1a8b13a1abde",
         "slug": "leap",
         "name": "Leap",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "numbers",
+          "compare"
+        ],
+        "prerequisites": [
+          "numbers"
+        ],
         "difficulty": 2
       },
       {
         "slug": "rna-transcription",
         "name": "Rna Transcription",
         "uuid": "0981a331-259d-4619-afb4-350a7e4cf538",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "functions",
+          "objects"
+        ],
+        "prerequisites": [
+          "functions"
+        ],
         "difficulty": 2
       },
       {
         "slug": "darts",
         "name": "Darts",
         "uuid": "54a8aa9d-7962-4d78-bf18-a53067fd961a",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "numbers",
+          "conditionals"
+        ],
+        "prerequisites": [
+          "numbers"
+        ],
         "difficulty": 2
       },
       {
         "slug": "resistor-color",
         "name": "Resistor Color",
         "uuid": "e84d0056-d0fe-4835-8a4c-17350b09ac49",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "arrays"
+        ],
         "difficulty": 2
       },
       {
         "slug": "resistor-color-duo",
         "name": "Resistor Color Duo",
         "uuid": "8d085260-e109-4692-9df0-92fd0b7fef0f",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "arrays",
+          "numbers"
+        ],
+        "prerequisites": [
+          "arrays"
+        ],
         "difficulty": 2
       },
       {
         "slug": "reverse-string",
         "name": "Reverse String",
         "uuid": "40f24ed9-46cd-493b-9b22-4c2d438e5c0a",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "strings",
+          "reduce",
+          "arrays"
+        ],
+        "prerequisites": [
+          "strings"
+        ],
+        "difficulty": 2
       },
       {
         "uuid": "9cc9d093-5413-45c4-bb4d-047f8f955f89",
         "slug": "hamming",
         "name": "Hamming",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "strings",
+          "arrays"
+        ],
+        "prerequisites": [
+          "strings"
+        ],
+        "difficulty": 2
       },
       {
         "uuid": "9936e3b1-1a43-4c66-927b-0c9b1d8fc67e",
         "slug": "collatz-conjecture",
         "name": "Collatz Conjecture",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "numbers",
+          "recursion"
+        ],
+        "prerequisites": [
+          "numbers"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "bob",
         "name": "Bob",
         "uuid": "a2ebef87-0dac-4a23-a976-560c3d496346",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "strings",
+          "conditionals",
+          "regular-expressions"
+        ],
+        "prerequisites": [
+          "strings",
+          "conditionals"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "nucleotide-count",
         "name": "Nucleotide Count",
         "uuid": "19279b17-6293-4984-bb8a-5b2a301670ea",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "objects",
+          "reduce"
+        ],
+        "prerequisites": [
+          "objects"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "scrabble-score",
         "name": "Scrabble Score",
         "uuid": "2e73b15c-41cc-4dd1-8d05-e49dd54138e7",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "objects"
+        ],
+        "prerequisites": [
+          "objects"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "space-age",
         "name": "Space Age",
         "uuid": "43045020-9319-4516-8de0-bfe66303a928",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
+        "practices": [
+          "variables"
+        ],
+        "prerequisites": [
+          "variables"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "7194fe45-441d-40a8-a922-0ec5e6a920b7",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
-      },
-      {
-        "slug": "gigasecond",
-        "name": "Gigasecond",
-        "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
-      },
-      {
-        "slug": "proverb",
-        "name": "Proverb",
-        "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
+        "practices": [
+          "conditionals"
+        ],
+        "prerequisites": [
+          "conditionals"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "etl",
         "name": "ETL",
         "uuid": "694a6a3b-9982-4441-b482-975341fafda3",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
+        "practices": [
+          "objects"
+        ],
+        "prerequisites": [
+          "objects"
+        ],
+        "difficulty": 2
+      },
+      {
+        "slug": "resistor-color-trio",
+        "name": "Resistor Color Trio",
+        "uuid": "81ce12a1-12d4-4097-ac3b-e2a3adf73af8",
+        "practices": [
+          "numbers"
+        ],
+        "prerequisites": [
+          "numbers"
+        ],
+        "difficulty": 2
+      },
+      {
+        "slug": "gigasecond",
+        "name": "Gigasecond",
+        "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
+        "practices": [
+          "variables"
+        ],
+        "prerequisites": [
+          "variables"
+        ],
+        "difficulty": 5
+      },
+      {
+        "slug": "proverb",
+        "name": "Proverb",
+        "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
+        "practices": [
+          "arrays",
+          "strings"
+        ],
+        "prerequisites": [
+          "arrays"
+        ],
+        "difficulty": 5
       },
       {
         "slug": "run-length-encoding",
@@ -352,23 +506,20 @@
         "uuid": "050989e4-5b2f-4c9b-9294-53c6396cc21d",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4
-      },
-      {
-        "slug": "resistor-color-trio",
-        "name": "Resistor Color Trio",
-        "uuid": "81ce12a1-12d4-4097-ac3b-e2a3adf73af8",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
+        "difficulty": 5
       },
       {
         "slug": "anagram",
         "name": "Anagram",
         "uuid": "2c3baf0a-8a2f-4e7e-9d99-ebfb800adff9",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
+        "practices": [
+          "compare",
+          "strings"
+        ],
+        "prerequisites": [
+          "compare"
+        ],
+        "difficulty": 5
       },
       {
         "slug": "transpose",
@@ -376,7 +527,7 @@
         "uuid": "7a739010-e4e7-4f2a-b1a1-91bb6eea7ae6",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4
+        "difficulty": 5
       },
       {
         "slug": "protein-translation",
@@ -384,7 +535,7 @@
         "uuid": "4749481b-67f0-450a-8938-fafeea2e5663",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4
+        "difficulty": 5
       },
       {
         "slug": "beer-song",
@@ -392,7 +543,7 @@
         "uuid": "9dba8bd0-c964-4320-a2a6-2202c8f3fdfe",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4
+        "difficulty": 5
       },
       {
         "slug": "square-root",
@@ -400,14 +551,19 @@
         "uuid": "54421d36-c2d2-4c62-910c-536b0d08ccbe",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 4
+        "difficulty": 5
       },
       {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "reduce",
+          "arrays"
+        ],
+        "prerequisites": [
+          "reduce"
+        ],
         "difficulty": 5
       },
       {
@@ -424,23 +580,7 @@
         "uuid": "6a69721e-1b96-40bd-8334-de198b4e59f3",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 6
-      },
-      {
-        "slug": "knapsack",
-        "name": "Knapsack",
-        "uuid": "64890036-c508-4a52-a663-0e4c874625be",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 6
-      },
-      {
-        "slug": "two-bucket",
-        "name": "Two Bucket",
-        "uuid": "32f028cf-c0ba-43fb-8968-fe4ec02b5f2c",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 7
+        "difficulty": 5
       },
       {
         "slug": "nth-prime",
@@ -448,15 +588,35 @@
         "uuid": "b269733a-e177-4102-bd91-8a206c10f42f",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 7
+        "difficulty": 5
       },
       {
         "slug": "satellite",
         "name": "Satellite",
         "uuid": "484572b2-7f11-4468-8116-f1110eb18946",
+        "practices": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "recursion"
+        ],
+        "difficulty": 5
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "64890036-c508-4a52-a663-0e4c874625be",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 7
+        "difficulty": 9
+      },
+      {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "32f028cf-c0ba-43fb-8968-fe4ec02b5f2c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 9
       },
       {
         "slug": "forth",
@@ -464,7 +624,7 @@
         "uuid": "284ed7aa-8304-47ba-8e0f-f1dfef3607fa",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 8
+        "difficulty": 9
       },
       {
         "slug": "zebra-puzzle",
