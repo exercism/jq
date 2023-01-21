@@ -8,6 +8,9 @@ These are a big amount of work, but I think I've figured out a decent checklist 
 
 1. select an exercise
    - this was surprisingly tricky for the early exercises, but it seems I'm kind of aligning with Javascript now.
+   - take inspiration from other languages, it's OK to "fork" an exercise and customize it for jq
+   - look at [the existing stories](https://exercism.org/docs/building/tracks/stories) and how other languages applied to their concepts.
+   - keep in mind the [exercism guidance about concept exercises](https://exercism.org/docs/building/product/concept-exercises)
 1. make a first draft of the design.md file, laying out the goals for the concept & exercise.
 1. add concept and exercise to the "root" config.json
 1. edit concept's and exercise's config.json
