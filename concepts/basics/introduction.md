@@ -149,6 +149,8 @@ echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
 | jq '{(.[0].key): .[0].value, (.[1].key): .[1].value}'
 ```
 
+This also outputs the same as above.
+
 ## Pipelines
 
 For example, given `file.json` containing
