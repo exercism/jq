@@ -142,14 +142,12 @@ outputs
 }
 ```
 
-To treat the _key_ as an _expression_, you must wrap it in parentheses
+To treat the _key_ as an _expression_, you must wrap it in parentheses (the following also outputs the same as above).
 
 ```sh
 echo '[{"key":"question", "value":54}, {"key":"answer", "value":42}]' \
 | jq '{(.[0].key): .[0].value, (.[1].key): .[1].value}'
 ```
-
-This also outputs the same as above.
 
 ## Pipelines
 

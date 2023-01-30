@@ -133,7 +133,7 @@ outputs
 }
 ```
 
-To treat the _key_ as an _expression_, you must wrap it in parentheses
+To treat the _key_ as an _expression_, you must wrap it in parentheses (the following also outputs the same as above).
 
 ```sh
 echo '[["question", "answer"], [54, 42]]' \
