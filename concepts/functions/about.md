@@ -51,7 +51,7 @@ Here, the `B` _function_ is only visible in the body of `A`.
 
 ## Scope
 
-A _function_ introduces a new **scope** for variables and nested functons.
+A _function_ introduces a new **scope** for variables and nested functions.
 
 ## Arguments
 
@@ -68,7 +68,7 @@ def add_mul(adder; multiplier): (. + adder) * multiplier;
 ~~~~exercism/note
 Semi-colons are needed because comma already has a purpose in `jq`: an operator that joins streams.
 
-Using a comma instead of a semi-colon will attempt to call a _1-argument_ `add_mul` function, which doesn't exist:
+Using a comma instead of a semi-colon will attempt to make two calls to a _1-argument_ `add_mul` function, which doesn't exist and therefore will fail on the first attempted call:
 
 ```jq
 10 | add_mul(5, 4)
