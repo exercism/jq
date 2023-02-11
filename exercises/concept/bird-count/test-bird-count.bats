@@ -42,7 +42,7 @@ assert_key_value() {
     assert_key_value 'total' 65
 }
 
-@test busy_days_for_dissapointing_week {
+@test busy_days_for_disappointing_week {
     ## task 4
     run jq -f bird-count.jq <<< '[[8, 8, 9, 5, 4, 7, 10],[1, 1, 1, 0, 0, 0, 0]]'
     assert_success
@@ -63,7 +63,7 @@ assert_key_value() {
     assert_key_value 'has_day_without_birds' true
 }
 
-@test has_day_without_birds_whith_no_day_without_birds {
+@test has_day_without_birds_with_no_day_without_birds {
     ## task 5
     run jq -f bird-count.jq <<< '[[1, 1, 1, 0, 0, 0, 0],[4, 5, 9, 10, 9, 4, 3]]'
     assert_success
