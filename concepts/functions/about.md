@@ -119,7 +119,7 @@ def my_func(arg):
 ;
 ```
 
-There's a shorhand for this:
+There's a shorthand for this:
 
 ```jq
 def my_func($arg):
