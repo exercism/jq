@@ -129,7 +129,7 @@ otherwise the funtion returns `null`.
 ```
 
 There is an inverse function called `IN` (yes, in capital letters).
-The wrinkle with `IN` is that it's argument is not an array, but a _stream_.
+The wrinkle with `IN` is that its argument is not an array, but a _stream_.
 
 ```jq
 "beef" | IN(["carrots", "beef", "potatoes"][])    # => true
