@@ -132,7 +132,7 @@ You can construct an _object_ with `{}` and `key: value` pairs.
 Quotes are not required around _keys_ that are "simple" strings.
 
 ```sh
-jq -n '{question: 6 * 9, answer: 42}'
+jq -n '{question: (6 * 9), answer: 42}'
 ```
 
 outputs
