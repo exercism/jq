@@ -42,7 +42,7 @@ If it is more than 10 years old, it costs 50%.
 If the vehicle is at least 3 years old but not older than 10 years, it costs 70% of the original price.
 
 Implement the `resell_price` function that applies this logic using `if`, `elif` and `else`.
-It takes the an object holding the original price and the age of the vehicle and returns the estimated price in the dealership.
+It takes an object holding the original price and the age of the vehicle and returns the estimated price in the dealership.
 
 ```jq
 {"original_price: 1000, "age": 1} | resell_price
