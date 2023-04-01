@@ -4,6 +4,7 @@
 - Github: [stedolan/jq][github]
 - Supplementary documentation: [stedolan/jq/wiki][wiki]
 - [jqplay.org][jqplay], an online "playground" for interacting with a jq interpreter
+- [ijq][ijq], interactive jq tool, like jqplay for the commandline.
 - [Exercism jq Cookbook][cook], an effort created by [@sshine][sshine].
 
 ## JSON
@@ -22,6 +23,7 @@
 [github]: https://github.com/stedolan/jq
 [wiki]: https://github.com/stedolan/jq/wiki
 [jqplay]: https://jqplay.org
+[ijq]: https://github.com/gpanders/ijq
 [gron]: https://github.com/tomnomnom/gron#readme
 [jo]: https://github.com/jpmens/jo#readme
 [jello]: https://kellyjonbrazil.github.io/jello
