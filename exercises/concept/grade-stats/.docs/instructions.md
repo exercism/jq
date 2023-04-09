@@ -25,8 +25,8 @@ Example:
 
 ## Count the number of students for each letter grade
 
-The function `count_letter_grades` will take an object mapping a student's name to their grade.
-The output will be an object mapping the letter grade to the number of students with that grade.
+The function `count_letter_grades` will take an object mapping student names to their grades.
+The output will be an object mapping each letter grade to the number of students with that grade.
 
 Example:
 
