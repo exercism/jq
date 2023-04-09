@@ -370,7 +370,8 @@
           "arrays"
         ],
         "prerequisites": [
-          "strings"
+          "strings",
+          "conditionals"
         ],
         "difficulty": 2
       },
