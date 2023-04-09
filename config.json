@@ -371,7 +371,7 @@
         ],
         "prerequisites": [
           "strings",
-		  "conditionals"
+          "conditionals"
         ],
         "difficulty": 2
       },
