@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-  "blurb": "jq data types: arrays"
+  "blurb": "JSON arrays, and how jq can create, manipulate and iterate over them."
 }

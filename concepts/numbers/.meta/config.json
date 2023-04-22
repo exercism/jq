@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-  "blurb": "jq data types: numbers"
+  "blurb": "Numbers, arithmetic and comparison operators."
 }

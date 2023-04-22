@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-  "blurb": "Introduction to jq fundamentals"
+  "blurb": "An introduction to jq fundamentals: filters and pipes are jq's main special feature; a quick review of JSON data types; some builtin functions."
 }
