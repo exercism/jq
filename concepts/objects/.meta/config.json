@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": ["IsaacG"],
-  "blurb": "jq data types: objects"
+  "blurb": "JSON objects: creating and manipulating them; iteration."
 }

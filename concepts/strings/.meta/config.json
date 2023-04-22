@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-  "blurb": "jq data types: strings"
+  "blurb": "Strings and string operators and functions."
 }

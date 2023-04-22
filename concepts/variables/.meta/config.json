@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-  "blurb": "Assigning variables in jq"
+  "blurb": "Assigning variables works a bit differently from other language."
 }
