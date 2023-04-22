@@ -1,5 +1,5 @@
 {
   "authors": ["glennj"],
   "contributors": [],
-  "blurb": "Numbers in jq, and arithmetic and comparison operators."
+  "blurb": "Numbers, arithmetic and comparison operators."
 }
