@@ -41,4 +41,4 @@ jq: error: Possibly unterminated 'if' statement at <top-level>, line 2:
 jq: 2 compile errors
 ```
 
-[if]: https://stedolan.github.io/jq/manual/v1.6/#if-then-else
+[if]: https://jqlang.github.io/jq/manual/v1.6/#if-then-else-end

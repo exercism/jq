@@ -4,7 +4,7 @@
     "description": "Oniguruma regular expression syntax"
   },
   {
-    "url": "https://github.com/stedolan/jq/wiki/FAQ#support-for-regular-expressions",
+    "url": "https://github.com/jqlang/jq/wiki/FAQ#support-for-regular-expressions",
     "description": "jq regex FAQ"
   }
 ]

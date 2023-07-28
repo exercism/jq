@@ -73,7 +73,7 @@ The `add` builtin is actually [implemented with `reduce`][jq-code-add], but uses
 def add: reduce .[] as $x (null; . + $x);
 ```
 
-[jq-code-add]: https://github.com/stedolan/jq/blob/jq-1.6/src/builtin.jq#L11
+[jq-code-add]: https://github.com/jqlang/jq/blob/jq-1.6/src/builtin.jq#L11
 ~~~~
 
 <!-- prettier-ignore-end -->
@@ -97,5 +97,5 @@ def add: reduce .[] as $x (null; . + $x);
   | reduce .[] as $elem ([]; [$elem] + .)       # => ["D", "C", "B", "A"]
   ```
 
-[jq-man-reduce]: https://stedolan.github.io/jq/manual/v1.6/#Reduce
-[jq-man-iterator]: https://stedolan.github.io/jq/manual/v1.6/#Array/ObjectValueIterator:.[]
+[jq-man-reduce]: https://jqlang.github.io/jq/manual/v1.6/#Reduce
+[jq-man-iterator]: https://jqlang.github.io/jq/manual/v1.6/#Array/ObjectValueIterator:.[]

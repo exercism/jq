@@ -4,7 +4,7 @@
     "description": "Reshaping JSON with jq"
   },
   {
-    "url": "https://github.com/stedolan/jq/wiki/jq-Language-Description#Array-and-Object-Accessors-and-Iterators",
+    "url": "https://github.com/jqlang/jq/wiki/jq-Language-Description#array-and-object-accessors-and-iterators",
     "description": "Array and Object Accessors and Iterators"
   }
 ]

@@ -23,7 +23,7 @@ def validate:
 def solve($goal):
 
   # tail-call optimization only applies for 0-arity functions.
-  # https://github.com/stedolan/jq/wiki/Advanced-Topics#recursion-and-tail-recursion-optimization
+  # https://github.com/jqlang/jq/wiki/Advanced-Topics#recursion-and-tail-recursion-optimization
   # input to inner function is: [firstBucket, secondBucket, currentMove]
   def _solve:
     if .[0].amount == $goal

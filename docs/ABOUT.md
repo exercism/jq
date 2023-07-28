@@ -46,9 +46,9 @@ We will assume you are familiar with [JSON syntax and data types][wiki-json].
 - [`jq` wiki][jq-wiki]
 - [Stack Overflow jq info page][so]
 
-[jq]: https://stedolan.github.io/jq/
-[jq-wiki]: https://github.com/stedolan/jq/wiki
+[jq]: https://jqlang.github.io/jq/
+[jq-wiki]: https://github.com/jqlang/jq/wiki
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON#Syntax
-[cli-options]: https://stedolan.github.io/jq/manual/v1.6/#Invokingjq
+[cli-options]: https://jqlang.github.io/jq/manual/v1.6/#Invokingjq

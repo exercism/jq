@@ -19,9 +19,9 @@
 - [jo][jo]: A small utility to create JSON objects from shell variables.
 - [jello][jello]: jello is similar to jq except jello uses standard python dict and list syntax.
 
-[jq]: https://stedolan.github.io/jq
-[github]: https://github.com/stedolan/jq
-[wiki]: https://github.com/stedolan/jq/wiki
+[jq]: https://jqlang.github.io/jq
+[github]: https://github.com/jqlang/jq
+[wiki]: https://github.com/jqlang/jq/wiki
 [jqplay]: https://jqplay.org
 [ijq]: https://github.com/gpanders/ijq
 [gron]: https://github.com/tomnomnom/gron#readme

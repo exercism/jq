@@ -379,11 +379,11 @@ Without going into great depth (functions will be a topic for another exercise),
 
 Comments start with a `#` character and continue to the end of the line.
 
-[man-cli]: https://stedolan.github.io/jq/manual/v1.6/#Invokingjq
-[man-types]: https://stedolan.github.io/jq/manual/v1.6/#TypesandValues
-[man-length]: https://stedolan.github.io/jq/manual/v1.6/#length
-[man-range]: https://stedolan.github.io/jq/manual/v1.6/#range(upto),range(from;upto)range(from;upto;by)
-[man-map]: https://stedolan.github.io/jq/manual/v1.6/#map(x),map_values(x)
-[man-plus]: https://stedolan.github.io/jq/manual/v1.6/#Addition:+
-[man-add]: https://stedolan.github.io/jq/manual/v1.6/#add
-[man-select]: https://stedolan.github.io/jq/manual/v1.6/#select(boolean_expression)
+[man-cli]: https://jqlang.github.io/jq/manual/v1.6/#Invokingjq
+[man-types]: https://jqlang.github.io/jq/manual/v1.6/#TypesandValues
+[man-length]: https://jqlang.github.io/jq/manual/v1.6/#length
+[man-range]: https://jqlang.github.io/jq/manual/v1.6/#range(upto),range(from;upto)range(from;upto;by)
+[man-map]: https://jqlang.github.io/jq/manual/v1.6/#map(x),map_values(x)
+[man-plus]: https://jqlang.github.io/jq/manual/v1.6/#Addition:+
+[man-add]: https://jqlang.github.io/jq/manual/v1.6/#add
+[man-select]: https://jqlang.github.io/jq/manual/v1.6/#select(boolean_expression)
