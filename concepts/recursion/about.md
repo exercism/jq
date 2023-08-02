@@ -104,8 +104,8 @@ def fibonacci:
 10 | fibonacci          # => 55
 ```
 
-[map-implementation]: https://github.com/stedolan/jq/blob/jq-1.6/src/builtin.jq#L3
-[range-implementation]: https://github.com/stedolan/jq/blob/jq-1.6/src/builtin.jq#L157
+[map-implementation]: https://github.com/jqlang/jq/blob/jq-1.6/src/builtin.jq#L3
+[range-implementation]: https://github.com/jqlang/jq/blob/jq-1.6/src/builtin.jq#L157
 [wiki-fibonacci]: https://en.wikipedia.org/wiki/Fibonacci_number
 [wiki-tail-call]: https://en.wikipedia.org/wiki/Tail_call
 [wiki-call-stack]: https://en.wikipedia.org/wiki/Call_stack

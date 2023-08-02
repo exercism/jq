@@ -28,7 +28,7 @@ Unless we provide it as a library to include ...
 
 JBOL includes an implementation of [pseudo-random numbers][jbol-chance].
 
-[numbers]: https://github.com/stedolan/jq/wiki/FAQ#numbers
+[numbers]: https://github.com/jqlang/jq/wiki/FAQ#numbers
 [jbol-bitwise]: https://github.com/fadado/JBOL/blob/master/fadado.github.io/math/bitwise.jq
 [jbol-chance]: https://github.com/fadado/JBOL/blob/master/fadado.github.io/math/chance.jq
 

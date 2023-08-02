@@ -4,7 +4,7 @@
     "description": "Fold, on Wikipedia"
   },
   {
-    "url": "https://github.com/stedolan/jq/wiki/jq-Language-Description#reductions",
+    "url": "https://github.com/jqlang/jq/wiki/jq-Language-Description#reductions",
     "description": "Reductions, in jq wiki"
   }
 ]

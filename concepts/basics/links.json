@@ -1,14 +1,14 @@
 [
   {
-    "url": "https://github.com/stedolan/jq/wiki/jq-Language-Description#jq-Program-Structure-and-Basic-Syntax",
+    "url": "https://github.com/jqlang/jq/wiki/jq-Language-Description#jq-program-structure-and-basic-syntax",
     "description": "jq Program Structure and Basic Syntax"
   },
   {
-    "url": "https://stedolan.github.io/jq/manual/v1.6/#Basicfilters",
+    "url": "https://jqlang.github.io/jq/manual/v1.6/#Basicfilters",
     "description": "Basic filters"
   },
   {
-    "url": "https://stedolan.github.io/jq/manual/v1.6/#TypesandValues]",
+    "url": "https://jqlang.github.io/jq/manual/v1.6/#TypesandValues]",
     "description": "Types and Values"
   }
 ]

@@ -1,10 +1,10 @@
 [
   {
-    "url": "https://stedolan.github.io/jq/manual/v1.6/#Recursion",
+    "url": "https://jqlang.github.io/jq/manual/v1.6/#Recursion",
     "description": "Recursion in the manual"
   },
   {
-    "url": "https://github.com/stedolan/jq/wiki/Advanced-Topics#recursion-and-tail-recursion-optimization",
+    "url": "https://github.com/jqlang/jq/wiki/Advanced-Topics#recursion-and-tail-recursion-optimization",
     "description": "jq Advanced Topics - Recursion and Tail Recursion Optimization"
   },
   {

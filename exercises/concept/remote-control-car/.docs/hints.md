@@ -24,6 +24,6 @@
 
 - If the battery is dead, it should return the object unchanged.
 
-[string-interpolation]: https://stedolan.github.io/jq/manual/#Stringinterpolation-%5C(foo)
-[if-then-else]: https://stedolan.github.io/jq/manual/#if-then-else
-[update-assn]: https://stedolan.github.io/jq/manual/#Arithmeticupdate-assignment:+=,-=,*=,/=,%=,//=
+[string-interpolation]: https://jqlang.github.io/jq/manual/#Stringinterpolation-%5C(foo)
+[if-then-else]: https://jqlang.github.io/jq/manual/#if-then-else
+[update-assn]: https://jqlang.github.io/jq/manual/#Arithmeticupdate-assignment:+=,-=,*=,/=,%=,//=

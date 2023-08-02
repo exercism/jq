@@ -226,5 +226,5 @@ For example
 
 [oniguruma]: https://github.com/kkos/oniguruma
 [onig-syntax]: https://github.com/kkos/oniguruma/blob/6fa38f4084b448592888ed9ee43c6e90a46b5f5c/doc/RE
-[jq-regex-funcs]: https://stedolan.github.io/jq/manual/v1.6/#RegularexpressionsPCRE
-[jq-interp]: https://stedolan.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)
+[jq-regex-funcs]: https://jqlang.github.io/jq/manual/v1.6/#RegularexpressionsPCRE
+[jq-interp]: https://jqlang.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)

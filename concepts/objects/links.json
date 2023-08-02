@@ -1,10 +1,10 @@
 [
   {
-    "url": "https://github.com/stedolan/jq/wiki/jq-Language-Description#Array-and-Object-Accessors-and-Iterators",
+    "url": "https://github.com/jqlang/jq/wiki/jq-language-description#array-and-object-accessors-and-iterators",
     "description": "Array and Object Accessors and Iterators"
   },
   {
-    "url": "https://stedolan.github.io/jq/tutorial/",
+    "url": "https://jqlang.github.io/jq/tutorial/",
     "description": "jq Tutorial"
   }
 ]

@@ -8,7 +8,7 @@ def mapping:
     ( range(10)
       | tostring
       | {(.): .}
-    ) 
+    )
   ] | add;
 
 def grouped: [scan(".{1,5}")] | join(" ");
@@ -25,4 +25,4 @@ def encode($map): decode($map) | grouped;
 
 # It would be nice to have a dynamic way to dispatch there.
 # There isn't one: functions are "second-class" in jq.
-# See https://github.com/stedolan/jq/wiki/jq-Language-Description#The-jq-Language
+# See https://github.com/jqlang/jq/wiki/jq-language-description#the-jq-language

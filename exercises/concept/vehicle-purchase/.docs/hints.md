@@ -20,7 +20,7 @@
 - To calculate the result, apply the percentage to the original price.
   For example, `30% of x` can be calculated by multiplying `x` by `30` and dividing by `100`.
 
-[equality operator]: https://stedolan.github.io/jq/manual/v1.6/#==,!=
-[boolean operators]: https://stedolan.github.io/jq/manual/v1.6/#and/or/not
-[comparison operator]: https://stedolan.github.io/jq/manual/v1.6/#%3E,%3E=,%3C=,%3C
-[conditional expression]: https://stedolan.github.io/jq/manual/v1.6/#if-then-else
+[equality operator]: https://jqlang.github.io/jq/manual/v1.6/#==,!=
+[boolean operators]: https://jqlang.github.io/jq/manual/v1.6/#and/or/not
+[comparison operator]: https://jqlang.github.io/jq/manual/v1.6/#%3E,%3E=,%3C=,%3C
+[conditional expression]: https://jqlang.github.io/jq/manual/v1.6/#if-then-else
