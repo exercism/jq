@@ -20,7 +20,7 @@
 #       3
 #     '
 # 
-# You'll need to use parenthses to control order of operations
+# You'll need to use parentheses to control order of operations
 
 # Task 1: replace `null` with the "name" element of the shopping list.
 null,
