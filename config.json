@@ -634,6 +634,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 9
+      },
+      {
+        "slug": "flatten-array",
+        "name": "Flatten Array",
+        "uuid": "39b6cd35-ab3c-4041-ad53-c1e405aa890d",
+        "difficulty": 3,
+        "practices": [],
+        "prerequisites": []
       }
     ]
   },
