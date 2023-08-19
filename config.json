@@ -323,6 +323,18 @@
         "difficulty": 2
       },
       {
+        "slug": "flatten-array",
+        "name": "Flatten Array",
+        "uuid": "39b6cd35-ab3c-4041-ad53-c1e405aa890d",
+        "difficulty": 2,
+        "practices": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "arrays"  
+        ]
+      },
+      {
         "slug": "resistor-color",
         "name": "Resistor Color",
         "uuid": "e84d0056-d0fe-4835-8a4c-17350b09ac49",
