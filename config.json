@@ -331,7 +331,7 @@
           "arrays"
         ],
         "prerequisites": [
-          "arrays"  
+          "arrays"
         ]
       },
       {
@@ -487,6 +487,14 @@
           "numbers"
         ],
         "difficulty": 2
+      },
+      {
+        "slug": "series",
+        "name": "Series",
+        "uuid": "824cefbf-a25d-445c-abc4-d92824006de1",
+        "difficulty": 2,
+        "practices": [],
+        "prerequisites": []
       },
       {
         "slug": "gigasecond",
