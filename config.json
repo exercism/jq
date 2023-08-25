@@ -493,8 +493,8 @@
         "name": "Series",
         "uuid": "824cefbf-a25d-445c-abc4-d92824006de1",
         "difficulty": 2,
-        "practices": [],
-        "prerequisites": []
+        "practices":     ["conditionals", "numbers", "strings", "compare", "variables", "functions"],
+        "prerequisites": ["conditionals", "numbers", "strings", "compare"]
       },
       {
         "slug": "gigasecond",
