@@ -559,6 +559,23 @@
         "difficulty": 5
       },
       {
+        "slug": "luhn",
+        "name": "Luhn",
+        "uuid": "1571cd8e-1ccb-4229-87ce-a0c190416a96",
+        "difficulty": 5,
+        "practices": [
+          "strings",
+          "numbers",
+          "arrays",
+          "compare",
+          "conditionals"
+        ],
+        "prerequisites": [
+          "compare",
+          "conditionals"
+        ]
+      },
+      {
         "slug": "beer-song",
         "name": "Beer Song",
         "uuid": "9dba8bd0-c964-4320-a2a6-2202c8f3fdfe",
