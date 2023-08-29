@@ -8,8 +8,7 @@ def double_digit:
     2 * .
   | if . > 9 then . - 9 else . end;
 
-  .value
-| split("")
+  split("")
 | try map( parse_digit ) catch []
 | reverse
 | [ .[ range(0; length; 2) ]                ] as $at_odd_indices

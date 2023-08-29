@@ -15,6 +15,7 @@
   },
   "omit": [
     "gigasecond",
+    "luhn",
     "nth-prime"
   ],
   "include .property in input json": [
