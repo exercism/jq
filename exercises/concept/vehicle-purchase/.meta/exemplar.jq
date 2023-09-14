@@ -1,4 +1,4 @@
-# Determines whether or not you need a licence to operate a certain kind of vehicle.
+# Determines whether or not you need a license to operate a certain kind of vehicle.
 #
 # input: {string} kind of vehicle
 # output: {boolean} whether a license is required
