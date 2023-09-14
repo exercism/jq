@@ -1,6 +1,6 @@
 # Hints
 
-## 1. Determine if you will need a drivers licence
+## 1. Determine if you will need a drivers license
 
 - Use the [equality operator] to check whether your input equals a certain string.
 - Use one of the two [boolean operators] to combine the two requirements.
