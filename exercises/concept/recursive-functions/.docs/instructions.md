@@ -1,6 +1,6 @@
 # Instructions
 
-In this exercise you're going to implement a some recursive functions.
+In this exercise you're going to implement some recursive functions.
 
 ## 1. Implement a function to add the numbers in an array
 
