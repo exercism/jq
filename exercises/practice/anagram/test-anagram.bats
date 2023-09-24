@@ -200,7 +200,7 @@ END_INPUT
         {
           "subject": "go",
           "candidates": [
-            "go Go GO"
+            "goGoGO"
           ]
         }
 END_INPUT
