@@ -65,4 +65,4 @@ Additional conditions use `elif`
 
 [man-types]: https://jqlang.github.io/jq/manual/v1.6/#TypesandValues
 [man-math]: https://jqlang.github.io/jq/manual/v1.6/#Math
-[if-then-else]: https://jqlang.github.io/jq/manual/v1.6/#if-then-else-end
+[if-then-else]: https://jqlang.github.io/jq/manual/v1.6/#if-then-else
