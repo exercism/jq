@@ -11,7 +11,7 @@ def production_rate_per_hour:
   -1
 ;
 
-# Task 2: calculate the number of working items produces per minute
+# Task 2: calculate the number of working items produced per minute
 def working_items_per_minute:
   # remove the constant and implement this function
   -2
