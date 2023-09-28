@@ -4,7 +4,7 @@ You are a teacher.
 At the end of the year, you have generated a numeric grade for each of your students.
 Now you need to translate that to a letter grade and count how many students have achieved each letter grade
 
-## Translate a numeric grade to a letter grade
+## 1. Translate a numeric grade to a letter grade
 
 The `letter_grade` function will take a numeric grade as input, and it will output the letter.
 Use these ranges:
@@ -23,7 +23,7 @@ Example:
 75 | letter_grade   # => "C"
 ```
 
-## Count the number of students for each letter grade
+## 2. Count the number of students for each letter grade
 
 The function `count_letter_grades` will take an object mapping student names to their grades.
 The output will be an object mapping each letter grade to the number of students with that grade.

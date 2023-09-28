@@ -1,10 +1,10 @@
 # Hints
 
-## Translate a numeric grade to a letter grade
+## 1. Translate a numeric grade to a letter grade
 
 - Use an [`if-then-else` expression][jq-man-if] with as many `elif` branches as needed.
 
-## Count the number of students for each letter grade
+## 2. Count the number of students for each letter grade
 
 - The `reduce` filter needs a _stream_ to iterate over.
   The input is an object.
