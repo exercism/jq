@@ -5,7 +5,7 @@ You have been hired as a Regular Expression Specialist in a company that is deve
 It is in a very basic phase of development.
 Your mission is to use Regular Expressions to improve the Chatbot's ability to understand and generate natural language.
 
-## Check Valid Command
+## 1. Check Valid Command
 
 Apart from being smart, the Chatbot is also a loyal assistant.
 To ask the Chatbot something, the user must say the word "**Chatbot**" in the first position of the command.
@@ -23,7 +23,7 @@ Implement the function `is_valid_command` that helps the Chatbot recognize when 
 # => true
 ```
 
-## Remove Encrypted Emojis
+## 2. Remove Encrypted Emojis
 
 The Chatbot has a difficult time understanding how humans use emojis to express their emotions.
 When the Chatbot receives user messages, each emoji is represented as the string "emoji" followed by an _id number_.
@@ -39,7 +39,7 @@ Do not adjust the whitespace.
 # => "I love playing videogames  it's one of my hobbies"
 ```
 
-## Check Valid Phone Number
+## 3. Check Valid Phone Number
 
 At some point in the interaction with the Chatbot, the user will provide a phone number.
 The Chatbot can only call a number with a specific format.
@@ -58,7 +58,7 @@ The expected format is `(+NN) NNN-NNN-NNN`, where N is a digit.
 # => "Oops, it seems like I can't reach out to 659-771-594."
 ```
 
-## Get Website Link
+## 4. Get Website Link
 
 The Chatbot is a really curious software.
 Even though it can search the internet for a particular topic, it likes to ask users about cool websites to visit to find relevant information.
@@ -76,7 +76,7 @@ Implement the function `get_domains` which returns an array of website domains.
 # => ["exercism.org", "google.com"]
 ```
 
-## Greet the User
+## 5. Greet the User
 
 A polite Chatbot will speak to users by name.
 When a user introduces themselves, our Chatbot will detect their name and respond with a friendly greeting.
@@ -90,7 +90,7 @@ If the input string contains "My name is Someone.", capture the name and return 
 # => "Nice to meet you, Jean-Luc"
 ```
 
-## Very Simple CSV Parsing
+## 6. Very Simple CSV Parsing
 
 Yielding to "creeping featuritis", we'll add a CSV parsing function to the Chatbot.
 
