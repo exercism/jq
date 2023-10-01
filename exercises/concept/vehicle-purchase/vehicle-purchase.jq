@@ -5,7 +5,7 @@
 # output: {boolean} whether a license is required
 
 def needs_license:
-  halt_error("Please implement the needsLicense function");
+  "Please implement the needsLicense function" | halt_error;
 
 # Task 2
 # Helps choosing between two options by recommending the one that
@@ -14,7 +14,7 @@ def needs_license:
 # input: {array of strings} options to consider
 # output: {string} a sentence of advice which option to choose
 def choose_vehicle:
-  halt_error("Please implement the chooseVehicle function");
+  "Please implement the chooseVehicle function" | halt_error;
 
 # Task 3
 # Calculates an estimate for the price of a used vehicle in the dealership
@@ -24,4 +24,4 @@ def choose_vehicle:
 # output: {number} expected resell price in the dealership
 
 def resell_price:
-  halt_error("Please implement the calculateResellPrice function");
+  "Please implement the calculateResellPrice function" | halt_error;

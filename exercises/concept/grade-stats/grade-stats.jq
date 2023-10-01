@@ -6,7 +6,7 @@
 # - "F" is  0% - 59%
 
 def letter_grade:
-  halt_error("Implement this function");
+  "Implement this function" | halt_error;
 
 
 # Given an object that maps a student's name to their grade,
@@ -14,4 +14,4 @@ def letter_grade:
 # students with that grade
 
 def count_letter_grades:
-  halt_error("Implement this function using reduce");
+  "Implement this function using reduce" | halt_error;
