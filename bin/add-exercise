@@ -20,7 +20,7 @@ required_tool curl
 [[ -f ./bin/fetch-configlet ]] || die "run this script from the repo's root directory."
 
 slug="${1}"
-name=$(echo "${slug}" | sed 's/\b\w/\u&/g; s/-/ /g')    # assumes GNU sed
+name=$(sed 's/\b\w/\u&/g; s/-/ /g' <<< "${slug}")    # assumes GNU sed
 
 it_exists=$(
     jq --arg slug "${slug}" '
@@ -59,9 +59,7 @@ jq  --arg slug "${slug}"                 \
 
 touch "exercises/practice/${slug}/.meta/example.jq"
 
-cat <<END_SLUG > "exercises/practice/${slug}/${slug}.jq"
-"Remove this line and implement your solution" | halt_error
-END_SLUG
+echo '"Remove this line and implement your solution" | halt_error' > "exercises/practice/${slug}/${slug}.jq"
 
 echo 
 read -rp 'Your github username: ' author
