@@ -497,6 +497,14 @@
         "prerequisites": ["conditionals", "numbers", "strings", "compare"]
       },
       {
+        "slug": "pop-count",
+        "name": "Pop Count",
+        "uuid": "551a953d-0f22-4433-8131-dd5606dbc156",
+        "practices": ["recursion"],
+        "prerequisites": ["conditionals"],
+        "difficulty": 2
+      },
+      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
