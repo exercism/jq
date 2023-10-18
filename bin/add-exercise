@@ -20,7 +20,10 @@ required_tool curl
 [[ -f ./bin/fetch-configlet ]] || die "run this script from the repo's root directory."
 
 slug="${1}"
-name=$(sed 's/\b\w/\u&/g; s/-/ /g' <<< "${slug}")    # assumes GNU sed
+
+# transform slug 'resistor-color-duo' to name 'Resistor Color Duo'
+IFS=- read -ra words <<< "${slug}"
+name=${words[*]^}
 
 it_exists=$(
     jq --arg slug "${slug}" '
