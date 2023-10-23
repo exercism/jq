@@ -116,4 +116,4 @@ Use the `ascii_downcase` and `ascii_upcase` functions.
 
 `jq` has rich support for regular expressions: this will be the topic of a later lesson.
 
-[interpolate]: https://jqlang.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)
+[interpolate]: https://jqlang.github.io/jq/manual/v1.7/#string-interpolation
