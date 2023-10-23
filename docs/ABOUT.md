@@ -26,6 +26,11 @@ The `jq` program also implements a _language_ to enable arbitrarily complex mani
 This Exercism track will focus on the language.
 You will see usage of the `jq` program in the tests.
 
+## Versions
+
+This Exercism track will focus on the original implementation of `jq`, whose home is [https://jqlang.github.io/jq/][jq].
+Other implementations, such as [`gojq`][gojq], may have different syntax to what is documented here.
+
 ## JSON
 
 From [json.org][json]:
@@ -52,3 +57,4 @@ We will assume you are familiar with [JSON syntax and data types][wiki-json].
 [json]: https://www.json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON#Syntax
 [cli-options]: https://jqlang.github.io/jq/manual/v1.6/#Invokingjq
+[gojq]: https://github.com/itchyny/gojq#gojq
