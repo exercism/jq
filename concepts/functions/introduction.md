@@ -153,7 +153,6 @@ def my_map(func):
 A `jq` module is a file containing only functions.
 Modules are included into a jq program with the [`include`][man-include] or [`import`][man-import] commands.
 
-[man-range]: https://jqlang.github.io/jq/manual/v1.6/#range(upto),range(from;upto)range(from;upto;by)
-
-[man-import]: https://jqlang.github.io/jq/manual/v1.6/#importRelativePathStringasNAME[%3Cmetadata%3E];
-[man-include]: https://jqlang.github.io/jq/manual/v1.6/#includeRelativePathString[%3Cmetadata%3E];
+[man-range]: https://jqlang.github.io/jq/manual/v1.7/#range
+[man-import]: https://jqlang.github.io/jq/manual/v1.7/#import-relativepathstring-as-name
+[man-include]: https://jqlang.github.io/jq/manual/v1.7/#include-relativepathstring

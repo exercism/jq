@@ -1,7 +1,7 @@
 [
   {
     "description": "\"Defining Functions\" in the manual",
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#DefiningFunctions"
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#defining-functions"
   },
   {
     "description": "\"Advanced Topics\" in the wiki",
@@ -9,6 +9,6 @@
   },
   {
     "description": "\"Modules\" in the manual",
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#Modules"
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#modules"
   }
 ]
