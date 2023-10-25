@@ -5,7 +5,7 @@ name: jq / pr
 on: pull_request
 
 jobs:
-  ci:
+  pr:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,10 +14,9 @@ jobs:
 
       - name: Install software
         run: |
-          sudo apt update \
-          && sudo apt -y install bats curl \
-          && sudo curl -o /usr/local/bin/jq https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64 \
-          && sudo chmod 755 /usr/local/bin/jq
+          sudo apt update && sudo apt -y install bats &&
+          sudo curl -L -o /usr/bin/jq  https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64 &&
+          sudo chmod -v 755 /usr/bin/jq
 
       - name: Run tests for changed/added exercises
         env:
@@ -25,8 +24,8 @@ jobs:
         run: |
           pr_endpoint=$(jq -r '"repos/\(.repository.full_name)/pulls/\(.pull_request.number)"' "$GITHUB_EVENT_PATH")
           gh api "$pr_endpoint/files" --paginate --jq '
-            .[] |
-              select(.status | IN("added", "modified", "renamed")) |
-              select(.filename | test("\\.(jq|bats|bash)$")) |
-              .filename
+              .[]
+              | select(.status | IN("added", "modified", "renamed"))
+              | select(.filename | test("\\.(jq|bats|bash)$"))
+              | .filename
           ' | xargs -r bash bin/pr

@@ -17,10 +17,9 @@ jobs:
 
       - name: Install software
         run: |
-          sudo apt update \
-          && sudo apt -y install bats curl \
-          && sudo curl -o /usr/local/bin/jq https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64 \
-          && sudo chmod 755 /usr/local/bin/jq
+          sudo apt update && sudo apt -y install bats &&
+          sudo curl -L -o /usr/bin/jq  https://github.com/jqlang/jq/releases/download/jq-1.7/jq-linux-amd64 &&
+          sudo chmod -v 755 /usr/bin/jq
 
       - name: Run tests for all exercises
         run: bash bin/ci
