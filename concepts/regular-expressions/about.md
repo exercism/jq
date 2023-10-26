@@ -10,7 +10,7 @@ We will focus on the expressions that `jq` provides to utilize regexes.
 Different tools implement different versions of regular expressions.
 `jq` incorporates the [Oniguruma][oniguruma] regex library that is largely compatible with Perl v5.8 regexes.
 
-The specific syntax used by `jq` version 1.6 can be [found on the Oniguruma GitHub repo][onig-syntax].
+The specific syntax used by `jq` version 1.7 can be [found on the Oniguruma GitHub repo][onig-syntax].
 
 <!-- prettier-ignore -->
 ~~~~exercism/caution
@@ -245,6 +245,6 @@ For example
 ```
 
 [oniguruma]: https://github.com/kkos/oniguruma
-[onig-syntax]: https://github.com/kkos/oniguruma/blob/6fa38f4084b448592888ed9ee43c6e90a46b5f5c/doc/RE
-[jq-regex-funcs]: https://jqlang.github.io/jq/manual/v1.6/#RegularexpressionsPCRE
-[jq-interp]: https://jqlang.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)
+[onig-syntax]: https://github.com/kkos/oniguruma/blob/v6.9.9/doc/RE
+[jq-regex-funcs]: https://jqlang.github.io/jq/manual/v1.7/#regular-expressions
+[jq-interp]: https://jqlang.github.io/jq/manual/v1.7/#string-interpolation

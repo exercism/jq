@@ -100,7 +100,17 @@ The input to the `if` filter will be passed to `B` or `C`.
 5 | if . % 2 == 0 then . / 2 else . * 4 end     # => 20
 ```
 
-The `else` clause is **mandatory** in the current `jq` release (version 1.6).
+~~~~exercism/note
+The `else` clause is **optional** in the current `jq` release (version 1.7):
+the following two statements are equivalent.
+
+```jq
+if A then B else . end
+if A then B end
+```
+
+The `else` clause is **mandatory** in the previous v1.6 release. 
+~~~~
 
 ### Nested If-Statements
 

@@ -1,10 +1,10 @@
 [
   {
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#%3E,%3E=,%3C=,%3C",
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#%3E-%3E=-%3C=-%3C",
     "description": "Relational operators"
   },
   {
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#==,!=",
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#==-!=",
     "description": " operators"
   },
   {

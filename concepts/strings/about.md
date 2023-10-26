@@ -160,22 +160,21 @@ Check [the manual][manual] for more details about these functions:
 
 `jq` has rich support for regular expressions: this will be the topic of a later lesson.
 
-[manual]: https://jqlang.github.io/jq/manual/v1.6/
-[interpolate]: https://jqlang.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)
-[length]: https://jqlang.github.io/jq/manual/v1.6/#length
-[utf8bytelength]: https://jqlang.github.io/jq/manual/v1.6/#utf8bytelength
-[+]: https://jqlang.github.io/jq/manual/v1.6/#Addition:+
-[/]: https://jqlang.github.io/jq/manual/v1.6/#Multiplication,division,modulo:*,/,and%
-[add]: https://jqlang.github.io/jq/manual/v1.6/#add
-[split/1]: https://jqlang.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)
-[join/1]: https://jqlang.github.io/jq/manual/v1.6/#join(str)
-[explode]: https://jqlang.github.io/jq/manual/v1.6/#explode
-[implode]: https://jqlang.github.io/jq/manual/v1.6/#implode
-[ascii_downcase]: https://jqlang.github.io/jq/manual/v1.6/#ascii_downcase,ascii_upcase
-[tonumber]: https://jqlang.github.io/jq/manual/v1.6/#tonumber
-[try-catch]: https://jqlang.github.io/jq/manual/v1.6/#try-catch
+[manual]: https://jqlang.github.io/jq/manual/v1.7/
+[interpolate]: https://jqlang.github.io/jq/manual/v1.7/#string-interpolation
+[length]: https://jqlang.github.io/jq/manual/v1.7/#length
+[utf8bytelength]: https://jqlang.github.io/jq/manual/v1.7/#utf8bytelength
+[+]: https://jqlang.github.io/jq/manual/v1.7/#addition
+[/]: https://jqlang.github.io/jq/manual/v1.7/#multiplication-division-modulo
+[add]: https://jqlang.github.io/jq/manual/v1.7/#add
+[split/1]: https://jqlang.github.io/jq/manual/v1.7/#split-1
+[join/1]: https://jqlang.github.io/jq/manual/v1.7/#join
+[explode]: https://jqlang.github.io/jq/manual/v1.7/#explode
+[implode]: https://jqlang.github.io/jq/manual/v1.7/#implode
+[ascii_downcase]: https://jqlang.github.io/jq/manual/v1.7/#ascii_downcase-ascii_upcase
+[tonumber]: https://jqlang.github.io/jq/manual/v1.7/#tonumber
+[try-catch]: https://jqlang.github.io/jq/manual/v1.7/#try-catch
 [json-numbers]: https://www.json.org/json-en.html
-[indices]: https://jqlang.github.io/jq/manual/v1.6/#indices(s)
-[index/1]: https://jqlang.github.io/jq/manual/v1.6/#index(s),rindex(s)
-
-[slice]: https://jqlang.github.io/jq/manual/v1.6/#Array/StringSlice:.[10:15]
+[indices]: https://jqlang.github.io/jq/manual/v1.7/#indices
+[index/1]: https://jqlang.github.io/jq/manual/v1.7/#index-rindex
+[slice]: https://jqlang.github.io/jq/manual/v1.7/#array-string-slice

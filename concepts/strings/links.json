@@ -1,14 +1,14 @@
 [
   {
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#TypesandValues",
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#types-and-values",
     "description": "Types and Values"
   },
   {
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#Stringinterpolation-%5C(foo)",
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#string-interpolation",
     "description": "String interpolation"
   },
   {
-    "url": "https://jqlang.github.io/jq/manual/v1.6/#Formatstringsandescaping",
+    "url": "https://jqlang.github.io/jq/manual/v1.7/#format-strings-and-escaping",
     "description": "Format strings and escaping"
   }
 ]

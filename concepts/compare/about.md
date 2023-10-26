@@ -29,7 +29,7 @@ The comparison operators above can also be used to compare strings.
 In that case, a dictionary (lexicographical) order is applied.
 The ordering is [by unicode codepoint value][sort].
 
-[sort]: https://jqlang.github.io/jq/manual/v1.6/#sort,sort_by(path_expression)
+[sort]: https://jqlang.github.io/jq/manual/v1.7/#sort-sort_by
 
 ```jq
 "Apple" > "Pear",   # => false
