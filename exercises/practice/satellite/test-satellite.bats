@@ -1,6 +1,15 @@
 #!/usr/bin/env bats
-# generated on 2022-11-02T20:59:46Z
+# generated on 2023-11-07T18:49:22Z
 load bats-extra
+
+assert_objects_equal() {
+    local result=$(
+        jq -n --argjson actual "$1" \
+              --argjson expected "$2" \
+            '$actual == $expected'
+    )
+    [[ $result == "true" ]]
+}
 
 @test 'Empty tree' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -14,7 +23,7 @@ END_INPUT
 
     assert_success
     expected='{}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Tree with one item' {
@@ -33,7 +42,7 @@ END_INPUT
 
     assert_success
     expected='{"v":"a","l":{},"r":{}}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Tree with many items' {
@@ -60,7 +69,7 @@ END_INPUT
 
     assert_success
     expected='{"v":"a","l":{"v":"i","l":{},"r":{}},"r":{"v":"x","l":{"v":"f","l":{},"r":{}},"r":{"v":"r","l":{},"r":{}}}}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Reject traversals of different length' {
@@ -130,4 +139,3 @@ END_INPUT
     expected='traversals must contain unique items'
     assert_equal "$output" "$expected"
 }
-

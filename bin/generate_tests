@@ -142,31 +142,42 @@ END_PREAMBLE
                 ;
 
              def generate_test:
+                (.expected | type == "object") as $isobj
+                | (.expected | type == "array") as $isarr
+                | ($isobj and (.expected | has("error"))) as $iserr
+                | (if ($isobj or $isarr)
+                    then ($cmd | sub("jq -r";"jq -c"))
+                    else $cmd
+                    end) as $command
+                |
                 "\n"
                 + "@test \(.description | @sh) {\n"
                 + "    "
                 + "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n"
                 + "\n"
-                + "    run \($cmd) << \($Q)END_INPUT\($Q)"
+                + "    run \($command) << \($Q)END_INPUT\($Q)"
                 , if $property then {property, input} else .input end
                 , "END_INPUT\n"
-                , ( if (.expected | type == "object" and has("error"))
+                , ( if $iserr
                     then
                         "    assert_failure\n"
-                        + "    expected=\(.expected.error | @sh)\n"
+                        + "    expected=\(.expected.error | @sh)"
                     else
                         "    assert_success"
                         , ( .expected
-                            | if type | IN("array","object")
-                                then
-                                  "    expected=$(cat << \($Q)END_EXPECTED\($Q)"
-                                  , .
-                                  , "END_EXPECTED\n)"
+                            | if ($isobj or $isarr)
+                                then "    expected=\(@json | @sh)"
                                 else "    expected=\(@sh)"
                               end
                           )
                     end
-                    , "    assert_equal \"$output\" \"$expected\""
+                    ,
+                    if ($isobj and ($iserr | not))
+                    then
+                        "    assert_objects_equal \"$output\" \"$expected\""
+                    else
+                        "    assert_equal \"$output\" \"$expected\""
+                    end
                 )
                 , "}"
                 ;
@@ -177,14 +188,37 @@ END_PREAMBLE
         ' "$canonicalData"
     } \
     | awk '
-        # skip the first test
+        # un-skip the first test
         /BATS_RUN_SKIPPED/ && !seen {
             sub(/[[]/, "#[")
             seen = 1
         }
+        # indent the input
+        /^END_INPUT$/ {indent = 0}
+        indent {sub(/^/, "        ")}
+        /<< .END_INPUT/ {indent = 1}
         1
     ' \
     | tee "$testFile"
+
+    if grep -q assert_objects_equal "$testFile"; then
+        local t=$(mktemp)
+        local func=$(cat <<'END_FUNC'
+assert_objects_equal() {
+    local result=$(
+        jq -n --argjson actual "$1" \\
+              --argjson expected "$2" \\
+            '$actual == $expected'
+    )
+    [[ $result == "true" ]]
+}
+END_FUNC
+)
+        awk -v fn="$func" '
+            {print}
+            /load bats-extra/ { print ""; print fn }
+        ' "$testFile" > "$t" && mv "$t" "$testFile"
+    fi
 }
 
 [[ -d ./exercises/practice ]] || die "Run me from the repo root."
