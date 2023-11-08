@@ -1,6 +1,15 @@
 #!/usr/bin/env bats
-# generated on 2022-11-02T20:59:53Z
+# generated on 2023-11-07T18:49:23Z
 load bats-extra
+
+assert_objects_equal() {
+    local result=$(
+        jq -n --argjson actual "$1" \
+              --argjson expected "$2" \
+            '$actual == $expected'
+    )
+    [[ $result == "true" ]]
+}
 
 @test 'Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
@@ -16,7 +25,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":4,"goalBucket":"one","otherBucket":5}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Measure using bucket one of size 3 and bucket two of size 5 - start with bucket two' {
@@ -33,7 +42,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":8,"goalBucket":"two","otherBucket":3}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Measure using bucket one of size 7 and bucket two of size 11 - start with bucket one' {
@@ -50,7 +59,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":14,"goalBucket":"one","otherBucket":11}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Measure using bucket one of size 7 and bucket two of size 11 - start with bucket two' {
@@ -67,7 +76,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":18,"goalBucket":"two","otherBucket":7}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Measure one step using bucket one of size 1 and bucket two of size 3 - start with bucket two' {
@@ -84,7 +93,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":1,"goalBucket":"two","otherBucket":0}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Measure using bucket one of size 2 and bucket two of size 3 - start with bucket one and end with bucket two' {
@@ -101,7 +110,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":2,"goalBucket":"two","otherBucket":2}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Not possible to reach the goal' {
@@ -135,7 +144,7 @@ END_INPUT
 
     assert_success
     expected='{"moves":10,"goalBucket":"two","otherBucket":0}'
-    assert_equal "$output" "$expected"
+    assert_objects_equal "$output" "$expected"
 }
 
 @test 'Goal larger than both buckets is impossible' {
@@ -154,4 +163,3 @@ END_INPUT
     expected='impossible'
     assert_equal "$output" "$expected"
 }
-
