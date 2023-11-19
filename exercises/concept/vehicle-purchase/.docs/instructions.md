@@ -45,12 +45,12 @@ Implement the `resell_price` function that applies this logic using `if`, `elif`
 It takes an object holding the original price and the age of the vehicle and returns the estimated price in the dealership.
 
 ```jq
-{"original_price: 1000, "age": 1} | resell_price
+{"original_price": 1000, "age": 1} | resell_price
 # => 800
 
-{"original_price: 1000, "age": 5} | resell_price
+{"original_price": 1000, "age": 5} | resell_price
 # => 700
 
-{"original_price: 1000, "age": 15} | resell_price
+{"original_price": 1000, "age": 15} | resell_price
 # => 500
 ```
