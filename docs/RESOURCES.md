@@ -1,8 +1,8 @@
 # Resources
 
 - [jq home page][jq]
-- Github: [stedolan/jq][github]
-- Supplementary documentation: [stedolan/jq/wiki][wiki]
+- Github: [jqlang/jq][github]
+- Supplementary documentation: [jqlang/jq/wiki][wiki]
 - [jqplay.org][jqplay], an online "playground" for interacting with a jq interpreter
 - [ijq][ijq], interactive jq tool, like jqplay for the commandline.
 - [Exercism jq Cookbook][cook], an effort created by [@sshine][sshine].
