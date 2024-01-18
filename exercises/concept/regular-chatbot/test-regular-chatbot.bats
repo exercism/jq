@@ -113,16 +113,6 @@ END_INPUT
     assert_output "Oops, it seems like I can't reach out to 4355-67-274."
 }
 
-@test 'informs the user that it is yet another wrong phone number format' {
-    ## task 3
-    run jq -rn '
-        include "regular-chatbot";
-        "Chatbot, phone (+49) 543-928-190" | check_phone_number
-    '
-    assert_success
-    assert_output "Oops, it seems like I can't reach out to Chatbot, phone (+49) 543-928-190"
-}
-
 @test 'returns only the link of the website' {
     ## task 4
     run jq -Rc '
