@@ -88,16 +88,7 @@ END_INPUT
     run jq -Rr '
         include "regular-chatbot";
         check_phone_number
-    ' <<< 'chatbot, phone (+34) 643-876-459 please'
-    assert_success
-    assert_output 'Thanks! Your phone number is OK.'
-}
-
-@test 'recognizes a phone number with another correct format' {
-    run jq -Rr '
-        include "regular-chatbot";
-        check_phone_number
-    ' <<< '(+49) 543-928-190'
+    ' <<< '(+34) 643-876-459'
     assert_success
     assert_output 'Thanks! Your phone number is OK.'
 }
@@ -120,6 +111,16 @@ END_INPUT
     '
     assert_success
     assert_output "Oops, it seems like I can't reach out to 4355-67-274."
+}
+
+@test 'informs the user that it is yet another wrong phone number format' {
+    ## task 3
+    run jq -rn '
+        include "regular-chatbot";
+        "Chatbot, phone (+49) 543-928-190" | check_phone_number
+    '
+    assert_success
+    assert_output "Oops, it seems like I can't reach out to Chatbot, phone (+49) 543-928-190"
 }
 
 @test 'returns only the link of the website' {
