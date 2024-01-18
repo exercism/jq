@@ -24,7 +24,7 @@ def remove_emoji:
 # - a phone number has the form "(+NN) NNN-NNN-NNN"
 #   where N is a digit
 #
-# input: {string} number
+# input: {string} phone number
 # output: {string} the Chatbot response to the phone validation
 def check_phone_number:
   . # implement the body of this function

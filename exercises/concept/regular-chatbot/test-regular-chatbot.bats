@@ -88,16 +88,7 @@ END_INPUT
     run jq -Rr '
         include "regular-chatbot";
         check_phone_number
-    ' <<< 'chatbot, phone (+34) 643-876-459 please'
-    assert_success
-    assert_output 'Thanks! Your phone number is OK.'
-}
-
-@test 'recognizes a phone number with another correct format' {
-    run jq -Rr '
-        include "regular-chatbot";
-        check_phone_number
-    ' <<< '(+49) 543-928-190'
+    ' <<< '(+34) 643-876-459'
     assert_success
     assert_output 'Thanks! Your phone number is OK.'
 }
