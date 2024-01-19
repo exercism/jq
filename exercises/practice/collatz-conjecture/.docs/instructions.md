@@ -10,6 +10,8 @@ The conjecture states that no matter which number you start with, you will alway
 
 Given a number n, return the number of steps required to reach 1.
 
+If the function receives an invalid input, it should [error out](https://jqlang.github.io/jq/manual/#halt_error) with the message `"Only positive integers are allowed"`
+
 ## Examples
 
 Starting with n = 12, the steps would be as follows:
