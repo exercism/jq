@@ -32,123 +32,46 @@
       ".meta/exemplar.jq"
     ]
   },
-  "concepts": [
-    {
-      "slug": "basics",
-      "name": "Basics",
-      "uuid": "33185105-995d-48a5-ba84-53241a41ce7e"
-    },
-    {
-      "slug": "variables",
-      "name": "Variables",
-      "uuid": "466a02be-fb6e-4460-b8f8-60d51398adbf"
-    },
-    {
-      "slug": "functions",
-      "name": "Functions",
-      "uuid": "e3655c76-6f9b-4b96-9bd2-51ef26eebe35"
-    },
-    {
-      "slug": "numbers",
-      "name": "Numbers",
-      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99"
-    },
-    {
-      "slug": "strings",
-      "name": "Strings",
-      "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab"
-    },
-    {
-      "slug": "arrays",
-      "name": "Arrays",
-      "uuid": "e6681982-94de-41bb-a4e6-3174aa8e6797"
-    },
-    {
-      "slug": "objects",
-      "name": "Objects",
-      "uuid": "5adcd50d-90fb-41b2-8ca4-c58eecd361ff"
-    },
-    {
-      "slug": "compare",
-      "name": "Compare",
-      "uuid": "2cbe3378-9cae-43a1-b6cd-fbe77380dc56"
-    },
-    {
-      "slug": "conditionals",
-      "name": "Conditionals",
-      "uuid": "5afdc5e4-0128-4e2f-a5c2-ba6e3121c672"
-    },
-    {
-      "slug": "recursion",
-      "name": "Recursion",
-      "uuid": "3ae02c6b-9b1d-442f-b3f3-aafc98b5d2a8"
-    },
-    {
-      "slug": "regular-expressions",
-      "name": "Regular Expressions",
-      "uuid": "87548899-a18f-4bcc-b2de-8e9c6b91aa6a"
-    },
-    {
-      "slug": "reduce",
-      "name": "Reduce",
-      "uuid": "fe26c133-f9ef-4a69-abcd-4886605aa343"
-    }
-  ],
   "exercises": {
-    "foregone": [
-      "grains",
-      "allergies",
-      "secret-handshake",
-      "variable-length-quantity",
-      "markdown",
-      "ledger",
-      "tree-building",
-      "dnd-character",
-      "robot-name",
-      "bank-account",
-      "parallel-letter-frequency",
-      "hangman",
-      "grep",
-      "paasio"
-    ],
     "concept": [
       {
         "slug": "shopping",
         "name": "Shopping List",
+        "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
         "concepts": [
           "basics"
         ],
         "prerequisites": [],
-        "uuid": "3e39a7ee-fb84-4a82-b904-d7a2c2863519",
         "status": "beta"
       },
       {
         "slug": "assembly-line",
         "name": "Assembly Line",
+        "uuid": "decbf137-ed00-412d-99ce-9b963da014a5",
         "concepts": [
           "numbers"
         ],
         "prerequisites": [
           "basics"
         ],
-        "uuid": "decbf137-ed00-412d-99ce-9b963da014a5",
         "status": "beta"
       },
       {
         "slug": "log-line-parser",
         "name": "Log Line Parser",
+        "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
         "concepts": [
           "strings"
         ],
         "prerequisites": [
           "basics"
         ],
-        "uuid": "0e972cb9-0828-4f09-895b-12ae2d9e8683",
         "status": "beta"
       },
       {
         "slug": "bird-count",
         "name": "Bird Count",
+        "uuid": "8d974499-a5bb-4c34-ab2b-cd34e28c66a0",
         "concepts": [
           "arrays"
         ],
@@ -156,12 +79,12 @@
           "numbers",
           "strings"
         ],
-        "uuid": "8d974499-a5bb-4c34-ab2b-cd34e28c66a0",
         "status": "beta"
       },
       {
         "slug": "high-score-board",
         "name": "High Score Board",
+        "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
         "concepts": [
           "objects"
         ],
@@ -169,12 +92,12 @@
           "numbers",
           "strings"
         ],
-        "uuid": "f4875e43-ce46-4d91-a333-334f1aa58d11",
         "status": "beta"
       },
       {
         "slug": "lasagna",
         "name": "Lasagna",
+        "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "concepts": [
           "variables"
         ],
@@ -182,12 +105,12 @@
           "arrays",
           "objects"
         ],
-        "uuid": "da65406b-02b8-4d7a-a12c-e90205fde8ea",
         "status": "beta"
       },
       {
         "slug": "vehicle-purchase",
         "name": "Vehicle Purchase",
+        "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "concepts": [
           "compare",
           "conditionals"
@@ -196,36 +119,36 @@
           "arrays",
           "objects"
         ],
-        "uuid": "4d74e35b-eead-4cb6-8161-cb34da0b5f2d",
         "status": "beta"
       },
       {
         "slug": "remote-control-car",
         "name": "Remote Control Car",
+        "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
         "concepts": [
           "functions"
         ],
         "prerequisites": [
           "variables"
         ],
-        "uuid": "72875873-e8cf-4d2b-88cf-bf61f70bad3b",
         "status": "beta"
       },
       {
         "slug": "grade-stats",
         "name": "Grade Stats",
+        "uuid": "f18aa833-4fdb-4668-8511-4d027d983042",
         "concepts": [
           "reduce"
         ],
         "prerequisites": [
           "variables"
         ],
-        "uuid": "f18aa833-4fdb-4668-8511-4d027d983042",
         "status": "beta"
       },
       {
         "slug": "recursive-functions",
         "name": "Recursive Functions",
+        "uuid": "3b981b48-5826-4460-8c3e-59b2c28f46f1",
         "concepts": [
           "recursion"
         ],
@@ -233,35 +156,34 @@
           "functions",
           "conditionals"
         ],
-        "uuid": "3b981b48-5826-4460-8c3e-59b2c28f46f1",
         "status": "beta"
       },
       {
         "slug": "regular-chatbot",
         "name": "Regular Chatbot",
+        "uuid": "a75968a8-5c37-4f20-a966-7c6e549e17fe",
         "concepts": [
           "regular-expressions"
         ],
         "prerequisites": [
           "strings"
         ],
-        "uuid": "a75968a8-5c37-4f20-a966-7c6e549e17fe",
         "status": "beta"
       }
     ],
     "practice": [
       {
-        "uuid": "371035b8-691f-4ce3-9b5d-8e3e3d01675d",
         "slug": "hello-world",
         "name": "Hello World",
+        "uuid": "371035b8-691f-4ce3-9b5d-8e3e3d01675d",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
       },
       {
-        "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
         "slug": "two-fer",
         "name": "Two Fer",
+        "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
         "practices": [
           "strings"
         ],
@@ -271,9 +193,9 @@
         "difficulty": 2
       },
       {
-        "uuid": "159b04aa-5814-4f04-822b-be4b4c6265a8",
         "slug": "raindrops",
         "name": "Raindrops",
+        "uuid": "159b04aa-5814-4f04-822b-be4b4c6265a8",
         "practices": [
           "numbers",
           "conditionals"
@@ -284,9 +206,9 @@
         "difficulty": 2
       },
       {
-        "uuid": "12820127-b3a2-47f3-9c77-1a8b13a1abde",
         "slug": "leap",
         "name": "Leap",
+        "uuid": "12820127-b3a2-47f3-9c77-1a8b13a1abde",
         "practices": [
           "numbers",
           "compare"
@@ -326,13 +248,13 @@
         "slug": "flatten-array",
         "name": "Flatten Array",
         "uuid": "39b6cd35-ab3c-4041-ad53-c1e405aa890d",
-        "difficulty": 2,
         "practices": [
           "arrays"
         ],
         "prerequisites": [
           "arrays"
-        ]
+        ],
+        "difficulty": 2
       },
       {
         "slug": "resistor-color",
@@ -374,9 +296,9 @@
         "difficulty": 2
       },
       {
-        "uuid": "9cc9d093-5413-45c4-bb4d-047f8f955f89",
         "slug": "hamming",
         "name": "Hamming",
+        "uuid": "9cc9d093-5413-45c4-bb4d-047f8f955f89",
         "practices": [
           "strings",
           "arrays"
@@ -388,9 +310,9 @@
         "difficulty": 2
       },
       {
-        "uuid": "9936e3b1-1a43-4c66-927b-0c9b1d8fc67e",
         "slug": "collatz-conjecture",
         "name": "Collatz Conjecture",
+        "uuid": "9936e3b1-1a43-4c66-927b-0c9b1d8fc67e",
         "practices": [
           "numbers",
           "recursion"
@@ -492,16 +414,32 @@
         "slug": "series",
         "name": "Series",
         "uuid": "824cefbf-a25d-445c-abc4-d92824006de1",
-        "difficulty": 2,
-        "practices":     ["conditionals", "numbers", "strings", "compare", "variables", "functions"],
-        "prerequisites": ["conditionals", "numbers", "strings", "compare"]
+        "practices": [
+          "conditionals",
+          "numbers",
+          "strings",
+          "compare",
+          "variables",
+          "functions"
+        ],
+        "prerequisites": [
+          "conditionals",
+          "numbers",
+          "strings",
+          "compare"
+        ],
+        "difficulty": 2
       },
       {
         "slug": "pop-count",
         "name": "Eliud's Eggs",
         "uuid": "551a953d-0f22-4433-8131-dd5606dbc156",
-        "practices": ["recursion"],
-        "prerequisites": ["conditionals"],
+        "practices": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "conditionals"
+        ],
         "difficulty": 2
       },
       {
@@ -570,7 +508,6 @@
         "slug": "luhn",
         "name": "Luhn",
         "uuid": "1571cd8e-1ccb-4229-87ce-a0c190416a96",
-        "difficulty": 5,
         "practices": [
           "strings",
           "numbers",
@@ -581,7 +518,8 @@
         "prerequisites": [
           "compare",
           "conditionals"
-        ]
+        ],
+        "difficulty": 5
       },
       {
         "slug": "beer-song",
@@ -649,6 +587,14 @@
         "difficulty": 5
       },
       {
+        "slug": "roman-numerals",
+        "name": "Roman Numerals",
+        "uuid": "a23b4ec0-de47-4891-b355-977c1da431c0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "64890036-c508-4a52-a663-0e4c874625be",
@@ -680,8 +626,86 @@
         "prerequisites": [],
         "difficulty": 9
       }
+    ],
+    "foregone": [
+      "grains",
+      "allergies",
+      "secret-handshake",
+      "variable-length-quantity",
+      "markdown",
+      "ledger",
+      "tree-building",
+      "dnd-character",
+      "robot-name",
+      "bank-account",
+      "parallel-letter-frequency",
+      "hangman",
+      "grep",
+      "paasio"
     ]
   },
+  "concepts": [
+    {
+      "uuid": "33185105-995d-48a5-ba84-53241a41ce7e",
+      "slug": "basics",
+      "name": "Basics"
+    },
+    {
+      "uuid": "466a02be-fb6e-4460-b8f8-60d51398adbf",
+      "slug": "variables",
+      "name": "Variables"
+    },
+    {
+      "uuid": "e3655c76-6f9b-4b96-9bd2-51ef26eebe35",
+      "slug": "functions",
+      "name": "Functions"
+    },
+    {
+      "uuid": "e2315ce0-b069-46f1-8bbe-806427d93b99",
+      "slug": "numbers",
+      "name": "Numbers"
+    },
+    {
+      "uuid": "0043083b-100f-4408-ba19-60cfe69bc7ab",
+      "slug": "strings",
+      "name": "Strings"
+    },
+    {
+      "uuid": "e6681982-94de-41bb-a4e6-3174aa8e6797",
+      "slug": "arrays",
+      "name": "Arrays"
+    },
+    {
+      "uuid": "5adcd50d-90fb-41b2-8ca4-c58eecd361ff",
+      "slug": "objects",
+      "name": "Objects"
+    },
+    {
+      "uuid": "2cbe3378-9cae-43a1-b6cd-fbe77380dc56",
+      "slug": "compare",
+      "name": "Compare"
+    },
+    {
+      "uuid": "5afdc5e4-0128-4e2f-a5c2-ba6e3121c672",
+      "slug": "conditionals",
+      "name": "Conditionals"
+    },
+    {
+      "uuid": "3ae02c6b-9b1d-442f-b3f3-aafc98b5d2a8",
+      "slug": "recursion",
+      "name": "Recursion"
+    },
+    {
+      "uuid": "87548899-a18f-4bcc-b2de-8e9c6b91aa6a",
+      "slug": "regular-expressions",
+      "name": "Regular Expressions"
+    },
+    {
+      "uuid": "fe26c133-f9ef-4a69-abcd-4886605aa343",
+      "slug": "reduce",
+      "name": "Reduce"
+    }
+  ],
   "key_features": [
     {
       "title": "Widely used",
@@ -716,10 +740,10 @@
   ],
   "tags": [
     "paradigm/functional",
-    "typing/dynamic",
-    "used_for/scripts",
     "platform/linux",
     "platform/mac",
-    "platform/windows"
+    "platform/windows",
+    "typing/dynamic",
+    "used_for/scripts"
   ]
 }
