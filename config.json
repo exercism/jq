@@ -628,20 +628,22 @@
       }
     ],
     "foregone": [
-      "grains",
       "allergies",
-      "secret-handshake",
-      "variable-length-quantity",
-      "markdown",
-      "ledger",
-      "tree-building",
-      "dnd-character",
-      "robot-name",
       "bank-account",
-      "parallel-letter-frequency",
-      "hangman",
+      "circular-buffer",
+      "dnd-character",
+      "grains",
       "grep",
-      "paasio"
+      "hangman",
+      "ledger",
+      "list-ops",
+      "markdown",
+      "paasio",
+      "parallel-letter-frequency",
+      "robot-name",
+      "secret-handshake",
+      "tree-building",
+      "variable-length-quantity"
     ]
   },
   "concepts": [
