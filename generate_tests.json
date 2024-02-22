@@ -20,6 +20,7 @@
   ],
   "include .property in input json": [
     "atbash-cipher",
+    "difference-of-squares",
     "resistor-color",
     "run-length-encoding",
     "zebra-puzzle"
