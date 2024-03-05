@@ -455,6 +455,22 @@
         "difficulty": 5
       },
       {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "22bacfc3-7df0-4f40-852f-a5ce44ba1ddf",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "difference-of-squares",
+        "name": "Difference Of Squares",
+        "uuid": "25cd3a15-6a74-4af8-b845-5b22ce5c1c6f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "proverb",
         "name": "Proverb",
         "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
@@ -625,22 +641,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 9
-      },
-      {
-        "slug": "acronym",
-        "name": "Acronym",
-        "uuid": "22bacfc3-7df0-4f40-852f-a5ce44ba1ddf",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2
-      },
-      {
-        "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
-        "uuid": "25cd3a15-6a74-4af8-b845-5b22ce5c1c6f",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 3
       }
     ],
     "foregone": [
