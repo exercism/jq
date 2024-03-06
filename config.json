@@ -619,6 +619,14 @@
         "difficulty": 5
       },
       {
+        "slug": "all-your-base",
+        "name": "All Your Base",
+        "uuid": "6f43b01c-9d90-4de5-841e-0ae9b330d346",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "64890036-c508-4a52-a663-0e4c874625be",
