@@ -86,3 +86,46 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
+@test 'wide characters' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f reverse-string.jq << 'END_INPUT'
+        {
+          "value": "子猫"
+        }
+END_INPUT
+
+    assert_success
+    expected="猫子"
+    assert_equal "$output" "$expected"
+}
+
+# Extra credit:
+
+# @test 'grapheme cluster with pre-combined form' {
+#     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+# 
+#     run jq -r -f reverse-string.jq << 'END_INPUT'
+#         {
+#           "value": "Würstchenstand"
+#         }
+# END_INPUT
+# 
+#     assert_success
+#     expected='dnatsnehctsrüW'
+#     assert_equal "$output" "$expected"
+# }
+
+# @test 'grapheme clusters' {
+#     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+# 
+#     run jq -r -f reverse-string.jq << 'END_INPUT'
+#         {
+#           "value": "ผู้เขียนโปรแกรม"
+#         }
+# END_INPUT
+# 
+#     assert_success
+#     expected='มรกแรปโนยขีเผู้'
+#     assert_equal "$output" "$expected"
+# }
