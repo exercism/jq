@@ -103,7 +103,6 @@ END_INPUT
 # Extra credit:
 
 # @test 'grapheme cluster with pre-combined form' {
-#     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 # 
 #     run jq -r -f reverse-string.jq << 'END_INPUT'
 #         {
@@ -117,7 +116,6 @@ END_INPUT
 # }
 
 # @test 'grapheme clusters' {
-#     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 # 
 #     run jq -r -f reverse-string.jq << 'END_INPUT'
 #         {
