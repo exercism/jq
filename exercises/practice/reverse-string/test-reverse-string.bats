@@ -86,3 +86,17 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
+@test 'wide characters' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f reverse-string.jq << 'END_INPUT'
+        {
+          "value": "子猫"
+        }
+END_INPUT
+
+    assert_success
+    expected='猫子'
+    assert_equal "$output" "$expected"
+}
+
