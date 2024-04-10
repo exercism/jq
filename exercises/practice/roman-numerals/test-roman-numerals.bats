@@ -209,3 +209,11 @@ load bats-extra
     expected='MMMCMXCIX'
     assert_equal "$output" "$expected"
 }
+
+@test '3888 is MMMDCCCLXXXVIII' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    run jq -r -f roman-numerals.jq <<< '{"number": 3888}'
+    assert_success
+    expected='MMMDCCCLXXXVIII'
+    assert_equal "$output" "$expected"
+}
