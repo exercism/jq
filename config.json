@@ -619,6 +619,14 @@
         "difficulty": 5
       },
       {
+        "slug": "yacht",
+        "name": "Yacht",
+        "uuid": "0d3b7d0a-bbcc-4aa2-a401-9d4c5e9af9d3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "6f43b01c-9d90-4de5-841e-0ae9b330d346",
