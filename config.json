@@ -627,6 +627,14 @@
         "difficulty": 5
       },
       {
+        "slug": "robot-simulator",
+        "name": "Robot Simulator",
+        "uuid": "bccc8be6-f70b-4134-98d3-e678d696f11c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "6f43b01c-9d90-4de5-841e-0ae9b330d346",
