@@ -667,6 +667,14 @@
         "difficulty": 5
       },
       {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "ce6036bc-b781-40d2-8b87-e5aa551bea2b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "64890036-c508-4a52-a663-0e4c874625be",
