@@ -635,6 +635,14 @@
         "difficulty": 5
       },
       {
+        "slug": "binary-search",
+        "name": "Binary Search",
+        "uuid": "61aa634a-744f-434e-ad68-6a6bcd079a7b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "pig-latin",
         "name": "Pig Latin",
         "uuid": "e881f5df-0242-4cfc-85b0-efed4eaa269f",
