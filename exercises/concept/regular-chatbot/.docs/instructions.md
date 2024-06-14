@@ -52,9 +52,9 @@ If the number is invalid, the Chatbot informs the user that the phone number is 
 The expected format is `(+NN) NNN-NNN-NNN`, where N is a digit.
 
 ```jq
-"chatbot my phone number is (+34) 659-771-594" | check_phone_number
+"(+34) 659-771-594" | check_phone_number
 # => "Thanks! Your phone number is OK."
-"chatbot, call me at 659-771-594" | check_phone_number
+"659-771-594" | check_phone_number
 # => "Oops, it seems like I can't reach out to 659-771-594."
 ```
 
