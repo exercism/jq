@@ -6,24 +6,26 @@ Create more: concepts, concept exercises, practice exercises.
 
 ## Foregone exercises
 
-| Exercise                  |                                       Reason                                       |
-| ------------------------- | :--------------------------------------------------------------------------------: |
+| Exercise                  | Reason                                                                             |
+| ------------------------- | ---------------------------------------------------------------------------------- |
+| allergies                 | No bitwise operators                                                               |
+| bank-account              | No parallelism/concurrency                                                         |
+| circular-buffer           | It feels beyond the realm of practical jq usage                                    |
+| dnd-character             | No builtin randomness functionality                                                |
 | grains                    | jq uses [IEEE 754 floats to represent numbers][numbers]: only 53 bits of precision |
-| allergies                 |                                no bitwise operators                                |
-| secret-handshake          |                                         "                                          |
-| variable-length-quantity  |                                         "                                          |
-| ledger                    |                       I hate creating refactoring exercises                        |
-| markdown                  |                                         "                                          |
-| tree-building             |                                         "                                          |
-| dnd-character             |                        no builtin randomness functionality                         |
-| robot-name                |                                         "                                          |
-| bank-account              |                             no parallelism/concurrency                             |
-| parallel-letter-frequency |                                         "                                          |
-| hangman                   |                         no functional reactive programming                         |
-| grep                      |                                  no IO functions                                   |
-| paasio                    |                                         "                                          |
+| grep                      | No IO functions                                                                    |
+| hangman                   | No functional reactive programming                                                 |
+| ledger                    | I (glennj) hate creating refactoring exercises                                     |
+| list-ops                  | No first-class functions                                                           |
+| markdown                  | I (glennj) hate creating refactoring exercises                                     |
+| paasio                    | No IO functions                                                                    |
+| parallel-letter-frequency | No parallelism/concurrency                                                         |
+| robot-name                | No builtin randomness functionality                                                |
+| secret-handshake          | No bitwise operators                                                               |
+| tree-building             | I (glennj) hate creating refactoring exercises                                     |
+| variable-length-quantity  | No bitwise operators                                                               |
 
-bitwise operations: they [can be implemented][jbol-bitwise], but that's too much I think.
+Bitwise operations: they [can be implemented][jbol-bitwise], but that's too much I think.
 Unless we provide it as a library to include ...
 
 JBOL includes an implementation of [pseudo-random numbers][jbol-chance].
