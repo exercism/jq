@@ -24,6 +24,7 @@ get_download_url() {
   local latest='https://api.github.com/repos/exercism/configlet/releases/latest'
   local arch
   case "$(uname -m)" in
+    aarch64|arm64) arch=arm64 ;;
     x86_64) arch='x86-64' ;;
     *686*)  arch='i386'   ;;
     *386*)  arch='i386'   ;;

@@ -443,18 +443,6 @@
         "difficulty": 2
       },
       {
-        "slug": "gigasecond",
-        "name": "Gigasecond",
-        "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
-        "practices": [
-          "variables"
-        ],
-        "prerequisites": [
-          "variables"
-        ],
-        "difficulty": 5
-      },
-      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "22bacfc3-7df0-4f40-852f-a5ce44ba1ddf",
@@ -497,6 +485,18 @@
         "uuid": "050989e4-5b2f-4c9b-9294-53c6396cc21d",
         "practices": [],
         "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "gigasecond",
+        "name": "Gigasecond",
+        "uuid": "0a2d780d-a3c3-4e00-8786-71aa8a61e8c6",
+        "practices": [
+          "variables"
+        ],
+        "prerequisites": [
+          "variables"
+        ],
         "difficulty": 5
       },
       {
@@ -670,6 +670,14 @@
         "slug": "rotational-cipher",
         "name": "Rotational Cipher",
         "uuid": "ce6036bc-b781-40d2-8b87-e5aa551bea2b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "largest-series-product",
+        "name": "Largest Series Product",
+        "uuid": "856db8a5-5c45-4010-b657-cb758364dccc",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
