@@ -366,7 +366,21 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'Non-existing codon can'\''t translate' {
+@test 'Sequence of two non-STOP codons is not matched to a STOP codon' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -c -f protein-translation.jq << 'END_INPUT'
+        {
+          "strand": "AGUAGU"
+        }
+END_INPUT
+
+    assert_success
+    expected='["Methionine","Methionine"]'
+    assert_equal "$output" "$expected"
+}
+
+@test 'Non-existing codon can not translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f protein-translation.jq << 'END_INPUT'
@@ -380,7 +394,7 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'Unknown amino acids, not part of a codon, can'\''t translate' {
+@test 'Unknown amino acids, not part of a codon, can not translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f protein-translation.jq << 'END_INPUT'
@@ -394,7 +408,7 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'Incomplete RNA sequence can'\''t translate' {
+@test 'Incomplete RNA sequence can not translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f protein-translation.jq << 'END_INPUT'
