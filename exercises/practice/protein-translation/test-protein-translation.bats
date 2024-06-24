@@ -371,7 +371,7 @@ END_INPUT
 
     run jq -c -f protein-translation.jq << 'END_INPUT'
         {
-          "strand": "AGUAGU"
+          "strand": "AUGAUG"
         }
 END_INPUT
 
