@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 # generated on 
 load bats-extra
+load bats-jq
 
 @test 'single bit one to decimal' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip

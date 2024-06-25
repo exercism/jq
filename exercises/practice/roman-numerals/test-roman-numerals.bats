@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 # generated on 2024-01-24T19:54:13Z
 load bats-extra
+load bats-jq
 
 @test '1 is I' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
