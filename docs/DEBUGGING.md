@@ -3,9 +3,10 @@
 `jq` comes with a handy [`debug`][debug] filter.
 Use it while you are developing your exercise solutions to inspect the data that is currently in the jq pipline.
 
-`debug` print a "debug array" to **stderr**.
+`debug` prints a "debug array" to **stderr**.
+It outputs the input unchanged.
 The first element of the array is the string "DEBUG:".
-The second element depends on how you invoke `debug`:
+The second element depends on how you invoke `debug`.
 
 1. the zero-arity debug function puts a compact representation of the input into the array:
 
@@ -24,7 +25,7 @@ The second element depends on how you invoke `debug`:
      ]
     ```
 
-2. the one-arity version pipes the input through the given filter, prints the debug message, and outputs the input unchanged:
+2. the one-arity version pipes the input through the given filter:
 
     ```sh
     jq -n '[11, 22, 33] | debug("length: \(length), last: \(.[-1])") | map(. * 2)'
@@ -39,7 +40,8 @@ The second element depends on how you invoke `debug`:
      ]
     ```
 
-    The filter doesn't need to be a string, it can be anything, including multiple comma-separated expressions for "multi-line" debug output:
+    The filter doesn't need to be a string.
+    It can be anything, including multiple comma-separated expressions for "multi-line" debug output:
 
     ```sh
     jq -n '[11, 22, 33] as $a | 44 | debug("I am here:", $a, .)'
