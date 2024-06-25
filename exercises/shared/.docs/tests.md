@@ -65,7 +65,16 @@ Then run tests with just:
 bats
 ```
 
+## Debugging in `jq`
+
+`jq` comes with a handy [`debug`][debug] filter.
+Use it while you are developing your exercise solutions to inspect the data that is currently in the jq pipline.
+See the [debugging doc][debugging] for more details.
+
+
 [bash]: https://exercism.org/docs/tracks/bash/tests
 [bats-assert]: https://github.com/bats-core/bats-assert
 [here-string]: https://www.gnu.org/software/bash/manual/bash.html#Here-Strings
 [so]: https://unix.stackexchange.com/a/80372/4667
+[debug]: https://jqlang.github.io/jq/manual/v1.7/#debug
+[debugging]: /docs/tracks/jq/debugging
