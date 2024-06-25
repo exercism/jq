@@ -8,7 +8,7 @@ It outputs the input unchanged.
 The first element of the array is the string "DEBUG:".
 The second element depends on how you invoke `debug`.
 
-1. the zero-arity debug function puts a compact representation of the input into the array:
+1. the zero-arity debug function puts a compact representation of the input into the debug array:
 
     ```sh
     jq -n '[11, 22, 33] | debug | map(. * 2)'
