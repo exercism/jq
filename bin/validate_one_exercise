@@ -48,7 +48,7 @@ trap cleanup EXIT
 dir=$(mktemp -d)
 cp "${solution}" "${dir}/${stub}"
 cp "${tests}" "${dir}/${tests}"
-cp bats-extra.bash "${editor_files[@]}" "${dir}"
+cp bats-*.bash "${editor_files[@]}" "${dir}"
 
 # Run the tests
 cd "${dir}"

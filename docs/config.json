@@ -27,6 +27,13 @@
       "path": "docs/RESOURCES.md",
       "title": "Useful jq resources",
       "blurb": "A collection of useful resources to help you master jq"
+    },
+    {
+      "uuid": "d23a08e7-74aa-4402-a60b-3cc5bd4c5274",
+      "slug": "debugging",
+      "path": "docs/DEBUGGING.md",
+      "title": "How to debug in `jq`",
+      "blurb": "Some tips for using the `debug` function"
     }
   ]
 }

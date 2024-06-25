@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 # generated on 2024-06-07T20:49:24Z
 load bats-extra
+load bats-jq
 
 @test 'ay is added to words that start with vowels:word beginning with a' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
