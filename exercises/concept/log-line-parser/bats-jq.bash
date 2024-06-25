@@ -12,7 +12,7 @@
 
 
 jq() {
-    local output stderr rc
+    local output stderr rc line
     stderr=$(mktemp)
     output=$(command jq "$@" 2> "$stderr")
     rc=$?
@@ -23,7 +23,7 @@ jq() {
             echo "$line" >&2
         fi
     done < "$stderr"
-    rm "$stderr"
+    rm -f "$stderr"
     echo "$output"
-    return $rc
+    return "$rc"
 }

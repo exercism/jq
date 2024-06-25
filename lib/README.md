@@ -11,20 +11,10 @@ Also in here, bats files common to all exercises.
 
     ```bash
     for e in ./exercises/{concept,practice}/*/; do
-        cp -nvt "$e" ./lib/bats-*.bash
-    done
-    ```
-
-* to ensure every exercise is using what's in this directory:
-
-    ```bash
-    for e in ./exercises/{concept,practice}/*/; do
         for f in ./lib/bats-*.bash; do
             g=$(basename "$f")
-            if [[ -f "$e/$g" ]]; then
-                cmp "$e/$g" "./lib/$g" || echo "different: $e/$g"
-            else
-                echo "missing: $e/$g"
+            if [[ ! -f "$e/$g" ]] || ! cmp "$e/$g" "./lib/$g"; then
+                cp -vp "./lib/$g" "$e/$g"
             fi
         done
     done
