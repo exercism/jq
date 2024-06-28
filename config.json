@@ -691,6 +691,14 @@
         "difficulty": 5
       },
       {
+        "slug": "spiral-matrix",
+        "name": "Spiral Matrix",
+        "uuid": "f6a6dd80-371e-47ee-935b-3d3475c816a0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "64890036-c508-4a52-a663-0e4c874625be",
