@@ -114,6 +114,7 @@ writeTestFile() {
 #!/usr/bin/env bats
 # generated on $(date --utc "+%FT%TZ")
 load bats-extra
+load bats-jq
 END_PREAMBLE
 
         jq -r --arg slug "$slug" \
