@@ -79,7 +79,7 @@ jq  --arg slug "${slug}"     \
     ' "${conf}" > "${conf}.tmp" \
 && mv "${conf}.tmp" "${conf}"
 
-cp exercises/practice/hello-world/bats-extra.bash exercises/practice/"${slug}"
+cp -pt exercises/practice/"${slug}" lib/bats-*.bash
 
 ./bin/generate_tests "${slug}"
 
