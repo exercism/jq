@@ -367,6 +367,20 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
+@test 'Sequence of two non-STOP codons does not translate to a STOP codon' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -c -f protein-translation.jq << 'END_INPUT'
+        {
+          "strand": "AUGAUG"
+        }
+END_INPUT
+
+    assert_success
+    expected='["Methionine","Methionine"]'
+    assert_equal "$output" "$expected"
+}
+
 @test 'Non-existing codon can'\''t translate' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
