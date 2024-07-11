@@ -699,6 +699,14 @@
         "difficulty": 5
       },
       {
+        "slug": "minesweeper",
+        "name": "Minesweeper",
+        "uuid": "56376780-4074-4a07-a914-2230ef96abee",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "knapsack",
         "name": "Knapsack",
         "uuid": "64890036-c508-4a52-a663-0e4c874625be",

@@ -16,6 +16,7 @@
   "omit": [
     "gigasecond",
     "luhn",
+    "minesweeper",
     "nth-prime"
   ],
   "include .property in input json": [
