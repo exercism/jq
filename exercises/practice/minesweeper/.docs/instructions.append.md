@@ -31,7 +31,7 @@ What are they?
 
   You may have seen `-r` already, to output "raw" strings (without quotes).
   This is the opposite.
-  Each line of input is handled a string.
+  Each line of input is taken to be a string.
 
   Two examples:
 
@@ -49,7 +49,7 @@ What are they?
   "4242"
   ```
 
-When you put these two options together, you _dont't_ get an array of strings:
+When you put these two options together, you _don't_ get an array of strings:
 you get the entire input as a single string, including end-of-line newlines.
 
 ```sh
