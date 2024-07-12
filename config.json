@@ -467,6 +467,14 @@
         "difficulty": 2
       },
       {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "77f42da8-5888-47dd-a6da-af47a2312a5e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "proverb",
         "name": "Proverb",
         "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
