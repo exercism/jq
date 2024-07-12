@@ -21,7 +21,6 @@ Create more: concepts, concept exercises, practice exercises.
 | paasio                    | No IO functions                                                                    |
 | parallel-letter-frequency | No parallelism/concurrency                                                         |
 | robot-name                | No builtin randomness functionality                                                |
-| secret-handshake          | No bitwise operators                                                               |
 | tree-building             | I (glennj) hate creating refactoring exercises                                     |
 | variable-length-quantity  | No bitwise operators                                                               |
 
