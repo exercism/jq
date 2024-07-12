@@ -691,6 +691,14 @@
         "difficulty": 5
       },
       {
+        "slug": "pascals-triangle",
+        "name": "Pascals Triangle",
+        "uuid": "752f6077-e124-4eba-bbed-409df2b87509",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "spiral-matrix",
         "name": "Spiral Matrix",
         "uuid": "f6a6dd80-371e-47ee-935b-3d3475c816a0",
