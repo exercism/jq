@@ -591,6 +591,14 @@
         "difficulty": 5
       },
       {
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "f4e3f2b9-f019-46f9-9515-4234b67333db",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "nth-prime",
         "name": "Nth Prime",
         "uuid": "b269733a-e177-4102-bd91-8a206c10f42f",
@@ -748,7 +756,6 @@
       }
     ],
     "foregone": [
-      "allergies",
       "bank-account",
       "circular-buffer",
       "dnd-character",
