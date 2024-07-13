@@ -475,6 +475,14 @@
         "difficulty": 2
       },
       {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "77f42da8-5888-47dd-a6da-af47a2312a5e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "proverb",
         "name": "Proverb",
         "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
@@ -599,6 +607,14 @@
         "difficulty": 5
       },
       {
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "f4e3f2b9-f019-46f9-9515-4234b67333db",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "nth-prime",
         "name": "Nth Prime",
         "uuid": "b269733a-e177-4102-bd91-8a206c10f42f",
@@ -715,6 +731,14 @@
         "difficulty": 5
       },
       {
+        "slug": "secret-handshake",
+        "name": "Secret Handshake",
+        "uuid": "91a949bc-413b-481f-81f4-8d02f0e67843",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "minesweeper",
         "name": "Minesweeper",
         "uuid": "56376780-4074-4a07-a914-2230ef96abee",
@@ -756,7 +780,6 @@
       }
     ],
     "foregone": [
-      "allergies",
       "bank-account",
       "circular-buffer",
       "dnd-character",
@@ -769,7 +792,6 @@
       "paasio",
       "parallel-letter-frequency",
       "robot-name",
-      "secret-handshake",
       "tree-building",
       "variable-length-quantity"
     ]

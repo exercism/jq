@@ -20,6 +20,7 @@
     "nth-prime"
   ],
   "include .property in input json": [
+    "allergies",
     "atbash-cipher",
     "difference-of-squares",
     "resistor-color",
