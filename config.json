@@ -756,7 +756,6 @@
       }
     ],
     "foregone": [
-      "allergies",
       "bank-account",
       "circular-buffer",
       "dnd-character",
