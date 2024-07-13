@@ -8,7 +8,6 @@ Create more: concepts, concept exercises, practice exercises.
 
 | Exercise                  | Reason                                                                             |
 | ------------------------- | ---------------------------------------------------------------------------------- |
-| allergies                 | No bitwise operators                                                               |
 | bank-account              | No parallelism/concurrency                                                         |
 | circular-buffer           | It feels beyond the realm of practical jq usage                                    |
 | dnd-character             | No builtin randomness functionality                                                |
