@@ -66,59 +66,11 @@ Using `grep` as an example:
 
 - fork this repo
 - create a branch
-- add the exercise to `config.json` (just pick a difficulty value, this can always be changed later)
+- run the script to generate the exercise: follow the prompts and instructions
 
   ```sh
-  jq --arg slug "grep" \
-     --arg name "Grep" \
-     --arg uuid "$(bin/configlet uuid)" \
-     --argjson difficulty 5 \
-     --argjson practices '[]' \
-     --argjson prerequisites '[]' \
-     '.exercises.practice += [$ARGS.named]' \
-     config.json \
-  | sponge config.json
+  ./bin/add-exercise grep
   ```
-
-  This uses the `sponge` utility (from the linux `moreutils` package) to write back to the original file.
-  `jq` does not have a `-i` option like sed.
-  If you {don't have,can't install} sponge then do:
-
-  ```sh
-  jq ... config.json > config.tmp && mv config.tmp config.json
-  ```
-
-- use configlet to create the exercise directory structure:
-
-  ```sh
-  bin/fetch-configlet
-  bin/configlet sync --exercise grep --docs --update --yes
-  bin/configlet sync --exercise grep --metadata --update --yes
-  bin/configlet sync --exercise grep --tests include --update
-  ```
-
-- populate the exercise config file:
-
-  ```sh
-  conf=./exercises/practice/grep/.meta/config.json
-  jq --arg slug grep --arg author "yourGithubHandle" '
-    .authors += [$author]
-    | .files.solution = ["\($slug).jq"]
-    | .files.test = ["test-\($slug).bats"]
-    | .files.example = [".meta/example.jq"]
-  ' "$conf" | sponge "$conf"
-  ```
-
-- copy `./exercises/practice/grep/bats-extra.bash` from another exercise
-- create the stub solution file `./exercises/practice/grep/grep.jq` (or copy it from another exercise)
-- generate the test script
-
-  ```sh
-  bin/generate_tests grep
-  ```
-
-  If this creates a dubious-looking test suite, or if you have specific intentions, you may need to create it manually.
-  If that's the case, consider the contents of the `generate_tests.json` config file.
 
 - implement the example solution `./exercises/practice/grep/.meta/example.jq`
 - test with
@@ -130,10 +82,9 @@ Using `grep` as an example:
 - when the tests pass, reconsider the difficulty for the exercise in `config.json`: the list of practice exercises is sorted by difficulty.
 - should you create a `./exercises/practice/grep/.docs/instructions.append.md`?
   Is there any specific new aspect of `jq` that needs to be written about?
-- re-sync the exercise with problem-specifications:
+- check for any configlet errors
 
   ```sh
-  bin/configlet sync -e grep
   bin/configlet lint
   ```
 
