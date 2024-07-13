@@ -723,6 +723,14 @@
         "difficulty": 5
       },
       {
+        "slug": "secret-handshake",
+        "name": "Secret Handshake",
+        "uuid": "91a949bc-413b-481f-81f4-8d02f0e67843",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "minesweeper",
         "name": "Minesweeper",
         "uuid": "56376780-4074-4a07-a914-2230ef96abee",
@@ -776,7 +784,6 @@
       "paasio",
       "parallel-letter-frequency",
       "robot-name",
-      "secret-handshake",
       "tree-building",
       "variable-length-quantity"
     ]
