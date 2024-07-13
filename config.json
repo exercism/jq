@@ -483,6 +483,14 @@
         "difficulty": 2
       },
       {
+        "slug": "secret-handshake",
+        "name": "Secret Handshake",
+        "uuid": "91a949bc-413b-481f-81f4-8d02f0e67843",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "proverb",
         "name": "Proverb",
         "uuid": "7d822c90-c81a-45bb-b7ab-1b18ed8afdef",
@@ -726,14 +734,6 @@
         "slug": "spiral-matrix",
         "name": "Spiral Matrix",
         "uuid": "f6a6dd80-371e-47ee-935b-3d3475c816a0",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 5
-      },
-      {
-        "slug": "secret-handshake",
-        "name": "Secret Handshake",
-        "uuid": "91a949bc-413b-481f-81f4-8d02f0e67843",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
