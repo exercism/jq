@@ -504,6 +504,14 @@
         "difficulty": 5
       },
       {
+        "slug": "food-chain",
+        "name": "Food Chain",
+        "uuid": "5c308e27-f6bc-4d48-95c5-9edf4a09c440",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "run-length-encoding",
         "name": "Run Length Encoding",
         "uuid": "050989e4-5b2f-4c9b-9294-53c6396cc21d",
