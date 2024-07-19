@@ -594,6 +594,14 @@
         "difficulty": 5
       },
       {
+        "slug": "diamond",
+        "name": "Diamond",
+        "uuid": "a90d7d12-9380-4580-a051-223080f4bb40",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8df36e00-f4eb-4501-9282-ac1d17881c0d",
