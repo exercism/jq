@@ -1,4 +1,16 @@
 #!/usr/bin/env bats
+
+# ref http://forum.exercism.org/t/trouble-with-local-food-chain-testing/12180
+if [[ $BASH_VERSION == "3.2"* ]]; then
+    cat >&2 <<END_NOTE
+This test framework requires bash.
+Bash version 3.2 has bugs that break this test file.
+You are strongly encouraged to install a more recent version.
+See https://exercism.org/docs/tracks/bash/installation#h-macos
+END_NOTE
+    exit 1
+fi
+
 # generated on 2024-07-17T15:57:54Z
 load bats-extra
 load bats-jq
