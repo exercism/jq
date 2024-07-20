@@ -1,16 +1,4 @@
 #!/usr/bin/env bats
-
-# ref http://forum.exercism.org/t/trouble-with-local-food-chain-testing/12180
-if [[ $BASH_VERSION == "3.2"* ]]; then
-    cat >&2 <<END_NOTE
-This test framework requires bash.
-Bash version 3.2 has bugs that break this test file.
-You are strongly encouraged to install a more recent version.
-See https://exercism.org/docs/tracks/bash/installation#h-macos
-END_NOTE
-    exit 1
-fi
-
 # generated on 2024-07-17T15:57:54Z
 load bats-extra
 load bats-jq
@@ -25,11 +13,8 @@ load bats-jq
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+    expected="I know an old lady who swallowed a fly.
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -44,13 +29,10 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a spider.
+    expected="I know an old lady who swallowed a spider.
 It wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -65,14 +47,11 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a bird.
+    expected="I know an old lady who swallowed a bird.
 How absurd to swallow a bird!
 She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -87,15 +66,12 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a cat.
+    expected="I know an old lady who swallowed a cat.
 Imagine that, to swallow a cat!
 She swallowed the cat to catch the bird.
 She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -110,16 +86,13 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a dog.
+    expected="I know an old lady who swallowed a dog.
 What a hog, to swallow a dog!
 She swallowed the dog to catch the cat.
 She swallowed the cat to catch the bird.
 She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -134,17 +107,14 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a goat.
+    expected="I know an old lady who swallowed a goat.
 Just opened her throat and swallowed a goat!
 She swallowed the goat to catch the dog.
 She swallowed the dog to catch the cat.
 She swallowed the cat to catch the bird.
 She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -159,8 +129,7 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a cow.
+    expected="I know an old lady who swallowed a cow.
 I don't know how she swallowed a cow!
 She swallowed the cow to catch the goat.
 She swallowed the goat to catch the dog.
@@ -168,9 +137,7 @@ She swallowed the dog to catch the cat.
 She swallowed the cat to catch the bird.
 She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -185,11 +152,8 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a horse.
-She's dead, of course!
-END_EXPECTED
-)
+    expected="I know an old lady who swallowed a horse.
+She's dead, of course!"
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -204,8 +168,7 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a fly.
+    expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
 
 I know an old lady who swallowed a spider.
@@ -217,9 +180,7 @@ I know an old lady who swallowed a bird.
 How absurd to swallow a bird!
 She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.
 She swallowed the spider to catch the fly.
-I don't know why she swallowed the fly. Perhaps she'll die.
-END_EXPECTED
-)
+I don't know why she swallowed the fly. Perhaps she'll die."
     assert_success
     assert_equal "$output" "$expected"
 }
@@ -234,8 +195,7 @@ END_EXPECTED
         }
 END_INPUT
 
-    expected=$(cat <<END_EXPECTED
-I know an old lady who swallowed a fly.
+    expected="I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
 
 I know an old lady who swallowed a spider.
@@ -284,9 +244,7 @@ She swallowed the spider to catch the fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
 
 I know an old lady who swallowed a horse.
-She's dead, of course!
-END_EXPECTED
-)
+She's dead, of course!"
     assert_success
     assert_equal "$output" "$expected"
 }
