@@ -15,15 +15,10 @@ required_tool() {
         die "$1 is required but not installed. Please install it and make sure it's in your PATH."
 }
 required_tool jq
-required_tool curl
 
 [[ -f ./bin/fetch-configlet ]] || die "run this script from the repo's root directory."
 
 slug="${1}"
-
-# transform slug 'resistor-color-duo' to name 'Resistor Color Duo'
-IFS=- read -ra words <<< "${slug}"
-name=${words[*]^}
 
 it_exists=$(
     jq --arg slug "${slug}" '
@@ -34,54 +29,17 @@ it_exists=$(
 )
 [[ ${it_exists} == false ]] || die "${slug} already exists in config.json"
 
-# Add entry for exercise in config.json
-./bin/fetch-configlet
-jq  --arg slug "${slug}"                 \
-    --arg uuid "$(./bin/configlet uuid)" \
-    --arg name "${name}"                 \
-    '
-        .exercises.practice += [
-            {
-                slug: $slug,
-                name: $name,
-                uuid: $uuid,
-                practices: [],
-                prerequisites: [],
-                difficulty: 1
-            }
-        ]
-    ' config.json > config.json.tmp \
-&& mv config.json.tmp config.json
+./bin/fetch-configlet || die "cannot fetch configlet"
 
-# Sync the exercise
-./bin/configlet sync --update --yes  \
-                     --tests include \
-                     --metadata      \
-                     --docs          \
-                     --exercise "${slug}"
+read -rp 'Your github username: ' author
 
-touch "exercises/practice/${slug}/.meta/example.jq"
+./bin/configlet create --practice-exercise "${slug}" --author "${author}"
 
 echo '"Remove this line and implement your solution" | halt_error' > "exercises/practice/${slug}/${slug}.jq"
 
-echo 
-read -rp 'Your github username: ' author
-conf="exercises/practice/${slug}/.meta/config.json"
-jq  --arg slug "${slug}"     \
-    --arg author "${author}" \
-    '
-        .authors = [$author] |
-        .files = {
-            solution: [$slug + ".jq"],
-            test: ["test-\($slug).bats"],
-            example: [".meta/example.jq"]
-        }
-    ' "${conf}" > "${conf}.tmp" \
-&& mv "${conf}.tmp" "${conf}"
-
 cp -pt exercises/practice/"${slug}" lib/bats-*.bash
 
-./bin/generate_tests "${slug}"
+./bin/generate_tests "${slug}" || true
 
 echo
 find "exercises/practice/${slug}" -type f -ls
