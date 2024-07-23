@@ -443,6 +443,14 @@
         "difficulty": 2
       },
       {
+        "slug": "grade-school",
+        "name": "Grade School",
+        "uuid": "40dfdf5a-fee6-424e-984a-998111a11c06",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "22bacfc3-7df0-4f40-852f-a5ce44ba1ddf",
