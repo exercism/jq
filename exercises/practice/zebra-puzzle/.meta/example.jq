@@ -122,7 +122,7 @@ def solveForNationality($state):
                     [] 
                     | .[$english] = "EnglishMan"
                     | .[$spanish] = "Spaniard"
-                    | .[$ukranian] = "Ukranian"
+                    | .[$ukranian] = "Ukrainian"
                     | .[$norwegian] = "Norwegian"
                     | .[$japanese] = "Japanese"
                 )
