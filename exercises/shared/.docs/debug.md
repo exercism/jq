@@ -5,4 +5,4 @@ Use it while you are developing your exercise solutions to inspect the data that
 See the [debugging doc][debugging] for more details.
 
 [debug]: https://jqlang.github.io/jq/manual/v1.7/#debug
-[debugging]: /docs/tracks/jq/debugging
+[debugging]: https://exercism.org/docs/tracks/jq/debugging
