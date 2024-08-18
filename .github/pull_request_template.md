@@ -4,5 +4,5 @@
 
 
 ## Checklist
-- [ ] If docs where changed, run `./bin/configlet generate` to ensure all documents are properly generated.
+- [ ] If docs where changed, run `./bin/fetch-configlet && ./bin/configlet generate` to ensure all documents are properly generated.
 - [ ] CI is green
