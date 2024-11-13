@@ -147,8 +147,8 @@ Note that jq v1.6 does _not_ implement the 2-argument `scan` function, even thou
 * [version 1.6 source code][src-scan-1.6]
 
 [manual-scan-1.6]: https://jqlang.github.io/jq/manual/v1.6/#scan
-[src-scan-1.7]: https://github.com/jqlang/jq/blob/11c528d04d76c9b9553781aa76b073e4f40da008/src/builtin.jq#L92)
-[src-scan-1.6]: https://github.com/jqlang/jq/blob/2e01ff1fb69609540b2bdc4e62a60499f2b2fb8e/src/builtin.jq#L90)
+[src-scan-1.7]: https://github.com/jqlang/jq/blob/11c528d04d76c9b9553781aa76b073e4f40da008/src/builtin.jq#L92
+[src-scan-1.6]: https://github.com/jqlang/jq/blob/2e01ff1fb69609540b2bdc4e62a60499f2b2fb8e/src/builtin.jq#L90
 ~~~~
 
 ### Splitting a String
