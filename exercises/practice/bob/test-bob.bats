@@ -1,5 +1,5 @@
 #!/usr/bin/env bats
-# generated on 2022-11-02T20:59:00Z
+# generated on 2025-01-01T20:30:37Z
 load bats-extra
 load bats-jq
 
@@ -283,20 +283,6 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'multiple line question' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "\nDoes this cryogenic chamber make me look fat?\nNo."
-        }
-END_INPUT
-
-    assert_success
-    expected='Whatever.'
-    assert_equal "$output" "$expected"
-}
-
 @test 'starting with whitespace' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
@@ -353,3 +339,16 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
+@test 'multiple line question' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "\nDoes this cryogenic chamber make\n me look fat?"
+        }
+END_INPUT
+
+    assert_success
+    expected='Sure.'
+    assert_equal "$output" "$expected"
+}
