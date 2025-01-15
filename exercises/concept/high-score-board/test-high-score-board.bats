@@ -87,6 +87,24 @@ END_INPUT
     assert_key_value "Jesse Johnson"   2674 "$output"
 }
 
+@test update_score_adds_new_player {
+    ## task 4
+    run jq '
+        include "high-score-board";
+        .
+        | update_score("Min-seo Shin"; 1999)
+    ' << END_INPUT
+        {
+            "Amil Pastorius": 99373,
+            "Jesse Johnson": 1674
+        }
+END_INPUT
+    assert_success
+    assert_key_value "Amil Pastorius" 99373 "$output"
+    assert_key_value "Min-seo Shin"    1999 "$output"
+    assert_key_value "Jesse Johnson"   1674 "$output"
+}
+
 @test adds_100_points_for_all_players {
     ## task 5
     run jq '

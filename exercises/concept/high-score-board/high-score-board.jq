@@ -18,7 +18,8 @@ def remove_player(player):
 
 # Increase a player's score by the given amount.
 #   input: a score board object.
-#   output: the score board with the player's score increased, if they exist.
+#   output: the score board with the player's score increased;
+#           add the player to the board if needed.
 def update_score(player; points):
   "Please implement the update_score function" | halt_error;
 
