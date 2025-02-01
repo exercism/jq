@@ -2,14 +2,14 @@
 
 ## jq-specific Instructions
 
-There is a builtin [`flatten`][flatten] function that can do most of the work for you.
-For maximum learning, try to implement this yourself without using the builtin function.
+There is a builtin [`flatten`][flatten] function that largely solves this exercise.
+Try to solve this yourself without using the builtin `flatten` function to get the most out of this exercise.
 
 <details><summary>Click here for hints:</summary>
 
-* Using a recursive function may be useful.
-  Learn more about recursion in the [Recursion learning document][recur].
-* The [`type`][type] function will help.
+* A recursive function can be useful.
+  Learn more about recursion in the [Recursion lesson][recur].
+* The [`type`][type] function can help.
 </details>
 
 [flatten]: https://jqlang.github.io/jq/manual/v1.7/#flatten
