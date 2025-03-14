@@ -182,7 +182,7 @@
       },
       {
         "slug": "two-fer",
-        "name": "Two Fer",
+        "name": "Two-Fer",
         "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
         "practices": [
           "strings"
@@ -220,7 +220,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "0981a331-259d-4619-afb4-350a7e4cf538",
         "practices": [
           "functions",
@@ -460,7 +460,7 @@
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "25cd3a15-6a74-4af8-b845-5b22ce5c1c6f",
         "practices": [],
         "prerequisites": [],
@@ -529,7 +529,7 @@
       },
       {
         "slug": "run-length-encoding",
-        "name": "Run Length Encoding",
+        "name": "Run-Length Encoding",
         "uuid": "050989e4-5b2f-4c9b-9294-53c6396cc21d",
         "practices": [],
         "prerequisites": [],
