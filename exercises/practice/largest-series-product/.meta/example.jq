@@ -7,7 +7,7 @@ def product:
 ;
 
   assert(.span >= 0;                  "span must not be negative")
-| assert(.span <= (.digits | length); "span must be smaller than string length")
+| assert(.span <= (.digits | length); "span must not exceed string length")
 | assert(.digits | test("^\\d*$");    "digits input must only contain digits")
 
 | .span as $span
