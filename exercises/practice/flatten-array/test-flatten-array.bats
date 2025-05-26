@@ -221,7 +221,7 @@ END_EXPECTED
     assert_equal "$output" "$expected"
 }
 
-@test 'consecutive null values at the front of the list are omitted from the final result' {
+@test 'consecutive null values at the front of the array are omitted from the final result' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f flatten-array.jq << 'END_INPUT'
@@ -244,7 +244,7 @@ END_EXPECTED
     assert_equal "$output" "$expected"
 }
 
-@test 'consecutive null values in the middle of the list are omitted from the final result' {
+@test 'consecutive null values in the middle of the array are omitted from the final result' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f flatten-array.jq << 'END_INPUT'
@@ -269,7 +269,7 @@ END_EXPECTED
     assert_equal "$output" "$expected"
 }
 
-@test '6 level nest list with null values' {
+@test '6 level nested array with null values' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f flatten-array.jq << 'END_INPUT'
@@ -316,7 +316,7 @@ END_EXPECTED
     assert_equal "$output" "$expected"
 }
 
-@test 'all values in nested list are null' {
+@test 'all values in nested array are null' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f flatten-array.jq << 'END_INPUT'
