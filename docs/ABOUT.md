@@ -56,5 +56,5 @@ We will assume you are familiar with [JSON syntax and data types][wiki-json].
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON#Syntax
-[cli-options]: https://jqlang.github.io/jq/manual/v1.7/#invoking-jq
+[cli-options]: https://jqlang.github.io/jq/manual/#invoking-jq
 [gojq]: https://github.com/itchyny/gojq#gojq

@@ -4,11 +4,10 @@ Please head to [the `jq` wiki][jq-wiki-install] for the installation instruction
 
 ## Version Information
 
-As of October 2023, the current jq release is version 1.7.
+As of June 2025, the current jq release is version **1.8**.
 This is the version used in the online jq test runner.
 
-Most Linux package managers will install the previous release, version 1.6.
-It's worth installing the newer version: there were [substantial changes in the 1.7 release][release-notes-1.7].
+Many Linux package managers will install an older release, version 1.6.
+You should install a newer version manually; there have been many beneficial changes since v1.6 was released in 2018.
 
 [jq-wiki-install]: https://github.com/jqlang/jq/wiki/Installation
-[release-notes-1.7]: https://github.com/jqlang/jq/releases/tag/jq-1.7
