@@ -771,6 +771,14 @@
         "difficulty": 5
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "2f3d7abb-2365-44f8-a40a-abe5c6212000",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 9
+      },
+      {
         "slug": "forth",
         "name": "Forth",
         "uuid": "284ed7aa-8304-47ba-8e0f-f1dfef3607fa",
@@ -792,7 +800,8 @@
         "uuid": "56376780-4074-4a07-a914-2230ef96abee",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 9
+        "difficulty": 9,
+	"status": "deprecated"
       },
       {
         "slug": "two-bucket",
