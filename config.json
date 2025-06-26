@@ -549,12 +549,21 @@
         "uuid": "9dba8bd0-c964-4320-a2a6-2202c8f3fdfe",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 5
+        "difficulty": 5,
+        "status": "deprecated"
       },
       {
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "61aa634a-744f-434e-ad68-6a6bcd079a7b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "bottle-song",
+        "name": "Bottle Song",
+        "uuid": "13a434bf-15e0-49e4-860a-988d3a5c1238",
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
@@ -801,7 +810,7 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 9,
-	"status": "deprecated"
+        "status": "deprecated"
       },
       {
         "slug": "two-bucket",
