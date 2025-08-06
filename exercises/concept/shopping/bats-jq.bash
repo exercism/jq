@@ -10,7 +10,6 @@
 # - "Printing to the terminal", https://bats-core.readthedocs.io/en/stable/writing-tests.html#printing-to-the-terminal
 # - "File descriptor 3", https://bats-core.readthedocs.io/en/stable/writing-tests.html#file-descriptor-3-read-this-if-bats-hangs
 
-
 jq() {
     local output stderr rc line
     stderr=$(mktemp)
