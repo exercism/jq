@@ -109,7 +109,7 @@ if A then B else . end
 if A then B end
 ```
 
-The `else` clause is **mandatory** in the previous v1.6 release. 
+The `else` clause is **mandatory** in the previous v1.6 release.
 ~~~~
 
 ### Nested If-Statements
