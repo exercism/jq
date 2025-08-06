@@ -3,15 +3,6 @@
 load bats-extra
 load bats-jq
 
-assert_objects_equal() {
-    local result=$(
-        jq -n --argjson actual "$1" \
-              --argjson expected "$2" \
-            '$actual == $expected'
-    )
-    [[ $result == "true" ]]
-}
-
 @test 'empty strand' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 

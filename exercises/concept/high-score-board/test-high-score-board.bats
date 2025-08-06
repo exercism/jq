@@ -2,12 +2,6 @@
 load bats-extra
 load bats-jq
 
-assert_key_value() {
-    local key=$1 expected=$2 actual
-    actual=$(jq -rc --arg key "$key" '.[$key]' <<< "$output")
-    assert_equal "$actual" "$expected"
-}
-
 @test creates_a_new_board_with_a_test_entry {
     ## task 1
     run jq -n -c '
