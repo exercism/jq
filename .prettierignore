@@ -2,11 +2,17 @@
 # - install it in the track root dir: `npm install prettier`
 #   - note the .gitignore file
 # - check the status without writing changes: `npx prettier --check .`
-# - the above, verbosely: `npx prettier --check --loglevel debug .`
+# - the above, verbosely: `npx prettier --check --log-level debug .`
 # - preview the changes: (using https://dandavison.github.io/delta/)
 #   - fish: `set f some.file; delta $f (npx prettier $f | psub)`
 #   - bash: `f="some.file"; delta "$f" <(npx prettier "$f")`
 # - write the changes: `npx prettier --write .`
+
+# prettier wants to convert exercism markdown admonition blocks to code fences.
+#    from:     ~~~~exercism/note
+#    to:       ```exercism/note
+# I don't know how to configure this behaviour away.
+# Don't write those changes into git.
 
 # ignore files written by configlet or Exercism org-wide files
 exercises/practice/*/.meta/config.json
@@ -17,3 +23,6 @@ CODE_OF_CONDUCT.md
 generate_tests.json
 .github/pull_request_template.md
 exercises/concept/*/.meta/config.json
+config.json
+exercises/practice/*/.docs/introduction.md
+exercises/practice/*/.docs/instructions.md

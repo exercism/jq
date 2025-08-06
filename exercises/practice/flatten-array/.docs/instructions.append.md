@@ -7,9 +7,9 @@ Try to solve this yourself without using the builtin `flatten` function to get t
 
 <details><summary>Click here for hints:</summary>
 
-* A recursive function can be useful.
+- A recursive function can be useful.
   Learn more about recursion in the [Recursion lesson][recur].
-* The [`type`][type] function can help.
+- The [`type`][type] function can help.
 </details>
 
 [flatten]: https://jqlang.github.io/jq/manual/v1.7/#flatten
