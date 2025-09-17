@@ -31,5 +31,5 @@ def processMatch($match):
     3 * .value.w + .value.d             # points
   ])
 | sort_by(.[-1] * -1, .[0])             # sort by points descending then name ascending
-| ["Team", "MP", "W", "D", "L", "P"], .[]
+| .[]
 | @csv

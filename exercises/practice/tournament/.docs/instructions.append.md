@@ -12,7 +12,6 @@ Your program should output CSV-formatted text.
 Instead of the table described above, we expect this:
 
 ```text
-"Team","MP","W","D","L","P"
 "Devastating Donkeys",3,2,1,0,7
 "Allegoric Alaskans",3,2,0,1,6
 "Blithering Badgers",3,1,0,2,3

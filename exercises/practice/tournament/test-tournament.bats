@@ -20,7 +20,6 @@ Allegoric Alaskans;Blithering Badgers;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",1,1,0,0,3
 "Blithering Badgers",1,0,0,1,0
 END_OUTPUT
@@ -38,7 +37,6 @@ Blithering Badgers;Allegoric Alaskans;loss
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",1,1,0,0,3
 "Blithering Badgers",1,0,0,1,0
 END_OUTPUT
@@ -56,7 +54,6 @@ Blithering Badgers;Allegoric Alaskans;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Blithering Badgers",1,1,0,0,3
 "Allegoric Alaskans",1,0,0,1,0
 END_OUTPUT
@@ -74,7 +71,6 @@ Allegoric Alaskans;Blithering Badgers;draw
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",1,0,1,0,1
 "Blithering Badgers",1,0,1,0,1
 END_OUTPUT
@@ -93,7 +89,6 @@ Allegoric Alaskans;Blithering Badgers;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",2,2,0,0,6
 "Blithering Badgers",2,0,0,2,0
 END_OUTPUT
@@ -112,7 +107,6 @@ Allegoric Alaskans;Blithering Badgers;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",2,1,0,1,3
 "Blithering Badgers",2,1,0,1,3
 END_OUTPUT
@@ -132,7 +126,6 @@ Courageous Californians;Allegoric Alaskans;loss
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",2,2,0,0,6
 "Blithering Badgers",2,1,0,1,3
 "Courageous Californians",2,0,0,2,0
@@ -156,7 +149,6 @@ Allegoric Alaskans;Courageous Californians;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Devastating Donkeys",3,2,1,0,7
 "Allegoric Alaskans",3,2,0,1,6
 "Blithering Badgers",3,1,0,2,3
@@ -179,7 +171,6 @@ Allegoric Alaskans;Courageous Californians;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",3,2,0,1,6
 "Blithering Badgers",2,1,1,0,4
 "Courageous Californians",2,0,1,1,1
@@ -204,7 +195,6 @@ Allegoric Alaskans;Courageous Californians;draw
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Allegoric Alaskans",3,2,1,0,7
 "Courageous Californians",3,2,1,0,7
 "Blithering Badgers",3,0,1,2,1
@@ -228,7 +218,6 @@ Blithering Badgers;Devastating Donkeys;win
 END_INPUT
 
     expected=$(cat << 'END_OUTPUT'
-"Team","MP","W","D","L","P"
 "Devastating Donkeys",5,4,0,1,12
 "Blithering Badgers",5,1,0,4,3
 END_OUTPUT
