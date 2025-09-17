@@ -764,6 +764,14 @@
         "difficulty": 5
       },
       {
+        "slug": "tournament",
+        "name": "Tournament",
+        "uuid": "abdb1eb2-3b46-4702-94bd-65fde1acd5cf",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
         "slug": "transpose",
         "name": "Transpose",
         "uuid": "7a739010-e4e7-4f2a-b1a1-91bb6eea7ae6",

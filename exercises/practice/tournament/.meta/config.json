@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "tournament.jq"
+    ],
+    "test": [
+      "test-tournament.bats"
+    ],
+    "example": [
+      ".meta/example.jq"
+    ]
+  },
+  "blurb": "Tally the results of a small football competition."
+}

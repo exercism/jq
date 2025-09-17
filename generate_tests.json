@@ -19,7 +19,8 @@
     "gigasecond",
     "luhn",
     "minesweeper",
-    "nth-prime"
+    "nth-prime",
+    "tournament"
   ],
   "include .property in input json": [
     "allergies",
