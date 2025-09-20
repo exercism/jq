@@ -1,10 +1,3 @@
-# Input: a string composed of newline-terminated lines of input.
-# Output: an array of 3-element arrays.
-def parseInput:
-  split("\n")
-  | map(split(";") | select(length == 3))
-;
-
 # Input: an object representing the teams in the league.
 # Output: the league object modified.
 def processMatch($match):
@@ -32,9 +25,18 @@ def tally:
     ])
 ;
 
+def padright(n): tostring + (" " * n) | .[:n];
+def padleft(n):  (" " * n) + tostring | .[-n:];
+
+def tabular:
+  [.[0] | padright(30)] + [.[1:][] | padleft(2)]
+  | join(" | ")
+;
+
 ############################################################
-parseInput
+.matches
+| map(split(";"))
 | tally
 | sort_by(.[-1] * -1, .[0])             # sort by points descending then name ascending
 | ["Team", "MP", "W", "D", "L", "P"], .[]
-| @csv
+| tabular
