@@ -1,6 +1,15 @@
 #!/usr/bin/env bats
-# generated on 2023-11-07T18:49:22Z
+# generated on 2026-05-26T18:27:51Z
 load bats-extra
+
+assert_objects_equal() {
+    local result=$(
+        jq -n --argjson actual "$1" \
+              --argjson expected "$2" \
+            '$actual == $expected'
+    )
+    [[ $result == "true" ]]
+}
 load bats-jq
 
 @test 'Empty tree' {
@@ -130,4 +139,89 @@ END_INPUT
     assert_failure
     expected='traversals must contain unique items'
     assert_equal "$output" "$expected"
+}
+
+@test 'A degenerate binary tree' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -c -f satellite.jq << 'END_INPUT'
+        {
+          "preorder": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "inorder": [
+            "d",
+            "c",
+            "b",
+            "a"
+          ]
+        }
+END_INPUT
+
+    assert_success
+    expected='{"v":"a","l":{"v":"b","l":{"v":"c","l":{"v":"d","l":{},"r":{}},"r":{}},"r":{}},"r":{}}'
+    assert_objects_equal "$output" "$expected"
+}
+
+@test 'Another degenerate binary tree' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -c -f satellite.jq << 'END_INPUT'
+        {
+          "preorder": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "inorder": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        }
+END_INPUT
+
+    assert_success
+    expected='{"v":"a","l":{},"r":{"v":"b","l":{},"r":{"v":"c","l":{},"r":{"v":"d","l":{},"r":{}}}}}'
+    assert_objects_equal "$output" "$expected"
+}
+
+@test 'Tree with many more items' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -c -f satellite.jq << 'END_INPUT'
+        {
+          "preorder": [
+            "a",
+            "b",
+            "d",
+            "g",
+            "h",
+            "c",
+            "e",
+            "f",
+            "i"
+          ],
+          "inorder": [
+            "g",
+            "d",
+            "h",
+            "b",
+            "a",
+            "e",
+            "c",
+            "i",
+            "f"
+          ]
+        }
+END_INPUT
+
+    assert_success
+    expected='{"v":"a","l":{"v":"b","l":{"v":"d","l":{"v":"g","l":{},"r":{}},"r":{"v":"h","l":{},"r":{}}},"r":{}},"r":{"v":"c","l":{"v":"e","l":{},"r":{}},"r":{"v":"f","l":{"v":"i","l":{},"r":{}},"r":{}}}}'
+    assert_objects_equal "$output" "$expected"
 }
