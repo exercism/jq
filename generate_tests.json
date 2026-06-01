@@ -31,12 +31,18 @@
     "run-length-encoding",
     "zebra-puzzle"
   ],
+  "do not indent input": [
+    "flower-field"
+  ],
   "runner code": {
     "rna-transcription": [
       "jq -r '",
       "  include \"./rna-transcription\";",
       "  .dna | toRna",
       "'"
+    ],
+    "flower-field": [
+      "jq -s -R -c -f flower-field.jq"
     ],
     "collatz-conjecture": [
       "jq -r '",

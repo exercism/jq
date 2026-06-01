@@ -96,6 +96,12 @@ writeTestFile() {
             | $slug | IN($slugs[])
         ' "$generator_config"
     )
+    skip_indent=$(
+        jq --arg slug "$slug" '
+            .["do not indent input"] as $slugs
+            | $slug | IN($slugs[])
+        ' "$generator_config"
+    )
 
     local uuids
     uuids=$(
@@ -123,6 +129,8 @@ END_PREAMBLE
               --argjson property "$property" \
               --argjson included_uuids "$uuids" \
         '
+            include "exercise_test_overrides";
+
             def prefix(desc): if desc == "" then "" else "\(desc):" end;
 
             def test_cases(desc):
@@ -142,8 +150,9 @@ END_PREAMBLE
                 map(select(.uuid | IN($included_uuids[])))
                 ;
 
-             def generate_test:
-                (.expected | type == "object") as $isobj
+            def generate_test:
+                preprocess_case
+                | (.expected | type == "object") as $isobj
                 | (.expected | type == "array") as $isarr
                 | ($isobj and (.expected | has("error"))) as $iserr
                 | (if ($isobj or $isarr)
@@ -157,7 +166,7 @@ END_PREAMBLE
                 + "[[ $BATS_RUN_SKIPPED == \"true\" ]] || skip\n"
                 + "\n"
                 + "    run \($command) << \($Q)END_INPUT\($Q)"
-                , if $property then {property, input} else .input end
+                , (if $property then {property, input} else .input end | format_input)
                 , "END_INPUT\n"
                 , ( if $iserr
                     then
@@ -188,7 +197,7 @@ END_PREAMBLE
             | .[] | generate_test
         ' "$canonicalData"
     } \
-    | awk '
+    | awk -v skip_indent="${skip_indent}" '
         # un-skip the first test
         /BATS_RUN_SKIPPED/ && !seen {
             sub(/[[]/, "#[")
@@ -196,7 +205,7 @@ END_PREAMBLE
         }
         # indent the input
         /^END_INPUT$/ {indent = 0}
-        indent {sub(/^/, "        ")}
+        indent && skip_indent == "false" {sub(/^/, "        ")}
         /<< .END_INPUT/ {indent = 1}
         1
     ' \
