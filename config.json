@@ -181,18 +181,6 @@
         "difficulty": 1
       },
       {
-        "slug": "two-fer",
-        "name": "Two-Fer",
-        "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
-        "practices": [
-          "strings"
-        ],
-        "prerequisites": [
-          "strings"
-        ],
-        "difficulty": 1
-      },
-      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "22bacfc3-7df0-4f40-852f-a5ce44ba1ddf",
@@ -495,6 +483,18 @@
         ],
         "prerequisites": [
           "variables"
+        ],
+        "difficulty": 2
+      },
+      {
+        "slug": "two-fer",
+        "name": "Two-Fer",
+        "uuid": "c5a5300a-3d7e-4982-aa11-293a34c04162",
+        "practices": [
+          "strings"
+        ],
+        "prerequisites": [
+          "strings"
         ],
         "difficulty": 2
       },
