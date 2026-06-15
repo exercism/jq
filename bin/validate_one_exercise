@@ -32,6 +32,7 @@ readarray -t editor_files < <(jq -r '.files.editor[]?' "$config")
 # neither do concept exercises
 if [[ ${exercise} != "hello-world" ]] && ! [[ $PWD =~ exercises/concept/ ]]; then
     # a PCRE: the `\Q...\E` defines a literal segment
+    # shellcheck disable=SC2016 # no expansion wanted inside ''
     skip_re='^\s*#+\s*\Q[[ $BATS_RUN_SKIPPED == "true" ]] || skip\E$'
     num_skip_comments=$(grep -cP "${skip_re}" "${tests}") || :
     (( num_skip_comments == 1 )) || die "There should be exactly one commented skip directive in ${tests}"

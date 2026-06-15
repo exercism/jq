@@ -212,8 +212,9 @@ END_PREAMBLE
     | tee "$testFile"
 
     if grep -q assert_objects_equal "$testFile"; then
-        local t=$(mktemp)
-        local func=$(cat <<'END_FUNC'
+        local t func
+        t=$(mktemp)
+        func=$(cat <<'END_FUNC'
 assert_objects_equal() {
     local result=$(
         jq -n --argjson actual "$1" \\
