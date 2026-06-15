@@ -37,7 +37,8 @@ jq() {
 #   # => true
 #
 assert_objects_equal() {
-    local result=$(
+    local result
+    result=$(
         jq -n --argjson actual "$1" \
               --argjson expected "$2" \
             '$actual == $expected'
