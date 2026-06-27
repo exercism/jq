@@ -1,19 +1,19 @@
 #!/usr/bin/env bats
-# generated on 2025-01-01T20:30:37Z
+# generated on 2026-06-27T02:12:51Z
 load bats-extra
 load bats-jq
 
-@test 'stating something' {
+@test 'asking a question' {
     #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
         {
-          "heyBob": "Tom-ay-to, tom-aaaah-to."
+          "heyBob": "Does this cryogenic chamber make me look fat?"
         }
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected='Sure.'
     assert_equal "$output" "$expected"
 }
 
@@ -31,31 +31,45 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'shouting gibberish' {
+@test 'forceful question' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
         {
-          "heyBob": "FCECDFCAAB"
+          "heyBob": "WHAT'S GOING ON?"
         }
 END_INPUT
 
     assert_success
-    expected='Whoa, chill out!'
+    expected='Calm down, I know what I'\''m doing!'
     assert_equal "$output" "$expected"
 }
 
-@test 'asking a question' {
+@test 'silence' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
         {
-          "heyBob": "Does this cryogenic chamber make me look fat?"
+          "heyBob": ""
         }
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected='Fine. Be that way!'
+    assert_equal "$output" "$expected"
+}
+
+@test 'stating something' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "Tom-ay-to, tom-aaaah-to."
+        }
+END_INPUT
+
+    assert_success
+    expected='Whatever.'
     assert_equal "$output" "$expected"
 }
 
@@ -87,76 +101,6 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'talking forcefully' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "Hi there!"
-        }
-END_INPUT
-
-    assert_success
-    expected='Whatever.'
-    assert_equal "$output" "$expected"
-}
-
-@test 'using acronyms in regular speech' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "It's OK if you don't want to go work for NASA."
-        }
-END_INPUT
-
-    assert_success
-    expected='Whatever.'
-    assert_equal "$output" "$expected"
-}
-
-@test 'forceful question' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "WHAT'S GOING ON?"
-        }
-END_INPUT
-
-    assert_success
-    expected='Calm down, I know what I'\''m doing!'
-    assert_equal "$output" "$expected"
-}
-
-@test 'shouting numbers' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "1, 2, 3 GO!"
-        }
-END_INPUT
-
-    assert_success
-    expected='Whoa, chill out!'
-    assert_equal "$output" "$expected"
-}
-
-@test 'no letters' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "1, 2, 3"
-        }
-END_INPUT
-
-    assert_success
-    expected='Whatever.'
-    assert_equal "$output" "$expected"
-}
-
 @test 'question with no letters' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
@@ -168,48 +112,6 @@ END_INPUT
 
     assert_success
     expected='Sure.'
-    assert_equal "$output" "$expected"
-}
-
-@test 'shouting with special characters' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"
-        }
-END_INPUT
-
-    assert_success
-    expected='Whoa, chill out!'
-    assert_equal "$output" "$expected"
-}
-
-@test 'shouting with no exclamation mark' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "I HATE THE DENTIST"
-        }
-END_INPUT
-
-    assert_success
-    expected='Whoa, chill out!'
-    assert_equal "$output" "$expected"
-}
-
-@test 'statement containing question mark' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "Ending with ? means a question."
-        }
-END_INPUT
-
-    assert_success
-    expected='Whatever.'
     assert_equal "$output" "$expected"
 }
 
@@ -241,17 +143,101 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'silence' {
+@test 'ending with whitespace' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
         {
-          "heyBob": ""
+          "heyBob": "Okay if like my  spacebar  quite a bit?   "
         }
 END_INPUT
 
     assert_success
-    expected='Fine. Be that way!'
+    expected='Sure.'
+    assert_equal "$output" "$expected"
+}
+
+@test 'multiple line question' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "\nDoes this cryogenic chamber make\n me look fat?"
+        }
+END_INPUT
+
+    assert_success
+    expected='Sure.'
+    assert_equal "$output" "$expected"
+}
+
+@test 'shouting gibberish' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "FCECDFCAAB"
+        }
+END_INPUT
+
+    assert_success
+    expected='Whoa, chill out!'
+    assert_equal "$output" "$expected"
+}
+
+@test 'shouting a statement containing a question mark' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "DO LIONS EAT PEOPLE? AHHHHH."
+        }
+END_INPUT
+
+    assert_success
+    expected='Whoa, chill out!'
+    assert_equal "$output" "$expected"
+}
+
+@test 'shouting numbers' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "1, 2, 3 GO!"
+        }
+END_INPUT
+
+    assert_success
+    expected='Whoa, chill out!'
+    assert_equal "$output" "$expected"
+}
+
+@test 'shouting with special characters' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"
+        }
+END_INPUT
+
+    assert_success
+    expected='Whoa, chill out!'
+    assert_equal "$output" "$expected"
+}
+
+@test 'shouting with no exclamation mark' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "I HATE THE DENTIST"
+        }
+END_INPUT
+
+    assert_success
+    expected='Whoa, chill out!'
     assert_equal "$output" "$expected"
 }
 
@@ -283,34 +269,6 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
-@test 'starting with whitespace' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "         hmmmmmmm..."
-        }
-END_INPUT
-
-    assert_success
-    expected='Whatever.'
-    assert_equal "$output" "$expected"
-}
-
-@test 'ending with whitespace' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "Okay if like my  spacebar  quite a bit?   "
-        }
-END_INPUT
-
-    assert_success
-    expected='Sure.'
-    assert_equal "$output" "$expected"
-}
-
 @test 'other whitespace' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
@@ -325,6 +283,76 @@ END_INPUT
     assert_equal "$output" "$expected"
 }
 
+@test 'talking forcefully' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "Hi there!"
+        }
+END_INPUT
+
+    assert_success
+    expected='Whatever.'
+    assert_equal "$output" "$expected"
+}
+
+@test 'using acronyms in regular speech' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "It's OK if you don't want to go work for NASA."
+        }
+END_INPUT
+
+    assert_success
+    expected='Whatever.'
+    assert_equal "$output" "$expected"
+}
+
+@test 'no letters' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "1, 2, 3"
+        }
+END_INPUT
+
+    assert_success
+    expected='Whatever.'
+    assert_equal "$output" "$expected"
+}
+
+@test 'statement containing question mark' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "Ending with ? means a question."
+        }
+END_INPUT
+
+    assert_success
+    expected='Whatever.'
+    assert_equal "$output" "$expected"
+}
+
+@test 'starting with whitespace' {
+    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f bob.jq << 'END_INPUT'
+        {
+          "heyBob": "         hmmmmmmm..."
+        }
+END_INPUT
+
+    assert_success
+    expected='Whatever.'
+    assert_equal "$output" "$expected"
+}
+
 @test 'non-question ending with whitespace' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
@@ -336,19 +364,5 @@ END_INPUT
 
     assert_success
     expected='Whatever.'
-    assert_equal "$output" "$expected"
-}
-
-@test 'multiple line question' {
-    [[ $BATS_RUN_SKIPPED == "true" ]] || skip
-
-    run jq -r -f bob.jq << 'END_INPUT'
-        {
-          "heyBob": "\nDoes this cryogenic chamber make\n me look fat?"
-        }
-END_INPUT
-
-    assert_success
-    expected='Sure.'
     assert_equal "$output" "$expected"
 }
