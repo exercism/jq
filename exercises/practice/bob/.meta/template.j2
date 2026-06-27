@@ -1,7 +1,4 @@
-#!/usr/bin/env bats
-# generated on {{ generated }}
-load bats-extra
-load bats-jq
+{{ header }}
 {% for idx, case in cases %}
 @test {{ case["description"] | quote }} {
     {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip

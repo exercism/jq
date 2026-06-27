@@ -28,31 +28,85 @@ def problem_spec_dir() -> pathlib.Path:
     raise LookupError("Could not find problem specs")
 
 
-def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
-    """Generate and write test file for a given spec and exercise."""
+def flatten_cases(cases: list[dict]) -> list[tuple[list[str], dict]]:
+    """Recursive flatten test cases, returning individual cases with parent descriptions."""
+    for case_or_group in cases:
+        if "cases" in case_or_group:
+            for groups, child_case in flatten_cases(case_or_group["cases"]):
+                yield ([case_or_group["description"]] + groups, child_case)
+        else:
+            yield ([], case_or_group)
+
+
+def get_cases(specs: pathlib.Path, exercise: pathlib.Path) -> list[dict]:
+    """Return flattened, filtered cases with additional metadata attached."""
     canonical_path = specs / "exercises" / exercise.name / "canonical-data.json"
     with open(canonical_path, "r", encoding="utf-8") as f:
         canonical = json.load(f)
     with open(exercise / ".meta" / "tests.toml", "rb") as f:
         tests = tomllib.load(f)
-    # Filter out test cases with include=false.
-    cases = [
-        case
-        for case in canonical["cases"]
-        if tests.get(case["uuid"], {"include": False}).get("include", True)
-    ]
-    data = {
-        "generated": datetime.datetime.now(tz=datetime.UTC).replace(microsecond=0).isoformat(),
-	"slug": exercise.name,
-        "cases": list(enumerate(cases)),
-    }
 
-    # Configure the Jinja2 env.
+    reimplemented = {
+        test["reimplements"]
+        for test in tests.values()
+        if test.get("include", True) and "reimplements" in test
+    }
+    cases = []
+    for groups, case in flatten_cases(canonical["cases"]):
+        # Filter out test cases with include=false or not listed.
+        if case["uuid"] not in tests or case["uuid"] in reimplemented:
+            continue
+        if not tests[case["uuid"]].get("include", True):
+            continue
+        # Add metadata.
+        case["descriptions"] = groups + [case["description"]]
+        case["expect_error"] = isinstance(case["expected"], dict) and "error" in case["expected"]
+        if case["expect_error"]:
+            case["expect_error_msg"] = case["expected"]["error"]
+        cases.append(case)
+    return cases
+
+
+def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
+    """Return a configured Jinja env with filters added."""
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
     env.filters["quote"] = shlex.quote
     env.filters["json_input"] = lambda x: textwrap.indent(json.dumps(x, indent=2), " " * 8)
+    env.filters["tojson"] = json.dumps
+    env.filters["format_list"] = lambda x: shlex.quote(
+        "[" + ",".join(f'"{i}"' if isinstance(i, str) else str(i) for i in x) + "]"
+    )
+    return env
+
+
+def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
+    """Generate and write test file for a given spec and exercise."""
+    cases = get_cases(specs, exercise)
+
+    timestamp = datetime.datetime.now(tz=datetime.UTC).replace(microsecond=0).isoformat()
+    header = textwrap.dedent(f"""\
+        #!/usr/bin/env bats
+        # generated on {timestamp}
+        load bats-extra
+        load bats-jq"""
+    )
+    data = {
+        "cases": list(enumerate(cases)),
+        "header": header,
+        "slug": exercise.name,
+    }
+
     # Render the template.
-    out = env.get_template("template.j2").render(data)
+    out = jinja_env(exercise).get_template("template.j2").render(data)
+
+    # Check for changes or the lack thereof.
+    test_file = exercise / f"test-{exercise.name}.bats"
+    if test_file.exists():
+        old_content = [i for i in test_file.read_text().splitlines() if "generated on" not in i]
+        new_content = [i for i in out.splitlines() if "generated on" not in i]
+        if old_content == new_content:
+            return
+
     # Write the test file.
     (exercise / f"test-{exercise.name}.bats").write_text(out)
 
