@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2026-06-27T02:12:51Z
+# generated on 2026-06-27T16:53:19+00:00
 load bats-extra
 load bats-jq
 
 @test 'asking a question' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
         {
@@ -13,11 +13,11 @@ load bats-jq
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
-@test 'shouting' {
+@test shouting {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
@@ -41,11 +41,11 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Calm down, I know what I'\''m doing!'
+    expected='Calm down, I know what I'"'"'m doing!'
     assert_equal "$output" "$expected"
 }
 
-@test 'silence' {
+@test silence {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f bob.jq << 'END_INPUT'
@@ -69,7 +69,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
 
@@ -83,7 +83,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -97,7 +97,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -111,7 +111,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -125,7 +125,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -139,7 +139,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -153,7 +153,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -167,7 +167,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Sure.'
+    expected=Sure.
     assert_equal "$output" "$expected"
 }
 
@@ -293,7 +293,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
 
@@ -307,7 +307,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
 
@@ -321,7 +321,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
 
@@ -335,7 +335,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
 
@@ -349,7 +349,7 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
 
@@ -363,6 +363,6 @@ END_INPUT
 END_INPUT
 
     assert_success
-    expected='Whatever.'
+    expected=Whatever.
     assert_equal "$output" "$expected"
 }
