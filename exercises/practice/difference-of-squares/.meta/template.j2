@@ -4,7 +4,7 @@
     {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f {{ solution }} << 'END_INPUT'
-{{ {"property": case["property"], "input": case["input"]} | tojson(separators=None, indent=2) | indent(8, first=True) }}
+{{ case | filter_keys("property", "input") | tojson(separators=None, indent=2) | indent(8, first=True) }}
 END_INPUT
 
     assert_success
