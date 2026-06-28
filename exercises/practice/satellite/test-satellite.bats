@@ -1,19 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2026-05-26T18:27:51Z
+# generated on 2026-06-28T19:11:36+00:00
 load bats-extra
-
-assert_objects_equal() {
-    local result=$(
-        jq -n --argjson actual "$1" \
-              --argjson expected "$2" \
-            '$actual == $expected'
-    )
-    [[ $result == "true" ]]
-}
 load bats-jq
 
 @test 'Empty tree' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f satellite.jq << 'END_INPUT'
         {
