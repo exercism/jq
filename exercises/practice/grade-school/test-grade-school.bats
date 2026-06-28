@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2024-07-23T00:57:34Z
+# generated on 2026-06-28T16:54:55+00:00
 load bats-extra
 load bats-jq
 
 @test 'Roster is empty when no student is added' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f grade-school.jq << 'END_INPUT'
         {
