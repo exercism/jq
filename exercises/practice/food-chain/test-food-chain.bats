@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2024-07-17T15:57:54Z
+# generated on 2026-06-28T05:18:23+00:00
 load bats-extra
 load bats-jq
 
 @test 'fly' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f food-chain.jq << 'END_INPUT'
         {
@@ -248,4 +248,3 @@ She's dead, of course!"
     assert_success
     assert_equal "$output" "$expected"
 }
-
