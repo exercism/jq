@@ -2,6 +2,7 @@
 
 """Test generator v1."""
 
+import argparse
 import datetime
 import json
 import os
@@ -72,7 +73,7 @@ def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
     env.filters["quote"] = shlex.quote
     env.filters["json_input"] = lambda x: textwrap.indent(json.dumps(x, indent=2), " " * 8)
-    env.filters["tojson"] = json.dumps
+    env.filters["tojson"] = lambda x: json.dumps(x, separators=(',', ':'))
     env.filters["format_list"] = lambda x: shlex.quote(
         "[" + ",".join(f'"{i}"' if isinstance(i, str) else str(i) for i in x) + "]"
     )
@@ -93,14 +94,14 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
     data = {
         "cases": list(enumerate(cases)),
         "header": header,
-        "slug": exercise.name,
+        "solution": json.loads((exercise / ".meta/config.json").read_text())["files"]["solution"][0]
     }
 
     # Render the template.
     out = jinja_env(exercise).get_template("template.j2").render(data)
 
     # Check for changes or the lack thereof.
-    test_file = exercise / f"test-{exercise.name}.bats"
+    test_file = exercise / json.loads((exercise / ".meta/config.json").read_text())["files"]["test"][0]
     if test_file.exists():
         old_content = [i for i in test_file.read_text().splitlines() if "generated on" not in i]
         new_content = [i for i in out.splitlines() if "generated on" not in i]
@@ -108,14 +109,32 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
             return
 
     # Write the test file.
-    (exercise / f"test-{exercise.name}.bats").write_text(out)
+    test_file.write_text(out)
+
+
+def argparser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--no-pull",
+        action="store_false",
+        dest="pull",
+        help="Do not run `git pull` on the problem specs repo",
+    )
+    parser.add_argument(
+        "exercises",
+        nargs="*",
+        help="exercises to generate tests; if none supplied, generate all"
+    )
+    return parser
 
 
 def main():
     """Main entrypoint."""
     specs = problem_spec_dir()
-    subprocess.check_call(["git", "pull"], cwd=specs)
-    exercises = sys.argv[1:]
+    args = argparser().parse_args()
+    if args.pull:
+        subprocess.check_call(["git", "pull"], cwd=specs)
+    exercises = args.exercises
     # Generate all exercises with templates if none are specified as args.
     if not exercises:
         exercises = [
