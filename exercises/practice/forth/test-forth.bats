@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2025-01-01T20:30:54Z
+# generated on 2026-06-28T05:22:18+00:00
 load bats-extra
 load bats-jq
 
 @test 'parsing and numbers:numbers just get pushed onto the stack' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f forth.jq << 'END_INPUT'
         {
