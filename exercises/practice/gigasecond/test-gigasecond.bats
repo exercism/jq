@@ -1,12 +1,13 @@
 #!/usr/bin/env bats
+# generated on 2026-06-28T05:46:46+00:00
 load bats-extra
 load bats-jq
 
 # Ensure date calculations are done using UTC time zone
 export TZ=UTC
 
-@test 'date only specificaion of time' {
-  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+@test 'date only specification of time' {
+  # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run jq -r -f gigasecond.jq <<< '{"moment": "2011-04-25"}'
 
   assert_success
