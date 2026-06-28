@@ -1,0 +1,18 @@
+{{ header }}
+{% for idx, case in cases %}
+@test {{ case["descriptions"] | join(":") | quote }} {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq {% if case["property"] == "list" %}-c{% else %}-r{% endif %} -f {{ solution }} << 'END_INPUT'
+{{ {"property": case["property"], "input": case["input"]} | json_input }}
+END_INPUT
+
+    assert_success
+    {%- if case["property"] == "list" %}
+    expected={{ case["expected"] | format_list }}
+    {%- else %}
+    expected={{ case["expected"] | lower }}
+    {%- endif %}
+    assert_equal "$output" "$expected"
+}
+{% endfor %}
