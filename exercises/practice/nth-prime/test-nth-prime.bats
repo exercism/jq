@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2022-11-02T20:59:29Z
+# generated on 2026-06-28T06:05:52+00:00
 load bats-extra
 load bats-jq
 
 @test 'first prime' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -n -r -f nth-prime.jq --argjson n 1
 
@@ -52,4 +52,3 @@ load bats-jq
     expected='there is no zeroth prime'
     assert_equal "$output" "$expected"
 }
-
