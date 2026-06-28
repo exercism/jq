@@ -1,0 +1,14 @@
+{{ header }}
+{% for idx, case in cases %}
+@test '{{ case["description"] }}' {
+    {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+
+    run jq -r -f {{ solution }} << 'END_INPUT'
+{{ case["input"] | json_input }}
+END_INPUT
+
+    expected="{{ case["expected"] | join("\n") }}"
+    assert_success
+    assert_equal "$output" "$expected"
+}
+{% endfor %}
