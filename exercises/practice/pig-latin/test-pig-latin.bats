@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2025-01-01T20:31:02Z
+# generated on 2026-06-28T17:16:33+00:00
 load bats-extra
 load bats-jq
 
 @test 'ay is added to words that start with vowels:word beginning with a' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -r -f pig-latin.jq << 'END_INPUT'
         {
