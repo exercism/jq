@@ -4,7 +4,7 @@
     {% if idx == 0 %}# {% endif %}[[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f {{ solution }} << 'END_INPUT'
-{{ case["input"] | json_input }}
+{{ case["input"] | tojson(separators=None, indent=2) | indent(8, first=True) }}
 END_INPUT
 {% if case["expect_error"] %}
     assert_failure
