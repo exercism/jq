@@ -81,7 +81,7 @@ def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     # JSON formatting, default to compact form (`jq -c`).
     env.filters["tojson"] = filter_tojson
     # Return a dict with only specified keys kepts.
-    env.filters["filter_keys"] = lambda x, *want: {key: val for key, val in x.items() if key in want}
+    env.filters["filter_keys"] = lambda x, *keys: {key: x[key] for key in keys}
     # Format a list.
     env.filters["format_list"] = lambda x: shlex.quote(
         "[" + ",".join(f'"{i}"' if isinstance(i, str) else str(i) for i in x) + "]"
