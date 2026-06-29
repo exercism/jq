@@ -1,19 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2026-05-26T18:26:03Z
+# generated on 2026-06-28T06:38:48+00:00
 load bats-extra
-
-assert_objects_equal() {
-    local result=$(
-        jq -n --argjson actual "$1" \
-              --argjson expected "$2" \
-            '$actual == $expected'
-    )
-    [[ $result == "true" ]]
-}
 load bats-jq
 
 @test 'Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -c -f two-bucket.jq << 'END_INPUT'
         {
