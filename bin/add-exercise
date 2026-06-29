@@ -39,16 +39,19 @@ echo '"Remove this line and implement your solution" | halt_error' > "exercises/
 
 cp -pt exercises/practice/"${slug}" lib/bats-*.bash
 
-./bin/generate_tests "${slug}" || true
-
 echo
 find "exercises/practice/${slug}" -type f -ls
 
 cat << NEXT_STEPS
 
 Your next steps are:
-- Review the test suite in 'exercises/practice/${slug}/test-${slug}.jq'
-  - Any test cases you don't implement, mark them in 'exercises/practice/${slug}/.meta/tests.toml' with "include = false"
+- Generate test suite, 'exercises/practice/${slug}/test-${slug}.jq'
+  - Most practice test suites can auto generate tests.
+  - Create a Jinja2 template file, 'exercises/practice/${slug}/.meta/template.j2'.
+    You can get pretty far by copying from another exercise.
+  - Run the test generator to create the test suite: './bin/test-generator ${slug}'.
+    See also './bin/test-generator --help'.
+  - Any test cases you don't implement, mark them in 'exercises/practice/${slug}/.meta/tests.toml' with 'include = false'
 - Create the example solution in 'exercises/practice/${slug}/.meta/example.jq'
 - Verify the example solution by running 'bin/validate_one_exercise exercises/practice/${slug}'
 - Review the stub solution in 'exercises/practice/${slug}/${slug}.jq'
