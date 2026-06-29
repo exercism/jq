@@ -1,10 +1,10 @@
 #!/usr/bin/env bats
-# generated on 2024-07-11T19:55:31Z
+# generated on 2026-06-28T17:12:16+00:00
 load bats-extra
 load bats-jq
 
 @test 'no rows' {
-    #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
+    # [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
     run jq -s -R -c -f minesweeper.jq < /dev/null
 
@@ -16,7 +16,9 @@ load bats-jq
 @test 'no columns' {
     [[ $BATS_RUN_SKIPPED == "true" ]] || skip
 
-    run jq -s -R -c -f minesweeper.jq <<< ""
+    run jq -s -R -c -f minesweeper.jq << 'END_INPUT'
+
+END_INPUT
 
     assert_success
     expected='[""]'
