@@ -68,12 +68,21 @@ def get_cases(specs: pathlib.Path, exercise: pathlib.Path) -> list[dict]:
     return cases
 
 
+def filter_tojson(data, separators=(',', ':'), indent=None) -> str:
+    """Filter `tojson` that JSON encodes a string with flexible settings."""
+    return json.dumps(data, separators=separators, indent=indent)
+
+
 def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     """Return a configured Jinja env with filters added."""
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
+    # Shell quoting
     env.filters["quote"] = shlex.quote
-    env.filters["json_input"] = lambda x: textwrap.indent(json.dumps(x, indent=2), " " * 8)
-    env.filters["tojson"] = lambda x: json.dumps(x, separators=(',', ':'))
+    # JSON formatting, default to compact form (`jq -c`).
+    env.filters["tojson"] = filter_tojson
+    # Return a dict with only specified keys kepts.
+    env.filters["filter_keys"] = lambda x, *want: {key: val for key, val in x.items() if key in want}
+    # Format a list.
     env.filters["format_list"] = lambda x: shlex.quote(
         "[" + ",".join(f'"{i}"' if isinstance(i, str) else str(i) for i in x) + "]"
     )
