@@ -1,6 +1,8 @@
 # Instructions
 
-In this exercise you're going to implement some recursive functions.
+You've just joined a team that maintains a jq-based data pipeline.
+During your first pairing session, your new colleague gets curious:
+*"Do you know how `add`, `reverse`, and `map` work under the hood? Let's explore — try implementing them yourself using recursion, without the built-ins."*
 
 ## 1. Implement a function to add the numbers in an array
 
