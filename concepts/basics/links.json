@@ -4,11 +4,11 @@
     "description": "jq Program Structure and Basic Syntax"
   },
   {
-    "url": "https://jqlang.org/manual/v1.7/#basic-filters",
+    "url": "https://jqlang.org/manual/#basic-filters",
     "description": "Basic filters"
   },
   {
-    "url": "https://jqlang.org/manual/v1.7/#types-and-values",
+    "url": "https://jqlang.org/manual/#types-and-values",
     "description": "Types and Values"
   }
 ]

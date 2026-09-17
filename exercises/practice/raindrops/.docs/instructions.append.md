@@ -21,4 +21,4 @@ outputs
 "12 is more than ten"
 ```
 
-[if]: https://jqlang.org/manual/v1.7/#if-then-else-end
+[if]: https://jqlang.org/manual/#if-then-else-end

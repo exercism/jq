@@ -31,7 +31,7 @@ jq() {
 # These are extra assert functions for use in tests.
 
 # Assert two JSON objects are equal.
-#   https://jqlang.org/manual/v1.7/#==-!=
+#   https://jqlang.org/manual/#==-!=
 #
 #   assert_objects_equal '{"a": 1, "b": 2}' '{"b":2,"a":1}' 
 #   # => true

@@ -234,5 +234,5 @@ For example
 
 [oniguruma]: https://github.com/kkos/oniguruma
 [onig-syntax]: https://github.com/kkos/oniguruma/blob/v6.9.9/doc/RE
-[jq-regex-funcs]: https://jqlang.org/manual/v1.7/#regular-expressions
-[jq-interp]: https://jqlang.org/manual/v1.7/#string-interpolation
+[jq-regex-funcs]: https://jqlang.org/manual/#regular-expressions
+[jq-interp]: https://jqlang.org/manual/#string-interpolation

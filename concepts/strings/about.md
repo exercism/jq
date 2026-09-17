@@ -160,21 +160,21 @@ Check [the manual][manual] for more details about these functions:
 
 `jq` has rich support for regular expressions: this will be the topic of a later lesson.
 
-[manual]: https://jqlang.org/manual/v1.7/
-[interpolate]: https://jqlang.org/manual/v1.7/#string-interpolation
-[length]: https://jqlang.org/manual/v1.7/#length
-[utf8bytelength]: https://jqlang.org/manual/v1.7/#utf8bytelength
-[+]: https://jqlang.org/manual/v1.7/#addition
-[/]: https://jqlang.org/manual/v1.7/#multiplication-division-modulo
-[add]: https://jqlang.org/manual/v1.7/#add
-[split/1]: https://jqlang.org/manual/v1.7/#split-1
-[join/1]: https://jqlang.org/manual/v1.7/#join
-[explode]: https://jqlang.org/manual/v1.7/#explode
-[implode]: https://jqlang.org/manual/v1.7/#implode
-[ascii_downcase]: https://jqlang.org/manual/v1.7/#ascii_downcase-ascii_upcase
-[tonumber]: https://jqlang.org/manual/v1.7/#tonumber
-[try-catch]: https://jqlang.org/manual/v1.7/#try-catch
+[manual]: https://jqlang.org/manual/
+[interpolate]: https://jqlang.org/manual/#string-interpolation
+[length]: https://jqlang.org/manual/#length
+[utf8bytelength]: https://jqlang.org/manual/#utf8bytelength
+[+]: https://jqlang.org/manual/#addition
+[/]: https://jqlang.org/manual/#multiplication-division-modulo
+[add]: https://jqlang.org/manual/#add
+[split/1]: https://jqlang.org/manual/#split-1
+[join/1]: https://jqlang.org/manual/#join
+[explode]: https://jqlang.org/manual/#explode
+[implode]: https://jqlang.org/manual/#implode
+[ascii_downcase]: https://jqlang.org/manual/#ascii_downcase-ascii_upcase
+[tonumber]: https://jqlang.org/manual/#tonumber
+[try-catch]: https://jqlang.org/manual/#try-catch
 [json-numbers]: https://www.json.org/json-en.html
-[indices]: https://jqlang.org/manual/v1.7/#indices
-[index/1]: https://jqlang.org/manual/v1.7/#index-rindex
-[slice]: https://jqlang.org/manual/v1.7/#array-string-slice
+[indices]: https://jqlang.org/manual/#indices
+[index/1]: https://jqlang.org/manual/#index-rindex
+[slice]: https://jqlang.org/manual/#array-string-slice

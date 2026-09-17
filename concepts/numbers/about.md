@@ -83,6 +83,6 @@ Additional conditions use `elif`
 # => "medium"
 ```
 
-[man-types]: https://jqlang.org/manual/v1.7/#types-and-values
-[man-math]: https://jqlang.org/manual/v1.7/#math
-[if-then-else]: https://jqlang.org/manual/v1.7/#if-then-else-end
+[man-types]: https://jqlang.org/manual/#types-and-values
+[man-math]: https://jqlang.org/manual/#math
+[if-then-else]: https://jqlang.org/manual/#if-then-else-end
