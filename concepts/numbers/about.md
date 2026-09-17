@@ -65,7 +65,7 @@ This means that `jq` is not capable of handling arbitrarily large numbers.
 `jq` uses an [`if-then-else` expression][if-then-else] for **conditional expressions**.
 As an _expression_, it is placed in a pipeline.
 
-Then syntax is: `if CONDTITION then TRUE_EXPR else FALSE_EXPR end`.
+The syntax is: `if CONDTITION then TRUE_EXPR else FALSE_EXPR end`.
 The `else` clause is optional in jq v1.7, but it is required in jq v1.6.
 
 ```jq

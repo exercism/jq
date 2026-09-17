@@ -19,7 +19,7 @@ The input to the `if` filter will be passed to `B` or `C`.
 ```
 
 ~~~~exercism/note
-The `else` clause is **optional** in the current `jq` release (version 1.7):
+The `else` clause is **optional** in the current `jq` release (version 1.8):
 the following two statements are equivalent.
 
 ```jq
