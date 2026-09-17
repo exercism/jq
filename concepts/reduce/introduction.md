@@ -95,5 +95,5 @@ def add: reduce .[] as $x (null; . + $x);
   | reduce .[] as $elem ([]; [$elem] + .)       # => ["D", "C", "B", "A"]
   ```
 
-[jq-man-reduce]: https://jqlang.github.io/jq/manual/v1.7/#reduce
-[jq-man-iterator]: https://jqlang.github.io/jq/manual/v1.7/#array-object-value-iterator
+[jq-man-reduce]: https://jqlang.org/manual/v1.7/#reduce
+[jq-man-iterator]: https://jqlang.org/manual/v1.7/#array-object-value-iterator

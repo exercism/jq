@@ -54,4 +54,4 @@ The second element depends on how you invoke `debug`.
    44
    ```
 
-[debug]: https://jqlang.github.io/jq/manual/#debug
+[debug]: https://jqlang.org/manual/#debug

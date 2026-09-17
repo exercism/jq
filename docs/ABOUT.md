@@ -28,7 +28,7 @@ You will see usage of the `jq` program in the tests.
 
 ## Versions
 
-This Exercism track will focus on the original implementation of `jq`, whose home is [https://jqlang.github.io/jq/][jq].
+This Exercism track will focus on the original implementation of `jq`, whose home is [https://jqlang.org/][jq].
 Other implementations, such as [`gojq`][gojq], may have different syntax to what is documented here.
 
 ## JSON
@@ -51,10 +51,10 @@ We will assume you are familiar with [JSON syntax and data types][wiki-json].
 - [`jq` wiki][jq-wiki]
 - [Stack Overflow jq info page][so]
 
-[jq]: https://jqlang.github.io/jq/
+[jq]: https://jqlang.org/
 [jq-wiki]: https://github.com/jqlang/jq/wiki
 [so]: https://stackoverflow.com/tags/jq/info
 [json]: https://www.json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON#Syntax
-[cli-options]: https://jqlang.github.io/jq/manual/#invoking-jq
+[cli-options]: https://jqlang.org/manual/#invoking-jq
 [gojq]: https://github.com/itchyny/gojq#gojq
