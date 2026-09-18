@@ -71,7 +71,7 @@ The `add` builtin is actually [implemented with `reduce`][jq-code-add], but uses
 def add: reduce .[] as $x (null; . + $x);
 ```
 
-[jq-code-add]: https://github.com/jqlang/jq/blob/jq-1.8.2/src/builtin.jq#L11
+[jq-code-add]: https://github.com/search?q=repo%3Ajqlang%2Fjq+path%3A**%2Fsrc%2Fbuiltin.jq+%22def+add%28f%29%22&type=code
 ~~~~
 
 <!-- prettier-ignore-end -->
