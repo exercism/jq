@@ -10,4 +10,4 @@ Your code will be tested on the Exercism jq test runner using [`jq` version **1.
 
 [bats]: https://github.com/bats-core/bats-core
 [test-bash]: https://exercism.org/docs/tracks/bash/tests
-[jq]: https://jqlang.org/manual/v1.8/
+[jq]: https://jqlang.org/manual/

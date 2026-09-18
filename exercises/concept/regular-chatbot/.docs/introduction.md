@@ -12,7 +12,7 @@ We will focus on the expressions that `jq` provides to utilize regexes.
 Different tools implement different versions of regular expressions.
 `jq` incorporates the [Oniguruma][oniguruma] regex library that is largely compatible with Perl v5.8 regexes.
 
-The specific syntax used by `jq` version 1.8 can be [found on the Oniguruma GitHub repo][onig-syntax].
+The specific syntax used by `jq` can be [found on the Oniguruma GitHub repo][onig-syntax].
 
 <!-- prettier-ignore -->
 ~~~~exercism/caution
