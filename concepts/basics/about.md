@@ -377,11 +377,11 @@ Without going into great depth (functions will be a topic for another exercise),
 
 Comments start with a `#` character and continue to the end of the line.
 
-[man-cli]: https://jqlang.github.io/jq/manual/v1.7/#invoking-jq
-[man-types]: https://jqlang.github.io/jq/manual/v1.7/#types-and-values
-[man-length]: https://jqlang.github.io/jq/manual/v1.7/#length
-[man-range]: https://jqlang.github.io/jq/manual/v1.7/#range
-[man-map]: https://jqlang.github.io/jq/manual/v1.7/#map-map_values
-[man-plus]: https://jqlang.github.io/jq/manual/v1.7/#addition
-[man-add]: https://jqlang.github.io/jq/manual/v1.7/#add
-[man-select]: https://jqlang.github.io/jq/manual/v1.7/#select
+[man-cli]: https://jqlang.org/manual/#invoking-jq
+[man-types]: https://jqlang.org/manual/#types-and-values
+[man-length]: https://jqlang.org/manual/#length
+[man-range]: https://jqlang.org/manual/#range
+[man-map]: https://jqlang.org/manual/#map-map_values
+[man-plus]: https://jqlang.org/manual/#addition
+[man-add]: https://jqlang.org/manual/#add
+[man-select]: https://jqlang.org/manual/#select

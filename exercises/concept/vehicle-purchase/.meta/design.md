@@ -16,9 +16,9 @@
 
 How to write if-statements
 
+- `if A then B end` (equivalent to `if A then B else . end`)
 - `if A then B else C end`
 - `if A then B elif C {...} else Z end`
-- remark that jq version 1.6 **requires** `else`
 
 ## Out of Scope
 

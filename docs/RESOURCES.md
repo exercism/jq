@@ -25,7 +25,7 @@ Provide some input and experiment with various jq filters to see what is achieve
 - [jo][jo]: A small utility to create JSON objects from shell variables.
 - [jello][jello]: jello is similar to jq except jello uses standard python dict and list syntax.
 
-[jq]: https://jqlang.github.io/jq
+[jq]: https://jqlang.org
 [github]: https://github.com/jqlang/jq
 [wiki]: https://github.com/jqlang/jq/wiki
 [jqplay]: https://play.jqlang.org

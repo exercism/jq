@@ -12,6 +12,6 @@ Try to solve this yourself without using the builtin `flatten` function to get t
 - The [`type`][type] function can help.
 </details>
 
-[flatten]: https://jqlang.github.io/jq/manual/v1.7/#flatten
-[type]: https://jqlang.github.io/jq/manual/v1.7/#type
+[flatten]: https://jqlang.org/manual/#flatten
+[type]: https://jqlang.org/manual/#type
 [recur]: https://exercism.org/tracks/jq/concepts/recursion

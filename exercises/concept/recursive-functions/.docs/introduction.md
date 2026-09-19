@@ -58,6 +58,6 @@ In practice, iterating over lists and other enumerable data structures is most o
 such as `map` and `reduce`, or by [using streams][map-implementation] like `[.[] | select(...)]`.
 Under the hood, some builtins are [implemented using recursion][walk-implementation].
 
-[map-implementation]: https://github.com/jqlang/jq/blob/jq-1.7/src/builtin.jq#L3
-[walk-implementation]: https://github.com/jqlang/jq/blob/jq-1.7/src/builtin.jq#L248
+[map-implementation]: https://github.com/search?q=repo%3Ajqlang%2Fjq+path%3A**%2Fsrc%2Fbuiltin.jq+%22def+map%28f%29%22&type=code
+[walk-implementation]: https://github.com/search?q=repo%3Ajqlang%2Fjq+path%3A**%2Fsrc%2Fbuiltin.jq+%22def+walk%28f%29%22&type=code
 [wiki-fibonacci]: https://en.wikipedia.org/wiki/Fibonacci_number
