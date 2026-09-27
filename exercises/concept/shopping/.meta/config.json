@@ -14,6 +14,10 @@
     ],
     "editor": [
       "shopping-list.json"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "jq fundamentals"

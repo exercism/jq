@@ -11,6 +11,10 @@
     ],
     "exemplar": [
       ".meta/exemplar.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "Demonstrating variables in jq"
