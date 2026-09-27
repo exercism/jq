@@ -45,8 +45,8 @@ assert_objects_equal() {
     )
     if [[ $result != "true" ]]; then
         batslib_print_kv_single_or_multi 8 \
-            'expected' "$2" \
-            'actual'   "$1" \
+           'expected' "$2" \
+           'actual'   "$1" \
         | batslib_decorate 'values do not equal' \
         | fail
     fi
