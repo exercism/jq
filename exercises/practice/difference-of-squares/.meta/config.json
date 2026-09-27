@@ -11,6 +11,10 @@
     ],
     "example": [
       ".meta/example.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "Find the difference between the square of the sum and the sum of the squares of the first N natural numbers.",

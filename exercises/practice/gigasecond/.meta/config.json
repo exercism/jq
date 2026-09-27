@@ -11,6 +11,10 @@
     ],
     "example": [
       ".meta/example.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "Given a moment, determine the moment that would be after a gigasecond has passed.",

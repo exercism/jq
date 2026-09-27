@@ -11,6 +11,10 @@
     ],
     "example": [
       ".meta/example.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "Implement an evaluator for a very simple subset of Forth."

@@ -11,6 +11,10 @@
     ],
     "example": [
       ".meta/example.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "Determine whether a phrase is an isogram, a word with no repeated letters.",

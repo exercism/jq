@@ -11,6 +11,10 @@
     ],
     "example": [
       ".meta/example.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
     ]
   },
   "blurb": "Convert modern Arabic numbers into Roman numerals.",
