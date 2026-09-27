@@ -43,7 +43,13 @@ assert_objects_equal() {
               --argjson expected "$2" \
             '$actual == $expected'
     )
-    [[ $result == "true" ]]
+    if [[ $result != "true" ]]; then
+        batslib_print_kv_single_or_multi 8 \
+            'expected' "$2" \
+            'actual'   "$1" \
+        | batslib_decorate 'values do not equal' \
+        | fail
+    fi
 }
 
 # Assert 2 floating-point values are "close enough".
