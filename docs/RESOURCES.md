@@ -33,7 +33,7 @@ Provide some input and experiment with various jq filters to see what is achieve
 [jqp]: https://github.com/noahgorstein/jqp
 [gron]: https://github.com/tomnomnom/gron#readme
 [jo]: https://github.com/jpmens/jo#readme
-[jello]: https://kellyjonbrazil.github.io/jello
+[jello]: https://kellyjonbrazil.github.io/jello/
 [jsonl]: https://jsonlines.org
 [json]: https://json.org
 [wiki-json]: https://en.wikipedia.org/wiki/JSON
