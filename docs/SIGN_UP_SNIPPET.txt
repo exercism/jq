@@ -1,0 +1,11 @@
+def most_common_word:
+  reduce (ascii_downcase | split(" ")[]) as $word (
+    {counts: {}, best: ""};
+    .counts[$word] += 1
+    | if .counts[$word] > (.counts[.best] // 0) then
+        .best = $word
+      else
+        .
+      end
+  )
+  | "\"\(.best)\" appears \(.counts[.best]) times";
