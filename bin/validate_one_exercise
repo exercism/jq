@@ -6,7 +6,30 @@
 set -o errexit
 set -o nounset
 
+usage() {
+    cat << END_HELP
+usage: $0 [-D] path/to/exercise
+where: -D   run in test-runner (default: run locally)
+
+examples:
+
+    $0 ./exercises/concept/shopping
+    $0 -D exercises/practice/hello-world
+
+END_HELP
+    exit 1
+}
 die() { echo "$*" >&2; exit 1; }
+
+in_docker=false
+while getopts ':hD' opt; do
+    case $opt in
+        h) usage ;;
+        D) in_docker=true ;;
+        *) die "unknown option: -$OPTARG" ;;
+    esac
+done
+shift $((OPTIND - 1))
 
 cd "$1" || die "Cannot cd to $1"
 
@@ -57,4 +80,17 @@ cp bats-*.bash "${editor_files[@]}" "${dir}"
 
 # Run the tests
 cd "${dir}"
-BATS_RUN_SKIPPED=true bats "${tests}"
+if $in_docker; then
+    docker pull exercism/jq-test-runner
+    docker run \
+        --rm \
+        --network none \
+        --read-only \
+        --mount type=bind,src="${dir}",dst=/solution \
+        --mount type=bind,src="${dir}",dst=/output \
+        --mount type=tmpfs,dst=/tmp \
+        exercism/jq-test-runner "${exercise}" /solution /output 
+    jq . ./results.json
+else
+    BATS_RUN_SKIPPED=true bats "${tests}"
+fi
