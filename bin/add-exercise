@@ -49,8 +49,8 @@ Your next steps are:
   - Most practice test suites can auto generate tests.
   - Create a Jinja2 template file, 'exercises/practice/${slug}/.meta/template.j2'.
     You can get pretty far by copying from another exercise.
-  - Run the test generator to create the test suite: './bin/test-generator ${slug}'.
-    See also './bin/test-generator --help'.
+  - Run the test generator to create the test suite: './bin/generate_tests ${slug}'.
+    See also './bin/generate_tests --help'.
   - Any test cases you don't implement, mark them in 'exercises/practice/${slug}/.meta/tests.toml' with 'include = false'
 - Create the example solution in 'exercises/practice/${slug}/.meta/example.jq'
 - Verify the example solution by running 'bin/validate_one_exercise exercises/practice/${slug}'
