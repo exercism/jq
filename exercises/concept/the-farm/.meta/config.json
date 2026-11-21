@@ -1,0 +1,24 @@
+{
+  "authors": [
+    "glennj"
+  ],
+  "files": {
+    "solution": [
+      "the-farm.jq"
+    ],
+    "test": [
+      "test-the-farm.bats"
+    ],
+    "exemplar": [
+      ".meta/exemplar.jq"
+    ],
+    "invalidator": [
+      "bats-extra.bash",
+      "bats-jq.bash"
+    ]
+  },
+  "forked_from": [
+    "go/the-farm"
+  ],
+  "blurb": "Learn about error handling by calculating fodder for your cows."
+}
