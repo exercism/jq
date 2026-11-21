@@ -173,6 +173,19 @@
           "strings"
         ],
         "status": "beta"
+      },
+      {
+        "slug": "the-farm",
+        "name": "The Farm",
+        "uuid": "eabe3f05-ffab-4694-a7b7-42d57022fdad",
+        "concepts": [
+          "error-handling"
+        ],
+        "prerequisites": [
+          "functions",
+          "conditionals"
+        ],
+        "status": "wip"
       }
     ],
     "practice": [
@@ -918,6 +931,11 @@
       "uuid": "fe26c133-f9ef-4a69-abcd-4886605aa343",
       "slug": "reduce",
       "name": "Reduce"
+    },
+    {
+      "uuid": "89ea8aee-d65f-4fe4-b972-073decc48f34",
+      "slug": "error-handling",
+      "name": "Error Handling"
     }
   ],
   "key_features": [
