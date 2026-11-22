@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://jqlang.org/manual/v1.8/#error",
+    "description": "The error filter"
+  },
+  {
+    "url": "https://jqlang.org/manual/v1.8/#try-catch",
+    "description": "Catching errors with try-catch, and breaking out of control structures with label/break"
+  },
+  {
+    "url": "https://jqlang.org/manual/v1.8/#error-suppression-optional-operator",
+    "description": "Error suppression with the ? operator"
+  },
+  {
+    "url": "https://jqlang.org/manual/v1.8/#destructuring-alternative-operator",
+    "description": "The ?// destructuring alternative operator"
+  },
+  {
+    "url": "https://jqlang.org/manual/v1.8/#halt_error",
+    "description": "Halting the program with halt and halt_error"
+  },
+  {
+    "url": "https://github.com/jqlang/jq/blob/master/NEWS.md",
+    "description": "jq release notes"
+  }
+]
