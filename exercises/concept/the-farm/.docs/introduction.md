@@ -13,7 +13,7 @@ An uncaught runtime error makes `jq` print a message to _standard error_ and exi
 The error value can be _any_ JSON value, not just a string.
 
 ```jq
-42 | try error("invalid value: \(.)") catch .
+42 | error("invalid value: \(.)")
 # => "invalid value: 42"
 ```
 
@@ -21,9 +21,12 @@ The error value can be _any_ JSON value, not just a string.
 
 Errors can be caught with `try EXP catch HANDLER`.
 The first expression is executed; if it raises an error, the `HANDLER` expression is executed **with the error value as its input**.
-The output of the handler is output as if it had been the output of the tried expression.
+The output of `try catch` is the output of whichever expression last ran (either `EXP` or `HANDLER`).
 
 ```jq
+{a: 42} | try .a catch "no index a in \(.)"
+# => 42
+
 true | try .a catch "cannot index a \(type)"
 # => "cannot index a boolean"
 
@@ -50,7 +53,7 @@ It turns a failing expression into one that simply produces no output.
 
 It is often seen attached to the indexing operators: `.foo?` and `.[]?`.
 
-### Halting the program: `halt_error`
+### Halting the program: `halt_error` and `halt`
 
 `halt_error` stops the program, prints its input to _standard error_ as raw text, and exits with the given status, defaulting to `5`.
 The related `halt` filter stops the program silently with exit status `0`.

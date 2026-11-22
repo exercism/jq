@@ -1,8 +1,8 @@
 # Instructions
 
-The day you waited so long finally came and you are now the proud owner of a beautiful farm in the Alps.
+The day you waited so long for finally came; you are now the proud owner of a beautiful farm in the Alps.
 
-You still do not like waking up too early in the morning to feed your cows.
+You still do not like waking up early in the morning to feed your cows.
 Because you are an excellent engineer, you build a food dispenser, the `FEED-M-ALL`.
 
 The last thing required in order to finish your project is a piece of code that calculates the amount of fodder that each cow should get.
@@ -14,8 +14,19 @@ You use some mysterious external library that you found on the internet.
 It is supposed to result in the happiest cows.
 The library exposes two functions:
 
-- `fodder_amount` -- takes the number of cows as input, and outputs the total amount of fodder needed for the whole herd.
-- `fattening_factor` -- outputs a factor that the fodder amount needs to be multiplied with.
+- `fodder_amount` -- takes the number of cows as input, and outputs the total amount of fodder needed for the whole herd. For example:
+
+  ```jq
+  42 | fodder_amount
+  # => 840
+  ```
+
+- `fattening_factor` -- outputs a factor that the fodder amount needs to be multiplied with. For example:
+
+  ```jq
+  fattening_factor
+  # => 1.5
+  ```
 
 Both library functions may raise errors.
 
@@ -30,8 +41,19 @@ def divide_food(fodder_amount; fattening_factor):
 ;
 ```
 
-The tests provide mock implementations of the library.
+Don't forget: in an expression, the input will be passed to each filter:
+
+```jq
+def double: . * 2;
+def triple: . * 3;
+def addTwo(filter1; filter2): filter1 + filter2;
+
+10 | addTwo(double; triple)
+# => 50
+```
+
 Do not implement `fodder_amount` or `fattening_factor` yourself.
+The tests provide mock implementations of the them.
 ~~~~
 
 As you work on your code, you will improve the error handling to make it more robust and easier to debug later on when you use it in your daily farm life.

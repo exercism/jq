@@ -15,7 +15,7 @@
    jq: 1 compile error
    ```
 
-2. **Runtime errors** — the program is valid, but something goes wrong while it processes a value: indexing a number with a string, parsing invalid JSON text with `fromjson`, calling a function with arguments of the wrong type, and so on.
+2. **Runtime errors** — the program is valid, but something goes wrong while processing a value: indexing a number with a string, parsing invalid JSON text with `fromjson`, calling a function with arguments of the wrong type, and so on.
 
    ```sh
    $ echo '42' | jq '.foo'
@@ -127,10 +127,12 @@ It is often seen attached to the indexing operators:
 Prefer `try ... catch` when you need to know _that_ something failed, or validate the input explicitly.
 ~~~~
 
-## The alternative operator `//` does not suppress errors
+## The alternative operator `//`
 
-Programmers sometimes expect `a // b` to produce `b` when `a` fails — that was true in very old versions of `jq`, but not since `jq` 1.6.
-The `//` operator only substitutes `b` when `a` produces no value, `false`, or `null`; errors in `a` still propagate.
+Programmers sometimes expect `a // b` to produce `b` when `a` fails.
+That was true in old versions of `jq`, but not since `jq` 1.6.
+The `//` operator does not suppress errors.
+It only substitutes `b` when `a` produces no value, `false`, or `null`; errors in `a` still propagate.
 
 ```sh
 $ jq -n '(error("x")) // 42'
@@ -141,7 +143,8 @@ Use `try a catch b` if you want a fallback for errors.
 
 ## The destructuring alternative operator `?//`
 
-The [`?//` operator][man-question-mark-slash-slash] combines destructuring with error handling: it tries each binding pattern in turn until one succeeds, and variables bound by the failing alternatives are set to `null`.
+The [`?//` operator][man-question-mark-slash-slash] combines destructuring with error handling.
+It tries each binding pattern in turn until one succeeds, and variables bound by the failing alternatives are set to `null`.
 
 ```jq
 # input:
@@ -158,7 +161,7 @@ The [`?//` operator][man-question-mark-slash-slash] combines destructuring with 
 # {"a": 5, "b": 6, "d": 7, "e": 8}    # second element: c is an array, second pattern matched
 ```
 
-Here the first pattern expects `c` to be an _object_ with `d` and `e` keys, while the second expects `c` to be an _array_ containing such an object.
+Here the first pattern expects `c` to be an _object_ with keys `d` and `e`, while the second expects `c` to be an _array_ containing such an object.
 The first input element binds with the first pattern; the second element fails that pattern, so the second pattern is tried instead.
 
 This lets a single program destructure inputs that may take one of several shapes, without writing explicit `if type == ...` chains.
