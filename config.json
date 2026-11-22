@@ -238,7 +238,8 @@
         "uuid": "9936e3b1-1a43-4c66-927b-0c9b1d8fc67e",
         "practices": [
           "numbers",
-          "recursion"
+          "recursion",
+          "error-handling"
         ],
         "prerequisites": [
           "numbers"
@@ -316,7 +317,8 @@
         "uuid": "9cc9d093-5413-45c4-bb4d-047f8f955f89",
         "practices": [
           "strings",
-          "arrays"
+          "arrays",
+          "error-handling"
         ],
         "prerequisites": [
           "strings",
@@ -382,7 +384,9 @@
         "slug": "phone-number",
         "name": "Phone Number",
         "uuid": "77f42da8-5888-47dd-a6da-af47a2312a5e",
-        "practices": [],
+        "practices": [
+          "error-handling"
+        ],
         "prerequisites": [],
         "difficulty": 2
       },
@@ -493,7 +497,8 @@
           "strings",
           "compare",
           "variables",
-          "functions"
+          "functions",
+          "error-handling"
         ],
         "prerequisites": [
           "conditionals",
@@ -519,7 +524,9 @@
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "6f43b01c-9d90-4de5-841e-0ae9b330d346",
-        "practices": [],
+        "practices": [
+          "error-handling"
+        ],
         "prerequisites": [],
         "difficulty": 5
       },
@@ -573,7 +580,9 @@
         "slug": "binary-search",
         "name": "Binary Search",
         "uuid": "61aa634a-744f-434e-ad68-6a6bcd079a7b",
-        "practices": [],
+        "practices": [
+          "error-handling"
+        ],
         "prerequisites": [],
         "difficulty": 5
       },
@@ -617,7 +626,9 @@
         "slug": "largest-series-product",
         "name": "Largest Series Product",
         "uuid": "856db8a5-5c45-4010-b657-cb758364dccc",
-        "practices": [],
+        "practices": [
+          "error-handling"
+        ],
         "prerequisites": [],
         "difficulty": 5
       },
@@ -736,7 +747,8 @@
         "name": "Satellite",
         "uuid": "484572b2-7f11-4468-8116-f1110eb18946",
         "practices": [
-          "recursion"
+          "recursion",
+          "error-handling"
         ],
         "prerequisites": [
           "recursion"
@@ -816,7 +828,9 @@
         "slug": "forth",
         "name": "Forth",
         "uuid": "284ed7aa-8304-47ba-8e0f-f1dfef3607fa",
-        "practices": [],
+        "practices": [
+          "error-handling"
+        ],
         "prerequisites": [],
         "difficulty": 9
       },
