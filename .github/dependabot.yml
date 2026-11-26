@@ -8,3 +8,9 @@ updates:
       interval: monthly
     labels:
       - x:size/small
+
+  # Enable updates to the dependencies of our Dockerfile
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: monthly
