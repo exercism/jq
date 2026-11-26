@@ -33,7 +33,7 @@
     ],
     "invalidator": [
       "bats-extra.bash",
-      "bats-jq.bats"
+      "bats-jq.bash"
     ]
   },
   "exercises": {

@@ -37,7 +37,7 @@ read -rp 'Your github username: ' author
 
 echo '"Remove this line and implement your solution" | halt_error' > "exercises/practice/${slug}/${slug}.jq"
 
-cp -pt exercises/practice/"${slug}" lib/bats-*.bash
+cp -p lib/bats-*.bash "exercises/practice/${slug}/"
 
 echo
 find "exercises/practice/${slug}" -type f -ls
@@ -45,7 +45,7 @@ find "exercises/practice/${slug}" -type f -ls
 cat << NEXT_STEPS
 
 Your next steps are:
-- Generate test suite, 'exercises/practice/${slug}/test-${slug}.jq'
+- Generate test suite, 'exercises/practice/${slug}/test-${slug}.bats'
   - Most practice test suites can auto generate tests.
   - Create a Jinja2 template file, 'exercises/practice/${slug}/.meta/template.j2'.
     You can get pretty far by copying from another exercise.

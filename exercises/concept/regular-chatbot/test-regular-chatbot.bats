@@ -95,6 +95,7 @@ END_INPUT
 }
 
 @test 'recognizes a phone number with another correct format' {
+    ## task 3
     run jq -Rr '
         include "regular-chatbot";
         check_phone_number
