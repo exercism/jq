@@ -15,7 +15,7 @@ These are a big amount of work, but I think I've figured out a decent checklist 
 1. add concept and exercise to the "root" config.json
 1. edit concept's and exercise's config.json
 1. write tests, exemplar and stub
-   - doing this _after_ altering the config files enables the bin/validate script
+   - doing this _after_ altering the config files enables the bin/validate_one_exercise script
 1. edit instructions
 1. revisit design.md
    - once the exercise is handled, we can think a little deeper about what concepts the exercise demonstrates
@@ -57,6 +57,8 @@ We only use 3 difficulty values since the website only displays easy/medium/hard
 - an "easy" exercise has difficulty 2.
 - a "medium" exercise has difficulty 5.
 - a "hard" exercise has difficulty 9.
+
+The exceptions are `hello-world` and `two-fer`: they have difficulty 1 on purpose, so that they are the first two exercises the student sees.
 
 ---
 
